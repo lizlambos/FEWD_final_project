@@ -8,6 +8,7 @@
 .navbar-brand {
 	font-family:samarkan;
 	font-size:3em;
+
 }
 
 /*IMAGES*/
@@ -21,31 +22,55 @@
 
 /*LAYOUT*/
 
+.navbar {
+	
+}
+
+.navbar-right {
+	margin-right:0px;
+
+}
+
+.page-header {
+	padding-top:80px;
+	padding-bottom:30px;
+	
+}
+
+.tilepage-container {
+	position:relative;
+	
+	
+}
 
 /*NAVBAR*/
 
-.green {
-	background-color:green;
+.navbar-inverse {
+	
+
 }
 
-.container {
+.navbar .container {
 	margin-top: 20px;
 	margin-bottom:20px;
 }
 
 .navbar-brand {
 	display:block;
-	padding-left:80px;
+	left:10%;
 	padding-top:10px;
 	margin-top:10px;
 	padding-bottom:10px;
 	position:relative;
-	left:10%;
 	
 }
 
+.navbar-toggle {
+	margin-right:40px;
+}
+
 .navbar-form {
-	
+	position:relative;
 	width:auto;
 }
 
@@ -59,13 +84,13 @@
 	border-radius:25px;
 	padding-right:20px;
 	width:90%;
-	margin-right:10px;
+	margin-right:-20px;
 }
 
-/*note I was not able to get the button to display inline with the input, used a negative margin hack */
+
 .btn-submit.top-navbar {
-	margin-left:-75px;
-	float:left;
+	position:absolute;
+	right:5%;
 	color:#555;
 	background:transparent;
 	white-space:nowrap;
@@ -76,6 +101,11 @@
 	padding-top:0px;
 	padding-bottom:0px;
 	margin-top:-10px;
+}
+
+.mobile-searchbox-row {
+	width:100%;
+	margin:auto 0;
 }
 
 .mobile-searchbox-container {
@@ -97,24 +127,109 @@
 }
 
 .mobile-searchbox .form-control{
-	
-
 	width:90%;
 }
+
+/*PAGE HEADER*/
+
+/*PHOTO TILES*/
+
+.thumbnail-spritepic {
+	width:94%;
+	height:248px;
+	position:relative;
+	background-image: url('../img/shutterstock_157248584.jpg');
+	background-size:500%;
+	background-position: 0% 0%;
+}
+
+/*.thumbnail-spritepic {
+	 content:"";
+	 position:relative;
+	 width:164px;
+	 height:102px;
+	 top:0;
+	 bottom:0;
+	 left:0;
+	 right:0;
+	 margin:auto;
+	 background: url("img/shutterstock_157248584.jpg") no-repeat;
+	 background-size:500%;
+	
+}*/
+
+.thumbnail-spritepic.user_num_1_fb_photo {	
+	background-position: 25% 25%;
+
+}
+
+
+.thumbnail-spritepic.user_num_2_fb_photo {
+	
+
+	background-position: 0% 25%;
+
+}
+
+
 /*MEDIA QUERIES*/
 
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 
-/* Small devices (tablets, 768px and up) */
-@media (min-width: @screen-sm-min) { 
-	.temp-ganesh-logo {
-		font-size:;
+/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
+@media (min-width: 768px) { 
+	
+	.navbar-brand {
+		font-size:4em;
+
+	}
+
+	.btn-submit.top-navbar {
+		right:10%;
+
+	}
+
+	.navbar-right {
+	margin-right:90px;
+
+}
 
  }
 
 /* Medium devices (desktops, 992px and up) */
-@media (min-width: @screen-md-min) { ... }
+@media (min-width: 992px) { 
+
+	.navbar .container {
+		padding-top:20px;
+		margin-top:20px;
+
+	}
+
+	.navbar-brand {
+		font-size:4em;
+		left:5%;
+
+	}
+
+	.btn-submit.top-navbar {
+		right:15%;
+
+	}
+
+	.navbar-right {
+	margin-right:0px;
+
+}
+		 }
 
 /* Large devices (large desktops, 1200px and up) */
-@media (min-width: @screen-lg-min) { ... }
+@media (min-width: 1200px) { 
+	.navbar-brand {
+		font-size:5em;
+		left:10%;
+	
+
+		}
+
+	}
