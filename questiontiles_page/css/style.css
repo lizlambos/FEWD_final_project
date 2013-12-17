@@ -1,4 +1,120 @@
+/*TYPOGRAPHY*/
+
+@font-face {
+	font-family: samarkan;
+	src: url(../../fonts/samarkan/SAMARN__.TTF)
+}
+
+.navbar-brand {
+	font-family:samarkan;
+	font-size:3em;
+}
+
+/*IMAGES*/
+
+.temp-ganesh-logo {
+	width:30px;
+	height:40px;
+	margin-right:5px;
+
+}
+
+/*LAYOUT*/
+
+
+/*NAVBAR*/
 
 .green {
 	background-color:green;
 }
+
+.container {
+	margin-top: 20px;
+	margin-bottom:20px;
+}
+
+.navbar-brand {
+	display:block;
+	padding-left:80px;
+	padding-top:10px;
+	margin-top:10px;
+	padding-bottom:10px;
+	position:relative;
+	left:10%;
+	
+}
+
+.navbar-form {
+	
+	width:auto;
+}
+
+.form-group {
+	width:250px;	
+	float:left;
+
+}
+
+.form-control{
+	border-radius:25px;
+	padding-right:20px;
+	width:90%;
+	margin-right:10px;
+}
+
+/*note I was not able to get the button to display inline with the input, used a negative margin hack */
+.btn-submit.top-navbar {
+	margin-left:-75px;
+	float:left;
+	color:#555;
+	background:transparent;
+	white-space:nowrap;
+	font-size:1em;
+}
+
+.ganesh-dropdown {
+	padding-top:0px;
+	padding-bottom:0px;
+	margin-top:-10px;
+}
+
+.mobile-searchbox-container {
+	margin: auto;
+	width:100%;
+	padding-top:15px;
+
+}
+
+.mobile-searchbox {
+	margin:0 auto;
+	width:100%;
+	position:relative;
+}
+
+.mobile-searchbox .form-group {
+	width:100%;
+	margin:auto 0;
+}
+
+.mobile-searchbox .form-control{
+	
+
+	width:90%;
+}
+/*MEDIA QUERIES*/
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) { 
+	.temp-ganesh-logo {
+		font-size:;
+
+ }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) { ... }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) { ... }
