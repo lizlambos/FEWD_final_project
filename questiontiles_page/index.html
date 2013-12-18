@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
-  <link href="css/style.css" rel="stylesheet" media="screen">
+  
   <link href="../css/style.css" rel="stylesheet" media="screen">
+  <link href="css/style.css" rel="stylesheet" media="screen">
   <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic|Lobster|Exo+2:400,800,700,600,500,200,200italic,300,300italic,400italic,900' rel='stylesheet' type='text/css'>
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -18,7 +19,7 @@
 
 </head>
 
-<body>
+<body class="all-app-pages">
 
   <!--facebookapp initialization
 
@@ -68,11 +69,12 @@
 
         </form>
 
-        <a href="#" class="navbar-brand">KarmaPolice</a>
+         <a href="#" class="navbar-brand">KarmaPolice</a>
 
-        <div class="collapse navbar-collapse navbar-right">
+        <div class="collapse navbar-collapse navbar-left pull-left">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Get Karma</a></li>
+            <li class="active hidden-xs"><a href="#">Get Karma</a></li>
+            <li class="hidden-xl hidden-lg hidden-md hidden-sm new-query"><a href="#">New Karma Query</a></li>
             <li><a href="#">Dashboard</a></li>
             <li class="hidden-xl hidden-lg hidden-md hidden-sm"><a href="#">Friends</a></li>
             <li class="hidden-xl hidden-lg hidden-md hidden-sm"><a href="#">Settings</a></li>
@@ -82,8 +84,8 @@
 
             <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
               <ul class="dropdown-menu">
+                <li class="new-query"><a href="#">New Karma Query</a></li>
                 <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Get Karma</a></li>
                 <li><a href="#">Friends</a></li>
                 <li><a href="#">Settings</a></li>
                 <li><a href="#">Contact Us</a></li>
@@ -94,7 +96,9 @@
           </ul>
 
         </div><!--collapse navbar-->
-      </div>
+
+       
+      </div><!--row-->
 
 
       <div class="row mobile-searchbox-row hidden-xl hidden-lg hidden-md">
@@ -119,6 +123,7 @@
 <div class="page-header">
   <div class="container">
     <h1>Get some good Karma! <small>Answer friends' questions for Karma points</small></h1>
+
   </div>
 </div>
 
@@ -129,7 +134,7 @@
 <div class="container tilepage-container">
   <div class="row">
 
-    <div class="col-xs-6 col-sm-4 col-md-3 photo-col">
+    <div class="col-xs-12 col-md-3 photo-col">
       <div class="row">
         <div class="col-xs-12">
 
@@ -138,7 +143,7 @@
 
             <!--
             note changed data-src to src to replace with static image will need to change once photo is dynamically generated
-            <img class="user_FB_Photo" id="user_num_1_FB_photo" src="img/shutterstock_157248584.jpg" alt="user_num_1_FB_photo">
+            <img class="user_fb_Photo" id="user_num_1_fb_photo" src="img/shutterstock_157248584.jpg" alt="user_num_1_fb_photo">
           -->
         </div>  
 
@@ -173,7 +178,7 @@
 
 </div><!--column-->
 
-<div class="col-xs-6 col-sm-4 col-md-3 photo-col">
+ <div class="col-xs-12 col-md-3 photo-col">
 
   <div class="row">
     <div class="col-xs-12">
@@ -210,7 +215,7 @@
 
 </div><!--column-->
 
-<div class="col-xs-6 col-sm-4 col-md-3 photo-col">
+ <div class="col-xs-12 col-md-3 photo-col">
 
   <div class="row">
     <div class="col-xs-12">
@@ -247,7 +252,7 @@
 
 </div><!--column-->
 
-<div class="col-xs-6 col-sm-4 col-md-3 photo-col">
+<div class="col-xs-12 col-md-3 photo-col">
  <div class="row">
   <div class="col-xs-12">
     <div class="thumbnail">
@@ -293,8 +298,31 @@
 
 <!-- end tilepage -->
 
-<!-- fooler -->
+<!-- footer -->
 
+<footer class="mobile-footer fixed-bottom hidden-md hidden-lg hidden-xl">
+  <div class="footer-container">
+    <p class="hidden-xs">KarmaPolice 2013</p>
+    <div class="karma-score-footer"><h2>My Karma<b>100</b></h2><div>
+
+
+  </div>
+
+</footer>
+
+<footer class="screen-footer hidden-xs">
+  <div class="footer-container">
+    <p class="hidden-xs">KarmaPolice 2013</p>
+    <nav class="corporate-info">
+      <ul class="bottom-links">
+
+      </ul>
+    </nav>
+
+
+  </div>
+
+</footer>
 <!-- end footer-->
 
 

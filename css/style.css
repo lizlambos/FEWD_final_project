@@ -2,3 +2,269 @@
 
 @colorback1: #142952;
 @fontcolor1:#333;
+
+/*TYPOGRAPHY
+
+	font-family: 'Ubuntu Mono', sans-serif;
+	font-family: 'Lobster', cursive;
+	font-family: 'Exo 2', sans-serif;*/
+
+	@font-face {
+		font-family: samarkan;
+		src: url(../../fonts/samarkan/SAMARN__.TTF)
+	}
+
+	h1, h2, h3, p{
+		font-family: 'Exo 2', sans-serif;
+	}
+
+	
+	.navbar-brand {
+		font-family:samarkan;
+		font-size:3em;
+
+	}
+
+	h1 small {
+		color:#333;
+	}
+
+
+/*IMAGES*/
+
+	.temp-ganesh-logo {
+		width:30px;
+		height:40px;
+		margin-right:5px;
+
+	}
+
+/*LAYOUT*/
+
+	.navbar {
+		
+	}
+
+	.navbar-right {
+		margin-right:0px;
+
+	}
+
+	.all-app-pages {
+		background: url("../../img/buddhistpainting2.jpg");
+		background-size:100%;
+	}
+
+
+/*NAVBAR*/
+
+	.navbar .container {
+		margin-top: 20px;
+		margin-bottom:20px;
+	}
+
+	.navbar-brand {
+		display:block;
+		left:0%;
+		padding-top:10px;
+		margin-top:10px;
+		padding-bottom:10px;
+		position:relative;
+		
+	}
+
+	.navbar-collapse {
+		position:absolute;
+		float:left;
+		margin-top:60px;
+		margin-left:0px;
+		z-index:5;
+		background:#333;
+	
+
+	}
+	
+	
+
+	.navbar-toggle {
+		margin-left:40px;
+		float:left;
+		margin-bottom:20px;
+	}
+
+	.navbar-form {
+		position:relative;
+		width:auto;
+	}
+
+	.form-group {
+		width:250px;	
+		float:left;
+
+	}
+
+	.form-control{
+		border-radius:25px;
+		padding-right:20px;
+		width:90%;
+		margin-right:-20px;
+	}
+
+
+	.btn-submit.top-navbar {
+		position:absolute;
+		right:5%;
+		color:#555;
+		background:transparent;
+		white-space:nowrap;
+		font-size:1em;
+	}
+
+	.ganesh-dropdown {
+		padding-top:0px;
+		padding-bottom:0px;
+		margin-top:-10px;
+	}
+
+	.mobile-searchbox-row {
+		width:100%;
+		margin:auto 0;
+	}
+
+	.mobile-searchbox-container {
+		margin: auto;
+		width:100%;
+		padding-top:15px;
+
+	}
+
+	.mobile-searchbox {
+		margin:0 auto;
+		width:100%;
+		position:relative;
+	}
+
+	.mobile-searchbox .form-group {
+		width:100%;
+		margin:auto 0;
+	}
+
+	.mobile-searchbox .form-control{
+		width:90%;
+	}
+
+/*PAGE HEADER*/
+
+	.page-header {
+		padding-top:100px;
+		padding-bottom:30px;
+		background: rgba(255, 255, 204, 0.7);
+		
+	}
+
+	.page-header .container {
+		position:relative;
+
+	}
+
+	.page-header h1 {
+		display:inline-block;
+		float:left;
+	}
+
+
+/*FOOTER*/
+
+
+/*MEDIA QUERIES*/
+
+	/* Extra small devices (phones, less than 768px) */
+	/* No media query since this is the default in Bootstrap */
+
+	/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
+	@media (min-width: 768px) { 
+		
+		.navbar-brand {
+			font-size:4em;
+			left:10%;
+
+		}
+
+		.btn-submit.top-navbar {
+			right:10%;
+
+		}
+
+		.navbar-right {
+		margin-right:90px;
+
+	}
+		.navbar-collapse { 
+			padding-right:0px;
+			position:absolute;
+			left:50%;
+			background:transparent;
+			margin-top:0px;
+			
+		}
+
+	 }
+
+	/* Medium devices (desktops, 992px and up) */
+	@media (min-width: 992px) { 
+
+		.navbar .container {
+			padding-top:20px;
+			margin-top:20px;
+
+		}
+
+		.navbar-collapse { 
+			padding-right:0px;
+			position:absolute;
+			left:70%;
+
+			
+		}
+
+		.navbar-brand {
+			font-size:4em;
+			left:5%;
+
+		}
+
+		.btn-submit.top-navbar {
+			right:15%;
+
+		}
+
+		.navbar-right {
+		margin-right:0px;
+		}
+		
+		.new-query {
+			color:orange;
+			font-weight:bold;
+			font-size:1.25em;
+		}
+
+
+		
+
+	/* Large devices (large desktops, 1200px and up) */
+	@media (min-width: 1200px) { 
+		.navbar-brand {
+			font-size:5em;
+			left:10%;
+		
+
+			}
+
+		.navbar-collapse { 
+			padding-right:0px;
+			position:absolute;
+			left:70%;
+			
+		}	
+
+		}
