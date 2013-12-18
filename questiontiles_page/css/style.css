@@ -1,235 +1,304 @@
-/*TYPOGRAPHY*/
+	/*LESS COLORS* not sure how to use at this point/
 
-@font-face {
-	font-family: samarkan;
-	src: url(../../fonts/samarkan/SAMARN__.TTF)
-}
+	@colorback1: #142952;
+	@fontcolor1:#333;
 
-.navbar-brand {
-	font-family:samarkan;
-	font-size:3em;
+	/*TYPOGRAPHY
 
-}
+	font-family: 'Ubuntu Mono', sans-serif;
+	font-family: 'Lobster', cursive;
+	font-family: 'Exo 2', sans-serif;*/
 
-/*IMAGES*/
+	@font-face {
+		font-family: samarkan;
+		src: url(../../fonts/samarkan/SAMARN__.TTF)
+	}
 
-.temp-ganesh-logo {
-	width:30px;
-	height:40px;
-	margin-right:5px;
+	h1, h2, h3, p{
+		font-family: 'Exo 2', sans-serif;
+	}
 
-}
-
-/*LAYOUT*/
-
-.navbar {
-	
-}
-
-.navbar-right {
-	margin-right:0px;
-
-}
-
-.page-header {
-	padding-top:80px;
-	padding-bottom:30px;
-	
-}
-
-.tilepage-container {
-	position:relative;
-	
-	
-}
-
-/*NAVBAR*/
-
-.navbar-inverse {
-	
-
-}
-
-.navbar .container {
-	margin-top: 20px;
-	margin-bottom:20px;
-}
-
-.navbar-brand {
-	display:block;
-	left:10%;
-	padding-top:10px;
-	margin-top:10px;
-	padding-bottom:10px;
-	position:relative;
-	
-}
-
-.navbar-toggle {
-	margin-right:40px;
-}
-
-.navbar-form {
-	position:relative;
-	width:auto;
-}
-
-.form-group {
-	width:250px;	
-	float:left;
-
-}
-
-.form-control{
-	border-radius:25px;
-	padding-right:20px;
-	width:90%;
-	margin-right:-20px;
-}
-
-
-.btn-submit.top-navbar {
-	position:absolute;
-	right:5%;
-	color:#555;
-	background:transparent;
-	white-space:nowrap;
-	font-size:1em;
-}
-
-.ganesh-dropdown {
-	padding-top:0px;
-	padding-bottom:0px;
-	margin-top:-10px;
-}
-
-.mobile-searchbox-row {
-	width:100%;
-	margin:auto 0;
-}
-
-.mobile-searchbox-container {
-	margin: auto;
-	width:100%;
-	padding-top:15px;
-
-}
-
-.mobile-searchbox {
-	margin:0 auto;
-	width:100%;
-	position:relative;
-}
-
-.mobile-searchbox .form-group {
-	width:100%;
-	margin:auto 0;
-}
-
-.mobile-searchbox .form-control{
-	width:90%;
-}
-
-/*PAGE HEADER*/
-
-/*PHOTO TILES*/
-
-.thumbnail-spritepic {
-	width:94%;
-	height:248px;
-	position:relative;
-	background-image: url('../img/shutterstock_157248584.jpg');
-	background-size:500%;
-	background-position: 0% 0%;
-}
-
-/*.thumbnail-spritepic {
-	 content:"";
-	 position:relative;
-	 width:164px;
-	 height:102px;
-	 top:0;
-	 bottom:0;
-	 left:0;
-	 right:0;
-	 margin:auto;
-	 background: url("img/shutterstock_157248584.jpg") no-repeat;
-	 background-size:500%;
-	
-}*/
-
-.thumbnail-spritepic.user_num_1_fb_photo {	
-	background-position: 25% 25%;
-
-}
-
-
-.thumbnail-spritepic.user_num_2_fb_photo {
-	
-
-	background-position: 0% 25%;
-
-}
-
-
-/*MEDIA QUERIES*/
-
-/* Extra small devices (phones, less than 768px) */
-/* No media query since this is the default in Bootstrap */
-
-/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
-@media (min-width: 768px) { 
 	
 	.navbar-brand {
-		font-size:4em;
+		font-family:samarkan;
+		font-size:3em;
 
 	}
 
-	.btn-submit.top-navbar {
-		right:10%;
+	h1 small {
+		color:#333;
+	}
 
+
+
+	/*IMAGES*/
+
+	.temp-ganesh-logo {
+		width:30px;
+		height:40px;
+		margin-right:5px;
+
+	}
+
+	/*LAYOUT*/
+
+	.navbar {
+		
 	}
 
 	.navbar-right {
-	margin-right:90px;
+		margin-right:0px;
 
-}
+	}
 
- }
 
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px) { 
+	body {
+		background: url("../../img/buddhistpainting2.jpg");
+		background-size:100%;
+	}
+
+	.tilepage-container .row {
+		margin-bottom:0;
+	}
+
+
+	/*NAVBAR*/
+
+	.navbar-inverse {
+		
+
+	}
 
 	.navbar .container {
-		padding-top:20px;
-		margin-top:20px;
-
+		margin-top: 20px;
+		margin-bottom:20px;
 	}
 
 	.navbar-brand {
-		font-size:4em;
-		left:5%;
+		display:block;
+		left:10%;
+		padding-top:10px;
+		margin-top:10px;
+		padding-bottom:10px;
+		position:relative;
+		
+	}
+
+	.navbar-toggle {
+		margin-right:40px;
+	}
+
+	.navbar-form {
+		position:relative;
+		width:auto;
+	}
+
+	.form-group {
+		width:250px;	
+		float:left;
 
 	}
+
+	.form-control{
+		border-radius:25px;
+		padding-right:20px;
+		width:90%;
+		margin-right:-20px;
+	}
+
 
 	.btn-submit.top-navbar {
-		right:15%;
+		position:absolute;
+		right:5%;
+		color:#555;
+		background:transparent;
+		white-space:nowrap;
+		font-size:1em;
+	}
+
+	.ganesh-dropdown {
+		padding-top:0px;
+		padding-bottom:0px;
+		margin-top:-10px;
+	}
+
+	.mobile-searchbox-row {
+		width:100%;
+		margin:auto 0;
+	}
+
+	.mobile-searchbox-container {
+		margin: auto;
+		width:100%;
+		padding-top:15px;
 
 	}
 
-	.navbar-right {
-	margin-right:0px;
+	.mobile-searchbox {
+		margin:0 auto;
+		width:100%;
+		position:relative;
+	}
 
-}
-		 }
+	.mobile-searchbox .form-group {
+		width:100%;
+		margin:auto 0;
+	}
 
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { 
-	.navbar-brand {
-		font-size:5em;
-		left:10%;
+	.mobile-searchbox .form-control{
+		width:90%;
+	}
+
+	/*PAGE HEADER*/
+
+	.page-header {
+		padding-top:100px;
+		padding-bottom:30px;
+		background: rgba(255, 255, 204, 0.7);
+		
+	}
+
+
+	/*PHOTO TILES*/
+
+	.tilepage-container {
+		position:relative;	
+		background:#FFFFEB;
+		border: 1px solid #3399FF;
+	}
+
+	.photo-col {
+		padding:0px;
+	}
+
+	.thumbnail {
+		padding:10px;
+		background:#FFFFEB;
+		border: 2px solid #3399FF;
+		border-radius:0;
+		margin-bottom:0px;
+	}
+
+	.caption .user-name {
 	
+		margin-top:10px;
+
+	}
+
+
+	.thumbnail-spritepic {
+		width:100%;
+		height:238px;
+		position:relative;
+		background-image: url('../img/shutterstock_157248584.jpg');
+		background-size:500%;
+		background-position: 0% 0%;
+	}
+
+	/*note this is the temporary generation of pictures from the sprite sheet not the real way photots will be pulled from facebook*/
+
+	.thumbnail-spritepic.user_num_1_fb_photo {	
+		background-position: 1.4% 1.4%;
+	}
+
+	.thumbnail-spritepic.user_num_2_fb_photo {
+		background-position: 1.4% 25.5%;
+	}
+
+	.thumbnail-spritepic.user_num_3_fb_photo {
+		background-position: 0% 40.9144%;
+	}
+
+
+
+	.question {
+		padding:10px;
+		background: #4D4DB9; 
+
+
+	}
+
+	.question p{
+		font-size:1.25em;
+		color:#FFFFEB;;
+
+	}
+
+	.answers {
+		width:100%;
+		margin-top:10px;
+		margin-bottom:0px;
+
+	}
+
+	.yes-button {
+		width:49%;
+	}
+
+	.no-button {
+		width:49%;
+	}
+
+
+
+	/*MEDIA QUERIES*/
+
+	/* Extra small devices (phones, less than 768px) */
+	/* No media query since this is the default in Bootstrap */
+
+	/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
+	@media (min-width: 768px) { 
+		
+		.navbar-brand {
+			font-size:4em;
 
 		}
 
+		.btn-submit.top-navbar {
+			right:10%;
+
+		}
+
+		.navbar-right {
+		margin-right:90px;
+
 	}
+
+	 }
+
+	/* Medium devices (desktops, 992px and up) */
+	@media (min-width: 992px) { 
+
+		.navbar .container {
+			padding-top:20px;
+			margin-top:20px;
+
+		}
+
+		.navbar-brand {
+			font-size:4em;
+			left:5%;
+
+		}
+
+		.btn-submit.top-navbar {
+			right:15%;
+
+		}
+
+		.navbar-right {
+		margin-right:0px;
+
+	}
+			 }
+
+	/* Large devices (large desktops, 1200px and up) */
+	@media (min-width: 1200px) { 
+		.navbar-brand {
+			font-size:5em;
+			left:10%;
+		
+
+			}
+
+		}
