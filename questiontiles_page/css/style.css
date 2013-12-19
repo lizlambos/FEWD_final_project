@@ -132,7 +132,7 @@
 
         /* Medium devices (desktops, 992px and up) */
         @media (min-width: 992px) { 
-         .tilepage-container {
+         /*.tilepage-container {
                    
                 background:#FFFFEB;
                 border: 1px solid #3399FF;
