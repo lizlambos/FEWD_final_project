@@ -1,121 +1,197 @@
-	/*LESS COLORS* not sure how to use at this point/
+        /*LESS COLORS* not sure how to use at this point/
 
-	@colorback1: #142952;
-	@fontcolor1:#333;
+        @colorback1: #142952;
+        @fontcolor1:#333;
 
 
 /*REPEATED ITEMS*/
 
 @font-face {
-		font-family: samarkan;
-		src: url(../../fonts/samarkan/SAMARN__.TTF)
-	}
+                font-family: samarkan;
+                src: url(../../fonts/samarkan/SAMARN__.TTF)
+        }
 
 .all-app-pages {
-	background: url("../../img/buddhistpainting2.jpg");
-	background-size:100%;
-	}	
+        background: url("../../img/buddhistpainting2.jpg");
+        background-size:100%;
+        }        
 
 /*PHOTO TILES*/
 
-	.tilepage-container {
-		position:relative;	
-		background:#FFFFEB;
-		border: 1px solid #3399FF;
-	}
+        .tilepage-container {
+                   
+                background:#FFFFEB;
+                border: 1px solid #3399FF;
+                margin-top:150px;
 
-	.photo-col {
-		padding:0px;
-	}
+        }
 
-	.thumbnail {
-		padding:10px;
-		background:#FFFFEB;
-		border: 2px solid #3399FF;
-		border-radius:0;
-		margin-bottom:0px;
-	}
+        .photo-col {
+                padding:0px;
+        }
 
-	.caption .user-name {
-		margin-top:10px;
+        .thumbnail {
+                padding:10px;
+                background:#FFFFEB;
+                border: 2px solid #3399FF;
+                border-radius:0;
+                margin-bottom:0px;
+                
+        }
 
-	}
+       	.user-info-wrapper {
+      		text-align:center;
+       		width:100%;
+       	}
 
+        .caption {
+        	display:inline-block;
+        	width:100%;
+        	vertical-align: top;
 
-	.thumbnail-spritepic {
-		width:100%;
-		height:238px;
-		position:relative;
-		background-image: url('../img/shutterstock_157248584.jpg');
-		background-size:500%;
-		background-position: 0% 0%;
-	}
+        }
 
-	/*note this is the temporary generation of pictures from the sprite sheet not the real way photots will be pulled from facebook*/
-
-	.thumbnail-spritepic.user_num_1_fb_photo {	
-		background-position: 1.4% 1.4%;
-	}
-
-	.thumbnail-spritepic.user_num_2_fb_photo {
-		background-position: 1.4% 25.5%;
-	}
-
-	.thumbnail-spritepic.user_num_3_fb_photo {
-		background-position: 0% 40.9144%;
-	}
+        .caption .user-name {
+            margin-top:0px;
+            text-align:center;
 
 
-
-	.question {
-		padding:10px;
-		background: #4D4DB9; 
+        }
 
 
-	}
+        .thumbnail-spritepic {
+                width:60%;
+                height:200px;
+                background-image: url('../img/shutterstock_157248584.jpg');
+                background-size:500%;
+                background-position: 0% 0%;
+                position:relative;
+                margin:0 auto;
+                vertical-align: top;
+               
+        }
 
-	.question p{
-		font-size:1.25em;
-		color:#FFFFEB;;
+        /*note this is the temporary generation of pictures from the sprite sheet not the real way photots will be pulled from facebook*/
 
-	}
+        .thumbnail-spritepic.user_num_1_fb_photo {        
+                background-position: 1.4% 1.4%;
+        }
 
-	.answers {
-		width:100%;
-		margin-top:10px;
-		margin-bottom:0px;
+        .thumbnail-spritepic.user_num_2_fb_photo {
+                background-position: 1.4% 25.5%;
+        }
 
-	}
-
-	.yes-button {
-		width:49%;
-	}
-
-	.no-button {
-		width:49%;
-	}
+        .thumbnail-spritepic.user_num_3_fb_photo {
+                background-position: 0% 40.9144%;
+        }
 
 
 
-	/*MEDIA QUERIES*/
+        .question {
+                padding:10px;
+                background: #4D4DB9; 
 
-	/* Extra small devices (phones, less than 768px) */
-	/* No media query since this is the default in Bootstrap */
 
-	/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
-	
-	@media (min-width: 768px) { 
-		
-		
+        }
 
-	 }
+        .question p{
+                font-size:1.25em;
+                color:#FFFFEB;;
 
-	/* Medium devices (desktops, 992px and up) */
-	@media (min-width: 992px) { 
+        }
 
-			 }
+        .answers {
+                width:100%;
+                margin-top:10px;
+                margin-bottom:30px;
 
-	/* Large devices (large desktops, 1200px and up) */
-	@media (min-width: 1200px) { 
-		
-		}
+        }
+
+        .yes-button {
+                width:49%;
+        }
+
+        .no-button {
+                width:49%;
+        }
+
+
+
+        /*MEDIA QUERIES*/
+
+        /* Extra small devices (phones, less than 768px) */
+        /* No media query since this is the default in Bootstrap */
+
+        /* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
+        
+        @media (min-width: 768px) { 
+                
+                
+
+         }
+
+        /* Medium devices (desktops, 992px and up) */
+        @media (min-width: 992px) { 
+         .tilepage-container {
+                   
+                background:#FFFFEB;
+                border: 1px solid #3399FF;
+                margin-top:20px;
+
+        }	
+
+        	.user-info-wrapper {
+       		display:inline-block;
+       		width:30%;
+       	}
+
+        .caption {
+        	display:inline-block;
+        	width:65%;
+        	vertical-align: top;
+
+        }
+
+        .caption .user-name {
+                margin-top:10px;
+                display:inline-block;
+
+
+        }
+
+         .thumbnail-spritepic {
+                width:100%;
+                height:100px;
+                background-image: url('../img/shutterstock_157248584.jpg');
+                background-size:500%;
+                background-position: 0% 0%;
+                
+                vertical-align: top;
+               
+        }
+
+
+        .thumbnail-spritepic {
+                width:100%;
+                height:100px;
+                background-image: url('../img/shutterstock_157248584.jpg');
+                background-size:500%;
+                background-position: 0% 0%;
+                
+                vertical-align: top;
+               
+        }
+
+        .answers {
+            	width:100%;
+                margin-top:10px;
+                margin-bottom:0px;
+
+        }
+
+                         }
+
+        /* Large devices (large desktops, 1200px and up) */
+        @media (min-width: 1200px) { 
+                
+                }
