@@ -1,7 +1,8 @@
 /*LESS COLORS*/
 
 @colorback1: #142952;
-@fontcolor1:#333;
+@fontcolor1:#333; /*grey
+@bordercolor1:#3399FF; /*light blue
 
 /*TYPOGRAPHY
 
@@ -11,7 +12,18 @@
 
 	@font-face {
 		font-family: samarkan;
-		src: url(../../fonts/samarkan/SAMARN__.TTF)
+		src: url(../../fonts/samarkan/SAMARN__.TTF)}
+	
+
+	@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot');
+	src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.woff') format('woff'),
+		url('../fonts/icomoon.ttf') format('truetype'),
+		url('../fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
 	}
 
 	h1, h2, h3, p{
@@ -59,18 +71,32 @@
 /*NAVBAR*/
 
 	.navbar .container {
-		margin-top: 20px;
-		margin-bottom:20px;
+		margin-top: 15px;
+		margin-bottom:15px;
 	}
 
 	.navbar-brand {
 		display:block;
-		left:0%;
+		left:17%;
 		padding-top:10px;
 		margin-top:10px;
 		padding-bottom:10px;
 		position:relative;
 		
+	}
+
+	.filter-toggle {
+		margin-top:5px;
+		left:35%;
+		color:#CCC;
+		background:transparent;
+		font-size:2em;
+		
+	}
+
+
+	.filter-button {
+	
 	}
 
 	.navbar-collapse {
@@ -83,6 +109,8 @@
 	
 
 	}
+
+
 	
 	
 
@@ -179,14 +207,107 @@
 	position:fixed;
 	bottom:0%;
 	height:auto;
-	width:100%;
-	padding-bottom:20px;
+	width:640px;
+	background:#3399FF;
+	color:white;
+
 
 }
 
-.mobile-footer h2{
-	color:green;
-	margin-left:20px;
+.mobile-footer ul {
+	margin-left:0px;
+	padding-top:10px;
+	padding-bottom:10px;
+	
+}
+
+.mobile-footer ul li {
+	display:inline;
+	width:auto;
+	float:left;
+	
+	padding-right:15px;
+	padding-left:15px;
+}
+
+.mobile-footer ul li a {
+	
+	color:white;
+
+}
+
+.bottom-navbar-icon {
+	display:inline;
+	font-size:1em;
+	background:transparent;
+	border:none;
+}
+
+.bottom-navbar-icon-label{
+	padding-top:5px;
+	display:inline;
+	background:transparent;
+}
+
+.bottom-navbar-icon:focus, 
+.bottom-navbar-icon:hover,
+.bottom-navbar-icon:active
+ {
+	background:transparent;
+
+}
+
+.mobile-footer ul li a:focus,
+.mobile-footer ul li a:hover,
+.mobile-footer ul li a:active {
+	background:transparent;
+	color:yellow;
+}
+
+
+[data-icon]:before {
+	font-family:'icomoon';
+	content: attr(data-icon);
+	margin-right:0px;
+	padding-bottom:10px;
+	padding-top:5px;
+	speak:none;
+	display:block;
+	font-size:2.5em;
+}
+
+.footer-container {
+	
+}
+
+
+.karma-score-footer {
+	display:inline-block;
+	margin: auto;
+	padding:20px;
+	background: white;
+	margin-top:25px;
+	text-align:center;
+	border-radius:35%;
+	position:relative;
+	border: 15px solid rgba(51, 153, 255, 0.5);
+	left:35%;
+	
+
+}
+
+.score {
+	font-size:3em;
+	margin-top:0px;
+	padding-right:20px;
+	padding-left:20px;
+
+}
+
+.mobile-footer span {
+	font-size:1em;
+	margin-left:0px;
+	display:block;
 
 }
 

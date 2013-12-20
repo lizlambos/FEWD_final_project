@@ -108,11 +108,15 @@
         }
 
         .yes-button {
-                width:49%;
+                width:49.5%;
+                padding:20px 0 20px 0;
+                font-size:1.5em;
         }
 
         .no-button {
-                width:49%;
+                width:49.5%;
+                padding:20px 0 20px 0;
+                font-size:1.5em;
         }
 
 
@@ -132,48 +136,14 @@
 
         /* Medium devices (desktops, 992px and up) */
         @media (min-width: 992px) { 
-         /*.tilepage-container {
-                   
-                background:#FFFFEB;
-                border: 1px solid #3399FF;
-                margin-top:20px;
-
-        }	
-
-        	.user-info-wrapper {
-       		display:inline-block;
-       		width:30%;
-       	}
-
-        .caption {
-        	display:inline-block;
-        	width:65%;
-        	vertical-align: top;
-
+     
+        .tilepage-container {
+        	margin-top:0px;
         }
-
-        .caption .user-name {
-                margin-top:10px;
-                display:inline-block;
-
-
-        }
-
-         .thumbnail-spritepic {
-                width:100%;
-                height:100px;
-                background-image: url('../img/shutterstock_157248584.jpg');
-                background-size:500%;
-                background-position: 0% 0%;
-                
-                vertical-align: top;
-               
-        }
-
 
         .thumbnail-spritepic {
-                width:100%;
-                height:100px;
+                width:80%;
+                height:200px;
                 background-image: url('../img/shutterstock_157248584.jpg');
                 background-size:500%;
                 background-position: 0% 0%;
