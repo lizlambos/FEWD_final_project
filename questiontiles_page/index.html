@@ -48,8 +48,8 @@
 
     end facebookapp initialization--> 
 
-    <!-- navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- screen navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top hidden-xs" role="navigation">
       <div class="container">
 
         <div class="row">
@@ -65,16 +65,11 @@
             <input type="text" class="form-control" placeholder="Search for your friends">
           </div>
           <button type="submit" class="btn  btn-submit btn-inline top-navbar"> <span class="glyphicon glyphicon-search"></span></button>
-
-
         </form>
-
-
-
 
         <a href="#" class="navbar-brand hidden-xs">KarmaPolice</a>
         <a href="#" class="navbar-brand hidden-sm hidden-md hidden-lg hidden-xl">Get Karma</a>
-       
+
         <!-- Single button filer dropdown-->
         <div class="btn-group hidden-sm hidden-md hidden-lg hidden-xl">
           <button type="button" class="btn dropdown-toggle filter-toggle" data-toggle="dropdown">
@@ -136,7 +131,30 @@
 
 <!-- end navbar -->
 
-<!-- pageheader -->
+<!--mobile top navbar-->
+
+<nav class="mobile-header navbar-fixed-top hidden-sm hidden-md hidden-lg hidden-xl">
+  <ul class="nav navbar-nav">
+    <li>
+      <a href="#" class="navbar-brand hidden-sm hidden-md hidden-lg hidden-xl">Get Karma</a>
+    </li>
+    <li>
+      <div class="top-navbar-icon"href="#">
+        <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
+        <div class="badge-wrapper"><span class="badge">18</span></div> 
+      </div>
+      <!--<a class="btn top-navbar-icon" data-icon="18" href="#"><span class="top-navbar-icon-label">Karma Pts</span></a>-->
+    </li>
+
+  </ul>
+
+</nav>
+
+
+
+<!--end mobile top navbar-->
+
+<!-- screen pageheader -->
 <div class="page-header hidden-sm hidden-xs">
   <div class="container">
     <h1>Get some good Karma! <small>Answer friends' questions for Karma points</small></h1>
@@ -171,8 +189,14 @@
         <div class="caption">
           <div class="question">
             <p>Am I annoying when I drink at parties?</p>
+              <span class="label label-default">Posted: 4 days ago</span>
+              <span class="label label-primary">All FB friends</span>  
           </div>
-          <p class="answers"><a href="#" class="btn btn-success yes-button" role="button">YES</a> <a href="#" class="btn btn-warning no-button" role="button">NO</a></p>
+          <div class="answers">
+             <a href="#" class="btn btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
+             <a href="#" class="btn btn-default btn-inline  na-button" role="button">?</a>
+             <a href="#" class="btn btn-warning btn-inline  no-button" role="button">&#xe612;</a>
+          </div>
         </div>
 
       </div><!--thumbnail-->
@@ -345,31 +369,24 @@
 <!-- footer -->
 
 <footer class="mobile-footer fixed-bottom  hidden-md hidden-lg hidden-xl">
-   <ul class="nav navbar-nav">
-      <li class="active hidden-xl hidden-lg hidden-md hidden-sm">
-        <a class="btn  bottom-navbar-icon" data-icon="&#xe60a;" href="#"><span class="bottom-navbar-icon-label">Get Karma</span></a>
-      </li>
-      <li class="hidden-xl hidden-lg hidden-md hidden-sm">
-        <a class="btn bottom-navbar-icon" data-icon="&#xe608;" href="#"><span class="bottom-navbar-icon-label">My Karma</span></a>
-      </li>
-      <li class="hidden-xl hidden-lg hidden-md hidden-sm">
-        <a class="btn bottom-navbar-icon" data-icon="&#xe60c;" href="#"><span class="bottom-navbar-icon-label">New Query</span></a>
-      </li>
-      <li class="hidden-xl hidden-lg hidden-md hidden-sm">
-        <a class="btn bottom-navbar-icon" data-icon="&#xe607;" href="#"><span class="bottom-navbar-icon-label">Friends</span></a>
-      </li>
-      <li class="hidden-xl hidden-lg hidden-md hidden-sm">
-        <a class="btn  bottom-navbar-icon" data-icon="&#xe601;" href="#"><span class="bottom-navbar-icon-label">Settings</span></a>
-      </li>
+ <ul class="nav navbar-nav">
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn onpage bottom-navbar-icon" data-icon="&#xe60a;" href="#"><span class="bottom-navbar-icon-label">Get Karma</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn bottom-navbar-icon" data-icon="&#xe608;" href="#"><span class="bottom-navbar-icon-label">My Karma</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn bottom-navbar-icon" data-icon="&#xe60c;" href="#"><span class="bottom-navbar-icon-label">New Query</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn bottom-navbar-icon" data-icon="&#xe607;" href="#"><span class="bottom-navbar-icon-label">Friends</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn  bottom-navbar-icon" data-icon="&#xe601;" href="#"><span class="bottom-navbar-icon-label">Settings</span></a>
+  </li>
 
-  </ul> 
-
-  <!--<div class="footer-container">
-    <p class="hidden-xs">KarmaPolice 2013</p>
-    <div class="karma-score-footer">
-      <b class="score">100</b>
-      <span>My Karma</span>
-      <div>-->
+</ul> 
 
 
       </div>

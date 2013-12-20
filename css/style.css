@@ -181,6 +181,100 @@
 		width:90%;
 	}
 
+
+/*MOBILE TOP NAVBAR*/	
+
+
+.mobile-header {
+	background:#428bca;
+	color:white;
+	margin-top:0px;
+	height:88px;
+
+}
+
+.mobile-header .navbar-brand {
+	color:white;
+	left:30%;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+
+.mobile-header ul li a {
+	color:white;
+}
+
+.mobile-header ul li .btn {
+	margin-top:0px;
+	color:white;
+	font-size:1em;
+}
+
+.mobile-header ul li a:focus,
+.mobile-header ul li a:hover,
+.mobile-header ul li .onpage {
+	background:transparent;
+	border:none;
+	
+}
+
+
+.top-navbar-icon {
+	float:right;
+	display:block;
+	margin-right:60px;
+	margin-top:5px;
+	margin-bottom:5px;
+	border-radius:25px;
+	border:5px solid rgba(255,255,255,0.5);	
+	background: rgba(255,255,255,0.5);
+	padding:0px 10px 0px 10px;
+
+
+}
+
+.top-navbar-icon-label {
+	color:white;
+	font-size:1em;
+	display:inline-block;
+	margin-right:5px;
+	padding-top:5px;
+	padding-bottom:10px;
+}
+
+.top-navbar-icon-label p {
+	display:block;
+	line-height: 0.35;
+	margin-bottom:0px;
+	margin-top:5px;
+	padding-top:5px;
+	padding-bottom:5px;
+
+}
+
+.first-label {
+	padding-top:0px;
+	padding-bottom:5px;
+	margin-top:0px;
+	
+}
+
+.badge-wrapper {
+	padding-bottom:5px;
+	display:inline-block;
+	padding-top:7px;
+	vertical-align: top;
+}
+
+.badge {
+	display:inline-block;
+	font-size:2em;
+	padding:5px;
+	background:transparent;
+	
+
+}
+
 /*PAGE HEADER*/
 
 	.page-header {
@@ -206,9 +300,9 @@
 .mobile-footer {
 	position:fixed;
 	bottom:0%;
-	height:auto;
+	height:98px;
 	width:640px;
-	background:#3399FF;
+	background:#428BCA;
 	color:white;
 
 
@@ -216,7 +310,7 @@
 
 .mobile-footer ul {
 	margin-left:0px;
-	padding-top:10px;
+	padding-top:0px;
 	padding-bottom:10px;
 	
 }
@@ -227,7 +321,7 @@
 	float:left;
 	
 	padding-right:15px;
-	padding-left:15px;
+	padding-left:20px;
 }
 
 .mobile-footer ul li a {
@@ -259,8 +353,9 @@
 
 .mobile-footer ul li a:focus,
 .mobile-footer ul li a:hover,
-.mobile-footer ul li a:active {
+.mobile-footer ul li .onpage {
 	background:transparent;
+	border:none;
 	color:yellow;
 }
 
@@ -275,11 +370,6 @@
 	display:block;
 	font-size:2.5em;
 }
-
-.footer-container {
-	
-}
-
 
 .karma-score-footer {
 	display:inline-block;
