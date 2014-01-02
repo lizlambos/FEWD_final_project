@@ -1,0 +1,214 @@
+/*LESS COLORS* not sure how to use at this point
+
+@color{
+        @colorback1: #142952;
+        @fontcolor1:#333;
+
+        }*/
+
+        /*REPEATED ITEMS*/
+
+        @font-face {
+            font-family: samarkan;
+            src: url(../../fonts/samarkan/SAMARN__.TTF)
+        }
+
+        @font-face {
+            font-family: 'icomoon';
+            src:url('../fonts/icomoon.eot');
+            src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/icomoon.woff') format('woff'),
+            url('../fonts/icomoon.ttf') format('truetype'),
+            url('../fonts/icomoon.svg#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+
+        .all-app-pages {
+            background: url("../../img/buddhistpainting2.jpg");
+            background-size:100%;
+        }        
+
+    /*QUESTION AREA*/
+
+        .questionarea_container {
+            
+            width:100%;
+            background:#FFFFEB;
+            border: 1px solid #428BCA;
+            margin-top:85px;
+
+        }
+
+        .recent_query {
+             border: 1px solid #428BCA;
+             padding:20px;
+        }
+
+        .label_wrapper {
+            padding:40px 0px 20px 50px;
+            
+        }
+
+        .caption .label {
+            padding-top:10px;
+            margin-top:10px;
+            margin-left:20px;
+            left:30%;
+            font-size:1.25em;
+        }
+
+        .question {
+            padding:10px;
+            background: #1F3D7A; 
+            position:relative;s
+            border-radius:0px;
+            width:80%;
+            margin:0 auto;
+
+
+        }
+
+        .question p{
+            font-size:1.5em;
+            color:#FFFFEB;
+            display:block;
+           
+
+
+        }
+
+        .question span {
+            display:inline-block;
+            font-size:1.25em;
+            margin-bottom:5px;
+
+
+        }
+
+
+        .answers {
+            width:80%;
+            margin: 0 auto;
+            padding:20px;
+            font-family:"icomoon";
+            
+            
+        }
+
+        .yes-button,
+        .no-button {
+            width:37%;
+            padding:0px 0px 0px 0px;
+            margin:0;
+            border-radius:50px;
+            font-size:4em;
+            line-height:1.5;
+        }
+
+
+        .result {
+            font-size:0.6em;
+            margin-top:-10px;
+            padding-top:-10px;
+        }
+
+        .answers .na-button{
+            width:18%;
+            border-radius:25px;
+            font-size:2em;
+            font-weight:bold;
+            color:rgba(255, 0, 0, 0.5);
+            border:5px solid rgba(255, 0, 0, 0.5);
+            background:white;
+            margin-left:10px;
+            margin-right:10px;
+
+
+        }
+
+
+
+        /*MEDIA QUERIES*/
+
+        /* Extra small devices (phones, less than 768px) */
+        /* No media query since this is the default in Bootstrap */
+
+        /* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
+        
+        @media (min-width: 768px) { 
+
+         .answers .na-button{
+            max-width:80px;
+
+        }
+
+        /* Medium devices (desktops, 992px and up) */
+        @media (min-width: 992px) { 
+
+        .questionarea_container {
+            width:80%;
+            max-width:900px;
+            margin: 0 auto;
+        }
+
+
+        .question {
+          
+
+
+        }
+
+        .question p{
+           
+
+
+        }
+
+        .question span {
+          
+
+
+        }
+
+        .answers {
+           
+
+
+        }
+
+        .yes-button,
+        .no-button {
+            font-size:7em;
+        }
+
+        .answers .na-button{
+          
+
+
+        }
+
+    }
+
+    /* Large devices (large desktops, 1200px and up) */
+    @media (min-width: 1200px) { 
+
+     .answers {
+        
+
+    }
+
+    .yes-button,
+    .no-button {
+       
+
+    }
+
+    .answers .na-button{
+       
+
+
+    }
+
+}

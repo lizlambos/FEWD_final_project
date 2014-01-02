@@ -175,7 +175,11 @@
         /* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
         
         @media (min-width: 768px) { 
-                
+        
+        .answers {
+            margin-left:70px;
+
+        }
                 
 
          }
@@ -187,9 +191,13 @@
         	margin-top:0px;
         }
 
+        .thumbnail {
+            height:auto;
+        }
+
         .thumbnail-spritepic {
                 width:80%;
-                height:200px;
+                height:260px;
                 background-image: url('../img/shutterstock_157248584.jpg');
                 background-size:500%;
                 background-position: 0% 0%;
@@ -198,16 +206,113 @@
                
         }
 
-        .answers {
-            	width:100%;
-                margin-top:10px;
-                margin-bottom:0px;
+        .caption {
+            padding-left:0px;
+        }
 
+      
+        .question {
+                padding:10px;
+                background: #1F3D7A; 
+                position:relative;
+               
+                border-radius:0px;
+
+
+        }
+
+        .question p{
+                font-size:1.5em;
+                color:#FFFFEB;
+                display:block;
+                min-height:140px;
+
+
+        }
+
+        .question span {
+            display:inline-block;
+            font-size:1.25em;
+            margin-bottom:5px;
+          
+
+        }
+
+        .answers {
+                width:100%;
+                margin-top:10px;
+                margin-bottom:30px;
+                margin-left:0px;
+                font-family:"icomoon";
+                padding-left:0px;
+
+
+        }
+
+        .yes-button,
+        .no-button {
+                width:88px;
+                height:88px;
+                padding:0px 0px 0px 0px;
+                margin:0;
+                
+                border-radius:100%;
+                font-size:4.5em;
+                
+        }
+
+        .answers .na-button{
+            width:30px;
+            border-radius:100%;
+            font-size:1.25em;
+            font-weight:bold;
+            color:rgba(255, 0, 0, 0.5);
+            border:5px solid rgba(255, 0, 0, 0.5);
+            background:white;
+            padding:0px 5px 0px 5px;
+
+           
         }
 
                          }
 
         /* Large devices (large desktops, 1200px and up) */
         @media (min-width: 1200px) { 
+
+               .answers {
+                width:100%;
+                margin-top:10px;
+                margin-bottom:30px;
+                margin-left:0px;
+                font-family:"icomoon";
+                padding-left:0px;
+
+
+        }
+
+        .yes-button,
+        .no-button {
+                width:110px;
+                height:110px;
+                padding:0px 0px 0px 0px;
+                margin:0;
+                
+                border-radius:100%;
+                font-size:5.5em;
+                
+        }
+
+        .answers .na-button{
+            width:40px;
+            border-radius:100%;
+            font-size:1.5em;
+            font-weight:bold;
+            color:rgba(255, 0, 0, 0.5);
+            border:5px solid rgba(255, 0, 0, 0.5);
+            background:white;
+            padding:0px 5px 0px 5px;
+
+           
+        }
                 
                 }

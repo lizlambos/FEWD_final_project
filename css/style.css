@@ -1,8 +1,17 @@
 /*LESS COLORS*/
 
-@colorback1: #142952;
-@fontcolor1:#333; /*grey
-@bordercolor1:#3399FF; /*light blue
+@colorback1:#142952;
+@fontcolor1:#333; /*grey*/
+@bordercolor1:#3399FF; /*light blue*/
+@bordercolor2:#428BCA;/*light blue USED*/
+@colorback2:#FFFFEB;/*light yellow*/
+@colorback3:#1F3D7A; /*navy blue USED*/
+@yesbuttoncolor:
+@nobuttoncolor:
+@nabuttonborder:
+@postdatelabelcolor:
+@friendsstatuslabelcolor;
+
 
 /*TYPOGRAPHY
 
@@ -295,13 +304,13 @@
 	}
 
 
-/*FOOTER*/
+/*MOBLE BOTTOM NAVBAR*/
 
 .mobile-footer {
 	position:fixed;
 	bottom:0%;
 	height:98px;
-	width:640px;
+	width:720px;
 	background:#428BCA;
 	color:white;
 
@@ -371,7 +380,7 @@
 	font-size:2.5em;
 }
 
-.karma-score-footer {
+/*.karma-score-footer {
 	display:inline-block;
 	margin: auto;
 	padding:20px;
@@ -392,7 +401,7 @@
 	padding-right:20px;
 	padding-left:20px;
 
-}
+}*/
 
 .mobile-footer span {
 	font-size:1em;
@@ -469,6 +478,7 @@
 		.navbar-brand {
 			font-size:4em;
 			left:5%;
+			padding-bottom:20px;
 
 		}
 
