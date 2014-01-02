@@ -1,10 +1,29 @@
-/*LESS COLORS* not sure how to use at this point
+/*LESS COLORS not sure how to use at this point*/
 
 @color{
-        @colorback1: #142952;
-        @fontcolor1:#333;
 
-}*/
+@colorback1:#142952;
+@fontcolor1:#333; /*dark grey*/
+@bordercolor1:#3399FF; /*light blue*/
+@bordercolor2:#28A9D6;/*light blue USED*/
+@colorback2:#FFFFEB;/*light yellow*/
+@colorback3:#0055A5; /*navy blue USED*/
+@yesbuttoncolor:
+@nobuttoncolor:
+@nabuttonborder:
+@postdatelabelcolor:
+@friendsstatuslabelcolor;
+
+
+/*Green and Blue theme*/
+
+@darkblue: #0055A5;
+@lightblue: #28A9D6;
+@white: #FFFFFF;
+@limegreen:#C2D52C;
+@lightyellow:#EDF684;
+
+}
 
 /*REPEATED ITEMS*/
 
@@ -35,7 +54,7 @@
         .tilepage-container {
                    
                 background:#FFFFEB;
-                border: 1px solid #428BCA;
+                border: 1px solid #28A9D6;
                 margin-top:85px;
 
         }
@@ -47,7 +66,7 @@
         .thumbnail {
                 padding:10px;
                 background:#FFFFEB;
-                border: 2px solid #428BCA;
+                border: 2px solid #28A9D6;
                 border-radius:0;
                 margin-bottom:0px;
                 height:950px;
@@ -104,7 +123,7 @@
 
         .question {
                 padding:10px;
-                background: #1F3D7A; 
+                background: #0055A5; 
                 position:relative;
                 min-height:180px;
                 border-radius:0px;
@@ -129,16 +148,21 @@
 
         }
 
+        .label-default {
+            background-color:transparent;
+            color:#EDF684;
+        }
+
+        .label-primary {
+            background-color:#28A9D6;
+        }
+
         .answers {
                 width:90%;
                 margin-top:10px;
                 margin-bottom:30px;
                 margin-left:30px;
                 font-family:"icomoon";
-
-
-              
-
 
         }
 
@@ -152,6 +176,8 @@
                 font-size:8em;
                 
         }
+
+
 
         .answers .na-button{
             width:60px;
@@ -213,7 +239,7 @@
       
         .question {
                 padding:10px;
-                background: #1F3D7A; 
+                background: #0055A5; 
                 position:relative;
                
                 border-radius:0px;

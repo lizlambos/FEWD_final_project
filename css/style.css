@@ -13,6 +13,15 @@
 @friendsstatuslabelcolor;
 
 
+Green and Blue theme
+
+@darkblue: #0055A5;
+@lightblue: #28A9D6;
+@white: #FFFFFF;
+@limegreen:#C2D52C;
+@lightyellow:#EDF684;
+
+
 /*TYPOGRAPHY
 
 	font-family: 'Ubuntu Mono', sans-serif;
@@ -62,10 +71,6 @@
 
 /*LAYOUT*/
 
-	.navbar {
-		
-	}
-
 	.navbar-right {
 		margin-right:0px;
 
@@ -79,55 +84,34 @@
 
 /*NAVBAR*/
 
+	.navbar-inverse {
+		background:#28A9D6;
+		border:none;
+	}
+
 	.navbar .container {
 		margin-top: 15px;
 		margin-bottom:15px;
 	}
 
-	.navbar-brand {
+	.navbar .navbar-brand {
 		display:block;
-		left:17%;
 		padding-top:10px;
 		margin-top:10px;
 		padding-bottom:10px;
 		position:relative;
-		
-	}
-
-	.filter-toggle {
-		margin-top:5px;
-		left:35%;
-		color:#CCC;
-		background:transparent;
-		font-size:2em;
+		color:rgba(255, 255, 204, 1);
 		
 	}
 
 
-	.filter-button {
-	
+
+	.visible-link {
+		color:#FFFFEB;
+		font-weight:bold;
+		text-decoration: none;
 	}
 
-	.navbar-collapse {
-		position:absolute;
-		float:left;
-		margin-top:60px;
-		margin-left:0px;
-		z-index:5;
-		background:#333;
-	
-
-	}
-
-
-	
-	
-
-	.navbar-toggle {
-		margin-left:40px;
-		float:left;
-		margin-bottom:20px;
-	}
 
 	.navbar-form {
 		position:relative;
@@ -161,6 +145,8 @@
 		padding-top:0px;
 		padding-bottom:0px;
 		margin-top:-10px;
+		border-radius:100%;
+		background:transparent;
 	}
 
 	.mobile-searchbox-row {
@@ -195,7 +181,7 @@
 
 
 .mobile-header {
-	background:#428bca;
+	background:#28A9D6;
 	color:white;
 	margin-top:0px;
 	height:88px;
@@ -210,12 +196,12 @@
 }
 
 .mobile-header ul li a {
-	color:white;
+	color:#FFFFFF;
 }
 
 .mobile-header ul li .btn {
 	margin-top:0px;
-	color:white;
+	color:#FFFFFF;
 	font-size:1em;
 }
 
@@ -324,8 +310,8 @@
 	position:fixed;
 	bottom:0%;
 	height:98px;
-	width:720px;
-	background:#428BCA;
+	width:100%;
+	background:#28A9D6;
 	color:white;
 
 
@@ -342,14 +328,13 @@
 	display:inline;
 	width:auto;
 	float:left;
-	
 	padding-right:15px;
 	padding-left:20px;
 }
 
 .mobile-footer ul li a {
 	
-	color:white;
+	color:#FFFFFF;
 
 }
 
@@ -379,7 +364,7 @@
 .mobile-footer ul li .onpage {
 	background:transparent;
 	border:none;
-	color:yellow;
+	color:#EDF684;
 }
 
 
@@ -393,29 +378,6 @@
 	display:block;
 	font-size:2.5em;
 }
-
-/*.karma-score-footer {
-	display:inline-block;
-	margin: auto;
-	padding:20px;
-	background: white;
-	margin-top:25px;
-	text-align:center;
-	border-radius:35%;
-	position:relative;
-	border: 15px solid rgba(51, 153, 255, 0.5);
-	left:35%;
-	
-
-}
-
-.score {
-	font-size:3em;
-	margin-top:0px;
-	padding-right:20px;
-	padding-left:20px;
-
-}*/
 
 .mobile-footer span {
 	font-size:1em;

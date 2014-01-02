@@ -40,7 +40,7 @@
 
         .recent_query {
             position:relative;
-            border: 1px solid #428BCA;
+            border: 1px solid #28A9D6;
             margin: 0 auto;
             padding:20px;
             background:#FFFFEB;
@@ -93,14 +93,14 @@
         }
 
         .privacy-level {
-            background:#428BCA;
+            background:#28A9D6;
 
         }
 
         .question {
             padding:10px;
-            background: #1F3D7A; 
-            position:relative;s
+            background: #0055A5; 
+            position:relative;
             border-radius:0px;
             width:80%;
             margin:0 auto;
@@ -198,7 +198,7 @@
          .recent_query {
             padding-left:0px;
             padding-right:0px;
-            border:1px solid #428BCA;
+            border:1px solid #28A9D6;
             width:100%;
          }
 
