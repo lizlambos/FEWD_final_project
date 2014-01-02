@@ -33,30 +33,68 @@
     /*QUESTION AREA*/
 
         .questionarea_container {
-            
             width:100%;
-            background:#FFFFEB;
-            border: 1px solid #428BCA;
             margin-top:85px;
 
         }
 
         .recent_query {
-             border: 1px solid #428BCA;
-             padding:20px;
+            position:relative;
+            border: 1px solid #428BCA;
+            margin: 0 auto;
+            padding:20px;
+            background:#FFFFEB;
+        }
+
+        .caption{
+            margin: 0 auto;
+            width:95%;
         }
 
         .label_wrapper {
-            padding:40px 0px 20px 50px;
+            padding:40px 0px 20px 0px;
+            width:80%;
+            margin: 0 auto;
             
         }
 
-        .caption .label {
+        .caption .btn {
             padding-top:10px;
             margin-top:10px;
-            margin-left:20px;
-            left:30%;
-            font-size:1.25em;
+            font-weight:bold;
+            border:none;
+        }
+
+        .delete-button {
+            float:right;
+            font-size:2em;
+            margin-right:20px;
+            color:#ccc;
+
+        }
+
+        .privacy-level,
+        .edit-button {
+             font-size:1.5em;
+        }
+
+        .delete-button, 
+        .edit-button {
+            background: transparent;
+        }
+
+
+        .btn-group {
+            float:right;
+        }
+
+        .dropdown-menu {
+            font-size:1.5em;
+        }
+
+        .privacy-level {
+            background:#428BCA;
+
         }
 
         .question {
@@ -66,7 +104,6 @@
             border-radius:0px;
             width:80%;
             margin:0 auto;
-
 
         }
 
@@ -99,7 +136,7 @@
 
         .yes-button,
         .no-button {
-            width:37%;
+            width:36%;
             padding:0px 0px 0px 0px;
             margin:0;
             border-radius:50px;
@@ -139,48 +176,56 @@
         
         @media (min-width: 768px) { 
 
+
+        .questionarea_container {
+            width:100%;
+            margin-top:105px;
+
+        }    
+
          .answers .na-button{
             max-width:80px;
 
         }
+
+        .col-xs-12 {
+            width:100%;
+            border:none;
+            padding:0px;
+            margin:0px;
+         }   
+
+         .recent_query {
+            padding-left:0px;
+            padding-right:0px;
+            border:1px solid #428BCA;
+            width:100%;
+         }
+
+         .label_wrapper {
+            padding:80px 0px 20px 0px;
+            
+            
+        }
+
+
+
+        
 
         /* Medium devices (desktops, 992px and up) */
         @media (min-width: 992px) { 
 
         .questionarea_container {
             width:80%;
-            max-width:900px;
+            max-width:930px;
             margin: 0 auto;
         }
 
 
-        .question {
-          
-
-
-        }
-
-        .question p{
-           
-
-
-        }
-
-        .question span {
-          
-
-
-        }
-
-        .answers {
-           
-
-
-        }
-
         .yes-button,
         .no-button {
             font-size:7em;
+            width:40%;
         }
 
         .answers .na-button{

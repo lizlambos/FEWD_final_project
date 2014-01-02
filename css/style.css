@@ -1,7 +1,7 @@
 /*LESS COLORS*/
 
 @colorback1:#142952;
-@fontcolor1:#333; /*grey*/
+@fontcolor1:#333; /*dark grey*/
 @bordercolor1:#3399FF; /*light blue*/
 @bordercolor2:#428BCA;/*light blue USED*/
 @colorback2:#FFFFEB;/*light yellow*/
@@ -242,6 +242,11 @@
 
 }
 
+.top-navbar-icon.edit {
+	border:none;
+	background:transparent;
+}
+
 .top-navbar-icon-label {
 	color:white;
 	font-size:1em;
@@ -282,6 +287,15 @@
 	background:transparent;
 	
 
+}
+
+.pencil {
+	border:none;
+	background:transparent;
+	display:block;
+	font-size:2em;
+	left:60%;
+	padding:15px 120px 0px 0px;
 }
 
 /*PAGE HEADER*/
