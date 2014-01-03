@@ -2,26 +2,26 @@
 
 @color{
 
-@colorback1:#142952;
-@fontcolor1:#333; /*dark grey*/
-@bordercolor1:#3399FF; /*light blue*/
-@bordercolor2:#28A9D6;/*light blue USED*/
-@colorback2:#FFFFEB;/*light yellow*/
-@colorback3:#0055A5; /*navy blue USED*/
-@yesbuttoncolor:
-@nobuttoncolor:
-@nabuttonborder:
-@postdatelabelcolor:
-@friendsstatuslabelcolor;
+	@colorback1:#142952;
+	@fontcolor1:#333; /*dark grey*/
+	@bordercolor1:#3399FF; /*light blue*/
+	@bordercolor2:#28A9D6;/*light blue USED*/
+	@colorback2:#FFFFEB;/*light yellow*/
+	@colorback3:#0055A5; /*navy blue USED*/
+	@yesbuttoncolor:
+	@nobuttoncolor:
+	@nabuttonborder:
+	@postdatelabelcolor:
+	@friendsstatuslabelcolor;
 
 
-/*Green and Blue theme*/
+	/*Green and Blue theme*/
 
-@darkblue: #0055A5;
-@lightblue: #28A9D6;
-@white: #FFFFFF;
-@limegreen:#C2D52C;
-@lightyellow:#EDF684;
+	@darkblue: #0055A5;
+	@lightblue: #28A9D6;
+	@white: #FFFFFF;
+	@limegreen:#C2D52C;
+	@lightyellow:#EDF684;
 
 }
 
@@ -29,88 +29,239 @@
 /*REPEATED ITEMS*/
 
 @font-face {
-		font-family: samarkan;
-		src: url(../../fonts/samarkan/SAMARN__.TTF)
-	}
+	font-family: samarkan;
+	src: url(../../fonts/samarkan/SAMARN__.TTF)
+}
 
 .all-app-pages {
 	background: url("../../img/buddhistpainting2.jpg");
 	background-size:100%;
-	}	
-
-/*DASHBOARD*/
-
-.dashboardpage-container {
-		position:relative;	
-		background:#FFFFEB;
-		border: 1px solid #3399FF;}
+}	
 
 
-.user_fb_pic {
-	width:300px;
-}		
+/*MOBILE NAV*/
+
+.mobile-header .navbar-brand {
+	left:15%;
+	padding-top:30px;
+}
+
+/*NEW QUESTION EDITOR*/
+
+.questionarea_container {
+	width:100%;
+	margin-top:85px;
+
+}
+
+.new_query {
+	position:relative;
+	border: 1px solid #28A9D6;
+	margin: 0 auto;
+	padding:20px;
+	background:#FFFFEB;
+	height:1138px;
+}
+
+.caption{
+	margin: 0 auto;
+	width:95%;
+	padding-top:60px;
+}
+
+.edit_button_area {
+	display:block;
+	width:100%;
+
+}
+.query_instructions{
+	margin-left:0px;
+	padding-bottom:10px;
+	font-size:2em;
+}
+
+.label_wrapper {
+	padding:40px 0px 20px 0px;
+	width:80%;
+	margin: 0 auto;
+
+}
+
+.caption .btn {
+	padding-top:10px;
+	margin-top:10px;
+	font-weight:bold;
+	border:none;
+	padding:20px;
+	font-size:2em;
+}
+}
+
+.delete-button {
+	float:right;
+	font-size:2em;
+	margin-right:20px;
+	color:#ccc;
+
+}
+
+
+.delete-button {
+	background: transparent;
+}
+
+
+.question {
+	padding:10px;
+	background:transparent;
+	position:relative;
+	width:80%;
+	margin:0 auto;
+	clear:both;
+
+}
+
+#sample_query {
+	background: #0055A5; 
+	color:#FFFFEB;
+	font-size:1.75em;
+	padding:20px;
+	width:100%;
+}
+
+#sample_query::-webkit-input-placeholder {
+   color:#FFFFEB;
+}
+
+#sample_query:-moz-placeholder { /* Firefox 18- */
+   color:#FFFFEB;
+}
+
+#sample_query::-moz-placeholder {  /* Firefox 19+ */
+   color:#FFFFEB;
+}
+
+#sample_query:-ms-input-placeholder {  
+   color:#FFFFEB; 
+}
+
+
+.help-block {
+	display:inline-block;
+	font-style:italic;
+	margin-bottom:5px;
+	font-size:1.5em;
+}
+
+.dropdown-menu {
+	font-size:1.5em;
+}
+
+.privacy-level {
+	background:#28A9D6;
+}
+
+.btn-group {
+	margin-bottom:100px;
+}
+#submit_button{
+	padding: 50px 0px 50px 0px;
+	border-radius:25px;
+	font-size:2.5em;
+}
+
+
 
 
 
 
 /*MEDIA QUERIES*/
 
-	/* Extra small devices (phones, less than 768px) */
-	/* No media query since this is the default in Bootstrap */
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
 
-	/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
-	@media (min-width: 768px) { 
-		
-		.navbar-brand {
-			font-size:4em;
+/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
 
-		}
+@media (min-width: 768px) { 
 
-		.btn-submit.top-navbar {
-			right:10%;
 
-		}
+	.questionarea_container {
+		width:100%;
+		margin-top:105px;
 
-		.navbar-right {
-		margin-right:90px;
+	}    
+
+	.answers .na-button{
+		max-width:80px;
 
 	}
 
-	 }
+	.col-xs-12 {
+		width:100%;
+		border:none;
+		padding:0px;
+		margin:0px;
+	}   
+
+	.recent_query {
+		padding-left:0px;
+		padding-right:0px;
+		border:1px solid #28A9D6;
+		width:100%;
+	}
+
+	.label_wrapper {
+		padding:80px 0px 20px 0px;
+
+
+	}
+
+
+
+
 
 	/* Medium devices (desktops, 992px and up) */
 	@media (min-width: 992px) { 
 
-		.navbar .container {
-			padding-top:20px;
-			margin-top:20px;
-
+		.questionarea_container {
+			width:80%;
+			max-width:930px;
+			margin: 0 auto;
 		}
 
-		.navbar-brand {
-			font-size:4em;
-			left:5%;
 
+		.yes-button,
+		.no-button {
+			font-size:7em;
+			width:40%;
 		}
 
-		.btn-submit.top-navbar {
-			right:15%;
+		.answers .na-button{
+
+
 
 		}
-
-		.navbar-right {
-		margin-right:0px;
 
 	}
-			 }
 
 	/* Large devices (large desktops, 1200px and up) */
 	@media (min-width: 1200px) { 
-		.navbar-brand {
-			font-size:5em;
-			left:10%;
-		
 
-			}
+		.answers {
+
 
 		}
+
+		.yes-button,
+		.no-button {
+
+
+		}
+
+		.answers .na-button{
+
+
+
+		}
+
+	}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dashboard Page</title>
+  <title>Karma Police New Question Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
@@ -48,70 +48,57 @@
 
     end facebookapp initialization--> 
 
-   <!-- navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- screen navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top hidden-xs" role="navigation">
       <div class="container">
 
-        <div class="row">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-           <span class="icon-bar"></span>
-           <span class="icon-bar"></span>
-           <span class="icon-bar"></span>
-         </button>
-
-
-         <form class="navbar-form form-inline navbar-left hidden-sm hidden-xs" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search for your friends">
-          </div>
-          <button type="submit" class="btn  btn-submit btn-inline top-navbar"> <span class="glyphicon glyphicon-search"></span></button>
-
-
-        </form>
-
-         <a href="#" class="navbar-brand">KarmaPolice</a>
-
-        <div class="collapse navbar-collapse navbar-left pull-left">
-          <ul class="nav navbar-nav">
-            <li class="active hidden-xs"><a href="#">Dashboard</a></li>
-            <li class="hidden-xl hidden-lg hidden-md hidden-sm new-query new-query"><a href="#">New Karma Query</a></li>
-            <li><a href="#">Get Karma</a></li>
-            <li class="hidden-xl hidden-lg hidden-md hidden-sm"><a href="#">Friends</a></li>
-            <li class="hidden-xl hidden-lg hidden-md hidden-sm"><a href="#">Settings</a></li>
-            <li class="hidden-xl hidden-lg hidden-md hidden-sm"><a href="#">Contact Us</a></li>
-            <li class="divider hidden-xl hidden-lg hidden-md hidden-sm"></li>
-            <li class="hidden-xl hidden-lg hidden-md hidden-sm"><a href="#">Logout</a></li>
-
-            <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li class="new-query"><a href="#">New Karma Query</a></li>
-                <li><a href="#">Get Karma</a></li>
-                <li><a href="#">Friends</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Logout</a></li>
-              </ul>
-            </li>
-          </ul>
-
-        </div><!--collapse navbar-->
-
-       
-      </div><!--row-->
-
-
-      <div class="row mobile-searchbox-row hidden-xl hidden-lg hidden-md">
-        <div class="mobile-searchbox-container">
-         <form class="form-inline mobile-searchbox" role="search">
-          <div class="form-group">
-            <input type="text" class="mobile-searchbox form-control" placeholder="Search for your friends">
-          </div>
-          <button type="submit" class="btn btn-submit btn-inline top-navbar"> <span class="glyphicon glyphicon-search"></span></button>
+       <form class="navbar-form form-inline navbar-left hidden-sm hidden-xs" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search for your friends">
         </div>
+        <button type="submit" class="btn  btn-submit btn-inline top-navbar"> <span class="glyphicon glyphicon-search"></span></button>
       </form>
-    </div><!--mobile-searchbox-container-->
-  </div> <!--row2 for mobile-->
+
+      <a href="#" class="navbar-brand hidden-xs">KarmaPolice</a>
+
+      <div class="collapse navbar-collapse navbar-left pull-left">
+        <ul class="nav navbar-nav">
+          <li class="visible-link"><a href="#">Get Karma</a></li>
+          <li class="hidden-xl hidden-lg hidden-md hidden-sm new-query"><a href="#">New Karma Query</a></li>
+          <li class="visible-link"><a href="#">My Karma</a></li>
+
+
+          <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
+            <ul class="dropdown-menu pull-right">
+              <li class="new-query"><a href="#">New Karma Query</a></li>
+              <li><a href="#">My Karma</a></li>
+              <li><a href="#">Friends</a></li>
+              <li><a href="#">Settings</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div><!--collapse navbar-->
+
+
+    </div><!--row-->
+
+
+    <div class="row mobile-searchbox-row hidden-xs hidden-xl hidden-lg hidden-md">
+      <div class="mobile-searchbox-container">
+       <form class="form-inline mobile-searchbox" role="search">
+        <div class="form-group">
+          <input type="text" class="mobile-searchbox form-control" placeholder="Search for your friends">
+        </div>
+        <button type="submit" class="btn btn-submit btn-inline top-navbar"> <span class="glyphicon glyphicon-search"></span></button>
+      </div>
+    </form>
+  </div><!--mobile-searchbox-container-->
+
+</div> <!--row2 for mobile-->
 
 </div> <!--container-->    
 
@@ -119,51 +106,120 @@
 
 <!-- end navbar -->
 
-<!-- pageheader -->
-<div class="page-header">
+<!--mobile top navbar-->
+
+<nav class="mobile-header navbar-fixed-top hidden-sm hidden-md hidden-lg hidden-xl">
+  <ul class="nav navbar-nav">
+    <li>
+      <a href="#" class="navbar-brand hidden-sm hidden-md hidden-lg hidden-xl">New Karma Query</a>
+    </li>
+    <li>
+      <div class="top-navbar-icon"href="#">
+        <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
+        <div class="badge-wrapper"><span class="badge">18</span></div> 
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
+
+<!--end mobile top navbar-->
+
+<!-- screen pageheader -->
+<div class="page-header hidden-sm hidden-xs">
   <div class="container">
-    <h1>Karma Dashboard</h1>
+    <h1>What have you been dying to know? <small>Create a new Karma Query and find out!</small></h1>
   </div>
 </div>
 
 <!-- end pageheader -->
 
-<!-- tilepage -->
+<!-- new question editor -->
 
-<div class="container dashboardpage-container">
+<div class="questionarea_container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="row new_query">
+        <div class="caption">
+          <div class="edit_button_area">
+          <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+          </div>
+         
+          <div class="question">
+             <label for="question"class="query_instructions">Enter your query below:</label>
+            <textarea class="form-control" id="sample_query" rows="4" placeholder="Sample question: should I take the job in D.C.?"></textarea>
+            <span class="help-block length_rule">Max 100 characters</span>  
+            <span class="help-block character_count pull-right">18</span> 
+          </div><!--question-->
+          <div class="label_wrapper">
+            <label for="privacy-level" class="query_instructions">Choose who you want to ask:</label>
+           <div class="btn-group">
+            <button type="button" class="btn btn-primary privacy-level dropdown-toggle" data-toggle="dropdown">All FB Friends  <span class="caret"></span></button>
+            <ul class="dropdown-menu pull-right" role="menu">
+              <li><a href="#">All Karma Police</a></li>
+              <li><a href="#">All FB Friends</a></li>
+              <li><a href="#">Select Friends</a></li>
+              <li><a href="#">Private</a></li>
+            </ul>
+          </div><!--button group-->
+           <button type="button" class="btn btn-success btn-block" id="submit_button">Get my Karma!</button>
+        </div><!--label wrapper-->
+        <!--<div class="answers">
+         <a href="#" class="btn btn-default btn-inline  na-button" role="button">&#xe606;<p class="responder_count">47</p></a>
+       </div><!--answers-->
+     </div><!--caption-->
 
-  <div class="header">
-    <div class="userpic-wrapper">
-      <img class="user_fb_pic" src="img/sandy-smith.jpg" alt="user_num_1_fb_photo" id="user_num_1_fb_photo">
-    </div>
-    <div class="scoreboard-wrapper">
-      <h2 class="karma-score">100</h2>
-    </div>
+     
+
+   </div><!--col-->
+ </div><!--row-->
+</div><!--questionarea_container-->
+
+
+<!-- end new question area-->
+
+<!-- mobile bottom navbar -->
+
+<footer class="mobile-footer fixed-bottom hidden-sm hidden-md hidden-lg hidden-xl">
+ <ul class="nav navbar-nav">
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn bottom-navbar-icon" data-icon="&#xe60a;" href="#"><span class="bottom-navbar-icon-label">Get Karma</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn  bottom-navbar-icon" data-icon="&#xe608;" href="#"><span class="bottom-navbar-icon-label">My Karma</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn onpage bottom-navbar-icon" data-icon="&#xe60c;" href="#"><span class="bottom-navbar-icon-label">New Query</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn bottom-navbar-icon" data-icon="&#xe607;" href="#"><span class="bottom-navbar-icon-label">Friends</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn  bottom-navbar-icon" data-icon="&#xe601;" href="#"><span class="bottom-navbar-icon-label">Settings</span></a>
+  </li>
+
+</ul> 
+
+
+</div>
+
+</footer>
+
+<footer class="screen-footer hidden-xs">
+  <div class="footer-container">
+    <p class="hidden-xs">KarmaPolice 2013</p>
+    <nav class="corporate-info">
+      <ul class="bottom-links">
+
+      </ul>
+    </nav>
+
 
   </div>
 
-  <div class="main-content">
-
-  </div>
-
-  <div class="footer">
-
-  </div>
- 
-
-
-</div> <!-- end tilepage-container -->
-
-
-<!-- end tilepage -->
-
-<!-- fooler -->
-
+</footer>
 <!-- end footer-->
-
-
-
-
 
 </body>
 </html>

@@ -44,7 +44,7 @@ Green and Blue theme
 	font-style: normal;
 	}
 
-	h1, h2, h3, p{
+	h1, h2, h3, p, label, button {
 		font-family: 'Exo 2', sans-serif;
 	}
 
