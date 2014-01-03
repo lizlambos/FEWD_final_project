@@ -84,9 +84,16 @@ Green and Blue theme
 
 /*NAVBAR*/
 
-	.navbar-inverse {
+	.navbar {
 		background:#28A9D6;
 		border:none;
+	
+	}
+
+	.navbar .nav.navbar-nav  a{
+		color:#333;
+		text-decoration: none;
+		font-size:1.25em;
 	}
 
 	.navbar .container {
@@ -103,15 +110,6 @@ Green and Blue theme
 		color:rgba(255, 255, 204, 1);
 		
 	}
-
-
-
-	.visible-link {
-		color:#FFFFEB;
-		font-weight:bold;
-		text-decoration: none;
-	}
-
 
 	.navbar-form {
 		position:relative;
@@ -148,6 +146,12 @@ Green and Blue theme
 		border-radius:100%;
 		background:transparent;
 	}
+
+	/*non-binding 
+	.dropdown-item a{
+		color:#333;
+		background:black;
+	}*/
 
 	.mobile-searchbox-row {
 		width:100%;
@@ -191,8 +195,9 @@ Green and Blue theme
 .mobile-header .navbar-brand {
 	color:white;
 	left:30%;
-	padding-top:20px;
+	padding-top:30px;
 	padding-bottom:20px;
+	font-size:3em;
 }
 
 .mobile-header ul li a {

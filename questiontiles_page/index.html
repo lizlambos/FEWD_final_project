@@ -49,39 +49,36 @@
     end facebookapp initialization--> 
 
     <!-- screen navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top hidden-xs" role="navigation">
+    <nav class="navbar navbar-fixed-top hidden-xs" role="navigation">
       <div class="container">
 
-         <form class="navbar-form form-inline navbar-left hidden-sm hidden-xs" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search for your friends">
-          </div>
-          <button type="submit" class="btn  btn-submit btn-inline top-navbar"> <span class="glyphicon glyphicon-search"></span></button>
-        </form>
+       <form class="navbar-form form-inline navbar-left hidden-sm hidden-xs" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search for your friends">
+        </div>
+        <button type="submit" class="btn  btn-submit btn-inline top-navbar"> <span class="glyphicon glyphicon-search"></span></button>
+      </form>
 
-        <a href="#" class="navbar-brand hidden-xs">KarmaPolice</a>
+      <a href="#" class="navbar-brand hidden-xs">KarmaPolice</a>
 
-        <div class="collapse navbar-collapse navbar-left pull-left">
-          <ul class="nav navbar-nav">
-            <li class="active hidden-xs"><a href="#">Get Karma</a></li>
-            <li class="hidden-xl hidden-lg hidden-md hidden-sm new-query"><a href="#">New Karma Query</a></li>
-            <li><a href="#">My Karma</a></li>
-     
+      <div class="collapse navbar-collapse navbar-left pull-left">
+        <ul class="nav navbar-nav">
+          <li ><a class="visible-link" href="#">Get Karma</a></li>
+          <li class="visible-link"><a href="#">My Karma</a></li>
+          <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
+            <ul class="dropdown-menu pull-right">
+              <li class="new-query" class="dropdown_item"><a href="#">New Karma Query</a></li>
+              <li class="dropdown_item"><a href="#">My Karma</a></li>
+              <li class="dropdown_item"><a href="#">Friends</a></li>
+              <li class="dropdown_item"><a href="#">Settings</a></li>
+              <li class="dropdown_item"><a href="#">Contact Us</a></li>
+              <li class="divider"></li>
+              <li class="dropdown_item"><a href="#">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
 
-            <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
-              <ul class="dropdown-menu pull-right">
-                <li class="new-query"><a href="#">New Karma Query</a></li>
-                <li><a href="#">My Karma</a></li>
-                <li><a href="#">Friends</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Logout</a></li>
-              </ul>
-            </li>
-          </ul>
-
-        </div><!--collapse navbar-->
+      </div><!--collapse navbar-->
 
 
       </div><!--row-->

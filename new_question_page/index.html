@@ -49,7 +49,7 @@
     end facebookapp initialization--> 
 
     <!-- screen navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top hidden-xs" role="navigation">
+    <nav class="navbar navbar-fixed-top hidden-xs" role="navigation">
       <div class="container">
 
        <form class="navbar-form form-inline navbar-left hidden-sm hidden-xs" role="search">
@@ -63,20 +63,17 @@
 
       <div class="collapse navbar-collapse navbar-left pull-left">
         <ul class="nav navbar-nav">
-          <li class="visible-link"><a href="#">Get Karma</a></li>
-          <li class="hidden-xl hidden-lg hidden-md hidden-sm new-query"><a href="#">New Karma Query</a></li>
+          <li ><a class="visible-link" href="#">Get Karma</a></li>
           <li class="visible-link"><a href="#">My Karma</a></li>
-
-
           <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
             <ul class="dropdown-menu pull-right">
-              <li class="new-query"><a href="#">New Karma Query</a></li>
-              <li><a href="#">My Karma</a></li>
-              <li><a href="#">Friends</a></li>
-              <li><a href="#">Settings</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li class="new-query" class="dropdown_item"><a href="#">New Karma Query</a></li>
+              <li class="dropdown_item"><a href="#">My Karma</a></li>
+              <li class="dropdown_item"><a href="#">Friends</a></li>
+              <li class="dropdown_item"><a href="#">Settings</a></li>
+              <li class="dropdown_item"><a href="#">Contact Us</a></li>
               <li class="divider"></li>
-              <li><a href="#">Logout</a></li>
+              <li class="dropdown_item"><a href="#">Logout</a></li>
             </ul>
           </li>
         </ul>
@@ -142,9 +139,6 @@
     <div class="col-xs-12">
       <div class="row new_query">
         <div class="caption">
-          <div class="edit_button_area">
-          <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
-          </div>
          
           <div class="question">
              <label for="question"class="query_instructions">Enter your query below:</label>
@@ -155,7 +149,7 @@
           <div class="label_wrapper">
             <label for="privacy-level" class="query_instructions">Choose who you want to ask:</label>
            <div class="btn-group">
-            <button type="button" class="btn btn-primary privacy-level dropdown-toggle" data-toggle="dropdown">All FB Friends  <span class="caret"></span></button>
+            <button type="button" class="btn btn-primary btn-block privacy-level dropdown-toggle" data-toggle="dropdown">All FB Friends  <span class="caret"></span></button>
             <ul class="dropdown-menu pull-right" role="menu">
               <li><a href="#">All Karma Police</a></li>
               <li><a href="#">All FB Friends</a></li>
