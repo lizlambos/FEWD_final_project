@@ -46,43 +46,13 @@
 	padding-top:30px;
 }
 
-/*INVITE FRIENDS*/
-
-.friendsarea_container {
-	width:100%;
-	margin-top:85px;
-
-}
-
-
-
-.new_query {
-	position:relative;
-	border: 1px solid #28A9D6;
-	margin: 0 auto;
-	padding:20px;
-	background:#FFFFEB;
-	height:1138px;
-}
-
-.col-xs-12 {
-		padding:0px;
-		margin:0px;
-	}   
+/*INVITE FRIENDS*/ 
 
 
 .caption{
-	margin: 0 auto;
-	width:90%;
+
 	padding-top:20px;
 }
-
-.jumbotron {
-	background:transparent;
-	padding:0px;
-	margin:0px;
-}
-
 
 
 .invite-friends.form-group {

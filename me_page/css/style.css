@@ -1,0 +1,220 @@
+/*LESS COLORS not sure how to use at this point*/
+
+@color{
+
+	@colorback1:#142952;
+	@fontcolor1:#333; /*dark grey*/
+	@bordercolor1:#3399FF; /*light blue*/
+	@bordercolor2:#28A9D6;/*light blue USED*/
+	@colorback2:#FFFFEB;/*light yellow*/
+	@colorback3:#0055A5; /*navy blue USED*/
+	@yesbuttoncolor:
+	@nobuttoncolor:
+	@nabuttonborder:
+	@postdatelabelcolor:
+	@friendsstatuslabelcolor;
+
+
+	/*Green and Blue theme*/
+
+	@darkblue: #0055A5;
+	@lightblue: #28A9D6;
+	@white: #FFFFFF;
+	@limegreen:#C2D52C;
+	@lightyellow:#EDF684;
+
+}
+
+
+/*REPEATED ITEMS*/
+
+@font-face {
+	font-family: samarkan;
+	src: url(../../fonts/samarkan/SAMARN__.TTF)
+}
+
+.all-app-pages {
+	background: url("../../img/buddhistpainting2.jpg");
+	background-size:100%;
+}	
+
+
+/*MOBILE NAV*/
+
+.mobile-header .navbar-brand {
+	left:35%;
+	padding-top:30px;
+
+}
+.mobile-header .navbar-nav {
+	padding-right:50px;
+	
+}
+
+/*PROFILE AREA*/ 
+
+
+.caption{
+	width:90%;
+	padding-top:20px;
+}
+
+.jumbotron {
+	background:transparent;
+	padding:0px;
+	margin:0px;
+}
+
+/*shared with add friends page*/
+.fb_friendsarea {
+	padding:0px;
+	width:90%;
+	margin: 0 auto;
+	border: 1px solid #28A9D6;
+	clear:both;
+	background: #0055A5; 
+}
+
+.fb-column .row{
+		width:100%;
+		margin:0;
+		padding:0;
+		border: 1px solid #28A9D6;
+		}
+
+
+.friend_fbpic_container {
+	display:inline-block;
+	width:25%;
+	height:auto;
+	padding:10px;
+}
+
+.fb_friendpic_small {
+	width:100%;
+	height:auto;
+	margin:0px 5px 0px 0px;
+	padding:5px 15px 5px 15px;
+	background:#28A9D6;
+	border-radius:100%;
+}
+
+.friend-name {
+	display:inline-block;
+	padding:0px 0px 0px 20px;
+	color:#FFFFEB;
+	vertical-align: middle;
+
+}
+
+.friend-name h2 {
+	margin-top:10px;
+}
+
+.button-wrapper {
+	display:inline-block;
+	
+
+}
+.add-friend-button {
+	font-size:3em;
+	width:100%;
+	background:transparent;
+	color: #FFFFEB;
+	border:none;
+    padding:0px 30px 0px 0px;
+	vertical-align: middle;
+	left:300%;
+}
+
+
+
+
+
+
+
+
+
+
+/*MEDIA QUERIES*/
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
+
+@media (min-width: 768px) { 
+
+	.friendsarea_container {
+		width:100%;
+		margin-top:75px;
+
+	}    
+
+	.new_query {
+		padding:0px 30px 0px 30px;
+	}
+
+	.col-xs-12 {
+		
+		border:none;
+	}   
+
+	.invite-friends.form-group {	
+		left:5%;
+
+	}
+
+	.invite-friends.form-group input, 
+	.mobile-searchbox button span
+	 {
+		font-size:1.5em;
+		height:auto;
+
+	}
+
+	.mobile-searchbox button {
+		left:87%;
+		padding-top:10px;
+	}
+
+	.fb_friendsarea {
+		padding:0;
+	}
+
+	.add-friend-button {
+		font-size:2em;
+		left:100%;
+		padding-top:5px;
+	}
+
+	.fb-column .row{
+		width:100%;
+		margin:0;
+		padding:0;
+		border: 1px solid #28A9D6;
+	}
+}
+
+
+
+	/* Medium devices (desktops, 992px and up) */
+	@media (min-width: 992px) { 
+
+		.friendsarea_container {
+			width:80%;
+			max-width:930px;
+			margin: 0 auto;
+		}
+
+
+		
+
+	}
+
+	/* Large devices (large desktops, 1200px and up) */
+	@media (min-width: 1200px) { 
+
+		
+
+	}

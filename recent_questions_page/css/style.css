@@ -32,23 +32,8 @@
 
     /*QUESTION AREA*/
 
-        .questionarea_container {
-            width:100%;
-            margin-top:85px;
-
-        }
-
         .recent_query {
-            position:relative;
-            border: 1px solid #28A9D6;
-            margin: 0 auto;
-            padding:20px;
-            background:#FFFFEB;
-        }
-
-        .caption{
-            margin: 0 auto;
-            width:95%;
+            height:auto;
         }
 
         .label_wrapper {

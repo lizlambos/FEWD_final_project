@@ -48,27 +48,6 @@
 
 /*NEW QUESTION EDITOR*/
 
-.questionarea_container {
-	width:100%;
-	margin-top:85px;
-
-}
-
-.new_query {
-	position:relative;
-	border: 1px solid #28A9D6;
-	margin: 0 auto;
-	padding:20px;
-	background:#FFFFEB;
-	height:1138px;
-}
-
-.caption{
-	margin: 0 auto;
-	width:95%;
-	padding-top:60px;
-}
-
 .edit_button_area {
 	display:block;
 	width:100%;

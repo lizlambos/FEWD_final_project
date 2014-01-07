@@ -31,470 +31,517 @@ Green and Blue theme
 	@font-face {
 		font-family: samarkan;
 		src: url(../../fonts/samarkan/SAMARN__.TTF)}
-	
-
-	@font-face {
-	font-family: 'icomoon';
-	src:url('../fonts/icomoon.eot');
-	src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/icomoon.woff') format('woff'),
-		url('../fonts/icomoon.ttf') format('truetype'),
-		url('../fonts/icomoon.svg#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
-	}
-
-	h1, h2, h3, p, label, button {
-		font-family: 'Exo 2', sans-serif;
-	}
-
-	
-	.navbar-brand {
-		font-family:samarkan;
-		font-size:3em;
-
-	}
-
-	h1 small {
-		color:#333;
-	}
 
 
-/*IMAGES*/
+		@font-face {
+			font-family: 'icomoon';
+			src:url('../fonts/icomoon.eot');
+			src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+			url('../fonts/icomoon.woff') format('woff'),
+			url('../fonts/icomoon.ttf') format('truetype'),
+			url('../fonts/icomoon.svg#icomoon') format('svg');
+			font-weight: normal;
+			font-style: normal;
+		}
 
-	.temp-ganesh-logo {
-		width:30px;
-		height:40px;
-		margin-right:5px;
-
-	}
-
-/*LAYOUT*/
-
-	.navbar-right {
-		margin-right:0px;
-
-	}
-
-	.all-app-pages {
-		background: url("../../img/buddhistpainting2.jpg");
-		background-size:100%;
-	}
+		h1, h2, h3, p, label, button {
+			font-family: 'Exo 2', sans-serif;
+		}
 
 
-/*NAVBAR*/
+		.navbar-brand {
+			font-family:samarkan;
+			font-size:3em;
 
-	.navbar {
-		background:#28A9D6;
-		border:none;
-	
-	}
+		}
 
-	.navbar .nav.navbar-nav  a{
-		color:#333;
-		text-decoration: none;
-		font-size:1.25em;
-	}
-
-	.navbar .container {
-		margin-top: 15px;
-		margin-bottom:15px;
-	}
-
-	.navbar .navbar-brand {
-		display:block;
-		padding-top:10px;
-		margin-top:10px;
-		padding-bottom:10px;
-		position:relative;
-		color:rgba(255, 255, 204, 1);
-		
-	}
-
-	.navbar-form {
-		position:relative;
-		width:auto;
-	}
-
-	.form-group {
-		width:250px;	
-		float:left;
-
-	}
-
-	.form-control{
-		border-radius:25px;
-		padding-right:20px;
-		width:90%;
-		margin-right:-20px;
-	}
+		h1 small {
+			color:#333;
+		}
 
 
-	.btn-submit.top-navbar {
-		position:absolute;
-		right:5%;
-		color:#555;
-		background:transparent;
-		white-space:nowrap;
-		font-size:1em;
-	}
+		/*IMAGES*/
 
-	.ganesh-dropdown {
-		padding-top:0px;
-		padding-bottom:0px;
-		margin-top:-10px;
-		border-radius:100%;
-		background:transparent;
-	}
+		.temp-ganesh-logo {
+			width:30px;
+			height:40px;
+			margin-right:5px;
+
+		}
+
+		/*LAYOUT*/
+
+		.all-app-pages {
+			background: url("../../img/buddhistpainting2.jpg");
+			background-size:100%;
+		}
+
+		.questionarea_container,
+		.friendsarea_container,
+		.tilepage-container
+
+		{
+			width:100%;
+			margin-top:85px;
+			background:#FFFFEB;
+
+		}
+
+		.col-xs-6,
+		.col-xs-12 {
+			padding:0px;
+			margin:0px;
+		}  
+
+		.new_query,
+		.recent_query,
+		.thumbnail {
+			position:relative;
+			border: 1px solid #28A9D6;
+			margin: 0 auto;
+			padding:20px;
+			background:#FFFFEB;
+			height:1138px;
+		}
+
+
+		.caption{
+			margin: 0 auto;
+			width:95%;
+			padding-top:60px;
+		}
+
+		.jumbotron {
+			background:transparent;
+			padding:0px;
+			margin:0px;
+		}
+
+		/*NAVBAR*/
+
+		.navbar {
+			background:#28A9D6;
+			border:none;
+
+		}
+
+		.navbar-right {
+			margin-right:0px;
+
+		}
+
+		.navbar .nav.navbar-nav  a{
+			color:#333;
+			text-decoration: none;
+			font-size:1.25em;
+		}
+
+		.navbar .container {
+			margin-top: 15px;
+			margin-bottom:15px;
+		}
+
+		.navbar .navbar-brand {
+			display:block;
+			padding-top:10px;
+			margin-top:10px;
+			padding-bottom:10px;
+			position:relative;
+			color:rgba(255, 255, 204, 1);
+
+		}
+
+		.navbar-form {
+			position:relative;
+			width:auto;
+		}
+
+		.form-group {
+			width:250px;	
+			float:left;
+
+		}
+
+		.form-control{
+			border-radius:25px;
+			padding-right:20px;
+			width:90%;
+			margin-right:-20px;
+		}
+
+
+		.btn-submit.top-navbar {
+			position:absolute;
+			right:5%;
+			color:#555;
+			background:transparent;
+			white-space:nowrap;
+			font-size:1em;
+		}
+
+		.ganesh-dropdown {
+			padding-top:0px;
+			padding-bottom:0px;
+			margin-top:-10px;
+			border-radius:100%;
+			background:transparent;
+		}
 
 	/*non-binding 
 	.dropdown-item a{
 		color:#333;
 		background:black;
-	}*/
+		}*/
 
-	.mobile-searchbox-row {
-		width:100%;
-		margin:auto 0;
-	}
+		.mobile-searchbox-row {
+			width:100%;
+			margin:auto 0;
+		}
 
-	.mobile-searchbox-container {
-		margin: auto;
-		width:100%;
-		padding-top:15px;
-
-	}
-
-	.mobile-searchbox {
-		margin:0 auto;
-		width:100%;
-		position:relative;
-	}
-
-	.mobile-searchbox .form-group {
-		width:100%;
-		margin:auto 0;
-	}
-
-	.mobile-searchbox .form-control{
-		width:90%;
-	}
-
-
-/*MOBILE TOP NAVBAR*/	
-
-
-.mobile-header {
-	background:#28A9D6;
-	color:white;
-	margin-top:0px;
-	height:88px;
-
-}
-
-.mobile-header .navbar-brand {
-	color:white;
-	left:30%;
-	padding-top:30px;
-	padding-bottom:20px;
-	font-size:3em;
-}
-
-.mobile-header ul li a {
-	color:#FFFFFF;
-}
-
-.mobile-header ul li .btn {
-	margin-top:0px;
-	color:#FFFFFF;
-	font-size:1em;
-}
-
-.mobile-header ul li a:focus,
-.mobile-header ul li a:hover,
-.mobile-header ul li .onpage {
-	background:transparent;
-	border:none;
-	
-}
-
-
-.top-navbar-icon {
-	float:right;
-	display:block;
-	margin-right:60px;
-	margin-top:5px;
-	margin-bottom:5px;
-	border-radius:25px;
-	border:5px solid rgba(255,255,255,0.5);	
-	background: rgba(255,255,255,0.5);
-	padding:0px 10px 0px 10px;
-
-
-}
-
-.top-navbar-icon.edit {
-	border:none;
-	background:transparent;
-}
-
-.top-navbar-icon-label {
-	color:white;
-	font-size:1em;
-	display:inline-block;
-	margin-right:5px;
-	padding-top:5px;
-	padding-bottom:10px;
-}
-
-.top-navbar-icon-label p {
-	display:block;
-	line-height: 0.35;
-	margin-bottom:0px;
-	margin-top:5px;
-	padding-top:5px;
-	padding-bottom:5px;
-
-}
-
-.first-label {
-	padding-top:0px;
-	padding-bottom:5px;
-	margin-top:0px;
-	
-}
-
-.badge-wrapper {
-	padding-bottom:5px;
-	display:inline-block;
-	padding-top:7px;
-	vertical-align: top;
-}
-
-.badge {
-	display:inline-block;
-	font-size:2em;
-	padding:5px;
-	background:transparent;
-	
-
-}
-
-.pencil {
-	border:none;
-	background:transparent;
-	display:block;
-	font-size:2em;
-	left:60%;
-	padding:15px 120px 0px 0px;
-}
-
-/*PAGE HEADER*/
-
-	.page-header {
-		padding-top:100px;
-		padding-bottom:30px;
-		background: rgba(255, 255, 204, 0.7);
-		
-	}
-
-	.page-header .container {
-		position:relative;
-
-	}
-
-	.page-header h1 {
-		display:inline-block;
-		float:left;
-	}
-
-
-/*MOBLE BOTTOM NAVBAR*/
-
-.mobile-footer {
-	position:fixed;
-	bottom:0%;
-	height:98px;
-	width:100%;
-	background:#28A9D6;
-	color:white;
-
-
-}
-
-.mobile-footer ul {
-	margin-left:0px;
-	padding-top:0px;
-	padding-bottom:10px;
-	
-}
-
-.mobile-footer ul li {
-	display:inline;
-	width:auto;
-	float:left;
-	padding-right:15px;
-	padding-left:20px;
-}
-
-.mobile-footer ul li a {
-	
-	color:#FFFFFF;
-
-}
-
-.bottom-navbar-icon {
-	display:inline;
-	font-size:1em;
-	background:transparent;
-	border:none;
-}
-
-.bottom-navbar-icon-label{
-	padding-top:5px;
-	display:inline;
-	background:transparent;
-}
-
-.bottom-navbar-icon:focus, 
-.bottom-navbar-icon:hover,
-.bottom-navbar-icon:active
- {
-	background:transparent;
-
-}
-
-.mobile-footer ul li a:focus,
-.mobile-footer ul li a:hover,
-.mobile-footer ul li .onpage {
-	background:transparent;
-	border:none;
-	color:#EDF684;
-}
-
-
-[data-icon]:before {
-	font-family:'icomoon';
-	content: attr(data-icon);
-	margin-right:0px;
-	padding-bottom:10px;
-	padding-top:5px;
-	speak:none;
-	display:block;
-	font-size:2.5em;
-}
-
-.mobile-footer span {
-	font-size:1em;
-	margin-left:0px;
-	display:block;
-
-}
-
-.screen-footer {
-	height:60px;
-	margin-top:40px;
-	color:#333;
-}
-
-.screen-footer p {
-	color:white;
-	font-size:1.25em;
-	display:block;
-	padding-top:20px;
-	padding-left:50px;
-}
-
-/*MEDIA QUERIES*/
-
-	/* Extra small devices (phones, less than 768px) */
-	/* No media query since this is the default in Bootstrap */
-
-	/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
-	@media (min-width: 768px) { 
-		
-		.navbar-brand {
-			font-size:4em;
-			left:10%;
+		.mobile-searchbox-container {
+			margin: auto;
+			width:100%;
+			padding-top:15px;
 
 		}
 
-		.btn-submit.top-navbar {
-			right:10%;
-
+		.mobile-searchbox {
+			margin:0 auto;
+			width:100%;
+			position:relative;
 		}
 
-		.navbar-right {
-		margin-right:90px;
+		.mobile-searchbox .form-group {
+			width:100%;
+			margin:auto 0;
+		}
 
-	}
-		.navbar-collapse { 
-			padding-right:0px;
-			position:absolute;
-			left:50%;
-			background:transparent;
+		.mobile-searchbox .form-control{
+			width:90%;
+		}
+
+
+		/*MOBILE TOP NAVBAR*/	
+
+
+		.mobile-header {
+			background:#28A9D6;
+			color:white;
 			margin-top:0px;
-			
-		}
-
-	 }
-
-	/* Medium devices (desktops, 992px and up) */
-	@media (min-width: 992px) { 
-
-		.navbar .container {
-			padding-top:20px;
-			margin-top:20px;
+			height:88px;
 
 		}
 
-		.navbar-collapse { 
-			padding-right:0px;
-			position:absolute;
-			left:70%;
-
-			
-		}
-
-		.navbar-brand {
-			font-size:4em;
-			left:5%;
+		.mobile-header .navbar-brand {
+			color:white;
+			left:30%;
+			padding-top:30px;
 			padding-bottom:20px;
+			font-size:3em;
+		}
+
+		.mobile-header ul li a {
+			color:#FFFFFF;
+		}
+
+		.mobile-header ul li .btn {
+			margin-top:0px;
+			color:#FFFFFF;
+			font-size:1em;
+		}
+
+		.mobile-header ul li a:focus,
+		.mobile-header ul li a:hover,
+		.mobile-header ul li .onpage {
+			background:transparent;
+			border:none;
 
 		}
 
-		.btn-submit.top-navbar {
-			right:15%;
+
+		.top-navbar-icon {
+			float:right;
+			display:block;
+			margin-right:60px;
+			margin-top:5px;
+			margin-bottom:5px;
+			border-radius:25px;
+			border:5px solid rgba(255,255,255,0.5);	
+			background: rgba(255,255,255,0.5);
+			padding:0px 10px 0px 10px;
+
 
 		}
 
-		.navbar-right {
-		margin-right:0px;
+		.top-navbar-icon.edit {
+			border:none;
+			background:transparent;
 		}
-		
-		.new-query {
-			color:orange;
-			font-weight:bold;
+
+		.top-navbar-icon-label {
+			color:white;
+			font-size:1em;
+			display:inline-block;
+			margin-right:5px;
+			padding-top:5px;
+			padding-bottom:10px;
+		}
+
+		.top-navbar-icon-label p {
+			display:block;
+			line-height: 0.35;
+			margin-bottom:0px;
+			margin-top:5px;
+			padding-top:5px;
+			padding-bottom:5px;
+
+		}
+
+		.first-label {
+			padding-top:0px;
+			padding-bottom:5px;
+			margin-top:0px;
+
+		}
+
+		.badge-wrapper {
+			padding-bottom:5px;
+			display:inline-block;
+			padding-top:7px;
+			vertical-align: top;
+		}
+
+		.badge {
+			display:inline-block;
+			font-size:2em;
+			padding:5px;
+			background:transparent;
+
+
+		}
+
+		.pencil {
+			border:none;
+			background:transparent;
+			display:block;
+			font-size:2em;
+			left:60%;
+			padding:15px 120px 0px 0px;
+		}
+
+		/*PAGE HEADER*/
+
+		.page-header {
+			padding-top:100px;
+			padding-bottom:30px;
+			background: rgba(255, 255, 204, 0.7);
+
+		}
+
+		.page-header .container {
+			position:relative;
+
+		}
+
+		.page-header h1 {
+			display:inline-block;
+			float:left;
+		}
+
+
+		/*MOBLE BOTTOM NAVBAR*/
+
+		.mobile-footer {
+			position:fixed;
+			bottom:0%;
+			height:98px;
+			width:100%;
+			background:#28A9D6;
+			color:white;
+
+
+		}
+
+		.mobile-footer ul {
+			margin-left:0px;
+			padding-top:0px;
+			padding-bottom:10px;
+
+		}
+
+		.mobile-footer ul li {
+			display:inline;
+			width:auto;
+			float:left;
+			padding-right:15px;
+			padding-left:20px;
+		}
+
+		.mobile-footer ul li a {
+
+			color:#FFFFFF;
+
+		}
+
+		.bottom-navbar-icon {
+			display:inline;
+			font-size:1em;
+			background:transparent;
+			border:none;
+		}
+
+		.bottom-navbar-icon-label{
+			padding-top:5px;
+			display:inline;
+			background:transparent;
+		}
+
+		.bottom-navbar-icon:focus, 
+		.bottom-navbar-icon:hover,
+		.bottom-navbar-icon:active
+		{
+			background:transparent;
+
+		}
+
+		.mobile-footer ul li a:focus,
+		.mobile-footer ul li a:hover,
+		.mobile-footer ul li .onpage {
+			background:transparent;
+			border:none;
+			color:#EDF684;
+		}
+
+
+		[data-icon]:before {
+			font-family:'icomoon';
+			content: attr(data-icon);
+			margin-right:0px;
+			padding-bottom:10px;
+			padding-top:5px;
+			speak:none;
+			display:block;
+			font-size:2.5em;
+		}
+
+		.mobile-footer span {
+			font-size:1em;
+			margin-left:0px;
+			display:block;
+
+		}
+
+		.screen-footer {
+			height:60px;
+			margin-top:40px;
+			color:#333;
+		}
+
+		.screen-footer p {
+			color:white;
 			font-size:1.25em;
+			display:block;
+			padding-top:20px;
+			padding-left:50px;
 		}
 
+		/*MEDIA QUERIES*/
 
-		
+		/* Extra small devices (phones, less than 768px) */
+		/* No media query since this is the default in Bootstrap */
 
-	/* Large devices (large desktops, 1200px and up) */
-	@media (min-width: 1200px) { 
-		.navbar-brand {
-			font-size:5em;
-			left:10%;
-		
+		/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
+		@media (min-width: 768px) { 
+
+			.navbar-brand {
+				font-size:4em;
+				left:10%;
 
 			}
 
-		.navbar-collapse { 
-			padding-right:0px;
-			position:absolute;
-			left:70%;
-			
-		}	
+			.btn-submit.top-navbar {
+				right:10%;
+
+			}
+
+			.navbar-right {
+				margin-right:90px;
+
+			}
+			.navbar-collapse { 
+				padding-right:0px;
+				position:absolute;
+				left:50%;
+				background:transparent;
+				margin-top:0px;
+
+			}
 
 		}
+
+		/* Medium devices (desktops, 992px and up) */
+		@media (min-width: 992px) { 
+
+
+
+			.navbar .container {
+				padding-top:20px;
+				margin-top:20px;
+
+			}
+
+			.navbar-collapse { 
+				padding-right:0px;
+				position:absolute;
+				left:70%;
+
+
+			}
+
+			.navbar-brand {
+				font-size:4em;
+				left:5%;
+				padding-bottom:20px;
+
+			}
+
+			.btn-submit.top-navbar {
+				right:15%;
+
+			}
+
+			.navbar-right {
+				margin-right:0px;
+			}
+
+			.questionarea_container,
+			.friendsarea_container,
+			.tilepage-container,
+
+			{
+				width:80%;
+				margin-top:85px;
+				max-width:930px;
+				background:#FFFFEB;
+
+			}
+
+
+
+			/* Large devices (large desktops, 1200px and up) */
+			@media (min-width: 1200px) { 
+				.navbar-brand {
+					font-size:5em;
+					left:10%;
+
+
+				}
+
+				.navbar-collapse { 
+					padding-right:0px;
+					position:absolute;
+					left:70%;
+
+				}	
+
+			}

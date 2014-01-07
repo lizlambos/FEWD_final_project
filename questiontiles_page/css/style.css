@@ -51,38 +51,19 @@
 
 /*PHOTO TILES*/
 
-        .tilepage-container {
-                   
-                background:#FFFFEB;
-                border: 1px solid #28A9D6;
-                margin-top:85px;
-
-        }
-
-        .photo-col {
-                padding:0px;
-        }
-
         .thumbnail {
-                padding:10px;
-                background:#FFFFEB;
-                border: 2px solid #28A9D6;
-                border-radius:0;
-                margin-bottom:0px;
-                height:950px;
-                padding-top:40px;
-                
+            padding-top:40px;
+                     
         }
 
        	.user-info-wrapper {
       		text-align:center;
-       		width:100%;
+       		margin:0;
        	}
 
         .caption {
         	width:80%;
         	vertical-align: top;
-            margin:auto;
 
         }
 
@@ -215,6 +196,9 @@
      
         .tilepage-container {
         	margin-top:0px;
+            width:80%;
+            max-width:930px;
+
         }
 
         .thumbnail {
