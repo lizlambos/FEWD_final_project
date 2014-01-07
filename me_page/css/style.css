@@ -38,7 +38,6 @@
 	background-size:100%;
 }	
 
-
 /*MOBILE NAV*/
 
 .mobile-header .navbar-brand {
@@ -53,86 +52,104 @@
 
 /*PROFILE AREA*/ 
 
-
 .caption{
-	width:90%;
 	padding-top:20px;
 }
 
-.jumbotron {
-	background:transparent;
-	padding:0px;
-	margin:0px;
-}
-
-/*shared with add friends page*/
-.fb_friendsarea {
-	padding:0px;
-	width:90%;
-	margin: 0 auto;
-	border: 1px solid #28A9D6;
-	clear:both;
-	background: #0055A5; 
-}
-
-.fb-column .row{
-		width:100%;
-		margin:0;
-		padding:0;
-		border: 1px solid #28A9D6;
-		}
-
-
 .friend_fbpic_container {
-	display:inline-block;
-	width:25%;
-	height:auto;
-	padding:10px;
-}
-
-.fb_friendpic_small {
 	width:100%;
-	height:auto;
-	margin:0px 5px 0px 0px;
-	padding:5px 15px 5px 15px;
-	background:#28A9D6;
-	border-radius:100%;
-}
-
-.friend-name {
-	display:inline-block;
-	padding:0px 0px 0px 20px;
-	color:#FFFFEB;
-	vertical-align: middle;
-
+	padding:10px;
+	float:left;
+	clear:none;
+	position:relative;
 }
 
 .friend-name h2 {
-	margin-top:10px;
-}
-
-.button-wrapper {
+	margin-top:25px;
+	margin-bottom:21px;
 	display:inline-block;
-	
 
 }
-.add-friend-button {
-	font-size:3em;
-	width:100%;
+
+.edit_pencil {
 	background:transparent;
-	color: #FFFFEB;
+	position:absolute;
 	border:none;
-    padding:0px 30px 0px 0px;
-	vertical-align: middle;
-	left:300%;
+	font-size:1.25em;
+	color:#FFFFEB;
+	font-weight:bold;
+	padding:15px 35px 15px 15px;
+	margin:0 auto;
+	left:80%;
 }
 
+.user_karma_info {
+	border: 1px solid #28A9D6;
+	padding:0px;
+	margin:0px;
+	position:relative;
+
+}
+
+.user_karma_info .top-navbar-icon-label {
+	float:left;
+	font-size:1.75em;
+	margin:20px 5px 20px 20px;
 
 
+} 
+.user_karma_info .top-navbar-icon-label p{
+	line-height: 0.75em;
+
+} 
+
+.user_karma_info .top-navbar-icon {
+	
+	margin:20px 50px 20px 20px;
+}
+
+.user_karma_info .badge-wrapper {
+	padding:10px 0px 10px 0px;
+	text-align: center;
+	font-size:1.25em;
+}
+
+.user_karma_info .glyphicon-chevron-right {
+	font-size:2em;
+	color:#FFFFEB;
+	position:absolute;
+	top:38%;
+	left:85%;
+	float:right;
 
 
+}	
 
+.user_info_editor {
+	width:100%;
+	margin: 0 auto;
+}
 
+.user_info_editor .form-group {
+	width:100%;
+}
+
+.me_page_button {
+	clear:both;
+}
+
+.like_karma_police {
+	width:100%;
+	display:block;
+	margin: 0 auto;
+}
+
+.like_karma_police label {
+	display:block;
+}
+.like_karma_police button {
+	width:auto;
+}
 
 
 
@@ -160,32 +177,9 @@
 		border:none;
 	}   
 
-	.invite-friends.form-group {	
-		left:5%;
-
-	}
-
-	.invite-friends.form-group input, 
-	.mobile-searchbox button span
-	 {
-		font-size:1.5em;
-		height:auto;
-
-	}
-
-	.mobile-searchbox button {
-		left:87%;
-		padding-top:10px;
-	}
-
+	
 	.fb_friendsarea {
 		padding:0;
-	}
-
-	.add-friend-button {
-		font-size:2em;
-		left:100%;
-		padding-top:5px;
 	}
 
 	.fb-column .row{

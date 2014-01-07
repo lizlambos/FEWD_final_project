@@ -123,69 +123,98 @@
 <div class="friendsarea_container">
   <div class="row new_query">
     <div class="col-xs-12">
-      <div class="row caption">
-        <div class="jumbotron hidden-md hidden-lg hidden-xl">
-          <h1>My Info</h1>
-        </div>
-      </div><!--caption-->
 
       <div class="row fb_friendsarea">
         <div class="col-xs-6 fb-column">
+
           <div class="row">
             <div class="col-xs-12">
-            <div class="friend_fbpic_container">
-              <button class="glyphicon glyphicon-pencil"></button>
-              <img class="fb_friendpic_small" src="img/ganesha-hi.png"/>
-            </div>
-          </div><!--col-->  
+              <div class="friend_fbpic_container">
+                <button class="btn btn-default glyphicon glyphicon-pencil edit_pencil"></button>
+                <img class="fb_friendpic_small" src="img/ganesha-hi.png"/>
+              </div>
+            </div><!--col-->  
           </div><!--row-->    
 
           <div class="row">
             <div class="col-xs-12">
-            <div class="friend-name">
-              <button class="glyphicon glyphicon-pencil"></button>
-              <h2>Bob Jones</h2>
-            </div>
-          </div><!--col--> 
+              <div class="friend-name">
+                <button class="btn btn-default glyphicon glyphicon-pencil edit_pencil"></button>
+                <h2>Bob Jones</h2>
+              </div>
+            </div><!--col--> 
           </div><!--row-->
-        </div><!--col-->
+
+        </div><!--fb-column-->
 
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 link-column">
-          <div class="row karma_points">
-             <div class="col-xs-12">
+
+          <div class="row user_karma_info">
+           <div class="col-xs-12">
+            <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
             <div class="top-navbar-icon">
-              <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
               <div class="badge-wrapper"><span class="badge">18</span></div> 
             </div>
-            <span class="glyphicon glyphicon-chevron-right"></span>
+            <a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a>
           </div><!--col-->   
         </div><!--row-->
 
-          <div class="row karma_points">
-             <div class="col-xs-12">
-            <div class="top-navbar-icon">
-              <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
-              <div class="badge-wrapper"><span class="badge">18</span></div> 
-            </div>
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </div><!--col-->   
-        </div><!--row-->
+        <div class="row user_karma_info">
+         <div class="col-xs-12">
+          <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Queries</p></div>
+          <div class="top-navbar-icon">
+            <div class="badge-wrapper"><span class="badge">4</span></div> 
+          </div>
+          <a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div><!--col-->   
+      </div><!--row-->
 
-          <div class="row karma_points">
-             <div class="col-xs-12">
-            <div class="top-navbar-icon">
-              <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
-              <div class="badge-wrapper"><span class="badge">18</span></div> 
-            </div>
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </div><!--col-->   
-        </div><!--row-->
+      <div class="row user_karma_info">
+       <div class="col-xs-12">
+         <div class="top-navbar-icon-label"><p class="first-label">My</p><p>Friends</p></div>
+         <div class="top-navbar-icon">
+          <div class="badge-wrapper"><span class="badge">32</span></div> 
+        </div>
+        <a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a>
+      </div><!--col-->   
+    </div><!--row-->
+
+  </div><!--link-column-->  
+
+</div><!--fb_friendsarea-->
+
+<div class="row user_info_editor">
+  <div class="col-xs-12">
+    <h2>Edit Profile Info</h2>
+    <form role="form">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <label for="radiobutton">Push Notifications</label>
+        <button class="btn btn-lg btn-inline btn-primary">ON</button>
+      </div>
+      <div class="btn-group btn-group-justified like_karma_police">
+        <label for="buttongroup">Like Karma Police</label>
+        <a type="button" class="btn btn-lg btn-default" data-icon="&#xe60f;" href="#"><span class="bottom-navbar-icon-label">Facebook</span></a>
+        <a type="button" class="btn btn-lg btn-default" data-icon="&#xe610;" href="#"><span class="bottom-navbar-icon-label">Twitter</span></a>
+        <a type="button" class="btn btn-lg btn-default" data-icon="&#xe60e;" href="#"><span class="bottom-navbar-icon-label">Google+</span></a>
+      </div>
+      <a href="#" class="btn btn-success btn-lg btn-block me_page_button" role="button">Save Changes</a>
+      <a href="#" class="btn btn-danger btn-lg btn-block me_page_button" role="button">Log Out</a>
+    </form>
+  </div><!--col-->   
+</div><!--row user_info_editor-->
 
 
-    </div><!--col-->  
-
-  </div><!--fb_friendsarea-->
 </div><!--col-->
+
+
 </div><!--new query-->
 </div><!--friendsarea_container-->
 

@@ -75,50 +75,6 @@
 		padding-top:10px;
 	}
 
-.fb_friendsarea {
-	padding:0px;
-	width:90%;
-	margin: 0 auto;
-	border: 1px solid #28A9D6;
-	clear:both;
-	background: #0055A5; 
-
-}
-
-
-
-.fb-column .row{
-		width:100%;
-		margin:0;
-		padding:0;
-		border: 1px solid #28A9D6;
-
-		}
-
-
-.friend_fbpic_container {
-	display:inline-block;
-	width:25%;
-	height:auto;
-	padding:10px;
-}
-
-.fb_friendpic_small {
-	width:100%;
-	height:auto;
-	margin:0px 5px 0px 0px;
-	padding:5px 15px 5px 15px;
-	background:#28A9D6;
-	border-radius:100%;
-}
-
-.friend-name {
-	display:inline-block;
-	padding:0px 0px 0px 20px;
-	color:#FFFFEB;
-	vertical-align: middle;
-
-}
 
 .friend-name h2 {
 	margin-top:10px;
