@@ -41,10 +41,7 @@
 
 /*MOBILE NAV*/
 
-.mobile-header .navbar-brand {
-	left:25%;
-	padding-top:30px;
-}
+
 
 /*INVITE FRIENDS*/ 
 
@@ -55,7 +52,7 @@
 }
 
 
-.invite-friends.form-group {
+/*.invite-friends.form-group {
 	margin-bottom:20px;
 	position:relative;
 
@@ -73,7 +70,7 @@
 .mobile-searchbox button {
 		left:85%;
 		padding-top:10px;
-	}
+	}*/
 
 
 .friend-name h2 {
@@ -128,24 +125,6 @@
 		
 		border:none;
 	}   
-
-	.invite-friends.form-group {	
-		left:5%;
-
-	}
-
-	.invite-friends.form-group input, 
-	.mobile-searchbox button span
-	 {
-		font-size:1.5em;
-		height:auto;
-
-	}
-
-	.mobile-searchbox button {
-		left:87%;
-		padding-top:10px;
-	}
 
 	.fb_friendsarea {
 		padding:0;

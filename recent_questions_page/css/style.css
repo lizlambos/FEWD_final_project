@@ -36,9 +36,12 @@
             height:auto;
         }
 
+        .caption {
+            padding-top:30px;
+        }
+
         .label_wrapper {
-            padding:40px 0px 20px 0px;
-            width:80%;
+            padding:0px 0px 20px 0px;
             margin: 0 auto;
             
         }
@@ -77,41 +80,9 @@
             font-size:1.5em;
         }
 
-        .privacy-level {
-            background:#28A9D6;
-
-        }
-
-        .question {
-            padding:10px;
-            background: #0055A5; 
-            position:relative;
-            border-radius:0px;
-            width:80%;
-            margin:0 auto;
-
-        }
-
-        .question p{
-            font-size:1.5em;
-            color:#FFFFEB;
-            display:block;
-           
-
-
-        }
-
-        .question span {
-            display:inline-block;
-            font-size:1.25em;
-            margin-bottom:5px;
-
-
-        }
-
 
         .answers {
-            width:80%;
+            
             margin: 0 auto;
             padding:20px;
             font-family:"icomoon";

@@ -40,39 +40,59 @@
 
 /*MOBILE NAV*/
 
-.mobile-header .navbar-brand {
-	left:35%;
-	padding-top:30px;
-
-}
-.mobile-header .navbar-nav {
-	padding-right:50px;
-	
+.settings_link {
+	position:absolute;
+	left:85%;
+	clear:none;
 }
 
 /*PROFILE AREA*/ 
 
+.row
+ {
+	color:#FFFFEB;
+	background:#0055A5;
+	border:1px solid white;
+}
+
 .fb_friendsarea {
 	width:100%;
 	height:360px;
+	
+	background:transparent;
 
 }
 
 .caption{
 	padding-top:20px;
+	background:transparent;
+
+
+
+}
+
+.new_query {
+	padding:0;
+	margin:0;
+
 }
 
 .fb-column {
 	height:360px;
+	
 }
 
-.friend_fbpic_container {
+.row.friend_fbpic_container {
 	width:100%;
 	height:270px;
 	float:left;
 	clear:none;
+	background:transparent;
+	border:1px solid #FFFFFF;
+	
 	
 }
+
 
 .fb_friendpic_small {
 	width:240px;
@@ -83,15 +103,19 @@
 	
 }
 
-.friend-name {
+
+.row.friend-name {
 	height:90px;
+	border:1px solid #FFFFFF;
+
 }
 
 .friend-name h2 {
 	margin-top:25px;
 	margin-left:10px;
 	margin-bottom:21px;
-	display:inline-block;
+	text-align: center;
+	
 
 }
 
@@ -100,25 +124,29 @@
 	position:absolute;
 	border:none;
 	font-size:1.25em;
-	color:#FFFFEB;
 	font-weight:bold;
 	padding:15px 35px 15px 15px;
 	margin:0 auto;
 	left:80%;
+	color:#FFFFEB;
+}
+
+.friend-name .edit_pencil {
+	color:#333;
 }
 
 .user_info_editor {
-	background:#0055A5;
-	border: 1px solid #28A9D6;
-	color:#FFFFEB;
+	background:transparent;
 	padding:10px;
 }
 .user_karma_info {
-	border: 1px solid #28A9D6;
+	
 	padding:0px;
 	margin:0px;
 	position:relative;
 	height:120px;
+	
+	
 
 }
 
@@ -126,6 +154,7 @@
 	float:left;
 	font-size:1.75em;
 	margin:20px 5px 20px 20px;
+	
 
 
 } 
@@ -136,7 +165,7 @@
 } 
 
 .user_karma_info .top-navbar-icon {
-	
+	left:45%;
 	margin:20px 50px 20px 20px;
 	width:100px;
 	text-align: center;
@@ -146,15 +175,18 @@
 	padding:10px 0px 10px 0px;
 	text-align: center;
 	font-size:1.25em;
+
 }
+
+
 
 .user_karma_info .glyphicon-chevron-right {
 	font-size:2em;
-	color:#FFFFEB;
 	position:absolute;
 	top:38%;
-	left:88%;
+	left:86%;
 	float:right;
+	color:#FFFFEB;
 
 
 }	
@@ -163,6 +195,11 @@
 	width:100%;
 	margin: 0 auto;
 	padding:0px;
+	
+}
+
+.btn-group {
+	clear:both;
 }
 
 .form-group label,
@@ -171,26 +208,48 @@
 	padding:10px;
 }
 
-.form-group input {
+
+
+
+.form-group input,
+.name_wrapper input {
 	border-radius: 0px;
 	width:100%;
 	font-size: 2em;
 	height:auto;
 	font-family:'exo 2';
+	border:1px solid #FFFFFF;
 	
 }
 
+.name_wrapper input {
+	height:90px;
+}
+
+
 .user_info_editor .form-group {
 	width:100%;
+	margin:0px;
 }
 
 .me_page_button {
-	clear:both;
 	font-size:2em;
-	margin:0;
+	margin-top:0px;
 	border-radius:0;
 	border:none;
 	font-family:'exo 2';
+	padding:30px;
+}
+
+
+.btn-success.me_page_button {
+	background:#5cb85c;;
+}
+
+.btn-danger.me_page_button {
+	background:#F0AD4C;
+	margin-top:0px;
+	border-top: 1px solid white;
 }
 
 .like_karma_police {
@@ -224,24 +283,34 @@
 		width:100%;
 		margin-top:75px;
 
+		
+
 	}    
 
 	.new_query {
 		padding:30px 30px 0px 30px;
+		background:#FFFFEB;
+		height:auto;
+		
 	}
 
 	.col-xs-12 {
 		
 		border:none;
-	}   
 
+	}   
+	
+	.inner_content_wrapper {
+		background:#0055A5;
+		margin:20px;
+	}
 
 
 	.fb-column .row{
 		width:100%;
 		margin:0;
 		padding:0;
-		border: 1px solid #28A9D6;
+		
 	}
 
 	.user_karma_info .top-navbar-icon {

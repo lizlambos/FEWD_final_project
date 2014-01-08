@@ -46,6 +46,7 @@ Green and Blue theme
 
 		h1, h2, h3, p, label, button {
 			font-family: 'Exo 2', sans-serif;
+
 		}
 
 
@@ -161,6 +162,40 @@ Green and Blue theme
 
 		}
 
+		.question,
+		.question .form-control {
+            padding:20px;
+            background: #0055A5; 
+            position:relative;
+            border-radius:25px;
+            
+            margin:0 auto;
+
+        }
+
+        .question p{
+            font-size:1.5em;
+            color:#FFFFEB;
+            display:block;
+
+        }
+}
+
+        .question span {
+            display:inline-block;
+            font-size:1.25em;
+            margin-bottom:5px;
+          
+
+        }
+
+        .privacy-level {
+            background:#28A9D6;
+            font-size:1.5em;
+            border-radius:25px;
+
+        }
+
 		/*NAVBAR*/
 
 		.navbar {
@@ -250,18 +285,29 @@ Green and Blue theme
 		}
 
 		.mobile-searchbox {
-			margin:0 auto;
-			width:100%;
 			position:relative;
+			text-align: center;
 		}
 
 		.mobile-searchbox .form-group {
 			width:100%;
-			margin:auto 0;
+			padding-bottom:20px;
 		}
 
 		.mobile-searchbox .form-control{
 			width:90%;
+			margin: 0 auto;
+			text-align:left;
+			height:auto;
+			padding:10px;
+			font-size:2em;
+		}
+
+		.mobile-searchbox .btn-submit.top-navbar {
+			vertical-align:middle;
+			right:10%;
+			font-size:2em;
+			padding-top:10px;
 		}
 
 
@@ -271,17 +317,23 @@ Green and Blue theme
 		.mobile-header {
 			background:#28A9D6;
 			color:white;
-			margin-top:0px;
 			height:88px;
+			text-align:center;
+
+
 
 		}
 
 		.mobile-header .navbar-brand {
 			color:white;
-			left:30%;
+			display:block;
+			width:100%;
+			text-align: center;
+			margin: 0 auto;
 			padding-top:30px;
 			padding-bottom:20px;
 			font-size:3em;
+				
 		}
 
 		.mobile-header ul li a {
@@ -304,11 +356,12 @@ Green and Blue theme
 
 
 		.top-navbar-icon {
-			float:right;
-			display:block;
-			margin-right:60px;
+			position:absolute;
+			left:75%;
+			clear:none;
 			margin-top:5px;
 			margin-bottom:5px;
+			margin-right:30px;
 			border-radius:25px;
 			border:5px solid rgba(255,255,255,0.5);	
 			background: rgba(255,255,255,0.5);
@@ -520,6 +573,8 @@ Green and Blue theme
 				margin-top:0px;
 
 			}
+
+			
 
 		}
 
