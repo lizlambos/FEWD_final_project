@@ -52,20 +52,44 @@
 
 /*PROFILE AREA*/ 
 
+.fb_friendsarea {
+	width:100%;
+	height:360px;
+
+}
+
 .caption{
 	padding-top:20px;
 }
 
+.fb-column {
+	height:360px;
+}
+
 .friend_fbpic_container {
 	width:100%;
-	padding:10px;
+	height:270px;
 	float:left;
 	clear:none;
+	
+}
+
+.fb_friendpic_small {
+	width:240px;
+	height:240px;
+	margin:15px 30px 15px 30px;
 	position:relative;
+	
+	
+}
+
+.friend-name {
+	height:90px;
 }
 
 .friend-name h2 {
 	margin-top:25px;
+	margin-left:10px;
 	margin-bottom:21px;
 	display:inline-block;
 
@@ -83,11 +107,18 @@
 	left:80%;
 }
 
+.user_info_editor {
+	background:#0055A5;
+	border: 1px solid #28A9D6;
+	color:#FFFFEB;
+	padding:10px;
+}
 .user_karma_info {
 	border: 1px solid #28A9D6;
 	padding:0px;
 	margin:0px;
 	position:relative;
+	height:120px;
 
 }
 
@@ -100,12 +131,15 @@
 } 
 .user_karma_info .top-navbar-icon-label p{
 	line-height: 0.75em;
+	text-align: center;
 
 } 
 
 .user_karma_info .top-navbar-icon {
 	
 	margin:20px 50px 20px 20px;
+	width:100px;
+	text-align: center;
 }
 
 .user_karma_info .badge-wrapper {
@@ -119,7 +153,7 @@
 	color:#FFFFEB;
 	position:absolute;
 	top:38%;
-	left:85%;
+	left:88%;
 	float:right;
 
 
@@ -128,6 +162,22 @@
 .user_info_editor {
 	width:100%;
 	margin: 0 auto;
+	padding:0px;
+}
+
+.form-group label,
+.btn-group label {
+	font-size:2em;
+	padding:10px;
+}
+
+.form-group input {
+	border-radius: 0px;
+	width:100%;
+	font-size: 2em;
+	height:auto;
+	font-family:'exo 2';
+	
 }
 
 .user_info_editor .form-group {
@@ -136,6 +186,11 @@
 
 .me_page_button {
 	clear:both;
+	font-size:2em;
+	margin:0;
+	border-radius:0;
+	border:none;
+	font-family:'exo 2';
 }
 
 .like_karma_police {
@@ -147,8 +202,11 @@
 .like_karma_police label {
 	display:block;
 }
-.like_karma_police button {
+.like_karma_police a {
 	width:auto;
+	color:#FFFFEB;
+	background: #28A9D6;
+	font-size:3em;
 }
 
 
@@ -169,7 +227,7 @@
 	}    
 
 	.new_query {
-		padding:0px 30px 0px 30px;
+		padding:30px 30px 0px 30px;
 	}
 
 	.col-xs-12 {
@@ -177,10 +235,7 @@
 		border:none;
 	}   
 
-	
-	.fb_friendsarea {
-		padding:0;
-	}
+
 
 	.fb-column .row{
 		width:100%;
@@ -188,27 +243,51 @@
 		padding:0;
 		border: 1px solid #28A9D6;
 	}
+
+	.user_karma_info .top-navbar-icon {
+
+		margin:20px 80px 20px 20px;
+		width:120px;
+		text-align:center;
+	}
 }
 
 
 
-	/* Medium devices (desktops, 992px and up) */
-	@media (min-width: 992px) { 
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
 
-		.friendsarea_container {
-			width:80%;
-			max-width:930px;
-			margin: 0 auto;
-		}
+	.friendsarea_container {
+		width:80%;
+		max-width:930px;
+		margin: 0 auto;
+	}
 
 
-		
+
+
+	.user_karma_info .badge-wrapper {
+		padding:10px 0px 10px 0px;
+		text-align: center;
+		font-size:1.25em;
+	}
+
+	.user_karma_info .glyphicon-chevron-right {
+		font-size:2em;
+		color:#FFFFEB;
+		position:absolute;
+		top:38%;
+		left:85%;
+		float:right;
+
 
 	}
 
-	/* Large devices (large desktops, 1200px and up) */
-	@media (min-width: 1200px) { 
+}
 
-		
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
 
-	}
+
+
+}
