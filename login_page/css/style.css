@@ -1,46 +1,4 @@
-/*LESS COLORS not sure how to use at this point*/
-
-@color{
-
-	@colorback1:#142952;
-	@fontcolor1:#333; /*dark grey*/
-	@bordercolor1:#3399FF; /*light blue*/
-	@bordercolor2:#28A9D6;/*light blue USED*/
-	@colorback2:#FFFFEB;/*light yellow*/
-	@colorback3:#0055A5; /*navy blue USED*/
-	@yesbuttoncolor:
-	@nobuttoncolor:
-	@nabuttonborder:
-	@postdatelabelcolor:
-	@friendsstatuslabelcolor;
-
-
-	/*Green and Blue theme*/
-
-	@darkblue: #0055A5;
-	@lightblue: #28A9D6;
-	@white: #FFFFFF;
-	@limegreen:#C2D52C;
-	@lightyellow:#EDF684;
-
-}
-
-
-/*REPEATED ITEMS*/
-
-@font-face {
-	font-family: samarkan;
-	src: url(../../fonts/samarkan/SAMARN__.TTF)
-}
-
-.all-app-pages {
-	background: url("../../img/buddhistpainting3.jpg");
-	background-size:100%;
-}	
-
-
-/*MOBILE NAV*/
-
+/*LOGIN PAGE STYLESHEET*/
 
 
 /*SIGNIN CONTAINER*/

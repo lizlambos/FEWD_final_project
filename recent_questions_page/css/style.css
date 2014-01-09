@@ -1,34 +1,4 @@
-/*LESS COLORS* not sure how to use at this point
-
-@color{
-        @colorback1: #142952;
-        @fontcolor1:#333;
-
-        }*/
-
-        /*REPEATED ITEMS*/
-
-        @font-face {
-            font-family: samarkan;
-            src: url(../../fonts/samarkan/SAMARN__.TTF)
-        }
-
-        @font-face {
-            font-family: 'icomoon';
-            src:url('../fonts/icomoon.eot');
-            src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
-            url('../fonts/icomoon.woff') format('woff'),
-            url('../fonts/icomoon.ttf') format('truetype'),
-            url('../fonts/icomoon.svg#icomoon') format('svg');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-
-        .all-app-pages {
-            background: url("../../img/buddhistpainting2.jpg");
-            background-size:100%;
-        }        
+/*RECENT QUESTION PAGE STYLESHEET*/
 
     /*QUESTION AREA*/
 

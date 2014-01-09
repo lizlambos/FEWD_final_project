@@ -1,26 +1,4 @@
-/*LESS COLORS*/
-
-@colorback1:#142952;
-@fontcolor1:#333; /*dark grey*/
-@bordercolor1:#3399FF; /*light blue*/
-@bordercolor2:#428BCA;/*light blue USED*/
-@colorback2:#FFFFEB;/*light yellow*/
-@colorback3:#1F3D7A; /*navy blue USED*/
-@yesbuttoncolor:
-@nobuttoncolor:
-@nabuttonborder:
-@postdatelabelcolor:
-@friendsstatuslabelcolor;
-
-
-Green and Blue theme
-
-@darkblue: #0055A5;
-@lightblue: #28A9D6;
-@white: #FFFFFF;
-@limegreen:#C2D52C;
-@lightyellow:#EDF684;
-
+/*MASTER STYLESHEET*/
 
 /*TYPOGRAPHY
 
@@ -30,7 +8,7 @@ Green and Blue theme
 
 	@font-face {
 		font-family: samarkan;
-		src: url(../../fonts/samarkan/SAMARN__.TTF)}
+		src: url(../fonts/samarkan/SAMARN__.TTF)}
 
 
 		@font-face {
@@ -79,7 +57,8 @@ Green and Blue theme
 		/*LAYOUT MAIN PAGE ELEMENTS*/
 
 		.all-app-pages {
-			background: url("../../img/buddhistpainting2.jpg");
+			background: url("../img/buddhistpainting2.jpg");
+
 			background-size:100%;
 		}
 
