@@ -1,4 +1,5 @@
 /*ME  PAGE STYLESHEET*/	
+
 /*MOBILE NAV*/
 
 .settings_link {
@@ -26,7 +27,6 @@
 .fb_friendsarea {
 	width:100%;
 	height:360px;
-	
 	background:transparent;
 
 }
@@ -35,11 +35,9 @@
 	padding-top:20px;
 	background:transparent;
 
-
-
 }
 
-.new_query {
+.content_component_container {
 	padding:0;
 	margin:0;
 
@@ -108,23 +106,17 @@
 	padding:10px;
 }
 .user_karma_info {
-	
 	padding:0px;
 	margin:0px;
 	position:relative;
 	height:120px;
 	
-	
-
 }
 
 .user_karma_info .top-navbar-icon-label {
 	float:left;
-	font-size:1.75em;
 	margin:20px 5px 20px 20px;
 	
-
-
 } 
 .user_karma_info .top-navbar-icon-label p{
 	line-height: 0.75em;
@@ -142,14 +134,12 @@
 .user_karma_info .badge-wrapper {
 	padding:10px 0px 10px 0px;
 	text-align: center;
-	font-size:1.25em;
-
+	
 }
 
 
 
 .user_karma_info .glyphicon-chevron-right {
-	font-size:2em;
 	position:absolute;
 	top:38%;
 	left:86%;
@@ -172,20 +162,17 @@
 
 .form-group label,
 .btn-group label {
-	font-size:2em;
 	padding:10px;
 }
 
 
 
 
-.friendsarea_container .form-group input,
+.main_content_container .form-group input,
 .name_wrapper input {
 	border-radius: 0px;
 	width:100%;
-	font-size: 2em;
 	height:auto;
-	font-family:'exo 2';
 	border:1px solid #FFFFFF;
 	
 }
@@ -201,11 +188,9 @@
 }
 
 .me_page_button {
-	font-size:2em;
 	margin-top:0px;
 	border-radius:0;
 	border:none;
-	font-family:'exo 2';
 	padding:30px;
 }
 
@@ -233,7 +218,7 @@
 	width:auto;
 	color:#FFFFEB;
 	background: #28A9D6;
-	font-size:3em;
+	
 }
 
 
@@ -247,15 +232,7 @@
 
 @media (min-width: 768px) { 
 
-	.friendsarea_container {
-		width:100%;
-		margin-top:155px;
-
-		
-
-	}    
-
-	.new_query {
+	.content_component_container {
 		padding:30px 30px 0px 30px;
 		background:#FFFFEB;
 		height:auto;
@@ -263,7 +240,6 @@
 	}
 
 	.col-xs-12 {
-		
 		border:none;
 
 	}   
@@ -294,12 +270,6 @@
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
 
-	.friendsarea_container {
-		width:80%;
-		max-width:930px;
-		margin: 0 auto;
-	}
-
 
 
 
@@ -310,12 +280,9 @@
 	}
 
 	.user_karma_info .glyphicon-chevron-right {
-		font-size:2em;
-		color:#FFFFEB;
-		position:absolute;
 		top:38%;
 		left:85%;
-		float:right;
+		
 
 
 	}

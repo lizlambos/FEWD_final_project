@@ -20,8 +20,7 @@
 	line-height: 0.35;
 }
 
-.navbar-brand {
-	font-size:10em;
+.signin_container .navbar-brand {
 	display:block;
 
 }

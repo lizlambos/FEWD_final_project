@@ -1,198 +1,155 @@
 /*RECENT QUESTION PAGE STYLESHEET*/
 
-    /*QUESTION AREA*/
+/*QUESTION AREA*/
 
-        .recent_query {
-            height:auto;
-            padding-top:0px;
-        }
+.content_component_container {
+    height:auto;
+    padding-top:0px;
+}
 
-        .caption {
-            padding-top:30px;
-        }
+.caption {
+    padding-top:30px;
+}
 
-        .label_wrapper {
-            padding:0px 0px 20px 0px;
-           
-            clear:none;
-            
-        }
+.label_wrapper {
+    padding:0px 0px 20px 0px;
+    clear:none;
+}
 
-        .caption .btn {
-            padding-top:10px;
-            margin-top:10px;
-            font-weight:bold;
-            border:none;
-        }
+.caption .btn {
+    padding-top:10px;
+    margin-top:10px;
+    font-weight:bold;
+    border:none;
+}
 
-        .delete-button {
-            float:right;
-            font-size:2em;
-            margin-right:20px;
-            color:#ccc;
-            padding:0;
+.delete-button {
+    float:right;
+    margin-right:20px;
+    padding:0;
+    background: transparent;
 
-        }
+}
 
-        .privacy-level,
-        .edit-button {
-             font-size:2em;
-             padding:10px;
-        }
-
-        .delete-button,  {
-            background: transparent;
-        }
-
-        .edit-button {
-            color:#0055A0;
-            background:#CCC; 
-            border-radius:25px;       }
-
-
-        .btn-group {
-            float:right;
-        }
-
-        .dropdown-menu {
-            font-size:2em;
-        }
-
-
-        .answers {
-            text-align: center;
-            margin: 0 auto;
-            padding:20px;
-            font-family:"icomoon";
-            
-            
-        }
-
-        .yes-button,
-        .no-button {
-            width:36%;
-            padding:0px 0px 0px 0px;
-            margin:0;
-            border-radius:50px;
-            font-size:4em;
-            line-height:1.5;
-        }
-
-
-        .result {
-            font-size:0.6em;
-            margin-top:-10px;
-            padding-top:-10px;
-        }
-
-        .answers .na-button{
-            width:18%;
-            border-radius:25px;
-            font-size:2em;
-            font-weight:bold;
-            color:rgba(255, 0, 0, 0.5);
-            border:5px solid rgba(255, 0, 0, 0.5);
-            background:white;
-            margin-left:10px;
-            margin-right:10px;
-
-
-        }
+.privacy-level,
+.edit-button {
+   padding:10px;
+}
 
 
 
-        /*MEDIA QUERIES*/
+.edit-button {
+    color:#0055A0;
+    background:#CCC; 
+    border-radius:25px;  
 
-        /* Extra small devices (phones, less than 768px) */
-        /* No media query since this is the default in Bootstrap */
-
-        /* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
-        
-        @media (min-width: 768px) { 
+}     
 
 
-        .questionarea_container {
-            width:100%;
-            margin-top:105px;
+.btn-group {
+    float:right;
+}
 
-        }    
+.dropdown-menu {
+    font-size:2em;
+}
 
-         .answers .na-button{
-            max-width:80px;
 
-        }
+.answers {
+    text-align: center;
+    margin: 0 auto;
+    padding:20px;
+    font-family:"icomoon";
 
-        .col-xs-12 {
-            width:100%;
-            border:none;
-            padding:0px;
-            margin:0px;
-         }   
 
-         .recent_query {
-            padding-left:0px;
-            padding-right:0px;
-            border:1px solid #28A9D6;
-            width:100%;
-         }
+}
 
-         .label_wrapper {
-            padding:40px 0px 20px 0px;
-            
-            
-        }
+.btn.yes-button,
+.btn.no-button {
+    width:36%;
+    padding:0px 0px 0px 0px;
+    margin:0;
+    border-radius:50px;
+    font-size:4em;
+    line-height:1.5;
+}
 
-          .caption {
-            padding-top:0px;
-        }
+
+.result {
+    font-size:0.6em;
+    margin-top:-10px;
+    padding-top:-10px;
+}
+
+.answers .na-button{
+    width:18%;
+    border-radius:25px;
+    font-size:2em;
+    font-weight:bold;
+    color:rgba(255, 0, 0, 0.5);
+    border:5px solid rgba(255, 0, 0, 0.5);
+    background:white;
+    margin-left:10px;
+    margin-right:10px;
+
 
 }
 
 
-        
 
-        /* Medium devices (desktops, 992px and up) */
-        @media (min-width: 992px) { 
+/*MEDIA QUERIES*/
 
-        .questionarea_container {
-            width:80%;
-            max-width:930px;
-            margin: 0 auto;
-        }
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
 
+/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
 
-        .yes-button,
-        .no-button {
-            font-size:7em;
-            width:40%;
-        }
-
-        .answers .na-button{
-          
+@media (min-width: 768px) { 
 
 
-        }
-
-    }
-
-    /* Large devices (large desktops, 1200px and up) */
-    @media (min-width: 1200px) { 
-
-     .answers {
-        
-
-    }
-
-    .yes-button,
-    .no-button {
-       
-
-    }
 
     .answers .na-button{
-       
+        max-width:80px;
+
+    }
+
+
+    .recent_query {
+        padding-left:0px;
+        padding-right:0px;
+        border:1px solid #28A9D6;
+        width:100%;
+    }
+
+    .label_wrapper {
+        padding:40px 0px 20px 0px;
 
 
     }
+
+    .caption {
+        padding-top:0px;
+    }
+
+}
+
+
+
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+.btn.yes-button,
+.btn.no-button {
+        font-size:7em;
+        width:40%;
+    }
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+
 
 }

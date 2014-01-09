@@ -1,6 +1,8 @@
 /*LOGIN PAGE STYLESHEET*/
 
-
+.all-app-pages {
+	background: url("../../img/buddhistpainting3.jpg");
+}
 /*SIGNIN CONTAINER*/
 
 .signin_container {
@@ -20,7 +22,7 @@
 	line-height: 0.35;
 }
 
-.navbar-brand {
+.sign-in.navbar-brand {
 	font-size:10em;
 	display:block;
 
@@ -52,6 +54,11 @@ label {
 	position:relative;
 	clear:both;
 }
+
+.dropdown-menu {
+    font-size:2em;
+}
+
 
 /*MEDIA QUERIES*/
 

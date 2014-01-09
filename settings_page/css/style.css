@@ -1,19 +1,10 @@
 /*SETTINGS PAGE STYLESHEET*/
-
 /*MOBILE NAV*/
-
-.mobile-header .navbar-brand {
-
-	padding-top:30px;
-
-}
-
 
 .mobile-header .settings_link {
 	position:absolute;
 	float:left;
-	font-size:2.5em;
-	padding-top:10px;
+	margin-top:-5px;
 	padding-left:25px;
 	
 }
@@ -22,7 +13,6 @@
 
 .page-header .container h1 {
 	margin-left:150px;
-	font-size:3em;
 }
 
 /*SETTINGS AREA*/ 
@@ -33,7 +23,6 @@
 	background:#0055A5;
 	border: 1px solid white;
 	padding:10px;
-	font-family:"exo 2";
 	height:auto;
 	
 }
@@ -45,15 +34,11 @@
 }
 
 .row.settings_button a,
-.row label{
-	color:#FFFFEB;
-	font-size:2.5em;
+.row.settings_button label{
 	text-align: left;
 	margin-left:20px;
 	font-weight: lighter;
 	display:inline;
-
-
 
 }
 
@@ -74,7 +59,6 @@
 .row .radiobutton {
 	float:right;
 	margin-right:35px;
-	font-size:2em;
 	margin-bottom:0px;
 	padding-right:20px;
 	padding-left:20px;
@@ -83,7 +67,6 @@
 .fb_friendsarea {
 	width:100%;
 	height:360px;
-	
 	background:transparent;
 
 }
@@ -91,25 +74,18 @@
 .caption{
 	padding-top:20px;
 	background:transparent;
-
-
-
 }
 
-.new_query {
+.content_component_wrapper {
 	padding:0;
 	margin:0;
 
 }
 
-
-
 .me_page_button {
-	font-size:3em;
 	margin-top:0px;
 	border-radius:0;
 	border:none;
-	font-family:'exo 2';
 	padding:30px;
 }
 
@@ -140,15 +116,7 @@
 
 @media (min-width: 768px) { 
 
-	.friendsarea_container {
-		width:100%;
-		margin-top:75px;
-
-		
-
-	}    
-
-	.new_query {
+	.content_component_container {
 		padding:30px 30px 0px 30px;
 		background:#FFFFEB;
 		height:auto;
@@ -156,7 +124,7 @@
 	}
 
 	.col-xs-12 {
-		
+	
 		border:none;
 
 	}   
@@ -175,7 +143,6 @@
 	}
 
 	.user_karma_info .top-navbar-icon {
-
 		margin:20px 80px 20px 20px;
 		width:120px;
 		text-align:center;
@@ -186,14 +153,6 @@
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
-
-	.friendsarea_container {
-		width:80%;
-		max-width:930px;
-		margin: 0 auto;
-	}
-
-
 
 
 	.user_karma_info .badge-wrapper {

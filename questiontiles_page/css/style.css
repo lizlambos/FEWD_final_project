@@ -2,205 +2,212 @@
 
 /*PHOTO TILES*/
 
-        .thumbnail {
-            padding-top:40px;
-            position:relative;
-                     
-        }
+.row {
+    padding:0px;
+    margin:0px;
+}
 
-       	.user-info-wrapper {
-      		text-align:center;
+.main_content_container {
+    padding:0px;
+}
 
-       		
-       	}
+.content_component_container { 
+    padding-top:40px;
+    position:relative;
 
+}
 
-        .caption .user-name {
-            margin-top:0px;
-            text-align:center;
+.photo-col {
+    padding:0px;
+}
 
-        }
+.user-info-wrapper {
+    text-align:center;
 
+}
 
-        .thumbnail-spritepic {
-                width:300px;
-                height:300px;
-                background-image: url('../img/shutterstock_157248584.jpg');
-                background-size:600%;
-                background-position: 0% 0%;
-                position:relative;
-                margin:0 auto;
-                vertical-align: top;
-               
-        }
+.caption .user-name {
+    margin-top:0px;
+    text-align:center;
 
-        /*note this is the temporary generation of pictures from the sprite sheet not the real way photots will be pulled from facebook*/
-
-        .thumbnail-spritepic.user_num_1_fb_photo {        
-                background-position: 1.8% 1.8%;
-        }
-
-        .thumbnail-spritepic.user_num_2_fb_photo {
-                background-position: 1.4% 25.5%;
-        }
-
-        .thumbnail-spritepic.user_num_3_fb_photo {
-                background-position: 0% 40.9144%;
-        }
+}
 
 
-        .label-default {
-            background-color:transparent;
-            color:#EDF684;
-        }
+.content_component_container-spritepic {
+    width:300px;
+    height:300px;
+    background-image: url('../img/shutterstock_157248584.jpg');
+    background-size:600%;
+    background-position: 0% 0%;
+    position:relative;
+    margin:0 auto;
+    vertical-align: top;
 
-        .label-primary {
-            background-color:#28A9D6;
-        }
+}
 
-        .answers {
-                width:100%;
-                margin: 20px 0px 20px 0px;
-                font-family:"icomoon";
-                position:relative;
-                text-align:center;
+/*note this is the temporary generation of pictures from the sprite sheet not the real way photots will be pulled from facebook*/
 
-        }
+.content_component_container-spritepic.user_num_1_fb_photo {        
+    background-position: 1.8% 1.8%;
+}
 
-        .yes-button,
-        .no-button {
-                width:170px;
-                padding:0px 0px 0px 0px;
-                margin:0 auto;
-                font-size:1.5em;
-                border-radius:100%;
-                font-size:8em;
-                
-        }
+.content_component_container-spritepic.user_num_2_fb_photo {
+    background-position: 1.4% 25.5%;
+}
+
+.content_component_container-spritepic.user_num_3_fb_photo {
+    background-position: 0% 40.9144%;
+}
 
 
+.label-default {
+    background-color:transparent;
+    color:#EDF684;
+}
 
-        .answers .na-button{
-            width:60px;
-            border-radius:100%;
-            font-size:2em;
-            font-weight:bold;
-            color:rgba(255, 0, 0, 0.5);
-            border:5px solid rgba(255, 0, 0, 0.5);
-            background:white;
+.label-primary {
+    background-color:#28A9D6;
+}
 
-           
-        }
+.answers {
+    width:100%;
+    margin: 20px 0px 20px 0px;
+    font-family:"icomoon";
+    position:relative;
+    text-align:center;
+
+}
+
+.yes-button,
+.no-button {
+    width:170px;
+    padding:0px 0px 0px 0px;
+    margin:0 auto;
+    font-size:1.5em;
+    border-radius:100%;
+    font-size:8em;
+
+}
 
 
 
-        /*MEDIA QUERIES*/
+.answers .na-button{
+    width:60px;
+    border-radius:100%;
+    font-size:2em;
+    font-weight:bold;
+    color:rgba(255, 0, 0, 0.5);
+    border:5px solid rgba(255, 0, 0, 0.5);
+    background:white;
 
-        /* Extra small devices (phones, less than 768px) */
-        /* No media query since this is the default in Bootstrap */
 
-        /* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
-        
-        @media (min-width: 768px) { 
-        
-        .thumbnail {
-            padding-top:140px;
-        }
-                
-
-         }
-
-        /* Medium devices (desktops, 992px and up) */
-        @media (min-width: 992px) { 
-     
-        .tilepage-container {
-        	margin-top:0px;
-            width:80%;
-            max-width:930px;
-
-        }
-
-        .thumbnail {
-            height:auto;
-            padding-top:30px;
-        }
-
-        .thumbnail-spritepic {
-                width:80%;
-                height:260px;
-                background-image: url('../img/shutterstock_157248584.jpg');
-                background-size:500%;
-                background-position: 0% 0%;
-                vertical-align: top;
-               
-        }
+}
 
 
 
-        .yes-button,
-        .no-button {
-                width:88px;
-                height:88px;
-                padding:0px 0px 0px 0px;
-                margin:0;
-                
-                border-radius:100%;
-                font-size:4.5em;
-                
-        }
+/*MEDIA QUERIES*/
 
-        .answers .na-button{
-            width:30px;
-            border-radius:100%;
-            font-size:1.25em;
-            font-weight:bold;
-            color:rgba(255, 0, 0, 0.5);
-            border:5px solid rgba(255, 0, 0, 0.5);
-            background:white;
-            padding:0px 5px 0px 5px;
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
 
-           
-        }
+/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
 
-                         }
+@media (min-width: 768px) { 
 
-        /* Large devices (large desktops, 1200px and up) */
-        @media (min-width: 1200px) { 
+    .main_content_container {
 
-               .answers {
-                width:100%;
-                margin-top:10px;
-                margin-bottom:30px;
-                margin-left:0px;
-                font-family:"icomoon";
-                padding-left:0px;
+    }    
+
+    .content_component_container {
+        padding-top:140px;
+    }
 
 
-        }
+}
 
-        .yes-button,
-        .no-button {
-                width:100px;
-                height:100px;
-                padding:0px 0px 0px 0px;
-                margin:0;
-                
-                border-radius:100%;
-                font-size:5.25em;
-                
-        }
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
 
-        .answers .na-button{
-            width:40px;
-            border-radius:100%;
-            font-size:1.5em;
-            font-weight:bold;
-            color:rgba(255, 0, 0, 0.5);
-            border:5px solid rgba(255, 0, 0, 0.5);
-            background:white;
-            padding:0px 5px 0px 5px;
 
-           
-        }
-                
-                }
+    .content_component_container {
+        height:auto;
+        padding-top:30px;
+    }
+
+    .content_component_container-spritepic {
+        width:80%;
+        height:260px;
+        background-image: url('../img/shutterstock_157248584.jpg');
+        background-size:500%;
+        background-position: 0% 0%;
+        vertical-align: top;
+
+    }
+
+
+
+    .btn.yes-button,
+    .btn.no-button {
+        width:88px;
+        height:88px;
+        padding:0px 0px 0px 0px;
+        margin:0;
+        border-radius:100%;
+        font-size:4.5em;
+
+    }
+
+    .answers .na-button{
+        width:30px;
+        border-radius:100%;
+        font-size:1.25em;
+        font-weight:bold;
+        color:rgba(255, 0, 0, 0.5);
+        border:5px solid rgba(255, 0, 0, 0.5);
+        background:white;
+        padding:0px 5px 0px 5px;
+
+
+    }
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+ .answers {
+    width:100%;
+    margin-top:10px;
+    margin-bottom:30px;
+    margin-left:0px;
+    font-family:"icomoon";
+    padding-left:0px;
+
+
+}
+
+.btn.yes-button,
+.btn.no-button {
+    width:100px;
+    height:100px;
+    padding:0px 0px 0px 0px;
+    margin:0;
+    border-radius:100%;
+    font-size:5.25em;
+
+}
+
+.answers .na-button{
+    width:40px;
+    border-radius:100%;
+    font-size:1.5em;
+    font-weight:bold;
+    color:rgba(255, 0, 0, 0.5);
+    border:5px solid rgba(255, 0, 0, 0.5);
+    background:white;
+    padding:0px 5px 0px 5px;
+
+
+}
+
+}

@@ -5,572 +5,665 @@
 	font-family: 'Ubuntu Mono', sans-serif;
 	font-family: 'Lobster', cursive;
 	font-family: 'Exo 2', sans-serif;*/
-
 	@font-face {
 		font-family: samarkan;
-		src: url(../fonts/samarkan/SAMARN__.TTF)}
+		src: url(../fonts/samarkan/SAMARN__.TTF)
+	}
 
 
-		@font-face {
-			font-family: 'icomoon';
-			src:url('../fonts/icomoon.eot');
-			src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
-			url('../fonts/icomoon.woff') format('woff'),
-			url('../fonts/icomoon.ttf') format('truetype'),
-			url('../fonts/icomoon.svg#icomoon') format('svg');
-			font-weight: normal;
-			font-style: normal;
-		}
+	@font-face {
+		font-family: 'icomoon';
+		src:url('../fonts/icomoon.eot');
+		src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.woff') format('woff'),
+		url('../fonts/icomoon.ttf') format('truetype'),
+		url('../fonts/icomoon.svg#icomoon') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
 
-		h1, h2, h3, p, label, button, body {
-			font-family: 'Exo 2', sans-serif;
+	h1, h2, h3, p, label, button, body {
+		font-family: 'Exo 2', sans-serif;
+	}
+
+	label, button, .btn,
+	.user_karma_info .glyphicon-chevron-right,
+	.form-group label,
+	.btn-group label,
+	.main_content_container .form-group input,
+	.name_wrapper input,
+	.me_page_button,
+	.delete-button,
+	#sample_query,
+	.caption .btn,
+	.dropdown-menu,
+	.privacy-level,
+	.edit-button,
+	.row.settings_button a,
+	.row.settings_button label,
+	.row .radiobutton   {
+		font-size:2em;
+	}
+
+	.navbar-brand {
+		font-family:samarkan;
+		font-size:3em;
+		color:#FFFFFF;
+
+	}
+
+	.jumbotron h1,
+	.query_instructions {
+		font-weight:bold;
+		font-size:2em;
+	}
+
+	.page-header .container h1 {
+		font-size:3em;
+
+	}
+	.user_karma_info .top-navbar-icon-label {
+		font-size:1.75em;
+	} 
+
+	.user_karma_info .badge-wrapper {
+		font-size:1.25em;
+	}
+
+	.like_karma_police a,
+	.add-friend-button,
+	#submit_button,
+	.me_page_button {
+		font-size:3em;
+
+	}
+
+	.like_karma_police a,
+	.add-friend-button,
+	#sample_query,
+	.row.settings_button a,
+	.row.settings_button label {
+		color: #FFFFEB;
+	}		
+
+	h1 small,
+	.delete-button {
+		color:#333;
+	}
+
+	.help-block {
+		font-size:1.5em;
+	}
+
+	.mobile-header .settings_link {
+		font-size:1.5em; 
+	}
+
+	.signin_container .navbar-brand {
+		font-size:10em;
+	}
+
+	/*IMAGES*/
+
+	.temp-ganesh-logo {
+		width:30px;
+		height:40px;
+		margin-right:5px;
+
+	}
+
+	/*LAYOUT MAIN PAGE ELEMENTS*/
+
+	.all-app-pages {
+		background: url("../img/buddhistpainting2.jpg");
+		background-size:100%;
+	}
+
+	.main_content_container {
+		width:100%;
+		margin-top:7.75%;
+		background:#FFFFEB;
+
+	}
+
+	.col-xs-6,
+	.col-xs-12 {
+		padding:0px;
+		margin:0px;
+	}  
+
+	.content_component_container {
+		position:relative;
+		border: 1px solid #28A9D6;
+		margin: 0 auto;
+		padding:20px;
+		background:#FFFFEB;
+		height:87.5%;
+	}
 
 
-		}
+	.caption{
+		margin: 0 auto;
+		width:95%;
+		padding-top:60px;
+	}
 
-		label, button, .btn {
-			font-size:2em;
-		}
+	.jumbotron {
+		background:transparent;
+		padding:0px;
+		margin:0px;
+	}
 
+	/*LAYOUT FRIEND PAGE ELEMENTS*/
+
+	.fb_friendsarea {
+		padding:0px;
+		width:90%;
+		margin: 0 auto;
+		border: 1px solid #28A9D6;
+		clear:both;
+		background: #0055A5; 
+
+	}
+
+	.fb-column .row{
+		width:100%;
+		margin:0;
+		padding:0;
+		border: 1px solid #28A9D6;
+
+	}
+
+	.friend_fbpic_container {
+		display:inline-block;
+		width:25%;
+		height:auto;
+		padding:10px;
+	}
+
+	.fb_friendpic_small {
+		width:100%;
+		height:auto;
+		margin:0px 5px 0px 0px;
+		padding:5px 15px 5px 15px;
+		background:#28A9D6;
+		border-radius:100%;
+	}
+
+	.friend-name {
+		display:inline-block;
+		padding:0px 0px 0px 20px;
+		color:#FFFFEB;
+		vertical-align: middle;
+
+	}
+
+	.question,
+	.question .form-control {
+		padding:20px;
+		background: #0055A5; 
+		position:relative;
+		border-radius:25px;
+
+		margin:0 auto;
+
+	}
+
+	.question p{
+		font-size:2em;
+		color:#FFFFEB;
+		display:block;
+
+	}
+
+
+	.question span {
+		display:inline-block;
+		font-size:1.25em;
+		margin-bottom:5px;
+
+
+	}
+
+	.privacy-level {
+		background:#28A9D6;
+		font-size:1.5em;
+		border-radius:25px;
+
+	}
+
+	/*NAVBAR*/
+
+	.navbar {
+		background:#28A9D6;
+		border:none;
+
+	}
+
+	.navbar-right {
+		margin-right:0px;
+
+	}
+
+	.navbar .nav.navbar-nav  a{
+		color:#333;
+		text-decoration: none;
+		font-size:1.25em;
+	}
+
+	.navbar .container {
+		margin-top: 15px;
+		margin-bottom:15px;
+	}
+
+	.navbar .navbar-brand {
+		display:block;
+		padding-top:10px;
+		margin-top:10px;
+		padding-bottom:10px;
+		position:relative;
+		color:rgba(255, 255, 204, 1);
+
+	}
+
+	.navbar-form {
+		position:relative;
+		width:auto;
+	}
+
+	.form-group {
+		width:250px;	
+		float:left;
+
+	}
+
+	.form-control{
+		border-radius:25px;
+		padding-right:20px;
+		width:90%;
+		margin-right:-20px;
+	}
+
+
+	.btn-submit.top-navbar {
+		position:absolute;
+		right:5%;
+		color:#555;
+		background:transparent;
+		white-space:nowrap;
+		font-size:1em;
+	}
+
+	.ganesh-dropdown {
+		padding-top:0px;
+		padding-bottom:0px;
+		margin-top:-10px;
+		border-radius:100%;
+		background:transparent;
+	}
+
+	.mobile-searchbox-row {
+		width:100%;
+		margin:auto 0;
+	}
+
+	.mobile-searchbox-container {
+		margin: auto;
+		width:100%;
+		padding-top:15px;
+
+	}
+
+	.mobile-searchbox {
+		position:relative;
+		text-align: center;
+	}
+
+	.mobile-searchbox .form-group {
+		width:100%;
+		padding-bottom:20px;
+	}
+
+	.mobile-searchbox .form-control{
+		width:90%;
+		margin: 0 auto;
+		text-align:left;
+		height:auto;
+		padding:10px;
+		font-size:2em;
+	}
+
+	.mobile-searchbox .btn-submit.top-navbar {
+		vertical-align:middle;
+		right:10%;
+		font-size:2em;
+		padding-top:10px;
+	}
+
+
+	/*MOBILE TOP NAVBAR*/	
+
+	.mobile-header {
+		background:#28A9D6;
+		height:7.75%;
+		text-align:center;
+
+	}
+
+	.mobile-header .navbar-brand {
+		display:block;
+		width:100%;
+		text-align: center;
+		margin: 0 auto;
+		padding-top:5px;
+		padding-bottom:5px;
+		font-size:2.5em;
+
+	}
+
+	.mobile-header ul li a {
+		color:#FFFFFF;
+	}
+
+	.mobile-header ul li .btn {
+		margin-top:0px;
+		color:#FFFFFF;
+		font-size:1em;
+	}
+
+	.mobile-header ul li a:focus,
+	.mobile-header ul li a:hover,
+	.mobile-header ul li .onpage {
+		background:transparent;
+		border:none;
+
+	}
+
+
+	.top-navbar-icon {
+		position:absolute;
+		left:75%;
+		clear:none;
+		margin-top:5px;
+		margin-bottom:5px;
+		margin-right:30px;
+		border-radius:25px;
+		border:5px solid rgba(255,255,255,0.5);	
+		background: rgba(255,255,255,0.5);
+		padding:0px 10px 0px 10px;
+
+
+	}
+
+	.top-navbar-icon.edit {
+		border:none;
+		background:transparent;
+	}
+
+	.top-navbar-icon-label {
+		color:white;
+		font-size:1em;
+		display:inline-block;
+		margin-right:5px;
+		padding-top:5px;
+		padding-bottom:10px;
+	}
+
+	.top-navbar-icon-label p {
+		display:block;
+		line-height: 0.35;
+		margin-bottom:0px;
+		margin-top:5px;
+		padding-top:5px;
+		padding-bottom:5px;
+
+	}
+
+	.first-label {
+		padding-top:0px;
+		padding-bottom:5px;
+		margin-top:0px;
+
+	}
+
+	.badge-wrapper {
+		padding-bottom:5px;
+		display:inline-block;
+		padding-top:7px;
+		vertical-align: top;
+	}
+
+	.badge {
+		display:inline-block;
+		font-size:2em;
+		padding:5px;
+		background:transparent;
+
+
+	}
+
+	.pencil {
+		border:none;
+		background:transparent;
+		display:block;
+		font-size:2em;
+		left:60%;
+		padding:15px 120px 0px 0px;
+	}
+
+	/*PAGE HEADER*/
+
+	.page-header {
+		padding-top:100px;
+		padding-bottom:30px;
+		background: rgba(255, 255, 204, 0.7);
+
+	}
+
+	.page-header .container {
+		position:relative;
+
+	}
+
+	.page-header h1 {
+		display:inline-block;
+		float:left;
+	}
+
+
+	/*MOBLE BOTTOM NAVBAR*/
+
+	.mobile-footer {
+		position:fixed;
+		bottom:0%;
+		height:10%;
+		width:100%;
+		background:#28A9D6;
+
+	}
+
+	.mobile-footer ul {
+		padding:0px 0px 5px 22px;
+		margin-top:-15px;
+
+	}
+
+	.mobile-footer ul li {
+		display:inline;
+		width:auto;
+		float:left;
+		padding-right:7px;
+		padding-left:7px;
+		margin:0 auto;
+		padding-top:0px;
+
+	}
+
+	.mobile-footer ul li a {
+		color:#FFFFFF;
+
+	}
+
+	.btn.bottom-navbar-icon {
+		display:inline;
+		font-size:0.75em;
+		background:transparent;
+		border:none;
+		margin:0px 10px 10px 10px;
+		vertical-align: middle;
+	}
+
+	.bottom-navbar-icon-label{
+		display:inline;
+		background:transparent;
+		margin:-5px 0px 0px 0px;
+	}
+
+	.bottom-navbar-icon:focus, 
+	.bottom-navbar-icon:hover,
+	.bottom-navbar-icon:active
+	{
+		background:transparent;
+
+	}
+
+	.mobile-footer ul li a:focus,
+	.mobile-footer ul li a:hover,
+	.mobile-footer ul li .onpage {
+		background:transparent;
+		border:none;
+		color:#EDF684;
+	}
+
+	.mobile-footer ul li .onpage {
+
+	}
+
+	[data-icon]:before {
+		font-family:'icomoon';
+		content: attr(data-icon);
+		margin-right:0px;
+		padding-bottom:10px;
+		padding-top:5px;
+		speak:none;
+		display:block;
+		font-size:2.5em;
+	}
+
+	.mobile-footer span {
+		font-size:1em;
+		margin-left:0px;
+		display:block;
+
+	}
+
+	.screen-footer {
+		height:60px;
+		margin-top:40px;
+		color:#333;
+	}
+
+	.screen-footer p {
+		color:white;
+		font-size:1.25em;
+		display:block;
+		padding-top:20px;
+		padding-left:50px;
+	}
+
+	/*MEDIA QUERIES*/
+
+	/* Extra small devices (phones, less than 768px) */
+	/* No media query since this is the default in Bootstrap */
+
+	/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
+	@media (min-width: 768px) { 
 
 		.navbar-brand {
-			font-family:samarkan;
-			font-size:3em;
-			color:#FFFFFF;
+			font-size:4em;
+			left:10%;
 
 		}
 
-		h1 small {
-			color:#333;
-		}
-
-
-		/*IMAGES*/
-
-		.temp-ganesh-logo {
-			width:30px;
-			height:40px;
-			margin-right:5px;
+		.btn-submit.top-navbar {
+			right:10%;
 
 		}
 
-		/*LAYOUT MAIN PAGE ELEMENTS*/
+		.navbar-right {
+			margin-right:90px;
 
-		.all-app-pages {
-			background: url("../img/buddhistpainting2.jpg");
+		}
+		.navbar-collapse { 
+			padding-right:0px;
+			position:absolute;
+			left:50%;
+			background:transparent;
+			margin-top:0px;
 
-			background-size:100%;
 		}
 
-		.questionarea_container,
-		.friendsarea_container,
-		.tilepage-container
-
-		{
+		.main_content_container {
 			width:100%;
-			margin-top:85px;
-			background:#FFFFEB;
-
-		}
-
-		.col-xs-6,
-		.col-xs-12 {
-			padding:0px;
-			margin:0px;
+			margin-top:155px;
 		}  
 
-		.new_query,
-		.recent_query,
-		.thumbnail {
-			position:relative;
-			border: 1px solid #28A9D6;
-			margin: 0 auto;
-			padding:20px;
-			background:#FFFFEB;
-			height:1138px;
-		}
+	}
+
+	/* Medium devices (desktops, 992px and up) */
+	@media (min-width: 992px) { 
 
 
-		.caption{
-			margin: 0 auto;
-			width:95%;
-			padding-top:60px;
-		}
 
-		.jumbotron {
-			background:transparent;
-			padding:0px;
-			margin:0px;
-		}
-
-		/*LAYOUT FRIEND PAGE ELEMENTS*/
-
-		.fb_friendsarea {
-			padding:0px;
-			width:90%;
-			margin: 0 auto;
-			border: 1px solid #28A9D6;
-			clear:both;
-			background: #0055A5; 
+		.navbar .container {
+			padding-top:20px;
+			margin-top:20px;
 
 		}
 
-		.fb-column .row{
-			width:100%;
-			margin:0;
-			padding:0;
-			border: 1px solid #28A9D6;
+		.navbar-collapse { 
+			padding-right:0px;
+			position:absolute;
+			left:70%;
+
 
 		}
 
-		.friend_fbpic_container {
-			display:inline-block;
-			width:25%;
-			height:auto;
-			padding:10px;
-		}
-
-		.fb_friendpic_small {
-			width:100%;
-			height:auto;
-			margin:0px 5px 0px 0px;
-			padding:5px 15px 5px 15px;
-			background:#28A9D6;
-			border-radius:100%;
-		}
-
-		.friend-name {
-			display:inline-block;
-			padding:0px 0px 0px 20px;
-			color:#FFFFEB;
-			vertical-align: middle;
+		.navbar-brand {
+			font-size:4em;
+			left:5%;
+			padding-bottom:20px;
 
 		}
 
-		.question,
-		.question .form-control {
-            padding:20px;
-            background: #0055A5; 
-            position:relative;
-            border-radius:25px;
-            
-            margin:0 auto;
-
-        }
-
-        .question p{
-            font-size:2em;
-            color:#FFFFEB;
-            display:block;
-
-        }
-}
-
-        .question span {
-            display:inline-block;
-            font-size:1.25em;
-            margin-bottom:5px;
-          
-
-        }
-
-        .privacy-level {
-            background:#28A9D6;
-            font-size:1.5em;
-            border-radius:25px;
-
-        }
-
-		/*NAVBAR*/
-
-		.navbar {
-			background:#28A9D6;
-			border:none;
+		.btn-submit.top-navbar {
+			right:15%;
 
 		}
 
 		.navbar-right {
 			margin-right:0px;
-
 		}
 
-		.navbar .nav.navbar-nav  a{
-			color:#333;
-			text-decoration: none;
-			font-size:1.25em;
-		}
+		.questionarea_container,
+		.friendsarea_container,
+		.tilepage-container,
+		.main_content_container
 
-		.navbar .container {
-			margin-top: 15px;
-			margin-bottom:15px;
-		}
-
-		.navbar .navbar-brand {
-			display:block;
-			padding-top:10px;
-			margin-top:10px;
-			padding-bottom:10px;
-			position:relative;
-			color:rgba(255, 255, 204, 1);
-
-		}
-
-		.navbar-form {
-			position:relative;
-			width:auto;
-		}
-
-		.form-group {
-			width:250px;	
-			float:left;
-
-		}
-
-		.form-control{
-			border-radius:25px;
-			padding-right:20px;
-			width:90%;
-			margin-right:-20px;
-		}
-
-
-		.btn-submit.top-navbar {
-			position:absolute;
-			right:5%;
-			color:#555;
-			background:transparent;
-			white-space:nowrap;
-			font-size:1em;
-		}
-
-		.ganesh-dropdown {
-			padding-top:0px;
-			padding-bottom:0px;
-			margin-top:-10px;
-			border-radius:100%;
-			background:transparent;
-		}
-
-	/*non-binding 
-	.dropdown-item a{
-		color:#333;
-		background:black;
-		}*/
-
-		.mobile-searchbox-row {
-			width:100%;
-			margin:auto 0;
-		}
-
-		.mobile-searchbox-container {
-			margin: auto;
-			width:100%;
-			padding-top:15px;
-
-		}
-
-		.mobile-searchbox {
-			position:relative;
-			text-align: center;
-		}
-
-		.mobile-searchbox .form-group {
-			width:100%;
-			padding-bottom:20px;
-		}
-
-		.mobile-searchbox .form-control{
-			width:90%;
-			margin: 0 auto;
-			text-align:left;
-			height:auto;
-			padding:10px;
-			font-size:2em;
-		}
-
-		.mobile-searchbox .btn-submit.top-navbar {
-			vertical-align:middle;
-			right:10%;
-			font-size:2em;
-			padding-top:10px;
-		}
-
-
-		/*MOBILE TOP NAVBAR*/	
-
-
-		.mobile-header {
-			background:#28A9D6;
-			color:white;
-			height:88px;
-			text-align:center;
-
-
-
-		}
-
-		.mobile-header .navbar-brand {
-			color:white;
-			display:block;
-			width:100%;
-			text-align: center;
-			margin: 0 auto;
-			padding-top:30px;
-			padding-bottom:20px;
-			font-size:3em;
-				
-		}
-
-		.mobile-header ul li a {
-			color:#FFFFFF;
-		}
-
-		.mobile-header ul li .btn {
-			margin-top:0px;
-			color:#FFFFFF;
-			font-size:1em;
-		}
-
-		.mobile-header ul li a:focus,
-		.mobile-header ul li a:hover,
-		.mobile-header ul li .onpage {
-			background:transparent;
-			border:none;
-
-		}
-
-
-		.top-navbar-icon {
-			position:absolute;
-			left:75%;
-			clear:none;
-			margin-top:5px;
-			margin-bottom:5px;
-			margin-right:30px;
-			border-radius:25px;
-			border:5px solid rgba(255,255,255,0.5);	
-			background: rgba(255,255,255,0.5);
-			padding:0px 10px 0px 10px;
-
-
-		}
-
-		.top-navbar-icon.edit {
-			border:none;
-			background:transparent;
-		}
-
-		.top-navbar-icon-label {
-			color:white;
-			font-size:1em;
-			display:inline-block;
-			margin-right:5px;
-			padding-top:5px;
-			padding-bottom:10px;
-		}
-
-		.top-navbar-icon-label p {
-			display:block;
-			line-height: 0.35;
-			margin-bottom:0px;
-			margin-top:5px;
-			padding-top:5px;
-			padding-bottom:5px;
-
-		}
-
-		.first-label {
-			padding-top:0px;
-			padding-bottom:5px;
-			margin-top:0px;
-
-		}
-
-		.badge-wrapper {
-			padding-bottom:5px;
-			display:inline-block;
-			padding-top:7px;
-			vertical-align: top;
-		}
-
-		.badge {
-			display:inline-block;
-			font-size:2em;
-			padding:5px;
-			background:transparent;
-
-
-		}
-
-		.pencil {
-			border:none;
-			background:transparent;
-			display:block;
-			font-size:2em;
-			left:60%;
-			padding:15px 120px 0px 0px;
-		}
-
-		/*PAGE HEADER*/
-
-		.page-header {
-			padding-top:100px;
-			padding-bottom:30px;
-			background: rgba(255, 255, 204, 0.7);
-
-		}
-
-		.page-header .container {
-			position:relative;
-
-		}
-
-		.page-header h1 {
-			display:inline-block;
-			float:left;
-		}
-
-
-		/*MOBLE BOTTOM NAVBAR*/
-
-		.mobile-footer {
-			position:fixed;
-			bottom:0%;
-			height:98px;
-			width:100%;
-			background:#28A9D6;
-			color:white;
-
-
-		}
-
-		.mobile-footer ul {
-			margin-left:0px;
-			padding-top:0px;
-			padding-bottom:10px;
-
-		}
-
-		.mobile-footer ul li {
-			display:inline;
-			width:auto;
-			float:left;
-			padding-right:15px;
-			padding-left:20px;
-		}
-
-		.mobile-footer ul li a {
-
-			color:#FFFFFF;
-
-		}
-
-		.bottom-navbar-icon {
-			display:inline;
-			font-size:1em;
-			background:transparent;
-			border:none;
-		}
-
-		.bottom-navbar-icon-label{
-			padding-top:5px;
-			display:inline;
-			background:transparent;
-		}
-
-		.bottom-navbar-icon:focus, 
-		.bottom-navbar-icon:hover,
-		.bottom-navbar-icon:active
 		{
-			background:transparent;
+			width:80%;
+			max-width:930px;
+			background:#FFFFEB;
+			margin: 0 auto;
 
 		}
 
-		.mobile-footer ul li a:focus,
-		.mobile-footer ul li a:hover,
-		.mobile-footer ul li .onpage {
-			background:transparent;
-			border:none;
-			color:#EDF684;
-		}
-
-
-		[data-icon]:before {
-			font-family:'icomoon';
-			content: attr(data-icon);
-			margin-right:0px;
-			padding-bottom:10px;
-			padding-top:5px;
-			speak:none;
-			display:block;
-			font-size:2.5em;
-		}
-
-		.mobile-footer span {
-			font-size:1em;
-			margin-left:0px;
-			display:block;
-
-		}
-
-		.screen-footer {
-			height:60px;
-			margin-top:40px;
-			color:#333;
-		}
-
-		.screen-footer p {
-			color:white;
-			font-size:1.25em;
-			display:block;
-			padding-top:20px;
-			padding-left:50px;
-		}
-
-		/*MEDIA QUERIES*/
-
-		/* Extra small devices (phones, less than 768px) */
-		/* No media query since this is the default in Bootstrap */
-
-		/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
-		@media (min-width: 768px) { 
-
+		/* Large devices (large desktops, 1200px and up) */
+		@media (min-width: 1200px) { 
 			.navbar-brand {
-				font-size:4em;
+				font-size:5em;
 				left:10%;
 
-			}
-
-			.btn-submit.top-navbar {
-				right:10%;
-
-			}
-
-			.navbar-right {
-				margin-right:90px;
-
-			}
-			.navbar-collapse { 
-				padding-right:0px;
-				position:absolute;
-				left:50%;
-				background:transparent;
-				margin-top:0px;
-
-			}
-
-			
-
-		}
-
-		/* Medium devices (desktops, 992px and up) */
-		@media (min-width: 992px) { 
-
-
-
-			.navbar .container {
-				padding-top:20px;
-				margin-top:20px;
 
 			}
 
@@ -579,53 +672,6 @@
 				position:absolute;
 				left:70%;
 
+			}	
 
-			}
-
-			.navbar-brand {
-				font-size:4em;
-				left:5%;
-				padding-bottom:20px;
-
-			}
-
-			.btn-submit.top-navbar {
-				right:15%;
-
-			}
-
-			.navbar-right {
-				margin-right:0px;
-			}
-
-			.questionarea_container,
-			.friendsarea_container,
-			.tilepage-container,
-
-			{
-				width:80%;
-				margin-top:85px;
-				max-width:930px;
-				background:#FFFFEB;
-
-			}
-
-
-
-			/* Large devices (large desktops, 1200px and up) */
-			@media (min-width: 1200px) { 
-				.navbar-brand {
-					font-size:5em;
-					left:10%;
-
-
-				}
-
-				.navbar-collapse { 
-					padding-right:0px;
-					position:absolute;
-					left:70%;
-
-				}	
-
-			}
+		}
