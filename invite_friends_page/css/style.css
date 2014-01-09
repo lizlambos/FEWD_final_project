@@ -51,26 +51,11 @@
 	padding-top:20px;
 }
 
-
-/*.invite-friends.form-group {
-	margin-bottom:20px;
-	position:relative;
-
+.jumbotron h1 {
+	font-weight:bold;
+	font-size:2em;
 }
 
-
-.invite-friends.form-group input, 
-.mobile-searchbox button span
-	 {
-		font-size:1.5em;
-		height:auto;
-
-	}
-
-.mobile-searchbox button {
-		left:85%;
-		padding-top:10px;
-	}*/
 
 
 .friend-name h2 {

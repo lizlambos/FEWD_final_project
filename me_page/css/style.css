@@ -46,6 +46,13 @@
 	clear:none;
 }
 
+/*HEADER*/
+
+.page-header .container h1 {
+	margin-left:150px;
+	font-size:3em;
+}
+
 /*PROFILE AREA*/ 
 
 .row
@@ -211,7 +218,7 @@
 
 
 
-.form-group input,
+.friendsarea_container .form-group input,
 .name_wrapper input {
 	border-radius: 0px;
 	width:100%;
@@ -281,7 +288,7 @@
 
 	.friendsarea_container {
 		width:100%;
-		margin-top:75px;
+		margin-top:155px;
 
 		
 

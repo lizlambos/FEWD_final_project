@@ -34,6 +34,7 @@
 
         .recent_query {
             height:auto;
+            padding-top:0px;
         }
 
         .caption {
@@ -42,7 +43,8 @@
 
         .label_wrapper {
             padding:0px 0px 20px 0px;
-            margin: 0 auto;
+           
+            clear:none;
             
         }
 
@@ -58,18 +60,24 @@
             font-size:2em;
             margin-right:20px;
             color:#ccc;
+            padding:0;
 
         }
 
         .privacy-level,
         .edit-button {
-             font-size:1.5em;
+             font-size:2em;
+             padding:10px;
         }
 
-        .delete-button, 
-        .edit-button {
+        .delete-button,  {
             background: transparent;
         }
+
+        .edit-button {
+            color:#0055A0;
+            background:#CCC; 
+            border-radius:25px;       }
 
 
         .btn-group {
@@ -77,12 +85,12 @@
         }
 
         .dropdown-menu {
-            font-size:1.5em;
+            font-size:2em;
         }
 
 
         .answers {
-            
+            text-align: center;
             margin: 0 auto;
             padding:20px;
             font-family:"icomoon";
@@ -159,11 +167,16 @@
          }
 
          .label_wrapper {
-            padding:80px 0px 20px 0px;
+            padding:40px 0px 20px 0px;
             
             
         }
 
+          .caption {
+            padding-top:0px;
+        }
+
+}
 
 
         

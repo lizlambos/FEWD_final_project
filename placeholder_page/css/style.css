@@ -1,0 +1,109 @@
+/*LESS COLORS not sure how to use at this point*/
+
+@color{
+
+	@colorback1:#142952;
+	@fontcolor1:#333; /*dark grey*/
+	@bordercolor1:#3399FF; /*light blue*/
+	@bordercolor2:#28A9D6;/*light blue USED*/
+	@colorback2:#FFFFEB;/*light yellow*/
+	@colorback3:#0055A5; /*navy blue USED*/
+	@yesbuttoncolor:
+	@nobuttoncolor:
+	@nabuttonborder:
+	@postdatelabelcolor:
+	@friendsstatuslabelcolor;
+
+
+	/*Green and Blue theme*/
+
+	@darkblue: #0055A5;
+	@lightblue: #28A9D6;
+	@white: #FFFFFF;
+	@limegreen:#C2D52C;
+	@lightyellow:#EDF684;
+
+}
+
+
+/*REPEATED ITEMS*/
+
+@font-face {
+	font-family: samarkan;
+	src: url(../../fonts/samarkan/SAMARN__.TTF)
+}
+
+.all-app-pages {
+	background: #28A9D6;
+	background-size:100%;
+}	
+
+
+/*MOBILE NAV*/
+
+
+
+/*PLACEHOLDER CONTAINER*/
+
+.signin_container {
+	text-align:center;
+	width:100%;
+	height:auto;
+	padding:40px;
+	position:relative;
+	margin-top:400px;
+	margin-bottom:300px;
+
+}
+
+.signin_container h1 {
+	display:block;
+	width:100%;
+	line-height: 0.35;
+}
+
+.navbar-brand {
+	font-size:10em;
+	display:block;
+
+}
+
+.navbar-brand1 {
+	margin-left:-20px;
+}
+
+.navbar-brand2 {
+	margin-left:35px;
+	margin-bottom:50px;
+}
+
+
+
+
+/*MEDIA QUERIES*/
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
+
+@media (min-width: 768px) { 
+
+}
+
+
+
+
+	/* Medium devices (desktops, 992px and up) */
+	@media (min-width: 992px) { 
+
+		
+
+	}
+
+	/* Large devices (large desktops, 1200px and up) */
+	@media (min-width: 1200px) { 
+
+		
+
+	}

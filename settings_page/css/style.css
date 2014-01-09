@@ -56,6 +56,13 @@
 	
 }
 
+/*HEADER*/
+
+.page-header .container h1 {
+	margin-left:150px;
+	font-size:3em;
+}
+
 /*SETTINGS AREA*/ 
 
 .row

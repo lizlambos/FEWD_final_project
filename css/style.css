@@ -44,15 +44,21 @@ Green and Blue theme
 			font-style: normal;
 		}
 
-		h1, h2, h3, p, label, button {
+		h1, h2, h3, p, label, button, body {
 			font-family: 'Exo 2', sans-serif;
 
+
+		}
+
+		label, button, .btn {
+			font-size:2em;
 		}
 
 
 		.navbar-brand {
 			font-family:samarkan;
 			font-size:3em;
+			color:#FFFFFF;
 
 		}
 
@@ -174,7 +180,7 @@ Green and Blue theme
         }
 
         .question p{
-            font-size:1.5em;
+            font-size:2em;
             color:#FFFFEB;
             display:block;
 
