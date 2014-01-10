@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet/less" href="../less/styles.css" type="text/css">
+  <link rel="stylesheet/less" href="../less/styles.css" type="text/css">
   <script src="../js/less.js"></script> 
   <link href="../css/style.css" rel="stylesheet" media="screen">
   <link href="css/style.css" rel="stylesheet" media="screen">
@@ -55,7 +55,7 @@
 
        <form class="navbar-form form-inline navbar-left hidden-sm hidden-xs" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search for your friends">
+          <input type="text" class="form-control" placeholder="Find your friends">
         </div>
         <button type="submit" class="btn  btn-submit btn-inline top-navbar"> <span class="glyphicon glyphicon-search"></span></button>
       </form>
@@ -82,21 +82,21 @@
       </div><!--collapse navbar-->
 
 
-      </div><!--row-->
+    </div><!--row-->
 
 
-     <div class="row mobile-searchbox-row hidden-xs hidden-xl hidden-lg hidden-md">
-        <div class="mobile-searchbox-container">
-         <form class="form-inline mobile-searchbox" role="search">
-          <div class="form-group">
-            <input type="text" class="mobile-searchbox form-control" placeholder="Search for your friends">
-          </div>
-          <button type="submit" class="btn btn-submit btn-inline top-navbar"> <span class="glyphicon glyphicon-search"></span></button>
+    <div class="row mobile-searchbox-row hidden-xs hidden-xl hidden-lg hidden-md">
+      <div class="mobile-searchbox-container">
+       <form class="form-inline mobile-searchbox" role="search">
+        <div class="form-group">
+          <input type="text" class="mobile-searchbox form-control" placeholder="Search for your friends">
         </div>
-      </form>
-    </div><!--mobile-searchbox-container-->
+        <button type="submit" class="btn btn-submit btn-inline top-navbar"> <span class="glyphicon glyphicon-search"></span></button>
+      </div>
+    </form>
+  </div><!--mobile-searchbox-container-->
 
-  </div> <!--row2 for mobile-->
+</div> <!--row2 for mobile-->
 
 </div> <!--container-->    
 
@@ -111,14 +111,6 @@
     <li>
       <a href="#" class="navbar-brand hidden-sm hidden-md hidden-lg hidden-xl">Get Karma</a>
     </li>
-    <li>
-      <div class="top-navbar-icon"href="#">
-        <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
-        <div class="badge-wrapper"><span class="badge">18</span></div> 
-      </div>
-
-    </li>
-
   </ul>
 
 </nav>
@@ -140,6 +132,19 @@
 <!-- tilepage -->
 
 <div class="container main_content_container">
+
+  <div class="row scoreboard hidden-xs hidden-sm">
+    <div class="col-xs-12">
+      <div class="scoreboard">
+        <h1>My Current Karma Score</h1>
+      <div class="karma_points_display"href="#">
+            
+              <div class="badge-wrapper"><span class="badge">18</span></div> 
+            </div>
+      </div>
+    </div>
+
+  </div>
   <div class="row">
 
     <div class="col-xs-12 col-md-4 photo-col">
@@ -147,31 +152,35 @@
       <div class="row">
         <div class="col-xs-12">
 
-           <div class="content_component_container">
-            <div class="user-info-wrapper">
-              <div class="content_component_container-spritepic img-circle user_num_1_fb_photo">
-          </div>  
-          <h3 class="user-name">Bob Jones</h3> 
-        </div><!--user-info-wrapper-->
-        
-        <div class="caption">
-          <div class="question">
-            <p>Am I annoying when I drink at parties?</p>
-              <span class="label label-default">Posted: 4 days ago</span>
-              <span class="label label-primary">All FB friends</span>  
-          </div>
-          <div class="answers">
+         <div class="content_component_container">
+             <button type="button" class="btn btn-default delete-button hidden-xs hidden-sm"><span class="glyphicon glyphicon-remove-circle"></span></button>
+            <div class="top-navbar-icon hidden-md hidden-lg hidden-xl"href="#">
+              <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
+              <div class="badge-wrapper"><span class="badge">18</span></div> 
+            </div>
+          <div class="user-info-wrapper">
+            <div class="content_component_container-spritepic img-circle user_num_1_fb_photo">
+            </div>  
+            <h3 class="user-name">Bob Jones</h3> 
+          </div><!--user-info-wrapper-->
+
+          <div class="caption">
+            <div class="question">
+              <p>Am I annoying when I drink at parties?</p>
+              <span class="label label-default"><span class="glyphicon glyphicon-time"></span>4 days</span>
+            </div>
+            <div class="answers">
              <a href="#" class="btn  btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
              <a href="#" class="btn btn-default btn-inline  na-button" role="button">?</a>
              <a href="#" class="btn btn-inline btn-warning no-button" role="button">&#xe612;</a>
-          </div>
-        </div>
+           </div>
+         </div>
 
-      </div><!--content_component_container-->
-    </div><!--column-->
-  </div><!--row-->
+       </div><!--content_component_container-->
+     </div><!--column-->
+   </div><!--row-->
 
-  <div class="row">
+   <div class="row">
     <div class="col-xs-12">
       <div class="content_component_container">
         <div class="user-info-wrapper">
@@ -183,19 +192,19 @@
         <div class="caption">
           <div class="question">
             <p>Am I annoying when I drink at parties?</p>
-              <span class="label label-default">Posted: 4 days ago</span>
-              <span class="label label-primary">All FB friends</span>  
+            <span class="label label-default">Posted: 4 days ago</span>
+            <span class="label label-primary">All FB friends</span>  
           </div>
           <div class="answers">
-             <a href="#" class="btn btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
-             <a href="#" class="btn btn-default btn-inline  na-button" role="button">?</a>
-             <a href="#" class="btn btn-warning btn-inline  no-button" role="button">&#xe612;</a>
-          </div>
-        </div>
+           <a href="#" class="btn btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
+           <a href="#" class="btn btn-default btn-inline  na-button" role="button">?</a>
+           <a href="#" class="btn btn-warning btn-inline  no-button" role="button">&#xe612;</a>
+         </div>
+       </div>
 
-      </div><!--content_component_container-->
-    </div><!--column-->
-  </div><!--row-->
+     </div><!--content_component_container-->
+   </div><!--column-->
+ </div><!--row-->
 
 </div><!--column-->  
 
@@ -214,46 +223,46 @@
         <div class="caption">
           <div class="question">
             <p>Am I annoying when I drink at parties?</p>
-              <span class="label label-default">Posted: 4 days ago</span>
-              <span class="label label-primary">All FB friends</span>  
+            <span class="label label-default">Posted: 4 days ago</span>
+            <span class="label label-primary">All FB friends</span>  
           </div>
           <div class="answers">
-             <a href="#" class="btn btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
-             <a href="#" class="btn btn-default btn-inline  na-button" role="button">?</a>
-             <a href="#" class="btn btn-warning btn-inline  no-button" role="button">&#xe612;</a>
-          </div>
-        </div><!--caption-->
+           <a href="#" class="btn btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
+           <a href="#" class="btn btn-default btn-inline  na-button" role="button">?</a>
+           <a href="#" class="btn btn-warning btn-inline  no-button" role="button">&#xe612;</a>
+         </div>
+       </div><!--caption-->
 
-      </div><!--content_component_container-->
-      
-    </div><!--column-->
-  </div><!--row-->
+     </div><!--content_component_container-->
 
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="content_component_container">
-        <div class="user-info-wrapper">
-          <div class="content_component_container-spritepic img-circle user_num_2_fb_photo">
-          </div>  
-          <h3 class="user-name">Grace Lee</h3> 
-        </div><!--user-info-wrapper-->
-        
-        <div class="caption">
-          <div class="question">
-            <p>Am I annoying when I drink at parties?</p>
-              <span class="label label-default">Posted: 4 days ago</span>
-              <span class="label label-primary">All FB friends</span>  
-          </div>
-          <div class="answers">
-             <a href="#" class="btn btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
-             <a href="#" class="btn btn-default btn-inline  na-button" role="button">?</a>
-             <a href="#" class="btn btn-warning btn-inline  no-button" role="button">&#xe612;</a>
-          </div>
+   </div><!--column-->
+ </div><!--row-->
+
+ <div class="row">
+  <div class="col-xs-12">
+    <div class="content_component_container">
+      <div class="user-info-wrapper">
+        <div class="content_component_container-spritepic img-circle user_num_2_fb_photo">
+        </div>  
+        <h3 class="user-name">Grace Lee</h3> 
+      </div><!--user-info-wrapper-->
+
+      <div class="caption">
+        <div class="question">
+          <p>Am I annoying when I drink at parties?</p>
+          <span class="label label-default">Posted: 4 days ago</span>
+          <span class="label label-primary">All FB friends</span>  
         </div>
+        <div class="answers">
+         <a href="#" class="btn btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
+         <a href="#" class="btn btn-default btn-inline  na-button" role="button">?</a>
+         <a href="#" class="btn btn-warning btn-inline  no-button" role="button">&#xe612;</a>
+       </div>
+     </div>
 
-      </div><!--content_component_container-->
-    </div><!--column-->
-  </div><!--row-->
+   </div><!--content_component_container-->
+ </div><!--column-->
+</div><!--row-->
 
 </div><!--column-->  
 
@@ -271,45 +280,45 @@
         <div class="caption">
           <div class="question">
             <p>Am I annoying when I drink at parties?</p>
-              <span class="label label-default">Posted: 4 days ago</span>
-              <span class="label label-primary">All FB friends</span>  
+            <span class="label label-default">Posted: 4 days ago</span>
+            <span class="label label-primary">All FB friends</span>  
           </div>
           <div class="answers">
-             <a href="#" class="btn btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
-             <a href="#" class="btn btn-default btn-inline  na-button" role="button">?</a>
-             <a href="#" class="btn btn-warning btn-inline  no-button" role="button">&#xe612;</a>
-          </div>
+           <a href="#" class="btn btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
+           <a href="#" class="btn btn-default btn-inline  na-button" role="button">?</a>
+           <a href="#" class="btn btn-warning btn-inline  no-button" role="button">&#xe612;</a>
+         </div>
+       </div>
+
+     </div><!--content_component_container-->
+   </div><!--column-->
+ </div><!--row-->
+
+ <div class="row">
+  <div class="col-xs-12">
+    <div class="content_component_container">
+      <div class="user-info-wrapper">
+        <div class="content_component_container-spritepic img-circle user_num_2_fb_photo">
+        </div>  
+        <h3 class="user-name">Grace Lee</h3> 
+      </div><!--user-info-wrapper-->
+
+      <div class="caption">
+        <div class="question">
+          <p>Am I annoying when I drink at parties?</p>
+          <span class="label label-default">Posted: 4 days ago</span>
+          <span class="label label-primary">All FB friends</span>  
         </div>
+        <div class="answers">
+         <a href="#" class="btn btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
+         <a href="#" class="btn btn-default btn-inline  na-button" role="button">?</a>
+         <a href="#" class="btn btn-warning btn-inline  no-button" role="button">&#xe612;</a>
+       </div>
+     </div>
 
-      </div><!--content_component_container-->
-    </div><!--column-->
-  </div><!--row-->
-
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="content_component_container">
-        <div class="user-info-wrapper">
-          <div class="content_component_container-spritepic img-circle user_num_2_fb_photo">
-          </div>  
-          <h3 class="user-name">Grace Lee</h3> 
-        </div><!--user-info-wrapper-->
-        
-        <div class="caption">
-          <div class="question">
-            <p>Am I annoying when I drink at parties?</p>
-              <span class="label label-default">Posted: 4 days ago</span>
-              <span class="label label-primary">All FB friends</span>  
-          </div>
-          <div class="answers">
-             <a href="#" class="btn btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
-             <a href="#" class="btn btn-default btn-inline  na-button" role="button">?</a>
-             <a href="#" class="btn btn-warning btn-inline  no-button" role="button">&#xe612;</a>
-          </div>
-        </div>
-
-      </div><!--content_component_container-->
-    </div><!--column-->
-  </div><!--row-->
+   </div><!--content_component_container-->
+ </div><!--column-->
+</div><!--row-->
 
 </div><!--column-->  
 
@@ -327,45 +336,45 @@
         <div class="caption">
           <div class="question">
             <p>Am I annoying when I drink at parties?</p>
-              <span class="label label-default">Posted: 4 days ago</span>
-              <span class="label label-primary">All FB friends</span>  
+            <span class="label label-default">Posted: 4 days ago</span>
+            <span class="label label-primary">All FB friends</span>  
           </div>
           <div class="answers">
-             <a href="#" class="btn btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
-             <a href="#" class="btn btn-default btn-inline  na-button" role="button">?</a>
-             <a href="#" class="btn btn-warning btn-inline  no-button" role="button">&#xe612;</a>
-          </div>
+           <a href="#" class="btn btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
+           <a href="#" class="btn btn-default btn-inline  na-button" role="button">?</a>
+           <a href="#" class="btn btn-warning btn-inline  no-button" role="button">&#xe612;</a>
+         </div>
+       </div>
+
+     </div><!--content_component_container-->
+   </div><!--column-->
+ </div><!--row-->
+
+ <div class="row">
+  <div class="col-xs-12">
+    <div class="content_component_container">
+      <div class="user-info-wrapper">
+        <div class="content_component_container-spritepic img-circle user_num_2_fb_photo">
+        </div>  
+        <h3 class="user-name">Grace Lee</h3> 
+      </div><!--user-info-wrapper-->
+
+      <div class="caption">
+        <div class="question">
+          <p>Am I annoying when I drink at parties?</p>
+          <span class="label label-default">Posted: 4 days ago</span>
+          <span class="label label-primary">All FB friends</span>  
         </div>
+        <div class="answers">
+         <a href="#" class="btn btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
+         <a href="#" class="btn btn-default btn-inline  na-button" role="button">?</a>
+         <a href="#" class="btn btn-warning btn-inline  no-button" role="button">&#xe612;</a>
+       </div>
+     </div>
 
-      </div><!--content_component_container-->
-    </div><!--column-->
-  </div><!--row-->
-
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="content_component_container">
-        <div class="user-info-wrapper">
-          <div class="content_component_container-spritepic img-circle user_num_2_fb_photo">
-          </div>  
-          <h3 class="user-name">Grace Lee</h3> 
-        </div><!--user-info-wrapper-->
-        
-        <div class="caption">
-          <div class="question">
-            <p>Am I annoying when I drink at parties?</p>
-              <span class="label label-default">Posted: 4 days ago</span>
-              <span class="label label-primary">All FB friends</span>  
-          </div>
-          <div class="answers">
-             <a href="#" class="btn btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
-             <a href="#" class="btn btn-default btn-inline  na-button" role="button">?</a>
-             <a href="#" class="btn btn-warning btn-inline  no-button" role="button">&#xe612;</a>
-          </div>
-        </div>
-
-      </div><!--content_component_container-->
-    </div><!--column-->
-  </div><!--row-->
+   </div><!--content_component_container-->
+ </div><!--column-->
+</div><!--row-->
 
 </div><!--column-->  
 
@@ -393,35 +402,35 @@
   <li class="hidden-xl hidden-lg hidden-md hidden-sm">
     <a class="btn bottom-navbar-icon" data-icon="&#xe607;" href="#"><span class="bottom-navbar-icon-label">Friends</span></a>
   </li>
-   <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
     <a class="btn  bottom-navbar-icon" data-icon="&#xe614;" href="#"><span class="bottom-navbar-icon-label">Me</span></a>
   </li>
 
 </ul> 
 
 
-      </div>
+</div>
 
-    </footer>
+</footer>
 
-    <footer class="screen-footer hidden-xs">
-      <div class="footer-container">
-        <p class="hidden-xs">KarmaPolice 2013</p>
-        <nav class="corporate-info">
-          <ul class="bottom-links">
+<footer class="screen-footer hidden-xs">
+  <div class="footer-container">
+    <p class="hidden-xs">KarmaPolice 2013</p>
+    <nav class="corporate-info">
+      <ul class="bottom-links">
 
-          </ul>
-        </nav>
-
-
-      </div>
-
-    </footer>
-    <!-- end footer-->
+      </ul>
+    </nav>
 
 
+  </div>
+
+</footer>
+<!-- end footer-->
 
 
 
-  </body>
-  </html>
+
+
+</body>
+</html>

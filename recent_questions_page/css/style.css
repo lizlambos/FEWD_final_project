@@ -2,6 +2,14 @@
 
 /*QUESTION AREA*/
 
+.row {
+    padding:0px;
+    margin:0px;
+}
+
+.main_content_container {
+    background:transparent;
+}
 .content_component_container {
     height:auto;
     padding-top:0px;
@@ -46,7 +54,7 @@
 }     
 
 
-.btn-group {
+.label_wrapper .btn-group {
     float:right;
 }
 

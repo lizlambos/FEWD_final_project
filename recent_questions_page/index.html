@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet/less" href="../less/styles.css" type="text/css">
+  <link rel="stylesheet/less" href="../less/styles.css" type="text/css">
   <script src="../js/less.js"></script> 
   <link href="../css/style.css" rel="stylesheet" media="screen">
   <link href="css/style.css" rel="stylesheet" media="screen">
@@ -49,7 +49,7 @@
 
     end facebookapp initialization--> 
 
-<!-- screen navbar -->
+    <!-- screen navbar -->
     <nav class="navbar navbar-fixed-top hidden-xs" role="navigation">
       <div class="container">
 
@@ -140,13 +140,23 @@
 <!-- question area -->
 
 <div class="main_content_container">
+
+  <div class="row hidden-xs hidden-sm">
+    <div class="col-xs-12">
+      <div class="btn-group ">
+        <button type="button" class="btn btn-default">Active</button>
+        <button type="button" class="btn btn-default">Past Queries</button>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-xs-12">
       <div class="row content_component_container">
         <div class="caption">
           <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
           <div class="label_wrapper">
-           <button type="button" class="btn btn-default edit-button ">Posted: 4 days ago</button>
+           <button type="button" class="btn btn-default edit-button "><span class="glyphicon glyphicon-time"></span>4 days</button>
            <div class="btn-group ">
             <button type="button" class="btn btn-primary privacy-level dropdown-toggle" data-toggle="dropdown">All FB Friends  <span class="caret"></span></button>
             <ul class="dropdown-menu" role="menu">
@@ -244,7 +254,7 @@
   <li class="hidden-xl hidden-lg hidden-md hidden-sm">
     <a class="btn bottom-navbar-icon" data-icon="&#xe607;" href="#"><span class="bottom-navbar-icon-label">Friends</span></a>
   </li>
-   <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
     <a class="btn bottom-navbar-icon" data-icon="&#xe614;" href="#"><span class="bottom-navbar-icon-label">Me</span></a>
   </li>
 

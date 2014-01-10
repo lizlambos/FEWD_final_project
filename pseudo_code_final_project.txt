@@ -1,0 +1,217 @@
+ABOUT KARMA POLICE:
+
+Karma Police is an application which allows users to give and recieve anonymouse feedback from their friends. It creates a gamified experience where users can only get as much feedback as they give (Karma man!) and can also only see the aggregate results of friends questions for the questions they answered. 
+
+The application is primarily mobile and as such had been built in a mobile-first, fully responsive format using elements from Twitter Bootstrap's flexible grid framework. LESS.js has also been used to enable easy global design changes to be implemented (I'm not a terrific designer). 
+
+The final project includes the majority of the front-end UI for the application and will be integrated with Facebook's API with Parse on the backend. For the final project, dummy data for users will be used. 
+
+
+PSEUDO CODE:
+
+/*LOGIN PAGE*/
+
+(1) User clicks on Facebook sign-in button and is directed to the "Me" page
+
+FIRST TIME USER:
+
+(2) User goes through the login flow via the standard facebook popups and agreements regarding privacy and publishing, new user account created
+
+(3) Facebook's name and email become the default for the user
+
+(4) First time users will get a welcome popup prompting them to get karma points by answering friends questions on network with a link to "Get Karma/Questiontiles" page
+
+Text: "Earn Karma Points by answering friends's questions"
+
+to do: !!! DECIDE ABOUT TOUR (whether "tour" or single intro screen is needed and how it should be structured, might to popups on each page for first time users with one line explanation)
+
+RETURNING USER
+
+(2) User directed to "Get Karma/Questions" page as default home screen
+
+
+/*GET KARMA/QUESTIONTILES PAGE*/
+
+(1) User clicks/taps YES/NO button for a friend's question
+
+YES/NO On click:
+- Icons in YES/NO buttons replaced with % results signs
+
+- Badge on screen with Karma Point counter updates with new Karma Point Balance
+
+DONE To do: !!! ADD BADGE TO SCREEN VERSION AND MOVE FOR MOBILE, GET RID OF N/A OPTION !!!
+
+(2) User moves to a new quesion:
+
+For Mobile:
+On question area Swipe right:
+- Screen returns a previously answered question
+
+On question area Swipe left:
+- Screen returns a new unanswered question
+
+To do: !!! LOOK INTO SWIPE FOR NON NATIVE, MAY HAVE TO KEEP DELETE BUTTON FOR NON-NATIVE MOBILE !!!
+
+to do: !!! CONSIDER OTHER FORMATS FOR QUESTION TILES - SHRINK FRIEND PHOTO & NAME, ADD PHOTO UPLOAD FEATURE OR MAKING TEXT LOOK LIKE A PRETTY PICTURE A LA QUOTER, OR MAKING LIKE DECIDERR NEWS REEL IF SWIPING FOR EACH SEEMS TOO CUMBERSOME
+
+	here is my thought process, right now the action is (1) read question (2) click (3) check revealed answer (4) swipe, I feed like that might be too much, in a compressed newsreel formal it would be (1) read question (2) click (3) check revealed answer without the swipe. One alternative is to swipe automatically after a number of seconds with revealed answer, but still not 100%. 
+
+	newsreel format:
+		(+) seems like there is more happening, can scroll back up and glance at results again before page reload
+		(-) also seems less like your friend asking you in a newsreel, its very much like instagram etc. it is almost less personal
+
+	tinder "one-page" format:
+		(+) You feel like its a person asking you, seems like your real friends there, more likely to answer and not simply scroll past
+		(-) need to make some content on page the "star" so either photo uploads or making the text interestingly formatted in a variety of ways. Does having the friends photo so big make it seem less anonymous?	
+!!!
+
+
+
+For Screen:
+Delete button on Click:
+- Div with answered question becomes hidden and the Question div below in the same column rises to fill its place
+
+/*NEW QUESTIONS PAGE*/
+
+(1) User enters text into text area
+
+(2) Helper text updates to count the number of characters
+
+(3) Helper text turns red if character count >140
+
+(4)* Dropdown "Privacy-level" button on Click:
+
+- different privacy levels displayed
+
+(5)* on Selection
+
+- If All Karma Police or All FB Friends selected
+
+	- desired privacy level text replaces button text and button background changes color to reflect choice
+
+- If selected friends selected
+
+Option 1: 
+	- redirect to "friends on KP" page (does not exist yet) with same UI as invite friends page which allows people to select friends (Would need to add a fixed "Done" button to top of main content container)
+
+	- Done button on Click return to New Query page
+
+Option 2:
+	- append searchbar div below Privacy level Button
+	- On user entering text into searchbar
+		- using external search API (TBD) produce dropdown of matches
+		- matching friends name On click append div with text of friends name below searchbar
+
+* note: privacy level selection may not be included as a feature in first version *
+
+(6) Submit button on Click
+
+- text area validated to check character count within limit
+
+	- if NO generate error message asking to delete characters
+
+	- if Yes produce popup with fun message (fade after X seconds):
+
+		text: "Awesome! Can't wait to find out how this goes"
+
+		- if Karma Points < 10, produce popup:
+
+		text: "Looks like your Karma bank is a bit low. No worries, you can answer friends' questions or invite friends to reup on Karma Points"
+
+		popup buttons vertical stacked:
+			- Sounds awesome!
+				on Click:
+					- redirect to "Get Karma/Questiontiles" page
+			- Later
+				on Click:
+					- disappear popup
+			- Don't nag me about this
+				on Click:
+					- disappear popup
+					- flag user to de-activate future popups
+
+		- if friends on Karma Police < 10 AND selected FB Friends, produce popup:
+
+		text: "How about we get more friends involved and share the love"
+
+		popup buttons vertical stacked:
+			- Sounds awesome!
+				on Click:
+					- redirect to "InviteFriends" page
+			- Later
+				on Click:
+					- disappear popup
+			- Don't nag me about this
+				on Click:
+					- disappear popup
+					- flag user to de-activate future popups			
+
+
+/*RECENT QUESTIONS PAGE*/
+
+(1)* Dropdown "Privacy-level" button on Click:
+
+- different privacy levels displayed
+
+(2)* on Selection
+
+- If All Karma Police or All FB Friends selected
+
+	- desired privacy level text replaces button text and button background changes color to reflect choice
+
+- If select friends selected * :
+	- append searchbar div below Privacy level Button
+	- On user entering text into searchbar
+		- using external search API (TBD) produce dropdown of matches
+		- matching friends name On click append div with text of friends name below searchbar
+
+* note - feature may not be included		
+
+- If Take Private selected:	
+	
+	- div disappears from active queries section and appears on previous queries section
+
+to do: !!! ADD RADIO BUTTON AT TOP OF MAIN CONTENT AREA MARKING ACTIVE-PREVIOUS QUERIES !!!
+
+CONSIDER KEEP HOLDING APP WHERE ON ME PAGE IT IS REDUCED TO PIC, POINTS, FRIENDS AND THEN BELOW ACTIVE QUERIES / ALL QUERIES, MAKE MY QUERIES PAGE A NEWSFEED WITH RECENT UPDATES TO YOUR QUERIES (E.G. 10 FRIENDS ANSWERED YOUR QUERY OR WHEN A FRIEND POSTS A NEW QUERY) OR MOVE TO MY QUERIES PAGE FOR AN EXTENDED, EDITABLE VERSION OF QUERY SHOWN
+
+
+to do: !!! ADD TAKE PRIVATE OPTION TO PRIVACY LEVEL BUTTON DROPDOWN ON PAGE !!!	
+to do: !!! LOOK AT HOW DROPDOWNS LOOK ON NATIVE APPS!!!	
+
+/*INVITE FRIENDS PAGE*/
+
+- On user entering text into searchbar
+		- using external search API (TBD) produce dropdown of matches
+		- matching friends name On click append div with text of friends name below searchbar
+
+- Add friend button on click
+	- Automatically generate invitation email to friend
+
+to do: !!! WRITE INVITATION EMAIL, LOOK AT HOW OTHERS ARE FORMATTED!!!	
+
+/*ME PAGE*/
+
+- Photo edit button on click *:
+	- go into facebook photo albums page to choose photo 
+	to do: !!! LOOK AT FACEBOOK API TO SEE WHAT IS DONE ALREADY AND WHAT TINDER DID THEMSELVES FOR THIS FEATURE !!!
+
+- Username/email/password text area:
+	- user replaces placeholder text with existing information (password bulleted out)
+	- save changes button on click:
+		replace existing user information with new user information entered		
+
+- log out button on click:
+	- log out user
+	- redirect to login screen 
+
+
+/*SETTINGS PAGE*/	
+
+- Push Notifications button on click:
+	- toggle class between off and on and change text and background color of button
+	- disable/enable push notifications for user
+
+- All else are links to yet to be built pages
+
+to do: !!! DECIDE MUST HAVE LINK CONTENT FOR MVP LAUNCH !!!	

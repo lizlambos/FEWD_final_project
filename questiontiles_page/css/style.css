@@ -7,6 +7,32 @@
     margin:0px;
 }
 
+.scoreboard {
+    padding:20px;
+}
+
+.scoreboard h1 {
+    display:inline-block;
+    margin-left:20px;
+}
+.scoreboard .karma_points_display {
+    background:#28A9D6;
+    z-index:1;
+    display:inline-block;  
+    width:auto; 
+    padding:10px;
+    margin-top:-10px;
+}
+
+.scoreboard .badge-wrapper {
+    padding-top:0px;
+}
+
+.scoreboard .badge {
+    font-size:4em;
+}
+
+
 .main_content_container {
     padding:0px;
 }
@@ -78,8 +104,8 @@
 
 }
 
-.yes-button,
-.no-button {
+.btn.yes-button,
+.btn.no-button {
     width:170px;
     padding:0px 0px 0px 0px;
     margin:0 auto;
@@ -115,6 +141,7 @@
 @media (min-width: 768px) { 
 
     .main_content_container {
+        max-width:1000px;
 
     }    
 
@@ -146,14 +173,14 @@
 
 
 
-    .btn.yes-button,
-    .btn.no-button {
-        width:88px;
-        height:88px;
+    .caption .btn.yes-button,
+    .caption .btn.no-button {
+        width:100px;
+        height:100px;
         padding:0px 0px 0px 0px;
         margin:0;
         border-radius:100%;
-        font-size:4.5em;
+        font-size:5em;
 
     }
 
