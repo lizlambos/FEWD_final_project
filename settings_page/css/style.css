@@ -27,11 +27,52 @@
 	
 }
 
+.small_screen_pagetitle {
+	background:#FFFFEB;
+	color:#0055A5;
+	text-align: center;
+	margin-bottom:-20px;
+}
+
 .row .form-group {
 	width:100%;
 	padding-bottom:0px;
 	margin-bottom:0px;
+	font-weight:lighter;
 }
+
+label {
+	font-weight: lighter;
+
+}
+
+
+.main_content_container .form-group input,
+.name_wrapper input {
+	border-radius: 0px;
+	width:100%;
+	height:auto;
+	border:1px solid #FFFFFF;
+	font-weight:lighter;
+	
+}
+
+.like_karma_police {
+	width:100%;
+	display:block;
+	margin: 0 auto;
+}
+
+.like_karma_police label {
+	display:block;
+}
+.like_karma_police a {
+	width:auto;
+	color:#FFFFEB;
+	background: #28A9D6;
+	
+}
+
 
 .row.settings_button a,
 .row.settings_button label{
@@ -116,10 +157,15 @@
 
 @media (min-width: 768px) { 
 
+	.main_content_container {
+		margin-top:80px;
+	}
+
 	.content_component_container {
-		padding:30px 30px 0px 30px;
+		padding:0px 30px 30px 30px;
 		background:#FFFFEB;
 		height:auto;
+
 		
 	}
 
@@ -153,6 +199,10 @@
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
+
+	.content_component_container {
+		padding-top:30px;
+	}
 
 
 	.user_karma_info .badge-wrapper {
