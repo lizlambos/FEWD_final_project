@@ -53,8 +53,8 @@
 	}
 
 	.jumbotron h1,
-	.query_instructions {
-		font-weight:bold;
+	.query_instructions,
+	.user-name {
 		font-size:2em;
 	}
 

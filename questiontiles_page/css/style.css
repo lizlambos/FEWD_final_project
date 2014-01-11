@@ -7,9 +7,7 @@
     margin:0px;
 }
 
-.scoreboard {
-    padding:20px;
-}
+
 
 .scoreboard h1 {
     display:inline-block;
@@ -49,8 +47,8 @@
 }
 
 .user-info-wrapper {
-   margin-top:40px;
-   clear:both;
+ margin-top:40px;
+ clear:both;
 
 }
 
@@ -128,25 +126,25 @@
 
     }    
 
-    .content_component_container {
-        padding-top:140px;
+    .scoreboard {
+        padding:25px 20px 10px 20px;
+       
     }
 
-
-}
-
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px) { 
-
+    .user-info-wrapper {
+        text-align:center;
+    }
 
     .content_component_container {
+        padding-top:40px;
+        padding-left:20px;
+        padding-right:20px;
         height:auto;
-        padding-top:30px;
     }
 
     .content_component_container-spritepic {
-        width:80%;
-        height:260px;
+        width:180px;
+        height:180px;
         background-image: url('../img/shutterstock_157248584.jpg');
         background-size:500%;
         background-position: 0% 0%;
@@ -154,7 +152,10 @@
 
     }
 
-
+    .question {
+        text-align: left;
+        font-size:1.5em;
+    }
 
     .caption .btn.yes-button,
     .caption .btn.no-button {
@@ -164,6 +165,7 @@
         margin:0;
         border-radius:100%;
         font-size:5em;
+        line-height: 1.4;
 
     }
 
@@ -180,12 +182,51 @@
 
     }
 
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+    .scoreboard {
+        padding:20px;
+    }
+
+    .content_component_container {
+        height:auto;
+        padding-top:30px;
+        text-align: center;
+    }
+
+    .content_component_container-spritepic {
+        width:180px;
+        height:180px;
+        background-image: url('../img/shutterstock_157248584.jpg');
+        background-size:500%;
+        background-position: 0% 0%;
+        vertical-align: top;
+
+    }
+    .user-name {
+        margin:0 auto;
+        padding:0px;
+        padding-top:10px;
+    }
+
+    .question {
+        text-align: left;
+        font-size:1.25em;
+    }
+
+
+    
+
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
 
- .answers {
+   .answers {
     width:100%;
     margin-top:10px;
     margin-bottom:30px;
