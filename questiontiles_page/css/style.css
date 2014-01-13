@@ -2,13 +2,6 @@
 
 /*PHOTO TILES*/
 
-.row {
-    padding:0px;
-    margin:0px;
-}
-
-
-
 .scoreboard h1 {
     display:inline-block;
     margin-left:20px;
@@ -42,74 +35,12 @@
 
 }
 
-.photo-col {
-    padding:0px;
-}
 
 .user-info-wrapper {
  margin-top:40px;
  clear:both;
 
 }
-
-.content_component_container-spritepic {
-    width:90px;
-    height:90px;
-    background-image: url('../img/shutterstock_157248584.jpg');
-    background-size:600%;
-    background-position: 0% 0%;
-    vertical-align: top;
-    display:inline-block;
-
-
-}
-
-.user-name {
-    display:inline-block;
-    width:auto;
-    text-align: center;
-    padding:20px;
-
-}
-
-.caption {
-    padding-top:20px;
-    width:100%;
-
-}
-/*note this is the temporary generation of pictures from the sprite sheet not the real way photots will be pulled from facebook*/
-
-.content_component_container-spritepic.user_num_1_fb_photo {        
-    background-position: 1.8% 1.8%;
-}
-
-.content_component_container-spritepic.user_num_2_fb_photo {
-    background-position: 1.4% 25.5%;
-}
-
-.content_component_container-spritepic.user_num_3_fb_photo {
-    background-position: 0% 40.9144%;
-}
-
-
-.label-default {
-    background-color:transparent;
-    color:#EDF684;
-}
-
-.label-primary {
-    background-color:#28A9D6;
-}
-
-.answers {
-    width:100%;
-    font-family:"icomoon";
-    position:relative;
-    text-align:center;
-
-}
-
-
 
 
 /*MEDIA QUERIES*/
@@ -142,13 +73,20 @@
         height:auto;
     }
 
-    .content_component_container-spritepic {
+    .fb_friendpic_small {
         width:180px;
         height:180px;
         background-image: url('../img/shutterstock_157248584.jpg');
         background-size:500%;
         background-position: 0% 0%;
         vertical-align: top;
+
+    }
+
+    .friend-name {
+        position:relative;
+       top:0px;
+       padding:10px;
 
     }
 
@@ -198,20 +136,6 @@
         text-align: center;
     }
 
-    .content_component_container-spritepic {
-        width:180px;
-        height:180px;
-        background-image: url('../img/shutterstock_157248584.jpg');
-        background-size:500%;
-        background-position: 0% 0%;
-        vertical-align: top;
-
-    }
-    .user-name {
-        margin:0 auto;
-        padding:0px;
-        padding-top:10px;
-    }
 
     .question {
         text-align: left;
