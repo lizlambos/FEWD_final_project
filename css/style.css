@@ -26,6 +26,7 @@
 		font-family: 'Exo 2', sans-serif;
 	}
 
+
 	label, button, .btn,
 	.user_karma_info .glyphicon-chevron-right,
 	.form-group label,
@@ -41,21 +42,16 @@
 	.edit-button,
 	.row.settings_button a,
 	.row.settings_button label,
-	.row .radiobutton{
-		font-size:2em;
+	.row .radiobutton, 
+	.mobile-searchbox,
+	.mobile-headertext {
+		font-size:1em;
 	}
 
-	.navbar-brand {
-		font-family:samarkan;
-		font-size:3em;
-		color:#FFFFFF;
 
-	}
-
-	.jumbotron h1,
 	.query_instructions,
 	.friend-name {
-		font-size:2em;
+		font-size:1.5em;
 	}
 
 	.page-header .container h1 {
@@ -84,7 +80,6 @@
 	}
 
 	.like_karma_police a,
-	.add-friend-button,
 	#submit_button,
 	.me_page_button {
 		font-size:3em;
@@ -105,7 +100,7 @@
 	}
 
 	.mobile-header .settings_link {
-		font-size:1.5em; 
+		font-size:0.75em; 
 	}
 
 	.signin_container .navbar-brand {
@@ -182,7 +177,7 @@
 
 	.main_content_container {
 		width:100%;
-		margin-top:44px;
+		margin-top:40px;
 		background:#FFFFEB;
 
 	}
@@ -205,19 +200,11 @@
 
 	.jumbotron {
 		background:transparent;
-		padding:0px;
+		padding: 0px 0px 0px 20px;
 		margin:0px;
 	}
 
-	.fb_friendsarea {
-		padding:0px;
-		width:90%;
-		margin: 0 auto;
-		border: 1px solid #28A9D6;
-		clear:both;
-		background: #0055A5; 
 
-	}
 
 	/*COMPONENTS*/
 
@@ -228,20 +215,24 @@
 	}
 
 
-	.friend_fbpic_container {
+	.fbpic_container {
 		display:inline-block;
 		width:auto;
 		height:auto;
 		padding:10px;
 	}
 
-	.fb_friendpic_small {
-		width:100%;
-		height:auto;
-		margin:0px 5px 0px 0px;
-		padding:5px 15px 5px 15px;
+	.fbpic_small {
+		width:90px;
+		height:90px;
 		background:#28A9D6;
+		background-image: url('../img/shutterstock_157248584.jpg');
+		background-size:600%;
+		background-position: 0% 0%;
+		vertical-align: top;
+		display:inline-block;
 		border-radius:100%;
+
 	}
 
 	.friend-name {
@@ -251,29 +242,19 @@
 		display:inline-block;
 	}
 
-	.fb_friendpic_small {
-		width:90px;
-		height:90px;
-		background-image: url('../img/shutterstock_157248584.jpg');
-		background-size:600%;
-		background-position: 0% 0%;
-		vertical-align: top;
-		display:inline-block;
 
-
-	}
 
 	/*note this is the temporary generation of pictures from the sprite sheet not the real way photots will be pulled from facebook*/
 
-	.fb_friendpic_small.user_num_1_fb_photo {        
+	.fbpic_small.user_num_1_fb_photo {        
 		background-position: 1.8% 1.8%;
 	}
 
-	.fb_friendpic_small.user_num_2_fb_photo {
+	.fbpic_small.user_num_2_fb_photo {
 		background-position: 1.4% 25.5%;
 	}
 
-	.fb_friendpic_small.user_num_3_fb_photo {
+	.fbpic_small.user_num_3_fb_photo {
 		background-position: 0% 40.9144%;
 	}
 
@@ -313,177 +294,14 @@
 
 	.btn.yes-button,
 	.btn.no-button {
-		width:130px;
-		padding:0px 0px 0px 0px;
+		width:auto;
+		line-height: 1;
+		padding:10px;
 		margin:0;
 		border-radius:100%;
 		font-size:6em;
-		line-height:1.5;
 		font-family: 'icomoon';
 	}
-
-	.answers .na-button{
-		width:15%;
-		border-radius:25px;
-		font-size:1em;
-		font-weight:bold;
-		color:rgba(255, 0, 0, 0.5);
-		border:5px solid rgba(255, 0, 0, 0.5);
-		background:white;
-		margin-left:2px;
-		margin-right:2px;
-		font-family: 'icomoon';
-
-	}
-
-	/*NAVBAR*/
-
-	.navbar {
-		background:#28A9D6;
-		border:none;
-
-	}
-
-	.navbar-right {
-		margin-right:0px;
-
-	}
-
-	.navbar .nav.navbar-nav  a{
-		color:#333;
-		text-decoration: none;
-		font-size:1.25em;
-	}
-
-	.navbar .container {
-		margin-top: 15px;
-		margin-bottom:15px;
-	}
-
-	.navbar .navbar-brand {
-		display:block;
-		padding-top:10px;
-		margin-top:10px;
-		padding-bottom:10px;
-		position:relative;
-		color:rgba(255, 255, 204, 1);
-
-	}
-
-	.navbar-form {
-		position:relative;
-		width:auto;
-	}
-
-	.form-group {
-		width:250px;	
-		float:left;
-
-	}
-
-	.form-control{
-		border-radius:25px;
-		padding-right:20px;
-		width:90%;
-		margin-right:-20px;
-	}
-
-
-	.btn-submit.top-navbar {
-		position:absolute;
-		right:5%;
-		color:#555;
-		background:transparent;
-		white-space:nowrap;
-		font-size:1em;
-	}
-
-	.ganesh-dropdown {
-		padding-top:0px;
-		padding-bottom:0px;
-		margin-top:-10px;
-		border-radius:100%;
-		background:transparent;
-	}
-
-	.mobile-searchbox-row {
-		width:100%;
-		margin:auto 0;
-	}
-
-	.mobile-searchbox-container {
-		margin: auto;
-		width:100%;
-		padding-top:15px;
-
-	}
-
-	.mobile-searchbox {
-		position:relative;
-		text-align: center;
-	}
-
-	.mobile-searchbox .form-group {
-		width:100%;
-		padding-bottom:20px;
-	}
-
-	.mobile-searchbox .form-control{
-		width:90%;
-		margin: 0 auto;
-		text-align:left;
-		height:auto;
-		padding:10px;
-		font-size:2em;
-	}
-
-	.mobile-searchbox .btn-submit.top-navbar {
-		vertical-align:middle;
-		right:10%;
-		font-size:2em;
-		padding-top:10px;
-	}
-
-
-	/*MOBILE TOP NAVBAR*/	
-
-	.mobile-header {
-		background:#28A9D6;
-		height:44px;
-		text-align:center;
-
-	}
-
-	.mobile-header .navbar-brand {
-		display:block;
-		width:100%;
-		text-align: center;
-		margin: 0 auto;
-		padding-top:5px;
-		padding-bottom:5px;
-		font-size:2em;
-
-	}
-
-	.mobile-header ul li a {
-		color:#FFFFFF;
-	}
-
-	.mobile-header ul li .btn {
-		margin-top:0px;
-		color:#FFFFFF;
-		font-size:1em;
-	}
-
-	.mobile-header ul li a:focus,
-	.mobile-header ul li a:hover,
-	.mobile-header ul li .onpage {
-		background:transparent;
-		border:none;
-
-	}
-
-
 
 	/*PAGE HEADER*/
 
@@ -505,108 +323,7 @@
 	}
 
 
-	/*MOBLE BOTTOM NAVBAR*/
 
-	.mobile-footer {
-		position:fixed;
-		bottom:0%;
-		height:58px;
-		width:100%;
-		background:#28A9D6;
-
-	}
-
-	.mobile-footer ul {
-		width:95%;
-		margin: 0 auto;
-		text-align: center;
-		margin-top:-15px;
-
-
-	}
-
-	.mobile-footer ul li {
-		display:inline;
-		width:20%;
-		float:left;
-		padding-right:8px;
-		padding-left:0px;
-		margin:0 auto;
-		padding-top:0px;
-
-	}
-
-	.mobile-footer ul li a {
-		color:#FFFFFF;
-
-	}
-	.btn.bottom-navbar-icon {
-		display:inline;
-		font-size:0.75em;
-		background:transparent;
-		border:none;
-		margin:0px 10px 10px 10px;
-		vertical-align: middle;
-	}
-
-	.bottom-navbar-icon-label{
-		display:inline;
-		background:transparent;
-		margin:-5px 0px 0px 0px;
-	}
-
-	.bottom-navbar-icon:focus, 
-	.bottom-navbar-icon:hover,
-	.bottom-navbar-icon:active
-	{
-		background:transparent;
-
-	}
-
-	.mobile-footer ul li a:focus,
-	.mobile-footer ul li a:hover,
-	.mobile-footer ul li .onpage {
-		background:transparent;
-		border:none;
-		color:#EDF684;
-	}
-
-	.mobile-footer li:last-child .bottom-navbar-icon{
-		padding-right:0px;
-
-	}
-
-	[data-icon]:before {
-		font-family:'icomoon';
-		content: attr(data-icon);
-		margin-right:0px;
-		padding-bottom:10px;
-		padding-top:5px;
-		speak:none;
-		display:block;
-		font-size:2.5em;
-	}
-
-	.mobile-footer span {
-		font-size:1em;
-		margin-left:0px;
-		display:block;
-
-	}
-
-	.screen-footer {
-		height:60px;
-		margin-top:40px;
-		color:#333;
-	}
-
-	.screen-footer p {
-		color:white;
-		font-size:1.25em;
-		display:block;
-		padding-top:20px;
-		padding-left:50px;
-	}
 
 	/* KARMA POINTS DISPLAY BADGE*/
 
@@ -674,33 +391,9 @@
 	/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
 	@media (min-width: 768px) { 
 
-		.navbar-brand {
-			font-size:4em;
-			left:10%;
-
-		}
-
-		.btn-submit.top-navbar {
-			right:10%;
-
-		}
-
-		.navbar-right {
-			margin-right:90px;
-
-		}
-		.navbar-collapse { 
-			padding-right:0px;
-			position:absolute;
-			left:50%;
-			background:transparent;
-			margin-top:0px;
-
-		}
-
 		.main_content_container {
 			width:100%;
-			margin-top:155px;
+			margin-top:80px;
 		}  
 		
 		.content_component_container {
@@ -711,46 +404,10 @@
 	}
 
 	/* Medium devices (desktops, 992px and up) */
-	@media (min-width: 992px) { 
+	@media (min-width: 992px) {
 
-
-
-		.navbar .container {
-			padding-top:20px;
-			margin-top:20px;
-
-		}
-
-		.navbar-collapse { 
-			padding-right:0px;
-			position:absolute;
-			left:70%;
-
-
-		}
-
-		.navbar-brand {
-			font-size:4em;
-			left:5%;
-			padding-bottom:20px;
-
-		}
-
-		.btn-submit.top-navbar {
-			right:15%;
-
-		}
-
-		.navbar-right {
-			margin-right:0px;
-		}
-
-		.questionarea_container,
-		.friendsarea_container,
-		.tilepage-container,
-		.main_content_container
-
-		{
+		
+		.main_content_container {
 			width:80%;
 			max-width:930px;
 			background:#FFFFEB;
@@ -758,20 +415,10 @@
 
 		}
 
+	}
+
 		/* Large devices (large desktops, 1200px and up) */
 		@media (min-width: 1200px) { 
-			.navbar-brand {
-				font-size:5em;
-				left:10%;
-
-
-			}
-
-			.navbar-collapse { 
-				padding-right:0px;
-				position:absolute;
-				left:70%;
-
-			}	
+		
 
 		}

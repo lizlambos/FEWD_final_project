@@ -1,13 +1,5 @@
 /*ME  PAGE STYLESHEET*/	
 
-/*MOBILE NAV*/
-
-.settings_link {
-	position:absolute;
-	left:85%;
-	clear:none;
-}
-
 /*HEADER*/
 
 .page-header .container h1 {
@@ -16,9 +8,7 @@
 }
 
 /*PROFILE AREA*/ 
-
-.row
-{
+.row {
 	color:#FFFFEB;
 	border:1px solid white;
 }
@@ -29,18 +19,6 @@
 	text-align: center;
 }
 
-.fb_friendsarea {
-	width:100%;
-	height:360px;
-	background:#FFFFEB;
-
-}
-
-.caption{
-	padding-top:20px;
-	
-
-}
 
 .content_component_container {
 	padding:0;
@@ -48,14 +26,10 @@
 
 }
 
-.fb-column {
-	height:360px;
-	
-}
 
-.row.friend_fbpic_container {
+.fbpic_container {
 	width:100%;
-	height:270px;
+	height:auto;
 	float:left;
 	clear:none;
 	border:1px solid #FFFFFF;
@@ -63,45 +37,28 @@
 	
 }
 
-
-.fb_friendpic_small {
-	width:240px;
-	height:240px;
-	margin:15px 30px 15px 30px;
-	position:relative;
-	
-	
-}
-
-
-.row.friend-name {
-	height:90px;
+.name_wrapper {
+	height:auto;
 	border:1px solid #FFFFFF;
-
-}
-
-.friend-name h2 {
-	margin-top:25px;
-	margin-left:10px;
-	margin-bottom:21px;
-	text-align: center;
+	position:relative;
+	float:left;
+	clear:both;
+	width:100%;
 	
-
 }
 
 .edit_pencil {
 	background:transparent;
 	position:absolute;
 	border:none;
-	font-size:1.25em;
-	font-weight:bold;
-	padding:15px 35px 15px 15px;
+	font-size:1em;
+	padding:5px 35px 15px 15px;
 	margin:0 auto;
-	left:80%;
+	left:70%;
 	color:#FFFFEB;
 }
 
-.friend-name .edit_pencil {
+.name_wrapper .edit_pencil {
 	color:#333;
 }
 
@@ -109,14 +66,13 @@
 	padding:0px;
 	margin:0px;
 	position:relative;
-	height:180px;
 	background:#0055A5;
 	
 }
 
 .user_karma_info .top-navbar-icon-label {
 	float:left;
-	margin:20px 5px 20px 20px;
+	margin:10px 5px 10px 20px;
 	
 } 
 .user_karma_info .top-navbar-icon-label p{
@@ -126,14 +82,14 @@
 } 
 
 .user_karma_info .top-navbar-icon {
-	left:45%;
-	margin:20px 50px 20px 20px;
-	width:100px;
+	margin:5px 20px 0px 0px;
 	text-align: center;
+
+
 }
 
-.user_karma_info .badge-wrapper {
-	padding:10px 0px 10px 0px;
+.user_karma_info .badge {
+	padding:0px;
 	text-align: center;
 	
 }
@@ -162,7 +118,7 @@
 }
 
 .name_wrapper input {
-	height:90px;
+
 }
 
 

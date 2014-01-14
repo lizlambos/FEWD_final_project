@@ -6,7 +6,6 @@ The application is primarily mobile and as such had been built in a mobile-first
 
 The final project includes the majority of the front-end UI for the application and will be integrated with Facebook's API with Parse on the backend. For the final project, dummy data for users will be used. 
 
-
 PSEUDO CODE:
 
 /*LOGIN PAGE*/

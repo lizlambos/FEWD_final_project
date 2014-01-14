@@ -8,6 +8,7 @@
   <link rel="stylesheet/less" href="../less/styles.css" type="text/css">
   <script src="../js/less.js"></script> 
   <link href="../css/style.css" rel="stylesheet" media="screen">
+  <link href="../css/navbars.css" rel="stylesheet" media="screen">
   <link href="css/style.css" rel="stylesheet" media="screen">
   <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic|Lobster|Exo+2:400,800,700,600,500,200,200italic,300,300italic,400italic,900' rel='stylesheet' type='text/css'>
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -49,15 +50,15 @@
 
     end facebookapp initialization--> 
 
-    <!-- screen navbar -->
+ <!-- screen navbar -->
     <nav class="navbar navbar-fixed-top hidden-xs" role="navigation">
       <div class="container">
 
-       <form class="navbar-form form-inline navbar-left hidden-sm hidden-xs" role="search">
+      <form class="navbar-form form-inline navbar-left hidden-sm hidden-xs" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Find your friends">
         </div>
-        <button type="submit" class="btn  btn-submit btn-inline top-navbar"> <span class="glyphicon glyphicon-search"></span></button>
+        <button type="submit" class="btn search-button"> <span class="glyphicon glyphicon-search"></span></button>
       </form>
 
       <a href="#" class="navbar-brand hidden-xs">KarmaPolice</a>
@@ -84,7 +85,7 @@
 
     </div><!--row-->
 
-  </div> <!--container-->    
+</div> <!--container-->    
 
 </nav>
 
@@ -98,7 +99,7 @@
       <a href="#" class="navbar-brand hidden-sm hidden-md hidden-lg hidden-xl">My Info</a>
     </li>
     <li>
-      <div class="settings_link pull-right">
+      <div class="settings_link">
         <a class="btn mobile-header-button" data-icon="&#xe601;" href="#"></a>
 
       </div>
@@ -131,29 +132,23 @@
   <div class="row content_component_container">
     <div class="col-xs-12">
 
-
-
       <div class="inner_content_wrapper">
-        <div class="row fb_friendsarea">
+        <div class="row">
           <div class="col-xs-6 fb-column">
 
-            <div class="row friend_fbpic_container">
-              <div class="col-xs-12">
-                <div class="image_container">
-                  <button class="btn btn-default glyphicon glyphicon-pencil edit_pencil"></button>
-                  <img class="fb_friendpic_small" src="img/ganesha-hi.png"/>
-                </div>
-              </div><!--col-->  
-            </div><!--row-->    
+            <div class="fbpic_container">
+              <button class="btn btn-default glyphicon glyphicon-pencil edit_pencil"></button>
+              <img class="fbpic_small" src="img/ganesha-hi.png"/>
 
-            <div class="row friend-name">
-              <div class="col-xs-12">
-                <div class="name_wrapper">
-                  <button class="btn btn-default glyphicon glyphicon-pencil edit_pencil"></button>
-                  <input type="username" class="form-control me-input" id="exampleUsername1" placeholder="Bob Jones">
-                </div>
-              </div><!--col--> 
-            </div><!--row-->
+              
+            </div><!--friend_fbpic_container-->    
+
+
+            <div class="name_wrapper">
+              <button class="btn btn-default glyphicon glyphicon-pencil edit_pencil"></button>
+              <input type="username" class="form-control me-input" id="exampleUsername1" placeholder="Bob Jones">
+            </div>
+            
 
           </div><!--fb-column-->
 
@@ -163,7 +158,7 @@
              <div class="col-xs-12">
               <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
               <div class="top-navbar-icon">
-                <div class="badge-wrapper"><span class="badge">18</span></div> 
+                <span class="badge">18</span>
               </div>
               <a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a>
             </div><!--col-->   
@@ -173,58 +168,58 @@
            <div class="col-xs-12">
             <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Queries</p></div>
             <div class="top-navbar-icon">
-              <div class="badge-wrapper"><span class="badge">4</span></div> 
+              <span class="badge">4</span></div> 
+           
+            <a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a>
+          </div><!--col-->   
+          <!--</div><!--row-->
+
+          <div class="row user_karma_info">
+           <div class="col-xs-12">
+             <div class="top-navbar-icon-label"><p class="first-label">My</p><p>Friends</p></div>
+             <div class="top-navbar-icon">
+              <span class="badge">32</span>
             </div>
             <a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a>
           </div><!--col-->   
-        <!--</div><!--row-->
+        </div><!--row-->
 
-        <div class="row user_karma_info">
-         <div class="col-xs-12">
-           <div class="top-navbar-icon-label"><p class="first-label">My</p><p>Friends</p></div>
-           <div class="top-navbar-icon">
-            <div class="badge-wrapper"><span class="badge">32</span></div> 
-          </div>
-          <a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div><!--col-->   
-      </div><!--row-->
+      </div><!--link-column-->  
 
-    </div><!--link-column-->  
+    </div><!--fb_friendsarea-->
 
-  </div><!--fb_friendsarea-->
+    <div class="row user_info_editor">
+      <div class="col-xs-12">
 
-  <div class="row user_info_editor">
-    <div class="col-xs-12">
-
-      <div class="btn-group query_nav_buttons">
-        <button type="button" class="btn btn-default active">Active Queries</button>
-        <button type="button" class="btn btn-default">Past Queries</button>
-      </div>
-
-      <div class="caption">
-       <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
-       <div class="label_wrapper">
-         <button type="button" class="btn btn-default edit-button "><span class="glyphicon glyphicon-time"></span>4 days</button>
-         <div class="btn-group ">
-          <button type="button" class="btn btn-primary privacy-level dropdown-toggle" data-toggle="dropdown">All FB Friends  <span class="caret"></span></button>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">All Karma Police</a></li>
-            <li><a href="#">All FB Friends</a></li>
-            <li><a href="#">Select Friends</a></li>
-            <li><a href="#">Private</a></li>
-          </ul>
+        <div class="btn-group query_nav_buttons">
+          <button type="button" class="btn btn-default active">Active Queries</button>
+          <button type="button" class="btn btn-default">Past Queries</button>
         </div>
-      </div>
-      <div class="question">
-        <p>Am I annoying when I drink at parties?</p>    
-      </div>
-      <div class="answers">
-       <a href="#" class="btn btn-success btn-inline yes-button" role="button"><span>&#xe60b;</span><h2 class="result">78%</h2></a> 
-       <a href="#" class="btn btn-default btn-inline  na-button" role="button">&#xe606;<p class="responder_count">47</p></a>
-       <a href="#" class="btn btn-warning btn-inline  no-button" role="button"><span>&#xe612;</span><h2 class="result">20%</h2></a>
-     </div>
-   </div>
+
         <div class="caption">
+         <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+         <div class="label_wrapper">
+           <button type="button" class="btn btn-default edit-button "><span class="glyphicon glyphicon-time"></span>4 days</button>
+           <div class="btn-group ">
+            <button type="button" class="btn btn-primary privacy-level dropdown-toggle" data-toggle="dropdown">All FB Friends  <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">All Karma Police</a></li>
+              <li><a href="#">All FB Friends</a></li>
+              <li><a href="#">Select Friends</a></li>
+              <li><a href="#">Private</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="question">
+          <p>Am I annoying when I drink at parties?</p>    
+        </div>
+        <div class="answers">
+         <a href="#" class="btn btn-success btn-inline yes-button" role="button"><span>&#xe60b;</span><h2 class="result">78%</h2></a> 
+         <a href="#" class="btn btn-default btn-inline  na-button" role="button">&#xe606;<p class="responder_count">47</p></a>
+         <a href="#" class="btn btn-warning btn-inline  no-button" role="button"><span>&#xe612;</span><h2 class="result">20%</h2></a>
+       </div>
+     </div>
+     <div class="caption">
        <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
        <div class="label_wrapper">
          <button type="button" class="btn btn-default edit-button "><span class="glyphicon glyphicon-time"></span>4 days</button>

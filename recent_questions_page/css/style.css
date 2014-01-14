@@ -28,13 +28,13 @@
 
 .delete-button {
     margin-right:20px;
-   
+
 
 }
 
 .privacy-level,
 .edit-button {
-   padding:10px;
+ padding:10px;
 }
 
 
@@ -92,7 +92,7 @@
     background:white;
     margin-left:10px;
     margin-right:10px;
-
+    
 
 }
 
@@ -140,8 +140,8 @@
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
 
-.btn.yes-button,
-.btn.no-button {
+    .btn.yes-button,
+    .btn.no-button {
         font-size:7em;
         width:40%;
     }

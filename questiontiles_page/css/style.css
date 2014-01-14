@@ -29,7 +29,7 @@
 }
 
 .content_component_container { 
-    padding-top:20px;
+    padding-top:5px;
     position:relative;
     height:475px;
 
@@ -37,10 +37,13 @@
 
 
 .user-info-wrapper {
- margin-top:40px;
- clear:both;
+   margin-top:25px;
+   clear:both;
 
 }
+
+
+
 
 
 /*MEDIA QUERIES*/
@@ -52,79 +55,83 @@
 
 @media (min-width: 768px) { 
 
-    .main_content_container {
+.main_content_container {
         max-width:1000px;
+        margin-top:155px;
+} 
 
-    }    
+.scoreboard {
+    padding:25px 20px 10px 20px;
 
-    .scoreboard {
-        padding:25px 20px 10px 20px;
-       
-    }
+}
 
-    .user-info-wrapper {
-        text-align:center;
-    }
+.user-info-wrapper {
+    text-align:center;
+}
 
-    .content_component_container {
-        padding-top:40px;
-        padding-left:20px;
-        padding-right:20px;
-        height:auto;
-    }
+.content_component_container {
+    padding-top:40px;
+    padding-left:20px;
+    padding-right:20px;
+    height:auto;
+}
 
-    .fb_friendpic_small {
-        width:180px;
-        height:180px;
-        background-image: url('../img/shutterstock_157248584.jpg');
-        background-size:500%;
-        background-position: 0% 0%;
-        vertical-align: top;
+.fbpic_small {
+    width:180px;
+    height:180px;
+    background-image: url('../img/shutterstock_157248584.jpg');
+    background-size:500%;
+    background-position: 0% 0%;
+    vertical-align: top;
 
-    }
+}
 
-    .friend-name {
-        position:relative;
-       top:0px;
-       padding:10px;
+.friend-name {
+    position:relative;
+    top:0px;
+    padding:10px;
 
-    }
+}
 
-    .question {
-        text-align: left;
-        font-size:1.5em;
-    }
+.question {
+    text-align: left;
+    font-size:1.5em;
+}
 
-    .caption .btn.yes-button,
-    .caption .btn.no-button {
-        width:100px;
-        height:100px;
-        padding:0px 0px 0px 0px;
-        margin:0;
-        border-radius:100%;
-        font-size:5em;
-        line-height: 1.4;
+.caption .btn.yes-button,
+.caption .btn.no-button {
+    width:100px;
+    height:100px;
+    padding:0px 0px 0px 0px;
+    margin:0;
+    border-radius:100%;
+    font-size:5em;
+    line-height: 1.4;
 
-    }
+}
 
-    .answers .na-button{
-        width:30px;
-        border-radius:100%;
-        font-size:1.25em;
-        font-weight:bold;
-        color:rgba(255, 0, 0, 0.5);
-        border:5px solid rgba(255, 0, 0, 0.5);
-        background:white;
-        padding:0px 5px 0px 5px;
+.answers .na-button{
+    width:30px;
+    border-radius:100%;
+    font-size:1.25em;
+    font-weight:bold;
+    color:rgba(255, 0, 0, 0.5);
+    border:5px solid rgba(255, 0, 0, 0.5);
+    background:white;
+    padding:0px 5px 0px 5px;
 
 
-    }
+}
 
 
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
+
+    .main_content_container {
+        margin-top:60px;
+    }
 
     .scoreboard {
         padding:20px;
@@ -150,7 +157,7 @@
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
 
-   .answers {
+ .answers {
     width:100%;
     margin-top:10px;
     margin-bottom:30px;
