@@ -22,7 +22,7 @@
 		font-style: normal;
 	}
 
-	h1, h2, h3, h4, p, label, button, body {
+	h1, h2, h3, h4, p, label, button, body, span {
 		font-family: 'Exo 2', sans-serif;
 	}
 
@@ -38,14 +38,17 @@
 	#sample_query,
 	.caption .btn,
 	.dropdown-menu,
-	.privacy-level,
-	.edit-button,
 	.row.settings_button a,
 	.row.settings_button label,
 	.row .radiobutton, 
 	.mobile-searchbox,
 	.mobile-headertext {
 		font-size:1em;
+	}
+
+	.privacy-level,
+	.time-label {
+		font-size:0.75em;
 	}
 
 
@@ -134,29 +137,25 @@
 
 
 	.privacy-level,
-	.edit-button {
+	.time-label.label-default {
 		padding:10px;
+		border-radius:5px; 
 	}
 
 
 
-	.edit-button {
+	.time-label.label-default{
 		color:#0055A0;
 		background:#CCC; 
-		border-radius:25px;  
-
+		
 	}
 
 	.privacy-level {
 		background:#28A9D6;
-		font-size:1.5em;
-		border-radius:25px;
 		border:none;
 
-	}
 
-	.label_wrapper .btn-group {
-		float:right;
+
 	}
 
 	.pencil {
@@ -166,6 +165,7 @@
 		font-size:2em;
 		left:60%;
 		padding:15px 120px 0px 0px;
+
 	}
 
 	/*LAYOUT MAIN PAGE ELEMENTS*/
@@ -303,6 +303,8 @@
 		font-family: 'icomoon';
 	}
 
+
+
 	/*PAGE HEADER*/
 
 	.page-header {
@@ -400,6 +402,8 @@
 			padding:20px;
 		}
 
+		
+
 
 	}
 
@@ -417,8 +421,8 @@
 
 	}
 
-		/* Large devices (large desktops, 1200px and up) */
-		@media (min-width: 1200px) { 
+	/* Large devices (large desktops, 1200px and up) */
+	@media (min-width: 1200px) { 
 		
 
-		}
+	}

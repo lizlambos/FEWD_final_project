@@ -93,36 +93,6 @@
 
 }
 
-.question {
-    text-align: left;
-    font-size:1.5em;
-}
-
-.caption .btn.yes-button,
-.caption .btn.no-button {
-    width:100px;
-    height:100px;
-    padding:0px 0px 0px 0px;
-    margin:0;
-    border-radius:100%;
-    font-size:5em;
-    line-height: 1.4;
-
-}
-
-.answers .na-button{
-    width:30px;
-    border-radius:100%;
-    font-size:1.25em;
-    font-weight:bold;
-    color:rgba(255, 0, 0, 0.5);
-    border:5px solid rgba(255, 0, 0, 0.5);
-    background:white;
-    padding:0px 5px 0px 5px;
-
-
-}
-
 
 }
 
@@ -168,16 +138,7 @@
 
 }
 
-.btn.yes-button,
-.btn.no-button {
-    width:100px;
-    height:100px;
-    padding:0px 0px 0px 0px;
-    margin:0;
-    border-radius:100%;
-    font-size:5.25em;
 
-}
 
 .answers .na-button{
     width:40px;

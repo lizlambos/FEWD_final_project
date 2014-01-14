@@ -117,9 +117,7 @@
 	
 }
 
-.name_wrapper input {
 
-}
 
 
 /*QUERIES SECTION*/
@@ -130,79 +128,74 @@
 	margin: 0 auto;
 	padding:0px;	
 	text-align: center;
+	
 
 }
-
-
-.caption {
-    padding-top:30px;
-    border-top:1px solid #28A9D6;
-}
-
-.delete-button {
-    margin-right:20px;
-}
-
-
-.question {
-	clear:both;
-}
-
-
-.label_wrapper {
-    padding:0px 0px 20px 0px;
-    clear:both;
-    text-align: left;
-}
-
-.label_wrapper .btn-group {
-    float:right;
-}
-
-
-.answers {
-	padding-top:20px;
-	padding-bottom:20px;
-}
-
-.btn.yes-button,
-.btn.no-button {
-    width:36%;
-    padding:0px 0px 0px 0px;
-    margin:0;
-    border-radius:50px;
-    font-size:4em;
-    line-height:1.5;
-}
-
-
-.result {
-    font-size:0.6em;
-    margin-top:-10px;
-    padding-top:-10px;
-}
-
-.answers .na-button{
-    width:18%;
-    border-radius:25px;
-    font-size:2em;
-    font-weight:bold;
-    color:rgba(255, 0, 0, 0.5);
-    border:5px solid rgba(255, 0, 0, 0.5);
-    background:white;
-    margin-left:10px;
-    margin-right:10px;
-
-}
-
 
 .query_nav_buttons {
-	margin:30px;
 	border:1px solid #FFFFFF;
+	padding:10px;
+}
+
+.previous_query_wrapper {
+	padding:10px;
+	border-top:1px solid #28A9D6;
+	text-align: left;
+	width:95%;
+	margin: 0 auto;
+}
+
+/*RECENT QUERY COMPONENT - REPEATED ON ME PAGE*/
+
+.label_wrapper {
+	padding:0px 0px 5px 0px;
 }
 
 
+.label_wrapper .btn-group {
+	left:45%;
+}
 
+.privacy-level,
+.time-label.label-default {
+	padding:5px;
+
+}
+
+.answers {
+	text-align: center;
+	margin: 0 auto;
+	padding:5px 0px 0px 0px;
+
+}
+
+.btn.yes-answer,
+.btn.no-answer{
+	font-size:1.5em;
+	border-radius:20px;
+	margin:0px;
+	padding:5px 20px 5px 20px;
+
+}
+
+.answers .na-answer{
+	border-radius:20px;
+	font-size:1.25em;
+	font-weight:bold;
+	color:rgba(255, 0, 0, 0.5);
+	border:2px solid rgba(255, 0, 0, 0.5);
+	background:white;
+	margin-left:5px;
+	margin-right:5px;
+	font-family:"icomoon";
+
+}
+
+.responder_count {
+	font-size:1em;
+	margin-bottom:0;
+	display:inline;
+}
 
 
 
@@ -225,7 +218,6 @@
 		padding:0px 30px 30px 30px;
 		background:#FFFFEB;
 		height:auto;
-
 		
 	}
 
@@ -240,18 +232,66 @@
 	}
 
 
-	.fb-column .row{
-		width:100%;
-		margin:0;
-		padding:0;
-		
-	}
-
 	.user_karma_info .top-navbar-icon {
-
 		margin:20px 80px 20px 20px;
 		width:120px;
 		text-align:center;
+	}
+
+	.previous_query_wrapper {
+		padding:10px 30px 10px 30px;
+	}
+
+
+	.label_wrapper {
+		padding-top:20px;
+	}    
+
+	.label_wrapper .btn-group {
+		left:70%;
+	}
+
+	.privacy-level,
+	.time-label.label-default {
+		font-size:1em;
+		padding:10;
+	}
+
+	.question p {
+		font-size:1.5em;
+	}
+
+	.answers {
+		padding-top:10px;
+	}
+
+	.btn.yes-answer,
+	.btn.no-answer{
+		font-size:3em;
+		border-radius:20px;
+		margin:0px;
+
+	}
+
+	.result {
+		padding:5px 20px 5px 20px;
+	}
+
+	.answers .na-answer{
+
+		font-size:3em;
+		margin-left:5px;
+		margin-right:5px;
+
+
+
+	}
+
+	.responder_count {
+		font-size:0.5em;
+		margin-bottom:0;
+		display:block;
+
 	}
 }
 
@@ -279,6 +319,12 @@
 
 	}
 
+	.btn.yes-answers,
+	.btn.no-answers {
+		font-size:7em;
+		width:40%;
+	}
+
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -288,6 +334,3 @@
 
 }
 
-* {
-    border: 1px solid black;
-}
