@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Karma Police Invite Friends Page</title>
+  <title>Karma Police My Friends Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
@@ -63,15 +63,17 @@
 
       <a href="#" class="navbar-brand hidden-xs">KarmaPolice</a>
 
-      <div class="collapse navbar-collapse navbar-left pull-left">
+       <div class="collapse navbar-collapse navbar-left pull-left">
         <ul class="nav navbar-nav">
           <li ><a class="visible-link" href="#">Get Karma</a></li>
           <li class="visible-link"><a href="#">My Karma</a></li>
           <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
             <ul class="dropdown-menu pull-right">
               <li class="new-query" class="dropdown_item"><a href="#">New Karma Query</a></li>
+              <li class="dropdown_item"><a href="#">Activity</a></li>
+               <li class="dropdown_item"><a href="#">My Friends</a></li>
+              <li class="dropdown_item"><a href="#">Invite Friends</a></li>
               <li class="dropdown_item"><a href="#">My Karma</a></li>
-              <li class="dropdown_item"><a href="#">Friends</a></li>
               <li class="dropdown_item"><a href="#">Settings</a></li>
               <li class="dropdown_item"><a href="#">Contact Us</a></li>
               <li class="divider"></li>
@@ -94,7 +96,7 @@
 <nav class="mobile-header navbar-fixed-top hidden-sm hidden-md hidden-lg hidden-xl">
   <ul class="nav navbar-nav">
     <li>
-      <a href="#" class="navbar-brand hidden-sm hidden-md hidden-lg hidden-xl">Friends</a>
+      <a href="#" class="navbar-brand hidden-sm hidden-md hidden-lg hidden-xl">My Friends</a>
     </li>
   </ul>
 </nav>
@@ -104,7 +106,7 @@
 <!-- screen pageheader -->
 <div class="page-header hidden-sm hidden-xs">
   <div class="container">
-    <h1>Expand your audience<small> Invite friends and get instant karma!</small></h1>
+    <h1>Friends on Karma Police</h1>
   </div>
 </div>
 
@@ -116,17 +118,13 @@
   <div class="row">
     <div class="col-xs-12">
 
-      <div class="jumbotron hidden-md hidden-lg hidden-xl">
-        <h2 class="mobile-headertext">Add friends for instant karma</h2>
+      <div class="jumbotron hidden-xs hidden-md hidden-lg hidden-xl">
+        <h2 class="mobile-headertext">Friends on Karma Police</h2>
       </div>
-
-      <form class="form-inline mobile-searchbox" role="search">
-        <div class="invite-friends form-group">
-          <input type="text" class="form-control" placeholder="Find your friends">
-        </div>
-        <button type="submit" class="btn search-button"> <span class="glyphicon glyphicon-search"></span></button>
+      <div class="invite_friends_link_wrapper">
+       <a class="btn invite_friends_link">Invite more friends <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
       </div>
-    </form>
 
 
 
@@ -139,7 +137,13 @@
             <img class="fbpic_small" src="img/ganesha-hi.png"/>
           </div>
           <h3 class="friend-name">Bob Jones</h3>
-          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
+        </div><!--user-info-wrapper-->
+
+       <div class="user-info-wrapper">
+          <div class="fbpic_container">
+            <img class="fbpic_small" src="img/ganesha-hi.png"/>
+          </div>
+          <h3 class="friend-name">Bob Jones</h3>
         </div><!--user-info-wrapper-->
 
         <div class="user-info-wrapper">
@@ -147,25 +151,14 @@
             <img class="fbpic_small" src="img/ganesha-hi.png"/>
           </div>
           <h3 class="friend-name">Bob Jones</h3>
-          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
         </div><!--user-info-wrapper-->
 
-        <div class="user-info-wrapper">
+       <div class="user-info-wrapper">
           <div class="fbpic_container">
             <img class="fbpic_small" src="img/ganesha-hi.png"/>
           </div>
           <h3 class="friend-name">Bob Jones</h3>
-          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
         </div><!--user-info-wrapper-->
-
-        <div class="user-info-wrapper">
-          <div class="fbpic_container">
-            <img class="fbpic_small" src="img/ganesha-hi.png"/>
-          </div>
-          <h3 class="friend-name">Bob Jones</h3>
-          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
-        </div><!--user-info-wrapper-->
-
         
 
 
@@ -179,7 +172,13 @@
             <img class="fbpic_small" src="img/ganesha-hi.png"/>
           </div>
           <h3 class="friend-name">Bob Jones</h3>
-          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
+        </div><!--user-info-wrapper-->
+
+       <div class="user-info-wrapper">
+          <div class="fbpic_container">
+            <img class="fbpic_small" src="img/ganesha-hi.png"/>
+          </div>
+          <h3 class="friend-name">Bob Jones</h3>
         </div><!--user-info-wrapper-->
 
         <div class="user-info-wrapper">
@@ -187,23 +186,13 @@
             <img class="fbpic_small" src="img/ganesha-hi.png"/>
           </div>
           <h3 class="friend-name">Bob Jones</h3>
-          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
         </div><!--user-info-wrapper-->
 
-        <div class="user-info-wrapper">
+       <div class="user-info-wrapper">
           <div class="fbpic_container">
             <img class="fbpic_small" src="img/ganesha-hi.png"/>
           </div>
           <h3 class="friend-name">Bob Jones</h3>
-          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
-        </div><!--user-info-wrapper-->
-
-        <div class="user-info-wrapper">
-          <div class="fbpic_container">
-            <img class="fbpic_small" src="img/ganesha-hi.png"/>
-          </div>
-          <h3 class="friend-name">Bob Jones</h3>
-          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
         </div><!--user-info-wrapper-->
 
 

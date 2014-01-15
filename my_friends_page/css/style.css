@@ -1,35 +1,35 @@
-/*INVITE FRIENDS PAGE STYLESHEET*/
+/*MY FRIENDS PAGE STYLESHEET*/
 
-/*SEACHBAR*/
+/*LINK TO INVITE FRIENDS*/
 
-
-.invite-friends.form-group,
-.mobile-searchbox .form-control {
+.invite_friends_link_wrapper {
 	width:100%;
-	padding:0px;
+	position:relative;
+	padding:5px 5px 5px 5px;
+}
+
+.invite_friends_link {
+	font-size:1em;
+	padding:5px 5px 5px 15px;
+	color:#333;
+	margin-top:0px;
+	float:right;
+
+}
+
+.invite_friends_link span {
+	font-size:.75em;
+	font-weight:lighter;
 	
 }
 
-.mobile-searchbox .form-control {
-	padding:10px;
-	border-radius:0;
-}
-.invite-friends.form-group {
-	margin-bottom:0px;
-}
-
-.mobile-searchbox .search-button {
-	left:85%;
-	padding-top:12px;
-}
-
-
-/*INVITE FRIENDS*/
+/*MY FRIENDS*/
 
 .fb_friendsarea {
 	padding:0px;
 	width:100%;
 	margin: 0 auto;
+	margin-top:20px;
 	border: 1px solid #FFFFFF;
 	clear:both;
 	background: #0055A5; 
@@ -39,10 +39,12 @@
 
 .fb-column {
 	border-right: 1px solid #FFFFEB;
+
 }
 
 .user-info-wrapper {
 	border-bottom: 1px solid #FFFFEB;
+
 }
 
 .fbpic_container {
@@ -57,20 +59,10 @@
 
 .friend-name {
 	top:20px;
-}
-
-.add-friend-button {
-	display:inline-block;
-	float:right;
-	top:15px;
-	background:transparent;
-	border:none;
-	font-size:1.5em;
-	padding-right:30px;
-	margin-right:10px;
-
 
 }
+
+
 
 
 /*MEDIA QUERIES*/
@@ -82,8 +74,31 @@
 
 @media (min-width: 768px) { 
 
+
+
 	.content_component_wrapper {
 		padding:0px 30px 0px 30px;
+	}
+
+	.invite_friends_link_wrapper {
+		width:100%;
+		position:relative;
+		padding:10px 40px 10px 10px;
+	}
+
+	.invite_friends_link {
+		font-size:1.5em;
+		padding:15px 15px 15px 15px;
+		color:#333;
+		margin-top:0px;
+		float:right;
+
+	}
+
+	.invite_friends_link span {
+		font-size:.75em;
+		font-weight:lighter;
+
 	}
 
 
@@ -105,21 +120,7 @@
 		border: 1px solid #28A9D6;
 	}
 
-	
-	.mobile-searchbox .form-control {
-		width:90%;
-		border-radius:25px;
-	}
 
-	.invite-friends.form-group,
-	.mobile-searchbox .form-control {
-		padding:20px;
-	}
-
-	.mobile-searchbox .search-button {
-		left:85%;
-		padding-top:40px;
-	}
 
 	.mobile-headertext {
 		font-size:1.5em;
