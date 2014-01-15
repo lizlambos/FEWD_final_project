@@ -84,3 +84,18 @@ CONTENT COMPONENT CONTAINER - ROW > COL > INNTER CONTENT WRAPPER
 
 	COL
 	 	- USER_karma_info
+
+
+TYPING
+
+mobile logo
+
+small logo
+
+big logo
+
+mobile icon
+
+mobile icon label
+
+

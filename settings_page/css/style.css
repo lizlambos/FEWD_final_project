@@ -1,13 +1,4 @@
 /*SETTINGS PAGE STYLESHEET*/
-/*MOBILE NAV*/
-
-.mobile-header .settings_link {
-	position:absolute;
-	float:left;
-	margin-top:-5px;
-	padding-left:25px;
-	
-}
 
 /*HEADER*/
 
@@ -17,12 +8,16 @@
 
 /*SETTINGS AREA*/ 
 
-.row
- {
+.content_component_container {
+	padding:0px;
+}
+
+.inner_content_wrapper .row
+{
 	color:#FFFFEB;
 	background:#0055A5;
 	border: 1px solid white;
-	padding:10px;
+	padding:0px;
 	height:auto;
 	
 }
@@ -31,7 +26,7 @@
 	background:#FFFFEB;
 	color:#0055A5;
 	text-align: center;
-	margin-bottom:-20px;
+	margin-bottom:20px;
 }
 
 .row .form-group {
@@ -60,24 +55,33 @@ label {
 .like_karma_police {
 	width:100%;
 	display:block;
-	margin: 0 auto;
+
+	padding:0px;
 }
 
 .like_karma_police label {
 	display:block;
+	padding:5px 10px 5px 10px;
 }
+
 .like_karma_police a {
-	width:auto;
+	
 	color:#FFFFEB;
 	background: #28A9D6;
-	
+	font-size:2em;
+	border-radius:0px;
+
+}
+
+.row.settings_button {
+	padding:5px 10px 5px 10px;
 }
 
 
 .row.settings_button a,
 .row.settings_button label{
 	text-align: left;
-	margin-left:20px;
+	margin-left:0px;
 	font-weight: lighter;
 	display:inline;
 
@@ -89,52 +93,36 @@ label {
 	font-weight: lighter;
 }
 
-.row a span
-{
+
+
+.row a span {
 	float:right;
-	padding-right:80px;
+	padding-right:20px;
 	padding-top:5px;
 	display:inline-block;
 }
 
 .row .radiobutton {
 	float:right;
-	margin-right:35px;
+	margin-right:5px;
 	margin-bottom:0px;
-	padding-right:20px;
-	padding-left:20px;
+	padding:2px 10px 2px 10px;
 }
 
-.fb_friendsarea {
-	width:100%;
-	height:360px;
-	background:transparent;
 
-}
-
-.caption{
-	padding-top:20px;
-	background:transparent;
-}
-
-.content_component_wrapper {
-	padding:0;
-	margin:0;
-
-}
-
-.me_page_button {
+.settings_page_button {
 	margin-top:0px;
 	border-radius:0;
 	border:none;
 	padding:30px;
 }
 
-.btn-success.me_page_button {
+
+.btn-success.settings_page_button {
 	background:#5cb85c;;
 }
 
-.btn-danger.me_page_button {
+.btn-danger.settings_page_button {
 	background:#F0AD4C;
 	margin-top:0px;
 	border-top: 1px solid white;
@@ -159,24 +147,25 @@ label {
 
 	.main_content_container {
 		margin-top:80px;
+
 	}
 
 	.content_component_container {
 		padding:0px 30px 30px 30px;
 		background:#FFFFEB;
 		height:auto;
+		border:none;
 
 		
 	}
 
 	.col-xs-12 {
-	
+
 		border:none;
 
 	}   
 	
 	.inner_content_wrapper {
-		background:#0055A5;
 		margin:20px;
 	}
 
@@ -193,12 +182,29 @@ label {
 		width:120px;
 		text-align:center;
 	}
+	.row.settings_button a,
+	.row.settings_button label{
+		margin-left:20px;
+		
+
+	}
+
+	.row a span {
+
+		padding-right:40px;
+		
+	}
+
 }
 
 
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
+
+	.main_content_container {
+		width:60%;
+	}
 
 	.content_component_container {
 		padding-top:30px;

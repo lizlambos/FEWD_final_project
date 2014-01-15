@@ -4,371 +4,386 @@
 
 /*NAVBAR*/
 
-	.dropdown-menu, 
-	.mobile-searchbox {
-		font-size:1em;
-	}
+.dropdown-menu, 
+.mobile-searchbox {
+	font-size:1em;
+}
+
+.navbar-brand {
+	font-family:samarkan;
+	font-size:2em;
+	color:#FFFFFF;
+
+}
+
+.top-navbar-icon-label {
+	font-size:0.75em;
+} 
+
+.mobile-header .settings_link {
+	font-size:0.75em; 
+}
+
+
+/*IMAGES*/
+
+.temp-ganesh-logo {
+	width:30px;
+	height:40px;
+	margin-right:5px;
+
+}
+
+/*NAVBAR*/
+
+.navbar {
+	background:#28A9D6;
+	border:none;
+
+}
+
+.navbar-right {
+	margin-right:0px;
+
+}
+
+.navbar .nav.navbar-nav  a{
+	color:#333;
+	text-decoration: none;
+
+}
+
+.navbar .container {
+	margin-top: 15px;
+	margin-bottom:15px;
+}
+
+.navbar .navbar-brand {
+	display:block;
+	padding-top:10px;
+	margin-top:10px;
+	padding-bottom:10px;
+	position:relative;
+	color:rgba(255, 255, 204, 1);
+
+}
+
+.navbar-form {
+	position:relative;
+	width:auto;
+}
+
+.form-group {
+	width:250px;	
+	float:left;
+
+}
+
+.form-control{
+	border-radius:25px;
+	padding-right:20px;
+	width:90%;
+	margin-right:-20px;
+}
+
+
+.search-button {
+	position:absolute;
+	right:15%;
+	color:#555;
+	background:transparent;
+	
+}
+
+.ganesh-dropdown {
+	padding-top:0px;
+	padding-bottom:0px;
+	margin-top:-10px;
+	border-radius:100%;
+	background:transparent;
+}
+
+.mobile-searchbox {
+	width:100%;
+	margin:auto 0;
+	text-align: center;
+}
+
+
+.mobile-searchbox .form-group {
+	width:100%;
+	padding:20px;
+}
+
+.mobile-searchbox .form-control{
+	width:90%;
+	margin: 0 auto;
+	text-align:left;
+	height:auto;
+	padding:10px;
+
+}
+
+.mobile-searchbox .search-button {
+	padding-top:30px;
+
+}
+
+
+
+/*MOBILE TOP NAVBAR*/	
+
+.mobile-header {
+	background:#28A9D6;
+	height:44px;
+	text-align:center;
+
+}
+
+.mobile-header .navbar-nav {
+	padding:0px;
+	margin:0px;
+}
+
+.mobile-header .navbar-brand {
+	display:block;
+	width:100%;
+	text-align: center;
+	margin: 0 auto;
+	padding-top:15px;
+	padding-bottom:5px;
+
+
+}
+
+.mobile-header ul li a {
+	color:#FFFFFF;
+}
+
+.mobile-header ul li .btn {
+	margin-top:0px;
+	color:#FFFFFF;
+	font-size:1em;
+}
+
+.mobile-header ul li a:focus,
+.mobile-header ul li a:hover,
+.mobile-header ul li .onpage {
+	background:transparent;
+	border:none;
+
+}
+
+.settings_link {
+	position:absolute;
+	left:80%;
+	padding-top:5px;
+
+}
+
+.settings_link a {
+	line-height: 0.5;
+}
+
+
+
+.mobile-header .back-button {
+	position:absolute;
+	float:left;
+	margin-top:-5px;
+	padding-left:25px;
+
+}
+
+.mobile-header .back-button span {
+	font-size: 1.5em;
+}
+
+
+
+/*MOBLE BOTTOM NAVBAR*/
+
+.mobile-footer {
+	position:fixed;
+	bottom:0%;
+	height:62px;
+	width:100%;
+	background:#28A9D6;
+
+}
+
+.mobile-footer ul {
+	width:95%;
+	margin: 0 auto;
+	text-align: center;
+	margin-top:-15px;
+
+
+}
+
+.mobile-footer ul li {
+	display:inline;
+	width:20%;
+	float:left;
+	padding-right:8px;
+	padding-left:0px;
+	margin:0 auto;
+	padding-top:0px;
+
+
+}
+
+.mobile-footer ul li a {
+	color:#FFFFFF;
+
+}
+.btn.bottom-navbar-icon {
+	display:inline;
+	font-size:0.75em;
+	background:transparent;
+	border:none;
+	margin:0px 10px 10px 10px;
+	vertical-align: middle;
+}
+
+.bottom-navbar-icon-label{
+	display:inline;
+	background:transparent;
+	margin:-5px 0px 0px 0px;
+}
+
+.bottom-navbar-icon:focus, 
+.bottom-navbar-icon:hover,
+.bottom-navbar-icon:active
+{
+	background:transparent;
+
+}
+
+.mobile-footer ul li a:focus,
+.mobile-footer ul li a:hover,
+.mobile-footer ul li .onpage {
+	background:transparent;
+	border:none;
+	color:#EDF684;
+}
+
+.mobile-footer li:last-child .bottom-navbar-icon{
+	padding-right:0px;
+
+}
+
+[data-icon]:before {
+	font-family:'icomoon';
+	content: attr(data-icon);
+	margin-right:0px;
+	padding-bottom:10px;
+	padding-top:5px;
+	speak:none;
+	display:block;
+	font-size:2.5em;
+}
+
+.mobile-footer span {
+	font-size:1em;
+	margin-left:0px;
+	display:block;
+
+}
+
+.screen-footer {
+	height:60px;
+	margin-top:40px;
+	color:#333;
+}
+
+.screen-footer p {
+	color:white;
+	font-size:1.25em;
+	display:block;
+	padding-top:20px;
+	padding-left:50px;
+}
+
+
+
+/*MEDIA QUERIES*/
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
+@media (min-width: 768px) { 
 
 	.navbar-brand {
-		font-family:samarkan;
-		font-size:2em;
-		color:#FFFFFF;
-
-	}
-
-	.top-navbar-icon-label {
-		font-size:0.75em;
-	} 
-
-	.mobile-header .settings_link {
-		font-size:0.75em; 
-	}
-
-
-	/*IMAGES*/
-
-	.temp-ganesh-logo {
-		width:30px;
-		height:40px;
-		margin-right:5px;
-
-	}
-
-	/*NAVBAR*/
-
-	.navbar {
-		background:#28A9D6;
-		border:none;
+		font-size:4em;
+		left:10%;
 
 	}
 
 	.navbar-right {
-		margin-right:0px;
+		margin-right:90px;
+
+	}
+	.navbar-collapse { 
+		padding-right:0px;
+		position:absolute;
+		left:50%;
+		background:transparent;
+		margin-top:0px;
 
 	}
 
-	.navbar .nav.navbar-nav  a{
-		color:#333;
-		text-decoration: none;
-		
-	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+
 
 	.navbar .container {
-		margin-top: 15px;
-		margin-bottom:15px;
-	}
-
-	.navbar .navbar-brand {
-		display:block;
-		padding-top:10px;
-		margin-top:10px;
-		padding-bottom:10px;
-		position:relative;
-		color:rgba(255, 255, 204, 1);
-
-	}
-
-	.navbar-form {
-		position:relative;
-		width:auto;
-	}
-
-	.form-group {
-		width:250px;	
-		float:left;
-
-	}
-
-	.form-control{
-		border-radius:25px;
-		padding-right:20px;
-		width:90%;
-		margin-right:-20px;
-	}
-
-
-	.search-button {
-		position:absolute;
-		right:15%;
-		color:#555;
-		background:transparent;
-	
-	}
-
-	.ganesh-dropdown {
-		padding-top:0px;
-		padding-bottom:0px;
-		margin-top:-10px;
-		border-radius:100%;
-		background:transparent;
-	}
-
-	.mobile-searchbox {
-		width:100%;
-		margin:auto 0;
-		text-align: center;
-	}
-
-	
-	.mobile-searchbox .form-group {
-		width:100%;
-		padding:20px;
-	}
-
-	.mobile-searchbox .form-control{
-		width:90%;
-		margin: 0 auto;
-		text-align:left;
-		height:auto;
-		padding:10px;
-		
-	}
-
-	.mobile-searchbox .search-button {
-		padding-top:30px;
-		
-	}
-
-
-
-	/*MOBILE TOP NAVBAR*/	
-
-	.mobile-header {
-		background:#28A9D6;
-		height:44px;
-		text-align:center;
-
-	}
-
-	.mobile-header .navbar-nav {
-		padding:0px;
-		margin:0px;
-	}
-
-	.mobile-header .navbar-brand {
-		display:block;
-		width:100%;
-		text-align: center;
-		margin: 0 auto;
-		padding-top:15px;
-		padding-bottom:5px;
-		
-
-	}
-
-	.mobile-header ul li a {
-		color:#FFFFFF;
-	}
-
-	.mobile-header ul li .btn {
-		margin-top:0px;
-		color:#FFFFFF;
-		font-size:1em;
-	}
-
-	.mobile-header ul li a:focus,
-	.mobile-header ul li a:hover,
-	.mobile-header ul li .onpage {
-		background:transparent;
-		border:none;
-
-	}
-
-	.settings_link {
-		position:absolute;
-		left:85%;
-		padding-top:5px;
-
-	}
-
-	.settings_link a {
-		line-height: 0.5;
-	}
-
-
-	/*MOBLE BOTTOM NAVBAR*/
-
-	.mobile-footer {
-		position:fixed;
-		bottom:0%;
-		height:62px;
-		width:100%;
-		background:#28A9D6;
-
-	}
-
-	.mobile-footer ul {
-		width:95%;
-		margin: 0 auto;
-		text-align: center;
-		margin-top:-15px;
-
-
-	}
-
-	.mobile-footer ul li {
-		display:inline;
-		width:20%;
-		float:left;
-		padding-right:8px;
-		padding-left:0px;
-		margin:0 auto;
-		padding-top:0px;
-		
-
-	}
-
-	.mobile-footer ul li a {
-		color:#FFFFFF;
-
-	}
-	.btn.bottom-navbar-icon {
-		display:inline;
-		font-size:0.75em;
-		background:transparent;
-		border:none;
-		margin:0px 10px 10px 10px;
-		vertical-align: middle;
-	}
-
-	.bottom-navbar-icon-label{
-		display:inline;
-		background:transparent;
-		margin:-5px 0px 0px 0px;
-	}
-
-	.bottom-navbar-icon:focus, 
-	.bottom-navbar-icon:hover,
-	.bottom-navbar-icon:active
-	{
-		background:transparent;
-
-	}
-
-	.mobile-footer ul li a:focus,
-	.mobile-footer ul li a:hover,
-	.mobile-footer ul li .onpage {
-		background:transparent;
-		border:none;
-		color:#EDF684;
-	}
-
-	.mobile-footer li:last-child .bottom-navbar-icon{
-		padding-right:0px;
-
-	}
-
-	[data-icon]:before {
-		font-family:'icomoon';
-		content: attr(data-icon);
-		margin-right:0px;
-		padding-bottom:10px;
-		padding-top:5px;
-		speak:none;
-		display:block;
-		font-size:2.5em;
-	}
-
-	.mobile-footer span {
-		font-size:1em;
-		margin-left:0px;
-		display:block;
-
-	}
-
-	.screen-footer {
-		height:60px;
-		margin-top:40px;
-		color:#333;
-	}
-
-	.screen-footer p {
-		color:white;
-		font-size:1.25em;
-		display:block;
 		padding-top:20px;
-		padding-left:50px;
-	}
-
-
-
-	/*MEDIA QUERIES*/
-
-	/* Extra small devices (phones, less than 768px) */
-	/* No media query since this is the default in Bootstrap */
-
-	/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
-	@media (min-width: 768px) { 
-
-		.navbar-brand {
-			font-size:4em;
-			left:10%;
-
-		}
-
-		.navbar-right {
-			margin-right:90px;
-
-		}
-		.navbar-collapse { 
-			padding-right:0px;
-			position:absolute;
-			left:50%;
-			background:transparent;
-			margin-top:0px;
-
-		}
+		margin-top:20px;
 
 	}
 
-	/* Medium devices (desktops, 992px and up) */
-	@media (min-width: 992px) { 
+	.navbar-collapse { 
+		padding-right:0px;
+		position:absolute;
+		left:70%;
 
 
-
-		.navbar .container {
-			padding-top:20px;
-			margin-top:20px;
-
-		}
-
-		.navbar-collapse { 
-			padding-right:0px;
-			position:absolute;
-			left:70%;
-
-
-		}
-
-		.navbar-brand {
-			font-size:4em;
-			left:5%;
-			padding-bottom:20px;
-
-		}
-
-
-		.navbar-right {
-			margin-right:0px;
-		}
-
-		
 	}
 
-		/* Large devices (large desktops, 1200px and up) */
-		@media (min-width: 1200px) { 
-			.navbar-brand {
-				font-size:5em;
-				left:10%;
+	.navbar-brand {
+		font-size:4em;
+		left:5%;
+		padding-bottom:20px;
+
+	}
 
 
-			}
+	.navbar-right {
+		margin-right:0px;
+	}
 
-			.navbar-collapse { 
-				padding-right:0px;
-				position:absolute;
-				left:70%;
 
-			}	
+}
 
-		}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+	.navbar-brand {
+		font-size:5em;
+		left:10%;
+
+
+	}
+
+	.navbar-collapse { 
+		padding-right:0px;
+		position:absolute;
+		left:70%;
+
+	}	
+
+}
