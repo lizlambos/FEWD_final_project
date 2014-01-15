@@ -19,18 +19,19 @@
 	text-align: center;
 }
 
-
 .content_component_container {
-	padding:0;
-	margin:0;
+	padding:0px;
+}
 
+
+.fb-column {
+	text-align:center;
 }
 
 
 .fbpic_container {
 	width:100%;
 	height:auto;
-	float:left;
 	clear:none;
 	border:1px solid #FFFFFF;
 	background:#0055A5;
@@ -63,21 +64,23 @@
 }
 
 .user_karma_info {
-	padding:0px;
+	padding:0px 5px 0px 5px;
 	margin:0px;
 	position:relative;
 	background:#0055A5;
+	text-align: center;
 	
 }
 
 .user_karma_info .top-navbar-icon-label {
-	float:left;
-	margin:10px 5px 10px 20px;
+	margin:10px 0px 10px 0px;
+	padding:5px 0px 5px 5px;
 	
 } 
 .user_karma_info .top-navbar-icon-label p{
-	line-height: 0.75em;
-	text-align: center;
+	line-height: 0.6;
+	margin:0px;
+	
 
 } 
 
@@ -89,15 +92,21 @@
 }
 
 .user_karma_info .badge {
-	padding:0px;
+	margin-left:0px;
+	padding:0px 5px 0px 0px;
 	text-align: center;
+
 	
+}
+
+.user_karma_info p {
+	padding-top:10px;
 }
 
 .user_karma_info .glyphicon-chevron-right {
 	position:absolute;
 	top:38%;
-	left:86%;
+	left:89%;
 	float:right;
 	color:#FFFFEB;
 
@@ -133,8 +142,23 @@
 }
 
 .query_nav_buttons {
-	border:1px solid #FFFFFF;
+	border:none;
 	padding:10px;
+	background
+
+}
+
+.query_nav_buttons .btn-default {
+	border:1px solid #0055A5;
+	color:#0055A5;
+	background:#FFFFFF;
+}
+
+.query_nav_buttons .active {
+	border:1px solid #FFFFFF;
+	color:#FFFFFF;
+	background:#0055A5;
+	font-weight:lighter;
 }
 
 .previous_query_wrapper {
@@ -231,11 +255,59 @@
 		margin:20px;
 	}
 
+	.fbpic_small {
+		width:180px;
+		height:180px;
+
+	}
+
+	.edit_pencil {
+		margin-top:10px;
+		margin-left:20px;
+	}
+	
+	.name_wrapper {
+		font-size:1.5em;
+	}
+
+	.me-input {
+		text-align: center;
+	}
+
+	.user_karma_info .top-navbar-icon-label {
+		padding:20px;
+	}
+	.user_karma_info p {
+		font-size:1.5em;
+	}
+
+	.user_karma_info .top-navbar-icon-label p{
+		font-size:2em;
+
+	}
+
 
 	.user_karma_info .top-navbar-icon {
 		margin:20px 80px 20px 20px;
-		width:120px;
+		width:auto;
 		text-align:center;
+		font-size:2em;
+	}
+
+	.user_karma_info .glyphicon-chevron-right {
+		font-size:2em;
+		left:85%;
+		top:35%;
+
+	}
+	
+	.user_karma_info .glyphicon-chevron-right.last {
+		top:20%;
+	}
+
+
+	.query_nav_buttons {
+		padding:30px;
 	}
 
 	.previous_query_wrapper {

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Karma Police Invite Friends Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+  <link rel="stylesheet/less" href="../less/styles.css" type="text/css">
+  <script src="../js/less.js"></script> 
+  <link href="../css/style.css" rel="stylesheet" media="screen">
+  <link href="../css/navbars.css" rel="stylesheet" media="screen">
+  <link href="css/style.css" rel="stylesheet" media="screen">
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic|Lobster|Exo+2:400,800,700,600,500,200,200italic,300,300italic,400italic,900' rel='stylesheet' type='text/css'>
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+  
+
+
+</head>
+
+<body class="all-app-pages">
+
+  <!--facebookapp initialization
+
+  <div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function() {
+      // init the FB JS SDK
+     FB.init({
+      appId      : '254848478004741',                        // App ID from the app dashboard
+      status     : true,                                 // Check Facebook Login status
+      xfbml      : true                                  // Look for social plugins on the page
+      });
+
+    // Additional initialization code such as adding Event Listeners goes here
+     };
+
+   // Load the SDK asynchronously
+    (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js";
+    fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    end facebookapp initialization--> 
+
+    <!-- screen navbar -->
+    <nav class="navbar navbar-fixed-top hidden-xs" role="navigation">
+      <div class="container">
+
+     <form class="navbar-form form-inline navbar-left hidden-sm hidden-xs" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Find your friends">
+        </div>
+        <button type="submit" class="btn search-button"> <span class="glyphicon glyphicon-search"></span></button>
+      </form>
+
+      <a href="#" class="navbar-brand hidden-xs">KarmaPolice</a>
+
+      <div class="collapse navbar-collapse navbar-left pull-left">
+        <ul class="nav navbar-nav">
+          <li ><a class="visible-link" href="#">Get Karma</a></li>
+          <li class="visible-link"><a href="#">My Karma</a></li>
+          <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
+            <ul class="dropdown-menu pull-right">
+              <li class="new-query" class="dropdown_item"><a href="#">New Karma Query</a></li>
+              <li class="dropdown_item"><a href="#">My Karma</a></li>
+              <li class="dropdown_item"><a href="#">Friends</a></li>
+              <li class="dropdown_item"><a href="#">Settings</a></li>
+              <li class="dropdown_item"><a href="#">Contact Us</a></li>
+              <li class="divider"></li>
+              <li class="dropdown_item"><a href="#">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div><!--collapse navbar-->
+
+    </div><!--row-->
+    
+  </div> <!--container-->    
+</nav>
+
+<!-- end navbar -->
+
+<!--mobile top navbar-->
+
+<nav class="mobile-header navbar-fixed-top hidden-sm hidden-md hidden-lg hidden-xl">
+  <ul class="nav navbar-nav">
+    <li>
+      <a href="#" class="navbar-brand hidden-sm hidden-md hidden-lg hidden-xl">Friends</a>
+    </li>
+  </ul>
+</nav>
+
+<!--end mobile top navbar-->
+
+<!-- screen pageheader -->
+<div class="page-header hidden-sm hidden-xs">
+  <div class="container">
+    <h1>Expand your audience<small> Invite friends and get instant karma!</small></h1>
+  </div>
+</div>
+
+<!-- end pageheader -->
+
+<!-- new question editor -->
+
+<div class="main_content_container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <div class="jumbotron hidden-md hidden-lg hidden-xl">
+        <h2 class="mobile-headertext">Add friends for instant karma</h2>
+      </div>
+
+      <form class="form-inline mobile-searchbox" role="search">
+        <div class="invite-friends form-group">
+          <input type="text" class="form-control" placeholder="Find your friends">
+        </div>
+        <button type="submit" class="btn search-button"> <span class="glyphicon glyphicon-search"></span></button>
+      </div>
+    </form>
+
+
+
+    <div class="row fb_friendsarea">
+
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 fb-column">
+
+        <div class="user-info-wrapper">
+          <div class="fbpic_container">
+            <img class="fbpic_small" src="img/ganesha-hi.png"/>
+          </div>
+          <h3 class="friend-name">Bob Jones</h3>
+          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
+        </div><!--user-info-wrapper-->
+
+        <div class="user-info-wrapper">
+          <div class="fbpic_container">
+            <img class="fbpic_small" src="img/ganesha-hi.png"/>
+          </div>
+          <h3 class="friend-name">Bob Jones</h3>
+          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
+        </div><!--user-info-wrapper-->
+
+        <div class="user-info-wrapper">
+          <div class="fbpic_container">
+            <img class="fbpic_small" src="img/ganesha-hi.png"/>
+          </div>
+          <h3 class="friend-name">Bob Jones</h3>
+          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
+        </div><!--user-info-wrapper-->
+
+        <div class="user-info-wrapper">
+          <div class="fbpic_container">
+            <img class="fbpic_small" src="img/ganesha-hi.png"/>
+          </div>
+          <h3 class="friend-name">Bob Jones</h3>
+          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
+        </div><!--user-info-wrapper-->
+
+        
+
+
+      </div><!--col-->
+
+
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 fb-column">
+
+        <div class="user-info-wrapper">
+          <div class="fbpic_container">
+            <img class="fbpic_small" src="img/ganesha-hi.png"/>
+          </div>
+          <h3 class="friend-name">Bob Jones</h3>
+          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
+        </div><!--user-info-wrapper-->
+
+        <div class="user-info-wrapper">
+          <div class="fbpic_container">
+            <img class="fbpic_small" src="img/ganesha-hi.png"/>
+          </div>
+          <h3 class="friend-name">Bob Jones</h3>
+          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
+        </div><!--user-info-wrapper-->
+
+        <div class="user-info-wrapper">
+          <div class="fbpic_container">
+            <img class="fbpic_small" src="img/ganesha-hi.png"/>
+          </div>
+          <h3 class="friend-name">Bob Jones</h3>
+          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
+        </div><!--user-info-wrapper-->
+
+        <div class="user-info-wrapper">
+          <div class="fbpic_container">
+            <img class="fbpic_small" src="img/ganesha-hi.png"/>
+          </div>
+          <h3 class="friend-name">Bob Jones</h3>
+          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
+        </div><!--user-info-wrapper-->
+
+
+      </div><!--col-->
+
+    </div><!--fb_friendsarea-->
+  </div><!--col-->
+</div><!--new query-->
+</div><!--friendsarea_container-->
+
+
+<!-- end find friends area-->
+
+<!-- mobile bottom navbar -->
+
+<footer class="mobile-footer fixed-bottom hidden-sm hidden-md hidden-lg hidden-xl">
+ <ul class="nav navbar-nav">
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn bottom-navbar-icon" data-icon="&#xe60a;" href="#"><span class="bottom-navbar-icon-label">Get Karma</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn  bottom-navbar-icon" data-icon="&#xe608;" href="#"><span class="bottom-navbar-icon-label">My Karma</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn bottom-navbar-icon" data-icon="&#xe60c;" href="#"><span class="bottom-navbar-icon-label">New Query</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn onpage bottom-navbar-icon" data-icon="&#xe607;" href="#"><span class="bottom-navbar-icon-label">Friends</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn bottom-navbar-icon" data-icon="&#xe614;" href="#"><span class="bottom-navbar-icon-label">Me</span></a>
+  </li>
+
+</ul> 
+
+
+</div>
+
+</footer>
+
+<footer class="screen-footer hidden-xs">
+  <div class="footer-container">
+    <p class="hidden-xs">KarmaPolice 2013</p>
+    <nav class="corporate-info">
+      <ul class="bottom-links">
+
+      </ul>
+    </nav>
+
+
+  </div>
+
+</footer>
+<!-- end footer-->
+
+</body>
+</html>
