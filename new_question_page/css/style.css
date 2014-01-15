@@ -2,6 +2,7 @@
 
 /*NEW QUESTION EDITOR*/
 
+
 .question {
 	padding:10px;
 	background:transparent;
@@ -20,42 +21,33 @@
 .query_instructions{
 	margin-left:0px;
 	padding-bottom:10px;
-	font-size:3em;
 	display:block;
 }
 
-.delete-button {
-	float:right;
-	font-size:2em;
-	margin-right:20px;
-	color:#ccc;
-	background: transparent;
-
-}
 
 #sample_query {
 	background: #0055A5; 
 	color:#FFFFEB;
-	font-size:2em;
+	font-size:1em;
 	padding:20px;
 	width:100%;
 }
 
 #sample_query::-webkit-input-placeholder {
-   color:#FFFFEB;
-   font-style: italic;
+	color:#FFFFEB;
+	font-style: italic;
 }
 
 #sample_query:-moz-placeholder { /* Firefox 18- */
-   color:#FFFFEB;
+	color:#FFFFEB;
 }
 
 #sample_query::-moz-placeholder {  /* Firefox 19+ */
-   color:#FFFFEB;
+	color:#FFFFEB;
 }
 
 #sample_query:-ms-input-placeholder {  
-   color:#FFFFEB; 
+	color:#FFFFEB; 
 }
 
 
@@ -66,40 +58,25 @@
 
 }
 
-.label_wrapper {
-	padding:40px 0px 20px 0px;
-	width:100%;
-	margin: 0 auto;
-
-}
-
-.caption .btn {
-	padding-top:10px;
-	margin-top:10px;
-	font-weight:bold;
-	border:none;
-	padding:20px;
-
-}
-
-.dropdown-menu {
+.query_submit_button_wrapper {
 	width:100%;
 	text-align: center;
+	margin-bottom:200px;
 }
+
 
 .privacy-level {
-	background:#28A9D6;
-	display:block;
-	
+	font-size:1em;
+
 }
 
-.btn-group {
-	margin-bottom:100px;
-	width:100%;
-}
+
+
 #submit_button{
-	padding: 50px 0px 50px 0px;
+	padding: 20px;
 	border-radius:25px;
+	margin: 0 auto;
+	margin-top:30px;
 
 }
 
@@ -112,48 +89,43 @@
 /* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
 
 @media (min-width: 768px) { 
-   
+
 
 	.col-xs-12 {
 		border:none;
 		
 	}   
 
-	.content_component_wrapper {
+	.content_component_container {
 		padding-left:0px;
 		padding-right:0px;
-		border:1px solid #28A9D6;
-		width:100%;
+		width:80%;
+		border:none;
 	}
 
-	.label_wrapper {
-		padding:80px 0px 20px 0px;
-
-
-	}
-
-	.label_wrapper .btn-group {
-			left:70%;
-		}
+	#sample_query {
+		font-size:1.5em;
 
 	}
 
 
-	/* Medium devices (desktops, 992px and up) */
-	@media (min-width: 992px) { 
-
-
-		.yes-button,
-		.no-button {
-			font-size:7em;
-			width:40%;
-		}
-
+	.privacy-level {
+		font-size:1.5em;
 	}
 
-	/* Large devices (large desktops, 1200px and up) */
-	@media (min-width: 1200px) { 
+}
 
-		
 
-	}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+
+
+}

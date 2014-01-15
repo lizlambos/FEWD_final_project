@@ -52,8 +52,12 @@
 	}
 
 
-	.query_instructions,
+	
 	.friend-name {
+		font-size:1.5em;
+	}
+
+	.query_instructions {
 		font-size:1.5em;
 	}
 
@@ -83,6 +87,7 @@
 	}
 
 	
+	
 	#submit_button,
 	.settings_page_button {
 		font-size:3em;
@@ -106,6 +111,9 @@
 		font-size:0.75em; 
 	}
 
+	.query_nav_buttons {
+		font-size:0.75em;
+	}
 
 
 	/*IMAGES*/
@@ -133,14 +141,10 @@
 		margin-right:10px;
 	}
 
-
-	.privacy-level,
 	.time-label.label-default {
 		padding:10px;
 		border-radius:5px; 
 	}
-
-
 
 	.time-label.label-default{
 		color:#0055A0;
@@ -148,13 +152,32 @@
 		
 	}
 
-	.privacy-level {
-		background:#28A9D6;
-		border:none;
-
-
-
+	.privacy-level .btn {
+		color:#FFFFFF;
 	}
+
+	.privacy-level .kp_button,
+	.privacy-level .fb_button,
+	.privacy-level .private_button {
+		background-color:#428bca;
+	}
+
+	.privacy-level .btn.active {
+		background-color:#CCC;
+		color:#0055A0;
+		font-weight:bold;
+	}
+
+	.privacy-level .pic_button{
+		background-color:#333;
+	}
+
+	.privacy-level .go_button{
+		background-color:#5cb85c;
+	}
+
+
+
 
 	.pencil {
 		border:none;
@@ -264,7 +287,7 @@
 		padding:5px 15px 5px 15px;
 		background: #0055A5; 
 		position:relative;
-		border-radius:15px;
+		border-radius:10px;
 		margin:0 auto;
 
 	}

@@ -144,7 +144,6 @@
 .query_nav_buttons {
 	border:none;
 	padding:10px;
-	background
 
 }
 
@@ -172,18 +171,37 @@
 /*RECENT QUERY COMPONENT - REPEATED ON ME PAGE*/
 
 .label_wrapper {
-	padding:0px 0px 5px 0px;
+    padding:0px;
 }
 
 
 .label_wrapper .btn-group {
-	left:45%;
+    float:right;
+
 }
 
-.privacy-level,
-.time-label.label-default {
-	padding:5px;
+.time-label {
+    float:left;
 
+}
+
+.time-label.label-default {
+    padding:5px;
+    margin-bottom:5px;
+
+}
+
+.privacy-level {
+    margin-bottom:5px;
+}
+
+.privacy-level .btn {
+    padding:2px 5px 2px 5px;
+}
+
+.question {
+    clear:both;
+    margin-top:5px;
 }
 
 .answers {
@@ -196,9 +214,9 @@
 .btn.yes-answer,
 .btn.no-answer{
 	font-size:1.5em;
-	border-radius:20px;
+	border-radius:10px;
 	margin:0px;
-	padding:5px 20px 5px 20px;
+	padding:5px 25px 5px 25px;
 
 }
 
@@ -209,8 +227,8 @@
 	color:rgba(255, 0, 0, 0.5);
 	border:2px solid rgba(255, 0, 0, 0.5);
 	background:white;
-	margin-left:5px;
-	margin-right:5px;
+	margin-left:2px;
+	margin-right:2px;
 	font-family:"icomoon";
 
 }
@@ -308,6 +326,7 @@
 
 	.query_nav_buttons {
 		padding:30px;
+		font-size:1em;
 	}
 
 	.previous_query_wrapper {
@@ -319,15 +338,6 @@
 		padding-top:20px;
 	}    
 
-	.label_wrapper .btn-group {
-		left:70%;
-	}
-
-	.privacy-level,
-	.time-label.label-default {
-		font-size:1em;
-		padding:10;
-	}
 
 	.question p {
 		font-size:1.5em;
