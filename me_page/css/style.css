@@ -20,6 +20,7 @@
 }
 
 .content_component_container {
+
 	padding:0px;
 }
 
@@ -57,10 +58,6 @@
 	margin:0 auto;
 	left:70%;
 	color:#FFFFEB;
-}
-
-.name_wrapper .edit_pencil {
-	color:#333;
 }
 
 .user_karma_info {
@@ -112,10 +109,7 @@
 
 }	
 
-.form-group label,
-.btn-group label {
-	padding:10px;
-}
+
 
 .main_content_container .form-group input,
 .name_wrapper input {
