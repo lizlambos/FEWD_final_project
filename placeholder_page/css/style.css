@@ -1,6 +1,10 @@
 
 /*PLACEHOLDER PAGE STYLESHEET*/
 
+.all-app-pages {
+	background: #28A9D6;
+}
+
 /*PLACEHOLDER CONTAINER*/
 
 .signin_container {
@@ -9,19 +13,20 @@
 	height:auto;
 	padding:40px;
 	position:relative;
-	margin-top:400px;
-	margin-bottom:300px;
+	margin-top:100px;
+	margin-bottom: 50px;
 
 }
 
 .signin_container h1 {
 	display:block;
 	width:100%;
-	line-height: 0.35;
+	line-height: 0.02;
 }
-
 .signin_container .navbar-brand {
+	font-size:5em;
 	display:block;
+	
 
 }
 
@@ -30,7 +35,7 @@
 }
 
 .navbar-brand2 {
-	margin-left:35px;
+	margin-left:20px;
 	margin-bottom:50px;
 }
 
@@ -45,21 +50,48 @@
 
 @media (min-width: 768px) { 
 
+	.signin_container {
+
+		margin-top:200px;
+		margin-bottom: 200px;
+
+	}
+
+
+	.signin_container h1 {
+
+		line-height: 0.35;
+	}
+
+	.signin_container .navbar-brand {
+		font-size:10em;
+		display:block;	
+	}
+
+	.navbar-brand1 {
+		margin-left:-20px;
+	}
+
+	.navbar-brand2 {
+		margin-left:35px;
+		margin-bottom:50px;
+	}
+
 }
 
 
 
 
-	/* Medium devices (desktops, 992px and up) */
-	@media (min-width: 992px) { 
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
 
-		
 
-	}
 
-	/* Large devices (large desktops, 1200px and up) */
-	@media (min-width: 1200px) { 
+}
 
-		
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
 
-	}
+
+
+}

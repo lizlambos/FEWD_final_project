@@ -2,6 +2,7 @@
 
 .all-app-pages {
 	background: url("../../img/buddhistpainting3.jpg");
+	background-size:320px 480px;
 }
 /*SIGNIN CONTAINER*/
 
@@ -11,20 +12,20 @@
 	height:auto;
 	padding:40px;
 	position:relative;
-	margin-top:400px;
-	margin-bottom:300px;
+	margin-top:50px;
+	margin-bottom: 50px;
 
 }
 
 .signin_container h1 {
 	display:block;
 	width:100%;
-	line-height: 0.35;
+	line-height: 0.02;
 }
-
-.sign-in.navbar-brand {
-	font-size:10em;
+.signin_container .navbar-brand {
+	font-size:5em;
 	display:block;
+	
 
 }
 
@@ -33,21 +34,24 @@
 }
 
 .navbar-brand2 {
-	margin-left:35px;
+	margin-left:20px;
 	margin-bottom:50px;
 }
 
 .fb_button {
 	clear:both;
-	width:70%;
 	margin: 0 auto;
-	padding:30px;
+	padding:10px;
 	margin-top:50px;
+	display:block;
+	font-size:1.25em;
+	width:85%;
 }
 
-label {
+.signin_container .login_label {
 	padding:15px;
-	margin-top:20px;
+	margin-top:10px;
+	font-size:1.25em;
 }
 
 .screen-footer .footer-container {
@@ -68,6 +72,46 @@ label {
 /* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
 
 @media (min-width: 768px) { 
+
+.signin_container {
+	
+	margin-top:200px;
+	margin-bottom: 200px;
+
+}
+
+
+.signin_container h1 {
+
+	line-height: 0.35;
+}
+
+.signin_container .navbar-brand {
+	font-size:10em;
+	display:block;	
+}
+
+.navbar-brand1 {
+	margin-left:-20px;
+}
+
+.navbar-brand2 {
+	margin-left:35px;
+	margin-bottom:50px;
+}
+
+.fb_button {
+	font-size:2em;
+	width:40%;
+	padding:30px;
+	margin-top:50px;
+	}
+
+.signin_container .login_label {
+	padding:15px;
+	margin-top:20px;
+	font-size:2em;
+}	
 
 }
 
