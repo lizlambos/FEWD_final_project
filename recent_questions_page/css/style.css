@@ -2,7 +2,6 @@
 
 /*RECENT QUERY COMPONENT - REPEATED ON ME PAGE*/
 
-
 .content_component_container {
     height:auto;
     padding-top:10px;
@@ -47,7 +46,10 @@
 .answers {
     text-align: center;
     margin: 0 auto;
-    padding:5px 0px 0px 0px;
+    padding:5px 0px 5px 0px;
+    width:100%;
+    display:block;
+    clear:both;
     
 }
 
@@ -69,7 +71,6 @@
     background:white;
     margin-left:2px;
     margin-right:2px;
-    
     font-family:"icomoon";
 
 }
@@ -85,8 +86,9 @@
 
 .query_update_row {
     display:block;
-    height:60px;
+    min-height:60px;
     color:#28A9D6;
+    clear:both;
 }
 
 .query_update {
@@ -130,12 +132,11 @@ button.reveal_result {
     font-size:1.5em;
 }
 
-.friend_query.glyphicon-chevron-right {
+.friend_query_link.glyphicon-chevron-right {
     float:right;
     clear:none;
-    padding:0px;
+    padding-top:10px;
     margin:0px;
-    top:35%;
     font-size:1.5em;
     
 }
@@ -156,9 +157,12 @@ button.reveal_result {
     color:#333;
 }
 
-.answers {
-   padding-bottom:5px;
+.btn.yes-button,
+.btn.no-button {
+    font-size:3em;
 }
+
+
 
 /*MEDIA QUERIES*/
 
