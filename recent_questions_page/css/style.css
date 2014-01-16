@@ -86,6 +86,7 @@
 .query_update_row {
     display:block;
     height:60px;
+    color:#28A9D6;
 }
 
 .query_update {
@@ -117,8 +118,19 @@
 
 }
 
-.glyphicon-chevron-right,
-.glyphicon-chevron-down {
+button.reveal_result {
+    background:transparent;
+    border:none;
+    color:#28A9D6;
+    float:right;
+    clear:none;
+    padding:0px;
+    margin:0px;
+    top:55%;
+    font-size:1.5em;
+}
+
+.friend_query.glyphicon-chevron-right {
     float:right;
     clear:none;
     padding:0px;
@@ -126,6 +138,26 @@
     top:35%;
     font-size:1.5em;
     
+}
+
+.reveal_result .glyphicon-chevron-down,
+.reveal_result .glyphicon-chevron-right {
+    float:none;
+
+}
+
+.clear_float {
+    width:100%;
+    clear:both;
+}
+.edit_query {
+    float:right;
+    padding:7px 5px 0px 0px;
+    color:#333;
+}
+
+.answers {
+   padding-bottom:5px;
 }
 
 /*MEDIA QUERIES*/
