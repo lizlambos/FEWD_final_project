@@ -114,9 +114,11 @@
 .query_text {
     font-style:italic;
     color:#0055A0;
+
 }
 
-.glyphicon-chevron-right {
+.glyphicon-chevron-right,
+.glyphicon-chevron-down {
     float:right;
     clear:none;
     padding:0px;

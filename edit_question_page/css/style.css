@@ -1,0 +1,131 @@
+/*NEW QUERY PAGE STYLESHEET*/
+
+/*NEW QUESTION EDITOR*/
+
+
+.question {
+	padding:10px;
+	background:transparent;
+	position:relative;
+	margin:0 auto;
+	clear:both;
+	width:100%;
+}
+
+
+.edit_button_area {
+	display:block;
+	width:100%;
+
+}
+.query_instructions{
+	margin-left:0px;
+	padding-bottom:10px;
+	display:block;
+}
+
+
+#sample_query {
+	background: #0055A5; 
+	color:#FFFFEB;
+	font-size:1em;
+	padding:20px;
+	width:100%;
+}
+
+#sample_query::-webkit-input-placeholder {
+	color:#FFFFEB;
+	font-style: italic;
+}
+
+#sample_query:-moz-placeholder { /* Firefox 18- */
+	color:#FFFFEB;
+}
+
+#sample_query::-moz-placeholder {  /* Firefox 19+ */
+	color:#FFFFEB;
+}
+
+#sample_query:-ms-input-placeholder {  
+	color:#FFFFEB; 
+}
+
+
+.help-block {
+	display:inline-block;
+	font-style:italic;
+	margin-bottom:5px;
+
+}
+
+.query_submit_button_wrapper {
+	width:100%;
+	text-align: center;
+	margin-bottom:200px;
+}
+
+
+.privacy-level {
+	font-size:1em;
+
+}
+
+
+
+#submit_button{
+	padding: 20px;
+	border-radius:25px;
+	margin: 0 auto;
+	margin-top:30px;
+
+}
+
+
+/*MEDIA QUERIES*/
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
+
+@media (min-width: 768px) { 
+
+
+	.col-xs-12 {
+		border:none;
+		
+	}   
+
+	.content_component_container {
+		padding-left:0px;
+		padding-right:0px;
+		width:80%;
+		border:none;
+	}
+
+	#sample_query {
+		font-size:1.5em;
+
+	}
+
+
+	.privacy-level {
+		font-size:1.5em;
+	}
+
+}
+
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+
+
+}
