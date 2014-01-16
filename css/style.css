@@ -88,9 +88,14 @@
 
 	
 	
-	#submit_button,
-	.settings_page_button {
+	#submit_button{
 		font-size:3em;
+
+	}
+
+	
+	.settings_page_button {
+		font-size:2em;
 
 	}
 
