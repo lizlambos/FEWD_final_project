@@ -10,7 +10,7 @@
 /*PROFILE AREA*/ 
 .row {
 	color:#FFFFEB;
-	border:1px solid white;
+
 }
 
 .small_screen_pagetitle {
@@ -27,6 +27,7 @@
 
 .fb-column {
 	text-align:center;
+
 }
 
 
@@ -34,8 +35,9 @@
 	width:100%;
 	height:auto;
 	clear:none;
-	border:1px solid #FFFFFF;
+	border-right:2px solid #FFFFFF;
 	background:#0055A5;
+	padding-top:10px;
 	
 }
 
@@ -46,6 +48,7 @@
 	float:left;
 	clear:both;
 	width:100%;
+
 	
 }
 
@@ -54,24 +57,26 @@
 	position:absolute;
 	border:none;
 	font-size:1em;
-	padding:5px 35px 15px 15px;
+	padding:10px 35px 15px 15px;
 	margin:0 auto;
 	left:70%;
 	color:#FFFFEB;
 }
 
 .user_karma_info {
-	padding:0px 5px 0px 5px;
+	padding:10px 5px 7px 5px;
 	margin:0px;
 	position:relative;
 	background:#0055A5;
 	text-align: center;
+	border-bottom:1px solid #FFFFFF;
 	
 }
 
 .user_karma_info .top-navbar-icon-label {
 	margin:10px 0px 10px 0px;
-	padding:5px 0px 5px 5px;
+	padding:0px 0px 5px 5px;
+	font-size:1em;
 	
 } 
 .user_karma_info .top-navbar-icon-label p{
@@ -90,7 +95,7 @@
 
 .user_karma_info .badge {
 	margin-left:0px;
-	padding:0px 5px 0px 0px;
+	padding:4px 5px 0px 0px;
 	text-align: center;
 
 	
@@ -148,7 +153,6 @@
 }
 
 .query_nav_buttons .active {
-	border:1px solid #FFFFFF;
 	color:#FFFFFF;
 	background:#0055A5;
 	font-weight:lighter;
@@ -409,4 +413,6 @@
 
 
 }
+
+
 
