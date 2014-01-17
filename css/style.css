@@ -54,7 +54,7 @@
 
 	
 	.friend-name {
-		font-size:1.5em;
+		font-size:1.25em;
 	}
 
 	.query_instructions {
@@ -78,15 +78,10 @@
 	}
 
 	.question p,
-	{
-		font-size:1.25em;
-		
-	}
 	.question span {
 		font-size:1em;
+		
 	}
-
-	
 	
 	#submit_button{
 		font-size:3em;
@@ -249,8 +244,8 @@
 	}
 
 	.fbpic_small {
-		width:90px;
-		height:90px;
+		width:50px;
+		height:50px;
 		background:#28A9D6;
 		background-image: url('../img/shutterstock_157248584.jpg');
 		background-size:600%;
@@ -263,9 +258,10 @@
 
 	.friend-name {
 		position:relative;
-		top:40px;
+		top:15px;
 		margin:0 auto;
 		display:inline-block;
+		
 	}
 
 
@@ -284,7 +280,14 @@
 		background-position: 0% 40.9144%;
 	}
 
+	.friend_question_photo_wrapper {
+		text-align: center;
+	}
 
+	.friend_question_photo {
+		width:300px;
+
+	}
 	/* QUESTIONS */
 
 	.question,
@@ -325,7 +328,7 @@
 		padding:10px;
 		margin:0;
 		border-radius:100%;
-		font-size:6em;
+		font-size:5em;
 		font-family: 'icomoon';
 	}
 

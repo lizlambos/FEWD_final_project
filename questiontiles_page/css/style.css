@@ -29,16 +29,22 @@
 }
 
 .content_component_container { 
-    padding-top:5px;
+    padding:0px;
     position:relative;
     height:475px;
 
 }
 
+.friend_query_wrapper {
+    width:100%;
+    background:#0055A0;
+    padding:10px;
+    border-radius:10px;
+}
 
 .user-info-wrapper {
-   margin-top:25px;
-   clear:both;
+   margin-top:0px;
+   
 
 }
 
