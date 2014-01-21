@@ -271,11 +271,11 @@
 		padding:20px;
 	}
 	.user_karma_info p {
-		font-size:1.5em;
+		font-size:1.25em;
 	}
 
 	.user_karma_info .top-navbar-icon-label p{
-		font-size:2em;
+		font-size:1.25em;
 
 	}
 
@@ -284,7 +284,7 @@
 		margin:20px 80px 20px 20px;
 		width:auto;
 		text-align:center;
-		font-size:2em;
+		font-size:1.5em;
 	}
 
 	.user_karma_info .glyphicon-chevron-right {
@@ -315,8 +315,6 @@
 	}    
 
 
-
-
 	.answers {
 		padding-top:10px;
 	}
@@ -329,6 +327,12 @@
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
 
+	.main_content_container {
+		min-width:700px;
+		width:60%;
+
+	}
+
 	.content_component_container {
 		padding-top:30px;
 	}
@@ -337,7 +341,7 @@
 	.user_karma_info .badge-wrapper {
 		padding:10px 0px 10px 0px;
 		text-align: center;
-		font-size:1.25em;
+		
 	}
 
 	.user_karma_info .glyphicon-chevron-right {
