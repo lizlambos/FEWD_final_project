@@ -2,9 +2,6 @@
 
 /*HEADER*/
 
-.page-header .container h1 {
-	margin-left:150px;
-}
 
 /*SETTINGS AREA*/ 
 
@@ -22,12 +19,7 @@
 	
 }
 
-.small_screen_pagetitle {
-	background:#FFFFEB;
-	color:#0055A5;
-	text-align: center;
-	margin-bottom:20px;
-}
+
 
 .row .form-group {
 	width:100%;
@@ -147,6 +139,8 @@ label {
 
 	.main_content_container {
 		margin-top:80px;
+		background:#FFFFEB;
+		min-height: 1000px;
 
 	}
 
@@ -203,7 +197,8 @@ label {
 @media (min-width: 992px) { 
 
 	.main_content_container {
-		width:60%;
+		margin-top:40px;
+		min-height:0px;
 	}
 
 	.content_component_container {

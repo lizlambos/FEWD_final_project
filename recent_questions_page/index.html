@@ -66,96 +66,70 @@
 
         <div class="collapse navbar-collapse navbar-left pull-left">
           <ul class="nav navbar-nav">
-            <li ><a class="visible-link" href="#">Get Karma</a></li>
-            <li class="visible-link"><a href="#">My Karma</a></li>
-            <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
-              <ul class="dropdown-menu pull-right">
-                <li class="new-query" class="dropdown_item"><a href="#">New Karma Query</a></li>
-                <li class="dropdown_item"><a href="#">My Karma</a></li>
-                <li class="dropdown_item"><a href="#">Friends</a></li>
-                <li class="dropdown_item"><a href="#">Settings</a></li>
-                <li class="dropdown_item"><a href="#">Contact Us</a></li>
-                <li class="divider"></li>
-                <li class="dropdown_item"><a href="#">Logout</a></li>
-              </ul>
-            </li>
-          </ul>
+            <li class="visible-link"><a href="#">Get Karma</a></li>
+           <li class="visible-link"><a href="#">My Karma</a></li>
+           <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
+            <ul class="dropdown-menu pull-right">
+              <li class="new-query" class="dropdown_item"><a href="#">New Karma Query</a></li>
+              <li class="dropdown_item active"><a href="#">Activity</a></li>
+              <li class="dropdown_item"><a href="#">Friends</a></li>
+              <li class="dropdown_item"><a href="#">Settings</a></li>
+              <li class="divider"></li>
+              <li class="dropdown_item"><a href="#">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
 
-        </div><!--collapse navbar-->
-
-
-      </div><!--row-->
+      </div><!--collapse navbar-->
 
 
-    </div> <!--container-->    
-
-  </nav>
-
-  <!-- end navbar -->
-
-  <!--mobile top navbar-->
-
-  <nav class="mobile-header navbar-fixed-top hidden-sm hidden-md hidden-lg hidden-xl">
-    <ul class="nav navbar-nav">
-      <li>
-        <a href="#" class="navbar-brand hidden-sm hidden-md hidden-lg hidden-xl">Activity</a>
-      </li>
-    </ul>
-
-  </nav>
+    </div><!--row-->
 
 
+  </div> <!--container-->    
 
-  <!--end mobile top navbar-->
+</nav>
 
-  <!-- screen pageheader -->
-  <div class="page-header hidden-sm hidden-xs">
-    <div class="container">
+<!-- end navbar -->
+
+<!--mobile top navbar-->
+
+<nav class="mobile-header navbar-fixed-top hidden-sm hidden-md hidden-lg hidden-xl">
+  <ul class="nav navbar-nav">
+    <li>
+      <a href="#" class="navbar-brand hidden-sm hidden-md hidden-lg hidden-xl">Activity</a>
+    </li>
+  </ul>
+
+</nav>
+
+
+
+<!--end mobile top navbar-->
+
+<!-- screen pageheader -->
+<div class="page-header hidden-sm hidden-xs">
+  <div class="container">
+    <h1>Karmic Activity</h1>
+
+  </div>
+</div>
+
+<!-- end pageheader -->
+
+<!-- question area -->
+
+<div class="main_content_container">
+
+  <div class="row small_screen_pagetitle hidden-xs hidden-md hidden-lg hidden-xl">
+    <div class="col-xs-12">
       <h1>Karmic Activity</h1>
-
     </div>
   </div>
 
-  <!-- end pageheader -->
+  <div class="row">
+    <div class="col-xs-12">
 
-  <!-- question area -->
-
-  <div class="main_content_container">
-
-    <div class="row">
-      <div class="col-xs-12">
-
-
-       <div class="content_component_container friend_query">
-         <a class="query_update_row" href="#">
-          <div class="query_update">
-            <label class="label label-default time-label"><span class="glyphicon glyphicon-time"></span>4 days</label>  
-
-            <p class="news_update"><b class="friend-name">Bob Jones</b> posted a new query</p>
-            <p class="query_text">"Am I annoying when I drink at parties?"</p>
-          </div><!--query_update-->
-          <span class="glyphicon friend_query_link glyphicon-chevron-right"></span>
-        </a>
-      </div><!--content_component_container-->
-
-      <div class="content_component_container my_query">
-        <a class="query_update_row" href="#">
-          <div class="query_update">
-            <label class="label label-default time-label"><span class="glyphicon glyphicon-time"></span>4 days</label>  
-
-            <p class="news_update"><b class="friend-name">2</b>friends answered your query</p>
-            <p class="query_text">"Should I move in with this dude I just met?"</p>
-          </div><!--query_update-->
-          <span class="glyphicon friend_query_link glyphicon-chevron-right"></span>
-        </a><!--query_update_row-->
-
-        <div class="answers">
-         <div class="yes-answer"><span class="result">78%</span></div> 
-         <div class="na-answer">&#xe606;<p class="responder_count">47</p></div>
-         <div class="no-answer"><span class="result">20%</span></div>
-       </div>
-
-     </div><!--content_component_container--> 
 
      <div class="content_component_container friend_query">
        <a class="query_update_row" href="#">
@@ -219,7 +193,38 @@
 
  </div><!--content_component_container--> 
 
- 
+ <div class="content_component_container friend_query">
+   <a class="query_update_row" href="#">
+    <div class="query_update">
+      <label class="label label-default time-label"><span class="glyphicon glyphicon-time"></span>4 days</label>  
+
+      <p class="news_update"><b class="friend-name">Bob Jones</b> posted a new query</p>
+      <p class="query_text">"Am I annoying when I drink at parties?"</p>
+    </div><!--query_update-->
+    <span class="glyphicon friend_query_link glyphicon-chevron-right"></span>
+  </a>
+</div><!--content_component_container-->
+
+<div class="content_component_container my_query">
+  <a class="query_update_row" href="#">
+    <div class="query_update">
+      <label class="label label-default time-label"><span class="glyphicon glyphicon-time"></span>4 days</label>  
+
+      <p class="news_update"><b class="friend-name">2</b>friends answered your query</p>
+      <p class="query_text">"Should I move in with this dude I just met?"</p>
+    </div><!--query_update-->
+    <span class="glyphicon friend_query_link glyphicon-chevron-right"></span>
+  </a><!--query_update_row-->
+
+  <div class="answers">
+   <div class="yes-answer"><span class="result">78%</span></div> 
+   <div class="na-answer">&#xe606;<p class="responder_count">47</p></div>
+   <div class="no-answer"><span class="result">20%</span></div>
+ </div>
+
+</div><!--content_component_container--> 
+
+
 
 </div><!--row-->
 

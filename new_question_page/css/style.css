@@ -90,7 +90,9 @@
 
 @media (min-width: 768px) { 
 
-
+	.main_content_container {
+		background:#FFFFEB;
+	}
 	.col-xs-12 {
 		border:none;
 		
@@ -102,6 +104,7 @@
 		width:80%;
 		border:none;
 		min-height:1200px;
+
 	}
 
 	.query_instructions {

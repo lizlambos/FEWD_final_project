@@ -8,19 +8,17 @@
 }
 
 /*PROFILE AREA*/ 
-.row {
-	color:#FFFFEB;
 
-}
 
 .small_screen_pagetitle {
 	background:#FFFFEB;
-	color:#0055A5;
 	text-align: center;
+	
 }
 
 .content_component_container {
 	padding:0px;
+	color:#FFFFEB;
 }
 
 
@@ -231,6 +229,7 @@
 	.main_content_container {
 		margin-top:80px;
 	}
+
 	.content_component_container {
 		padding:0px 30px 30px 30px;
 		background:#FFFFEB;
@@ -330,8 +329,8 @@
 
 	.main_content_container {
 		min-width:700px;
-		width:60%;
-
+		width:60;
+		margin-top:40px;
 	}
 
 	.content_component_container {

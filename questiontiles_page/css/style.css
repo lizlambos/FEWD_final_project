@@ -4,10 +4,12 @@
 
 /*PHOTO TILES*/
 
+
 .scoreboard h1 {
     display:inline-block;
     margin-left:20px;
 }
+
 .scoreboard .karma_points_display {
     background:#28A9D6;
     z-index:1;
@@ -15,10 +17,12 @@
     width:auto; 
     padding:5px;
     margin-top:-10px;
+ 
 }
 
 .scoreboard .badge-wrapper {
     padding-top:0px;
+ 
 }
 
 .scoreboard .badge {
@@ -62,7 +66,8 @@
 } 
 
 .scoreboard {
-    padding:25px 20px 10px 20px;
+    padding:12px 20px 10px 20px;
+    background:#FFFFEB;
 
 }
 
@@ -100,11 +105,31 @@
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
 
- 
-
-    .scoreboard {
-        padding:20px;
+    .main_content_container {
+        background:transparent;
+        margin-top:130px;
     }
+ 
+    .scoreboard {
+        background:#FFFFEB;
+        margin:0px 0px 20px 0px;
+        padding:10px;
+        border-radius:10px;
+        width:auto;
+
+    }
+
+    .scoreboard h1 {
+        padding:10px 0px 10px 0px;
+        
+    }
+
+    .scoreboard .karma_points_display {
+        margin-bottom:0px;
+        margin-top:10px;
+    }
+
+  
 
     .content_component_container {
         height:auto;
@@ -115,7 +140,7 @@
 
     .question {
         text-align: left;
-        font-size:1.25em;
+        
     }
 
 

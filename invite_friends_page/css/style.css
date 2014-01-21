@@ -26,6 +26,10 @@
 
 /*INVITE FRIENDS*/
 
+.main_content_container {
+	background:#FFFFEB;
+}
+
 .fb_friendsarea {
 	padding:0px;
 	width:100%;

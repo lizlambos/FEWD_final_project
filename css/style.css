@@ -204,7 +204,7 @@
 	.main_content_container {
 		width:100%;
 		margin-top:40px;
-		background:#FFFFEB;
+		background:transparent;
 
 	}
 
@@ -228,6 +228,12 @@
 		background:transparent;
 		padding: 0px 0px 0px 20px;
 		margin:0px;
+	}
+
+	.small_screen_pagetitle {
+		background:#FFFFEB;
+		text-align: center;
+		margin-bottom:20px;
 	}
 
 
@@ -400,9 +406,8 @@
 	.page-header h1 {
 		display:inline-block;
 		float:left;
+		margin-left:150px;
 	}
-
-
 
 
 	/* KARMA POINTS DISPLAY BADGE*/
@@ -463,6 +468,29 @@
 
 	}
 
+	/*SCREEN NAV LINK*/
+
+	.nav_link_wrapper {
+		width:100%;
+		position:relative;
+		padding:5px 5px 5px 5px;
+	}
+
+	.nav_link {
+		font-size:1em;
+		padding:5px 5px 5px 15px;
+		color:#333;
+		margin-top:0px;
+		float:right;
+
+	}
+
+	.nav_link span {
+		font-size:.75em;
+		font-weight:lighter;
+
+	}
+
 	/*MEDIA QUERIES*/
 
 	/* Extra small devices (phones, less than 768px) */
@@ -474,6 +502,7 @@
 		.main_content_container {
 			width:100%;
 			margin-top:80px;
+			background:#FFFFEB;
 		}  
 		
 		.content_component_container {
@@ -512,7 +541,30 @@
 
 		.responder_count {
 			font-size:0.75em;
-	
+
+
+		}
+
+		/*SCREEN NAV LINK*/
+
+		.nav_link_wrapper {
+			width:100%;
+			position:relative;
+			padding:10px 40px 10px 10px;
+		}
+
+		.nav_link {
+			font-size:1.5em;
+			padding:15px 15px 15px 15px;
+			color:#333;
+			margin-top:0px;
+			float:right;
+
+		}
+
+		.nav_link span {
+			font-size:.75em;
+			font-weight:lighter;
 
 		}
 
@@ -526,9 +578,9 @@
 		.main_content_container {
 			width:60%;
 			max-width:930px;
-			background:#FFFFEB;
+			
 			margin: 0 auto;
-			margin-top:150px;
+			margin-top:40px;
 
 		}
 
