@@ -2,6 +2,15 @@
 
 /*NEW QUESTION EDITOR*/
 
+.content_component_container {
+	min-height:568px;
+	padding-top:60px;
+}
+
+.previous_query_wrapper {
+	padding:10px;
+}
+
 .label_wrapper {
     padding:0px;
 }
@@ -19,12 +28,12 @@
 
 .time-label.label-default {
     padding:5px;
-    margin-bottom:5px;
+    margin-bottom:15px;
 
 }
 
 .privacy-level {
-    margin-bottom:5px;
+    margin-bottom:15px;
 }
 
 .privacy-level .btn {
@@ -33,20 +42,10 @@
 
 .question {
     clear:both;
-    margin-top:5px;
-    background:transparent;
-    padding-left:0px;
-    margin-bottom:0px;
-    padding-bottom:0px;
-}
-
-
-
-.question p {
-	color:#0055A0;
-	font-style:italic;
-}
-
+    margin-top:10px;
+    margin-bottom:10px;
+    min-height: 70px;
+  
 }
 
 
@@ -88,6 +87,35 @@
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
 
+.content_component_container {
+	padding-top:20px;
+}	
+
+.label_wrapper {
+    padding-top:20px;
+}    
+
+
+
+.privacy-level,
+.time-label.label-default {
+    font-size:1em;
+    padding:10;
+}
+
+.question p {
+    font-size:1.5em;
+}
+
+.answers {
+    padding-top:20px;
+    padding-bottom:0px;
+}
+
+.news_update, .query_text {
+    font-size:1.25em;
+
+}
 
 
 }
