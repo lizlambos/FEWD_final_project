@@ -43,44 +43,6 @@
     margin-top:5px;
 }
 
-.answers {
-    text-align: center;
-    margin: 0 auto;
-    padding:5px 0px 5px 0px;
-    width:100%;
-    display:block;
-    clear:both;
-    
-}
-
-.btn.yes-answer,
-.btn.no-answer{
-    font-size:1.5em;
-    border-radius:10px;
-    margin:0px;
-    padding:5px 30px 5px 30px;
-
-}
-
-.answers .na-answer{
-    border-radius:20px;
-    font-size:1.25em;
-    font-weight:bold;
-    color:rgba(255, 0, 0, 0.5);
-    border:2px solid rgba(255, 0, 0, 0.5);
-    background:white;
-    margin-left:2px;
-    margin-right:2px;
-    font-family:"icomoon";
-
-}
-
-.responder_count {
-    font-size:1em;
-    margin-bottom:0;
-    display:inline;
-}
-
 
 /*FRIEND_QUERY_UPDATE COMPONENT*/
 
@@ -151,16 +113,9 @@ button.reveal_result {
     width:100%;
     clear:both;
 }
-.edit_query {
-    float:right;
-    padding:7px 5px 0px 0px;
-    color:#333;
-}
 
-.btn.yes-button,
-.btn.no-button {
-    font-size:3em;
-}
+
+
 
 
 
@@ -195,37 +150,15 @@ button.reveal_result {
 }
 
 .answers {
-    padding-top:10px;
+    padding-top:20px;
+    padding-bottom:0px;
 }
 
-.btn.yes-answer,
-.btn.no-answer{
-    font-size:3em;
-    border-radius:20px;
-    margin:0px;
-
-}
-
-.result {
-    padding:5px 20px 5px 20px;
-}
-
-.answers .na-answer{
-
-    font-size:3em;
-    margin-left:5px;
-    margin-right:5px;
-  
-
+.news_update, .query_text {
+    font-size:1.25em;
 
 }
 
-.responder_count {
-    font-size:0.5em;
-    margin-bottom:0;
-    display:block;
-    
-}
 
 }
 
@@ -239,11 +172,6 @@ button.reveal_result {
     width:60%;
 }
 
-    .btn.yes-answers,
-    .btn.no-answers {
-        font-size:7em;
-        width:40%;
-    }
 
 }
 
