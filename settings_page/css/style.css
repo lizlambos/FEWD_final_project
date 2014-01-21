@@ -166,7 +166,7 @@ label {
 	}   
 	
 	.inner_content_wrapper {
-		margin:20px;
+		margin:0px 20px 20px 20px;
 	}
 
 
@@ -208,6 +208,10 @@ label {
 
 	.content_component_container {
 		padding-top:30px;
+	}
+
+	.inner_content_wrapper {
+		margin-top:20px;
 	}
 
 

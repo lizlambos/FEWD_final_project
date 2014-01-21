@@ -75,6 +75,7 @@
 		padding-right:0px;
 		width:80%;
 		border:none;
+		min-height:1200px;
 	}
 
 	#sample_query {
@@ -93,13 +94,11 @@
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
 
-	.main_content_container {
-		width:60%;
-	}
-
 
 .content_component_container {
 	padding-top:40px;
+	width:90%;
+	min-height:809px;
 
 }	
 

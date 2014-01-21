@@ -101,6 +101,11 @@
 		padding-right:0px;
 		width:80%;
 		border:none;
+		min-height:1200px;
+	}
+
+	.query_instructions {
+		font-size:2em;
 	}
 
 	#sample_query {
@@ -119,6 +124,10 @@
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
 
+	.content_component_container {
+		padding-top:50px;
+		min-height:800px;
+	}
 
 
 }

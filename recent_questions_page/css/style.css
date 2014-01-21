@@ -1,5 +1,11 @@
 /*RECENT QUESTION PAGE STYLESHEET*/
 
+/*HEADER*/
+
+.page-header .container h1 {
+    margin-left:150px;
+}
+
 /*RECENT QUERY COMPONENT - REPEATED ON ME PAGE*/
 
 .content_component_container {
@@ -129,7 +135,7 @@ button.reveal_result {
 @media (min-width: 768px) { 
 
 .content_component_container {
-    padding:30px;
+    padding:30px 40px 30px 40px;
 
 }    
 
@@ -140,8 +146,10 @@ button.reveal_result {
 
 
 .privacy-level,
-.time-label.label-default {
-    font-size:1em;
+.time-label,
+.news_update,
+.news_update b {
+    font-size:1.25em;
     padding:10;
 }
 
@@ -170,6 +178,10 @@ button.reveal_result {
 
     .main_content_container {
     width:60%;
+}
+
+.content_component_container {
+    padding:30px;
 }
 
 

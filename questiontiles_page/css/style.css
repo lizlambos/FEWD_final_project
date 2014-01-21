@@ -1,5 +1,7 @@
 /*GET KARMA PAGE STYLESHEET*/
 
+
+
 /*PHOTO TILES*/
 
 .scoreboard h1 {
@@ -56,8 +58,7 @@
 @media (min-width: 768px) { 
 
 .main_content_container {
-        max-width:1000px;
-        margin-top:155px;
+        min-width:800px;
 } 
 
 .scoreboard {
@@ -99,9 +100,7 @@
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
 
-    .main_content_container {
-        margin-top:60px;
-    }
+ 
 
     .scoreboard {
         padding:20px;

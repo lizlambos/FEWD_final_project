@@ -235,6 +235,7 @@
 		padding:0px 30px 30px 30px;
 		background:#FFFFEB;
 		height:auto;
+		border:none;
 		
 	}
 
@@ -249,8 +250,8 @@
 	}
 
 	.fbpic_small {
-		width:180px;
-		height:180px;
+		width:150px;
+		height:150px;
 
 	}
 
