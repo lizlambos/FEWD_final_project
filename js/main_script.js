@@ -1,27 +1,39 @@
 $(document).ready(function(){
 
-//creating new user, not sure how to do this w/ FB login	
+ Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL");   
 
-var user = new Parse.User();
-user.set("username", "liz nambos");
-user.set("password", "nass");
-user.set("email", "niz@example.com");
-  
-  
-user.signUp(null, {
-  success: function(user) {
-    // Hooray! Let them use the app now.
-  },
-  error: function(user, error) {
-    // Show the error message somewhere and let the user try again.
-    alert("Error: " + error.code + " " + error.message);
+//translate FBlogin generated username into a real username
+
   }
-});
 
-//not sure how sheets read scripts written on html doc
-$("#fb_login_button").click(function(){
-	fb_login();
-});
+
+  function getUserInfo() {
+        FB.api('/me', function(response) {
+          var name = response.name;
+          var id = response.id;
+          //document.getElementById("status").innerHTML=str;
+            console.log(name);
+  
+
+      
+    }
+
+
+
+    /*function getPhoto()
+    {
+      FB.api('/me/picture?type=normal', function(response) {
+ 
+          var pic ="<img src='"+response.data.url+"'/>";
+          document.getElementById("user_FB_pic").innerHTML+=pic;
+ 
+    });
+
+
+      });*/
+
+/*not sure how sheets read scripts written on html doc
+*/
 
 
 
