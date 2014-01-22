@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+//creating new user, not sure how to do this w/ FB login	
+
 var user = new Parse.User();
 user.set("username", "liz nambos");
 user.set("password", "nass");
@@ -16,7 +18,7 @@ user.signUp(null, {
   }
 });
 
-
+//not sure how sheets read scripts written on html doc
 $("#fb_login_button").click(function(){
 	fb_login();
 });
@@ -39,6 +41,8 @@ $("#fb_login_button").click(function(){
 	"created_at": "2014-01-20T21:01:35Z", 
 	"updated_at": "2014-01-20T21:01:35Z" }*/
 
+
+//create new query 
 
 
 
