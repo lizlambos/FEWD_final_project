@@ -24,6 +24,7 @@
 
 .fb-column {
 	text-align:center;
+	height:auto;
 
 }
 
@@ -31,22 +32,29 @@
 .fbpic_container {
 	width:100%;
 	height:auto;
+	position:relative;
 	clear:none;
-	border-right:2px solid #FFFFFF;
+	float:left;
 	background:#0055A5;
 	padding-top:10px;
+	padding-bottom:none;
 	
 }
 
 .name_wrapper {
 	height:auto;
-	border:1px solid #FFFFFF;
+	width:100%;
 	position:relative;
 	float:left;
 	clear:both;
-	width:100%;
-
+	background:#0055A5;
+	padding:0px;
 	
+}
+
+.user-name {
+	margin:0px;
+	margin-bottom:7px;
 }
 
 .edit_pencil {
@@ -58,6 +66,10 @@
 	margin:0 auto;
 	left:70%;
 	color:#FFFFEB;
+}
+
+.link-column {
+		border-left:2px solid #FFFFFF;
 }
 
 .user_karma_info {
@@ -166,41 +178,41 @@
 /*RECENT QUERY COMPONENT - REPEATED ON ME PAGE*/
 
 .label_wrapper {
-    padding:0px;
+	padding:0px;
 }
 
 
 .label_wrapper .btn-group {
-    float:right;
+	float:right;
 
 }
 
 .time-label {
-    float:left;
+	float:left;
 
 }
 
 .time-label.label-default {
-    padding:5px;
-    margin-bottom:5px;
+	padding:5px;
+	margin-bottom:5px;
 
 }
 
 .privacy-level {
-    margin-bottom:5px;
+	margin-bottom:5px;
 }
 
 .privacy-level .btn {
-    padding:2px 5px 2px 5px;
+	padding:2px 5px 2px 5px;
 }
 
 .question {
-    clear:both;
-    margin-top:5px;
-    background:transparent;
-    padding-left:0px;
-    margin-bottom:0px;
-    padding-bottom:0px;
+	clear:both;
+	margin-top:5px;
+	background:transparent;
+	padding-left:0px;
+	margin-bottom:0px;
+	padding-bottom:0px;
 }
 
 .question p {
@@ -261,11 +273,16 @@
 	
 	.name_wrapper {
 		font-size:1.5em;
+		padding:0px;
+		
 	}
 
-	.me-input {
-		text-align: center;
+
+	.user-name {
+		margin:0px;
+		
 	}
+
 
 	.user_karma_info .top-navbar-icon-label {
 		padding:20px;

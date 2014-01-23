@@ -1,12 +1,12 @@
 $(function(){
 
-Parse.$ = jQuery;
+  Parse.$ = jQuery;
 
- Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL");   
+  Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL");   
 
-var user = Parse.User.current();
+  var user = Parse.User.current();
 
-//Query Object Model
+/*Query Object Model
 
 var KarmaQuery = Parse.Object.extend("KarmaQuery");
 var karmaQuery = new KarmaQuery();
@@ -50,51 +50,102 @@ var myActiveQueries = maQuery.collection();
 var mpQuery = new Parse.Query(karmaQuery);
 mpQuery.equalTo("privacy-level", "private");
 mpQuery.equalTo("asker", user);
-var myPreviousQueries = mpQuery.collection();
+var myPreviousQueries = mpQuery.collection();*/
+
+// functions to get users facebook id, friends and picture via graph API
+
+
+function setKPUserName() {
+  FB.api('/me', function(response) {
+    if (!response.error) {
+      var userName = response.name;
+      console.log(userName);
+      user.set("username", userName);  
+      user.save(null, {
+        success: function(user) {
+
+        },
+        error: function(user, error) {
+          console.log("Oops, something went wrong saving your name.");
+        }
+      });
+
+    } 
+    else {
+      console.log("Oops something went wrong with facebook.");
+    }
+  });
+
+}
+
+//how can I fire this on the right page??
+
+function getPhoto()
+{
+  FB.api('/me/picture?type=normal', function(response) {
+
+    var str= response.data.url;
+    console.log(str);
+    user.set("userPic", str);
+    var userPic = user.get("userPic");
+    console.log(userPic);
+    user.save(null, {
+        success: function(user) {
+
+        },
+        error: function(user, error) {
+          console.log("Oops, something went wrong saving your name.");
+        }
+      });
+
+  });
+
+ } 
+
+// Trying to get an array of their facebook friends, need to save as an array
+
+
+
+function getFriends() {
+  FB.api('/me/friends', function(response) {
+    if(response.data) {
+     user.set("fbFriends", response.data);
+     $.each(response.data,function(index,friend) {
+      //console.log(friend.name + ' has id:' + friend.id);
+   
+    });
+   } else {
+    console.log("Error!");
+  }
+});
+}
+
+  
 
 
 
 //translate FBlogin generated username into a real username
 
-  $("#fb_login_button").click(function(){
+$("#fb_login_button").click(function(){
 
-     Parse.FacebookUtils.logIn(null, {
-        success: function(user) {
-          if (!user.existed())
-          {
-            console.log("User signed up and logged in through Facebook!");
+ Parse.FacebookUtils.logIn(null, {
+  success: function(user) {
+    if (!user.existed())
+    {
+      console.log("User signed up and logged in through Facebook!");
       
-              // We make a graph request
-              FB.api('/me', function(response) {
-                if (!response.error) {
-                  // We save the data on the Parse user
-                  user.set("username", response.name);	
-                  user.save(null, {
-                    success: function(user) {
-                      
-                    },
-                    error: function(user, error) {
-                      console.log("Oops, something went wrong saving your name.");
-                    }
-                  });
-
-                } 
-                else {
-                  console.log("Oops something went wrong with facebook.");
-                }
-              });
             // If it's an existing user that was logged in, we welcome them back
-            }
+          }
           else {
             console.log("User logged in through Facebook!");
-           
+
           }
         },
 
         error: function(user, error) {
          console.log("User cancelled the Facebook login or did not fully authorize."); }
 
-        });
+       });
 
 
   // Here we subscribe to the auth.authResponseChange JavaScript event. This event is fired
@@ -107,7 +158,10 @@ var myPreviousQueries = mpQuery.collection();
       // The response object is returned with a status field that lets the app know the current
       // login status of the person. In this case, we're handling the situation where they 
       // have logged in to the app.
+      setKPUserName();
       getFriends();
+      getPhoto();
+      
     } else if (response.status === 'not_authorized') {
       // In this case, the person is logged into Facebook, but not into the app, so we call
       // FB.login() to prompt them to do so. 
@@ -127,28 +181,13 @@ var myPreviousQueries = mpQuery.collection();
     }
   });
 
-//redirect to the next page//
- window.location.href = '../get_karma_page/index.html';
+   //redirect to the next page - dont know how to do this without killing function//
+     // window.location.href = '../get_karma_page/index.html';
+
+
 
 });//end button click function
 
-// Trying to get an array of their facebook friends, need to save as an array
-
-var fbFriends = [];
-
-function getFriends() {
-    FB.api('/me/friends', function(response) {
-        if(response.data) {
-        	user.set(fbFriends, response.data);
-            $.each(response.data,function(index,friend) {
-                console.log(friend.name + ' has id:' + friend.id);
-                console.log(fbFriends);
-            });
-        } else {
-            console.log("Error!");
-        }
-    });
-}
 
 /*function populateFriendList () {
 
@@ -164,7 +203,7 @@ function getFriends() {
        FB.XFBML.parse(document.getElementById('myFriendList'));
 
    };
-*/
+   */
 
 //Generate users of Karma Police who are also their facebook friends
 
@@ -225,7 +264,7 @@ post.save(null, {
     });
 
 
-      });*/
+});*/
 
 /*not sure how sheets read scripts written on html doc
 */
