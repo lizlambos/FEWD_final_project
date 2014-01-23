@@ -6,6 +6,8 @@ $(function(){
 
   var user = Parse.User.current();
 
+
+
 /*Query Object Model
 
 var KarmaQuery = Parse.Object.extend("KarmaQuery");
@@ -51,6 +53,39 @@ var mpQuery = new Parse.Query(karmaQuery);
 mpQuery.equalTo("privacy-level", "private");
 mpQuery.equalTo("asker", user);
 var myPreviousQueries = mpQuery.collection();*/
+
+//getting the karmapoints balance as a variable to be stored
+
+function askQuestion () {
+
+    createOnEnter: function(e) {
+      var self = this;
+      if (e.keyCode != 13) return;
+
+      this.todos.create({
+        content: this.input.val(),
+        order:   this.todos.nextOrder(),
+        done:    false,
+        user:    Parse.User.current(),
+        ACL:     new Parse.ACL(Parse.User.current())
+      });
+
+      this.input.val('');
+      this.resetFilters();
+    },
+
+
+
+}
+
+function updateKarmaQueries () {
+
+    this.karmaQuery.query = new Parse.Query(karmaQuery);
+    this.karmaQuery.query.equalTo("user", Parse.User.current());
+
+
+  
+}
 
 // functions to get users facebook id, friends and picture via graph API
 
@@ -102,14 +137,17 @@ function getPhoto()
 
  } 
 
-// Trying to get an array of their facebook friends, need to save as an array
-
+// Got the array of their facebook friends, need to save as an array
 
 
 function getFriends() {
   FB.api('/me/friends', function(response) {
     if(response.data) {
-     user.set("fbFriends", response.data);
+     var friendsArray = response.data; 
+     console.log(friendsArray);
+     user.set("fbFriends", friendsArray);
+     var currUserFriends = user.get("fbFriends");
+     console.log(currUserFriends);
      $.each(response.data,function(index,friend) {
       //console.log(friend.name + ' has id:' + friend.id);
    
@@ -119,9 +157,6 @@ function getFriends() {
   }
 });
 }
-
-  
-
 
 
 //translate FBlogin generated username into a real username

@@ -25,7 +25,7 @@
 }
 
 
-#sample_query {
+#query_area {
 	background: #0055A5; 
 	color:#FFFFEB;
 	font-size:1em;
@@ -33,20 +33,20 @@
 	width:100%;
 }
 
-#sample_query::-webkit-input-placeholder {
+#query_area::-webkit-input-placeholder {
 	color:#FFFFEB;
 	font-style: italic;
 }
 
-#sample_query:-moz-placeholder { /* Firefox 18- */
+#query_area:-moz-placeholder { /* Firefox 18- */
 	color:#FFFFEB;
 }
 
-#sample_query::-moz-placeholder {  /* Firefox 19+ */
+#query_area::-moz-placeholder {  /* Firefox 19+ */
 	color:#FFFFEB;
 }
 
-#sample_query:-ms-input-placeholder {  
+#query_area:-ms-input-placeholder {  
 	color:#FFFFEB; 
 }
 

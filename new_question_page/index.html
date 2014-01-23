@@ -25,32 +25,39 @@
 
 <body class="all-app-pages">
 
-  <!--facebookapp initialization
+  <!--facebookapp initialization-->
 
   <div id="fb-root"></div>
-    <script>
-      window.fbAsyncInit = function() {
+    <script type="text/javascript">
+
+  //initialize parse//
+
+  Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL"); 
+
+     // Load the SDK asynchronously
+     (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "http://connect.facebook.net/en_US/all.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+
+     window.fbAsyncInit = function() {
+
       // init the FB JS SDK
-     FB.init({
-      appId      : '254848478004741',                        // App ID from the app dashboard
-      status     : true,                                 // Check Facebook Login status
-      xfbml      : true                                  // Look for social plugins on the page
+      Parse.FacebookUtils.init({
+      appId      : '254848478004741', // Facebook App ID
+      channelUrl : 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/login_page/', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow Parse to access the session
+      xfbml      : true  // parse XFBML
       });
 
-    // Additional initialization code such as adding Event Listeners goes here
-     };
+    }
 
-   // Load the SDK asynchronously
-    (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js";
-    fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-    </script>
-
-    end facebookapp initialization--> 
+</script>
+    <!--end facebookapp initialization--> 
 
     <!-- screen navbar -->
     <nav class="navbar navbar-fixed-top hidden-xs" role="navigation">
@@ -135,7 +142,7 @@
 
             <div class="question">
              <label for="question"class="query_instructions">Enter your query:</label>
-             <textarea class="form-control" id="sample_query" rows="4" placeholder="Should I take the job in D.C.?"></textarea>
+             <textarea class="form-control" id="query_area" rows="4" placeholder="Should I take the job in D.C.?"></textarea>
              <span class="help-block length_rule">Max 100 characters</span>  
              <span class="help-block character_count pull-right">18</span> 
            </div><!--question-->
@@ -145,7 +152,7 @@
             <div class="btn-group privacy-level">
               <button type="button" class="btn pic_button"><span class="glyphicon glyphicon-camera"></span></button>
               <button type="button" class="btn  kp_button">All KP</button>
-              <button type="button" class="btn  fb_button active">Just FB Friends</button>
+              <button type="button" class="btn  fb_button">Just FB Friends</button>
               <button type="button " class="btn go_button hidden-sm hidden-md hidden-lg hidden-xl">Go!</button>
             </div><!--button group-->
             <button type="button" class="btn btn-success hidden-xs" id="submit_button">Get my Karma!</button>

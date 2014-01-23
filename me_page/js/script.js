@@ -19,9 +19,14 @@ $(function(){
 
 	};
 
-	$("#current_user_fbPic").click(function(){
+	function grabUserName () {
+		$("#current_user_name").html("<p class='user-name'>"+userName+"</p>");
+	}
+
+	$(document).ready(function(){
 
   	putUpUserPic();	
+  	grabUserName();
 
 });
 
