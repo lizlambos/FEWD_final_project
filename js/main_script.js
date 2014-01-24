@@ -7,76 +7,9 @@ $(function(){
   var user = Parse.User.current();
 
 
-
-/*Query Object Model
-
-var KarmaQuery = Parse.Object.extend("KarmaQuery");
-var karmaQuery = new KarmaQuery();
-karmaQuery.set = ("asker", user);
-karmaQuery.set = ("text", questionText);
-karmaQuery.set = ("privacy-level", privacyLevel);
-karmaQuery.set = ("yesAnswers", totalYesAnswers);
-karmaQuery.set = ("noAnswers", totalNoAnswers);
-karmaQuery.set = ("responders", responders); //responder array
-//object ID, created at and updated at are generated automatically
-
-newQuery.save(null, {
-  success: function(karmaQuery) {
-    // Execute any logic that should take place after the object is saved.
-    alert('New object created with objectId: ' + karmaQuery.id + 'by' + karmaQuery.user +
-    	'at' + karmaQuery.createdAt);
-
-  },
-  error: function(karmaQuery, error) {
-    // Execute any logic that should take place if the save fails.
-    // error is a Parse.Error with an error code and description.
-    alert('Failed to create new object, with error code: ' + error.description);
-  }
-});
-
-//Query Collection Model
-
-// friendsactive queries collection
-var faQuery = new Parse.Query(karmaQuery);
-faQuery.notEqualTo("privacy-level", "private");
-faQuery.notEqualTo("asker", user);
-var friendsActiveQueries = faQuery.collection();
-
-//users own active queries collection
-var maQuery = new Parse.Query(karmaQuery);
-maQuery.notEqualTo("privacy-level", "private");
-maQuery.equalTo("asker", user);
-var myActiveQueries = maQuery.collection();
-
-//users private queries collection
-var mpQuery = new Parse.Query(karmaQuery);
-mpQuery.equalTo("privacy-level", "private");
-mpQuery.equalTo("asker", user);
-var myPreviousQueries = mpQuery.collection();*/
-
 //getting the karmapoints balance as a variable to be stored
 
-function askQuestion () {
 
-    createOnEnter: function(e) {
-      var self = this;
-      if (e.keyCode != 13) return;
-
-      this.todos.create({
-        content: this.input.val(),
-        order:   this.todos.nextOrder(),
-        done:    false,
-        user:    Parse.User.current(),
-        ACL:     new Parse.ACL(Parse.User.current())
-      });
-
-      this.input.val('');
-      this.resetFilters();
-    },
-
-
-
-}
 
 function updateKarmaQueries () {
 

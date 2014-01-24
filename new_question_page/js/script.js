@@ -9,23 +9,29 @@ $(function(){
 	var questionText = "default";
 	var privacyLevel = "default";
 
-	var KarmaQuery = Parse.Object.extend("KarmaQuery",{
+function queryCreator () {	
+
+	var KarmaQuery = Parse.Object.extend("KarmaQuery"/*,{
+
 		defaults:{
+			asker: user,
 			askerName : "default",
-			text : "default",
+			questionText : "default",
 			privacyLevel : "default"
-		}
+		},
 
-		initialize: function(){
+		settings: function(){
 			this.asker = user;
-			this.askerName = authorName;
-			this.text =  questionText;
-			this.privacylevel = privacyLevel;
-
+			this.askerName = user.get("username");
+			console.log(askerName);
+			this.questionText = $("#query_area").val();
+			console.log(questionText);
+			this.privacyLevel = $("button.active").text();
+			console.log(privacyLevel);
 
 		}
 
-	});
+	}*/);
 
 	var karmaQuery = new KarmaQuery();
 
@@ -34,24 +40,7 @@ $(function(){
 	karmaQuery.set = ("text", questionText);
 	karmaQuery.set = ("privacylevel", privacyLevel);
 
-	var test = karmaQuery.get("askerName");
-	console.log(test);
-	var test2 = karmaQuery.get("text");
-	console.log(test2);
-	var test3 = karmaQuery.get("privacylevel");
-	console.log(test3);
-	console.log(karmaQuery);
-
-
-
-
-	/*//these come later from being answered/
-	karmaQuery.set = ("yesAnswers", totalYesAnswers);
-	karmaQuery.set = ("noAnswers", totalNoAnswers);
-	karmaQuery.set = ("responders", responders); //responder array */
-//object ID, created at and updated at are generated automatically
-
-karmaQuery.save(null, {
+	karmaQuery.save(null, {
 	success: function(karmaQuery) {
     // Execute any logic that should take place after the object is saved.
     alert('New object created with objectId: ' + karmaQuery.id + 'by' + karmaQuery.authorName +
@@ -66,23 +55,6 @@ error: function(karmaQuery, error) {
 });
 
 
-$("div.privacy-level > button").click(function(){
-	$(this).addClass("active");
-
-
-})	
-
-function queryCreator () {
-
-	authorName = user.get("username");
-	console.log(authorName);
-	questionText = $("#query_area").val();
-	console.log(questionText);
-	privacyLevel = $("button.active").text();
-	console.log(privacyLevel);
-
-
-
 	var test = karmaQuery.get("askerName");
 	console.log(test);
 	var test2 = karmaQuery.get("text");
@@ -92,6 +64,41 @@ function queryCreator () {
 	console.log(karmaQuery);
 
 }
+
+	/*//these come later from being answered/
+	karmaQuery.set = ("yesAnswers", totalYesAnswers);
+	karmaQuery.set = ("noAnswers", totalNoAnswers);
+	karmaQuery.set = ("responders", responders); //responder array */
+//object ID, created at and updated at are generated automatically
+
+$("div.privacy-level > button").click(function(){
+	$(this).addClass("active");
+})	
+
+/*function queryCreator () {
+
+	var self = this;
+
+	 this.karmaQuery.create({
+       
+        askerName: user.get("username"),
+		
+		questionText: $("#query_area").val(),
+	
+		privacyLevel : $("button.active").text()
+		
+      });
+
+	var test = karmaQuery.get("askerName");
+	console.log(test);
+	var test2 = karmaQuery.get("text");
+	console.log(test2);
+	var test3 = karmaQuery.get("privacylevel");
+	console.log(test3);
+	console.log(karmaQuery);
+
+	
+}*/
 
 
 
