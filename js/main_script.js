@@ -56,7 +56,7 @@ var myPreviousQueries = mpQuery.collection();*/
 
 //getting the karmapoints balance as a variable to be stored
 
-function askQuestion () {
+/*function askQuestion () {
 
     createOnEnter: function(e) {
       var self = this;
@@ -76,7 +76,7 @@ function askQuestion () {
 
 
 
-}
+}*/
 
 function updateKarmaQueries () {
 

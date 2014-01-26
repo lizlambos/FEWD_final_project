@@ -4,35 +4,47 @@ $(function(){
 
 	Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL"); 
 	
-	var user = Parse.User.current();
-	var authorName = "default";
+	var user = "default";
+	var askerName = "default";
 	var questionText = "default";
 	var privacyLevel = "default";
 
-	var KarmaQuery = Parse.Object.extend("KarmaQuery",{
+
+	function queryCreator () {
+
+		user = Parse.User.current();
+		askerName = user.get("username");
+		questionText = $("#query_area").val();
+		privacyLevel = $("button.active").text();
+
+	var KarmaQuery = Parse.Object.extend("KarmaQuery"/*,{
 		defaults:{
-			askerName : "default",
-			text : "default",
-			privacyLevel : "default"
-		}
+			asker: user,
+			askerName : askerName,
+			text : questionText,
+			privacyLevel : privacyLevel
+		},
 
 		initialize: function(){
 			this.asker = user;
-			this.askerName = authorName;
+			this.askerName = askerName;
 			this.text =  questionText;
 			this.privacylevel = privacyLevel;
 
 
 		}
 
-	});
+	}*/);
 
 	var karmaQuery = new KarmaQuery();
 
-	karmaQuery.set = ("asker", user);
-	karmaQuery.set = ("askerName", authorName);
-	karmaQuery.set = ("text", questionText);
-	karmaQuery.set = ("privacylevel", privacyLevel);
+	karmaQuery.set("asker", user);
+	karmaQuery.set("askerName", askerName);
+	karmaQuery.set("text", questionText);
+	karmaQuery.set("privacylevel", privacyLevel);
+
+	console.log(questionText);
+	console.log(privacyLevel);
 
 	var test = karmaQuery.get("askerName");
 	console.log(test);
@@ -65,17 +77,21 @@ error: function(karmaQuery, error) {
 }
 });
 
+}
+
 
 $("div.privacy-level > button").click(function(){
-	$(this).addClass("active");
+	$(this).toggleClass("active");
+	console.log(questionText);
+	console.log(privacyLevel);
 
 
 })	
 
-function queryCreator () {
+/*function queryCreator () {
 
-	authorName = user.get("username");
-	console.log(authorName);
+	askerName = user.get("username");
+	console.log(askerName);
 	questionText = $("#query_area").val();
 	console.log(questionText);
 	privacyLevel = $("button.active").text();
@@ -91,7 +107,7 @@ function queryCreator () {
 	console.log(test3);
 	console.log(karmaQuery);
 
-}
+}*/
 
 
 
@@ -100,6 +116,8 @@ function queryCreator () {
 $("#submit_button").click(function(){
 	queryCreator();
 	console.log(user);
+	console.log(questionText);
+	console.log(privacyLevel);
 
 
 });
