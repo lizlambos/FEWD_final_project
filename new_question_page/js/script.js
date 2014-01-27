@@ -1,15 +1,9 @@
 /*new query page*/
 
-$(function(){
+$(document).ready(function(){
 
 	Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL"); 
 	
-	var user = "default";
-	var askerName = "default";
-	var questionText = "default";
-	var privacyLevel = "default";
-
-
 	function queryCreator () {
 
 		user = Parse.User.current();
@@ -17,24 +11,7 @@ $(function(){
 		questionText = $("#query_area").val();
 		privacyLevel = $("button.active").text();
 
-	var KarmaQuery = Parse.Object.extend("KarmaQuery"/*,{
-		defaults:{
-			asker: user,
-			askerName : askerName,
-			text : questionText,
-			privacyLevel : privacyLevel
-		},
-
-		initialize: function(){
-			this.asker = user;
-			this.askerName = askerName;
-			this.text =  questionText;
-			this.privacylevel = privacyLevel;
-
-
-		}
-
-	}*/);
+	KarmaQuery = Parse.Object.extend("KarmaQuery");
 
 	var karmaQuery = new KarmaQuery();
 
@@ -53,9 +30,6 @@ $(function(){
 	var test3 = karmaQuery.get("privacylevel");
 	console.log(test3);
 	console.log(karmaQuery);
-
-
-
 
 	/*//these come later from being answered/
 	karmaQuery.set = ("yesAnswers", totalYesAnswers);
@@ -80,40 +54,34 @@ error: function(karmaQuery, error) {
 }
 
 
-$("div.privacy-level > button").click(function(){
+$(".kp_button").click(function(){
 	$(this).toggleClass("active");
 	console.log(questionText);
 	console.log(privacyLevel);
 
 
-})	
+})	;
 
-/*function queryCreator () {
-
-	askerName = user.get("username");
-	console.log(askerName);
-	questionText = $("#query_area").val();
+$(".fb_button").click(function(){
+	$(this).toggleClass("active");
 	console.log(questionText);
-	privacyLevel = $("button.active").text();
 	console.log(privacyLevel);
 
 
-
-	var test = karmaQuery.get("askerName");
-	console.log(test);
-	var test2 = karmaQuery.get("text");
-	console.log(test2);
-	var test3 = karmaQuery.get("privacylevel");
-	console.log(test3);
-	console.log(karmaQuery);
-
-}*/
-
-
+});
 
 //run query creator on click
 
 $("#submit_button").click(function(){
+	queryCreator();
+	console.log(user);
+	console.log(questionText);
+	console.log(privacyLevel);
+
+
+});
+
+$("#go_button").click(function(){
 	queryCreator();
 	console.log(user);
 	console.log(questionText);

@@ -1,4 +1,17 @@
-$(function(){
+$(document).ready(function(){
+
+
+    var KarmaQuery, 
+      maQuery,
+      activeQueryList,
+      privateQueryList;
+
+  var user = "default";
+  var askerName = "default";
+  var questionText = "default";
+  var privacyLevel = "default";
+
+      
 
   Parse.$ = jQuery;
 
@@ -6,6 +19,9 @@ $(function(){
 
   var user = Parse.User.current();
 
+  KarmaQuery = Parse.Object.extend("KarmaQuery");
+
+  
 
 
 /*Query Object Model
@@ -76,7 +92,7 @@ var myPreviousQueries = mpQuery.collection();*/
 
 
 
-}*/
+}
 
 function updateKarmaQueries () {
 

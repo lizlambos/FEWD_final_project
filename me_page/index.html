@@ -14,7 +14,9 @@
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-    <script src="http://www.parsecdn.com/js/parse-1.2.16.min.js"></script>
+    
+  <script src="http://yui.yahooapis.com/3.14.1/build/yui/yui-min.js"></script>  
+  <script src="http://www.parsecdn.com/js/parse-1.2.16.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/main_script.js"></script>
   <script src="js/script.js"></script>
@@ -63,6 +65,30 @@
 
 
   <!--end facebookapp initialization--> 
+
+    <script id="past_queries_section" type="x/handlebars">
+  
+    <div class="previous_query_wrapper">
+           <div class="label_wrapper">
+            <label class="label label-default time-label"><span class="glyphicon glyphicon-time"></span>{timeStamp}</label>
+            <div class="btn-group privacy-level">
+              <button type="button" class="btn kp_button">All KP</button>
+              <button type="button" class="btn fb_button active">FB Friends</button>
+              <button type="button " class="btn private_button">Private</button>
+            </div><!--btn-group-->
+          </div><!--label_wrapper-->
+
+          <div class="question">
+            <p>{queryText}</p>    
+          </div>
+          <div class="answers">
+           <div class="yes-answer"><span class="result">78%</span></div> 
+           <div class="na-answer">&#xe606;<p class="responder_count">47</p></div>
+           <div class="no-answer"><span class="result">20%</span></div>
+         </div>
+
+       </div>
+  </script>
 
     <!-- screen navbar -->
     <nav class="navbar navbar-fixed-top hidden-xs" role="navigation">
@@ -205,6 +231,8 @@
             <button type="button" class="btn btn-default">Past Queries</button>
           </div>
 
+          <div class="past_queries_section" id="active_past_queries_list">
+
           <div class="previous_query_wrapper">
            <div class="label_wrapper">
             <label class="label label-default time-label"><span class="glyphicon glyphicon-time"></span>4 days</label>
@@ -267,6 +295,75 @@
      </div>
 
    </div><!--previous_query_wrapper-->
+
+   </div><!--past_queries_section-->
+
+      <div class="past_queries_section" id="private_past_queries_list">
+
+          <div class="previous_query_wrapper">
+           <div class="label_wrapper">
+            <label class="label label-default time-label"><span class="glyphicon glyphicon-time"></span>4 days</label>
+            <div class="btn-group privacy-level">
+              <button type="button" class="btn kp_button">All KP</button>
+              <button type="button" class="btn fb_button active">FB Friends</button>
+              <button type="button " class="btn private_button">Private</button>
+            </div><!--btn-group-->
+          </div><!--label_wrapper-->
+
+          <div class="question">
+            <p>Am I annoying when I drink at parties?</p>    
+          </div>
+          <div class="answers">
+           <div class="yes-answer"><span class="result">78%</span></div> 
+           <div class="na-answer">&#xe606;<p class="responder_count">47</p></div>
+           <div class="no-answer"><span class="result">20%</span></div>
+         </div>
+
+       </div><!--previous_query_wrapper-->
+
+       <div class="previous_query_wrapper">
+         <div class="label_wrapper">
+          <label class="label label-default time-label"><span class="glyphicon glyphicon-time"></span>4 days</label>
+          <div class="btn-group privacy-level">
+            <button type="button" class="btn kp_button">All KP</button>
+            <button type="button" class="btn fb_button active">FB Friends</button>
+            <button type="button " class="btn private_button">Private</button>
+          </div><!--btn-group-->
+        </div><!--label_wrapper-->
+        
+        <div class="question">
+          <p>Am I annoying when I drink at parties?</p>    
+        </div>
+        <div class="answers">
+         <div class="yes-answer"><span class="result">78%</span></div> 
+         <div class="na-answer">&#xe606;<p class="responder_count">47</p></div>
+         <div class="no-answer"><span class="result">20%</span></div>
+       </div>
+
+     </div><!--previous_query_wrapper-->
+
+     <div class="previous_query_wrapper">
+       <div class="label_wrapper">
+        <label class="label label-default time-label"><span class="glyphicon glyphicon-time"></span>4 days</label>
+        <div class="btn-group privacy-level">
+          <button type="button" class="btn kp_button">All KP</button>
+          <button type="button" class="btn fb_button active">FB Friends</button>
+          <button type="button " class="btn private_button">Private</button>
+        </div><!--btn-group-->
+      </div><!--label_wrapper-->
+      
+      <div class="question">
+        <p>Am I annoying when I drink at parties?</p>    
+      </div>
+      <div class="answers">
+       <div class="yes-answer"><span class="result">78%</span></div> 
+       <div class="na-answer">&#xe606;<p class="responder_count">47</p></div>
+       <div class="no-answer"><span class="result">20%</span></div>
+     </div>
+
+   </div><!--previous_query_wrapper-->
+
+   </div><!--past_queries_section-->
 
  </div><!--col-->   
 </div><!--row user_info_editor-->
