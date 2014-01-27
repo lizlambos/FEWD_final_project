@@ -10,6 +10,7 @@ $(document).ready(function(){
   var askerName = "default";
   var questionText = "default";
   var privacyLevel = "default";
+  var timeStamp = "default";
 
       
 

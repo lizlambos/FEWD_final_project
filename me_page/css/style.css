@@ -139,6 +139,10 @@
 
 /*QUERIES SECTION*/
 
+.hidden {
+	display:hidden;
+}
+
 .user_info_editor {
 	background:#FFFFEB;
 	width:100%;

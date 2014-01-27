@@ -10,6 +10,9 @@ $(document).ready(function(){
 		askerName = user.get("username");
 		questionText = $("#query_area").val();
 		privacyLevel = $("button.active").text();
+		var d = new Date();
+		var dString = d.toString();
+		timeStamp = dString.substring(4,11);
 
 	KarmaQuery = Parse.Object.extend("KarmaQuery");
 
@@ -19,9 +22,11 @@ $(document).ready(function(){
 	karmaQuery.set("askerName", askerName);
 	karmaQuery.set("text", questionText);
 	karmaQuery.set("privacylevel", privacyLevel);
+	karmaQuery.set("timeStamp", timeStamp);
 
 	console.log(questionText);
 	console.log(privacyLevel);
+	console.log(timeStamp);
 
 	var test = karmaQuery.get("askerName");
 	console.log(test);
@@ -56,6 +61,7 @@ error: function(karmaQuery, error) {
 
 $(".kp_button").click(function(){
 	$(this).toggleClass("active");
+	$(".fb_button").removeClass("active");
 	console.log(questionText);
 	console.log(privacyLevel);
 
@@ -64,6 +70,7 @@ $(".kp_button").click(function(){
 
 $(".fb_button").click(function(){
 	$(this).toggleClass("active");
+	$(".kp_button").removeClass("active");
 	console.log(questionText);
 	console.log(privacyLevel);
 
