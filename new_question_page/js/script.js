@@ -59,18 +59,18 @@ error: function(karmaQuery, error) {
 }
 
 
-$(".kp_button").click(function(){
+$("#kp_button").click(function(){
 	$(this).toggleClass("active");
-	$(".fb_button").removeClass("active");
+	$("#fb_button").removeClass("active");
 	console.log(questionText);
 	console.log(privacyLevel);
 
 
 })	;
 
-$(".fb_button").click(function(){
+$("#fb_button").click(function(){
 	$(this).toggleClass("active");
-	$(".kp_button").removeClass("active");
+	$("#kp_button").removeClass("active");
 	console.log(questionText);
 	console.log(privacyLevel);
 
