@@ -72,15 +72,15 @@ $(function(){
 			var privacyLevelActive = Y.one(".privacy-level .btn.active");
 			var newPrivacyLevel = privacyLevelActive.get("text");
 			
-			$(".privacy-level .btn").click(function () {
-
+			$(".privacy-level").click(function () {
+				var self = this;
 				$(this).siblings(".btn").removeClass("active");
 				$(this).addClass("active");
 				newPrivacyLevel = $(this).text();
 				console.log(newPrivacyLevel);
 
 				query = new Parse.Query(KarmaQuery);
-				query.get(privacyLevelActive.get('id'), {
+				query.get(self.one(".privacy-level .btn.active").get('id'), {
 					success: function(item) {
 						item.set('privacyLevel', newPrivacyLevel);
 						item.save();
