@@ -84,7 +84,7 @@ $(document).ready(function(){
 			});
 				
 
-			}//get asker pic
+			}//get asker pic about
 
 			
 			getAskerPic();
