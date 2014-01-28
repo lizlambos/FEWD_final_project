@@ -14,6 +14,8 @@ $(function(){
 
     var user = Parse.User.current();
 
+    //get user name and fb photo to display on me page
+
     var userPic = user.get("userPic");
     var userName = user.get("username");
 
@@ -34,104 +36,125 @@ $(function(){
     	putUpUserPic();	
     	grabUserName();
 
+    //load the array of recent active and private queries for the user
+
+    function loadMyQueries () {
 
 
-    	function loadMyQueries () {
+    	if ( $("#active_queries").hasClass("active") == true) {
+
+    		KarmaQuery = Parse.Object.extend("KarmaQuery");
+
+    		maQuery = new Parse.Query(KarmaQuery);
+    		maQuery.notEqualTo("privacylevel", "private");
+    		maQuery.equalTo("asker", user);
+    		maQuery.ascending("createdAt");
+
+    		var myActiveQueries = maQuery.collection();
+    		console.log(myActiveQueries);
 
 
-    		if ( $("#active_queries").hasClass("active") == true) {
 
-    			KarmaQuery = Parse.Object.extend("KarmaQuery");
+    		maQuery.find({
+    			success: function(results) {
+    				console.log(results.length);
 
-    			maQuery = new Parse.Query(KarmaQuery);
-    			maQuery.notEqualTo("privacylevel", "private");
-    			maQuery.equalTo("asker", user);
-    			maQuery.ascending("createdAt");
-
-    			var myActiveQueries = maQuery.collection();
-    			console.log(myActiveQueries);
-
-    			maQuery.find({
-    				success: function(results) {
-    					console.log(results.length);
+    				
 
 			//Append each of the active queries to the active queries list
 			Y.Array.each(results, function(val, i, arr) {
+
+				var activeSetter1 = "";
+				var activeSetter2 = "";	
+				var activeSetter3 = "";	
+
+				function setPrivacyLevelButtons () {
+
+					var tester = val.get("privacylevel");
+					console.log(tester);	
+					if (tester == "All KP") {
+						activeSetter1 = "active";
+						activeSetter2 = "";	
+						activeSetter3 = "";	
+
+					}
+
+					else if (tester == "FB Friends") {
+						activeSetter1 = "";
+						activeSetter2 = "active";	
+						activeSetter3 = "";	
+					}
+
+					else {
+						activeSetter1 = "";
+						activeSetter2 = "";	
+						activeSetter3 = "active";	
+					}
+				};
+
+				setPrivacyLevelButtons();
+
 				var content = Y.Lang.sub(Y.one('#past_queries_section').getHTML(), {
 					queryText: val.get('text'),
 					timeStamp: val.createdAt,
-					id: val.id
-
+					id: val.id,
+					privacylevel: val.get('privacylevel'),
+					active1: activeSetter1,
+					active2: activeSetter2,
+					active3: activeSetter3
 				});
+
+				
 				
 				activeQueryList.prepend(content);
-
+				
 				
 			});
+
+			
+
+			
 
 			var privacyLevelButtons = Y.one(".privacy-level");
 
 			var privacyLevelActive = Y.one(".privacy-level .btn.active");
 			var newPrivacyLevel = privacyLevelActive.get("text");
 			
-			$(".privacy-level .btn").click(function () {
-				
-				$(this).siblings(".btn").removeClass("active");
-				$(this).addClass("active");
-				newPrivacyLevel = $(this).text();
+	//allow the user to change the privacy level of the question via the button
+
+	$(".privacy-level .btn").click(function () {
+
+		$(this).siblings(".btn").removeClass("active");
+		$(this).addClass("active");
+		newPrivacyLevel = $(this).text();
+		console.log(newPrivacyLevel);
+
+		query = new Parse.Query(KarmaQuery);
+		query.get($(this).attr('id'), {
+			success: function(item) {
+				item.set('privacylevel', newPrivacyLevel);
+				item.save();
 				console.log(newPrivacyLevel);
+				test1 = item.get("privacylevel");
+				test2 = item.id;
+				console.log(test1);
+				console.log(test2);
 
-				query = new Parse.Query(KarmaQuery);
-				query.get($(this).attr('id'), {
-					success: function(item) {
-						item.set('privacylevel', newPrivacyLevel);
-						item.save();
-						console.log(newPrivacyLevel);
-						test1 = item.get("privacylevel");
-						test2 = item.id;
-						console.log(test1);
-						console.log(test2);
-
-
-					},
-					error: function(object, error) {
-						alert("Error when updating todo item: " + error.code + " " + error.message);
-					}
-
-
-				});
-
-
-
-
-
-
-				/*activeQueryList.on('click', function (e) {
-					var self = this;
-
-					var newPrivacyLevel = privacyLevelActive.get("text");
-					query = new Parse.Query(KarmaQuery);
-					query.get(self.one(".privacy-level .btn").get('id'), {
-						success: function(item) {
-							newPrivacyLevel = privacyLevelActive.get("text");
-
-							item.set('privacyLevel', newPrivacyLevel);
-							item.save();
-							console.log(newPrivacyLevel);
-
-
-
-						},
-						error: function(object, error) {
-							alert("Error when updating todo item: " + error.code + " " + error.message);
-						}
-					},".privacy-level .btn.active");*/
-				});
 
 			},
+			error: function(object, error) {
+				alert("Error when updating todo item: " + error.code + " " + error.message);
+			}
 
 
 		});
+
+	});
+
+},
+
+
+});
 
 }
 
