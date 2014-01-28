@@ -196,6 +196,10 @@
 
 	/*LAYOUT MAIN PAGE ELEMENTS*/
 
+	.hidden {
+		display:hidden;
+	}
+
 	.all-app-pages {
 		background: url("../img/buddhistpainting2.jpg");
 		background-size:100%;

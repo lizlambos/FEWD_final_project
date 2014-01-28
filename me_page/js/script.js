@@ -38,23 +38,23 @@ $(function(){
 
     //load the array of recent active and private queries for the user
 
- function loadMyQueries () {
+    function loadMyQueries () {
 
-    		KarmaQuery = Parse.Object.extend("KarmaQuery");
+    	KarmaQuery = Parse.Object.extend("KarmaQuery");
 
-    		maQuery = new Parse.Query(KarmaQuery);
-    		maQuery.notEqualTo("privacylevel", "Private");
-    		maQuery.equalTo("asker", user);
-    		maQuery.ascending("createdAt");
+    	maQuery = new Parse.Query(KarmaQuery);
+    	maQuery.notEqualTo("privacylevel", "Private");
+    	maQuery.equalTo("asker", user);
+    	maQuery.ascending("createdAt");
 
-    		var myActiveQueries = maQuery.collection();
-    		console.log(myActiveQueries);
+    	var myActiveQueries = maQuery.collection();
+    	console.log(myActiveQueries);
 
 
 
-    		maQuery.find({
-    			success: function(results) {
-    				console.log(results.length);
+    	maQuery.find({
+    		success: function(results) {
+    			console.log(results.length);
 
 
 
@@ -101,19 +101,11 @@ $(function(){
 					active3: activeSetter3
 				});
 
-				
-				
 				activeQueryList.prepend(content);
 
-				
 			});
 
-			
-
-			
-
 			var privacyLevelButtons = Y.one(".privacy-level");
-
 			var privacyLevelActive = Y.one(".privacy-level .btn.active");
 			var newPrivacyLevel = privacyLevelActive.get("text");
 			
@@ -125,6 +117,13 @@ $(function(){
 		$(this).addClass("active");
 		newPrivacyLevel = $(this).text();
 		console.log(newPrivacyLevel);
+		if(newPrivacyLevel =="Private")  {
+			$(this).parents(".previous_query_wrapper").prependTo("#private_past_queries_list");
+		}
+		else {
+			$(this).parents(".previous_query_wrapper").prependTo("#active_past_queries_list");
+		}
+
 
 		query = new Parse.Query(KarmaQuery);
 		query.get($(this).attr('id'), {
@@ -151,19 +150,19 @@ $(function(){
 },
 
 
-});
+});//find function
 
-	mpQuery = new Parse.Query(KarmaQuery);
-	mpQuery.equalTo("privacylevel", "Private");
-	mpQuery.equalTo("asker", user);
-	mpQuery.ascending("createdAt");
+mpQuery = new Parse.Query(KarmaQuery);
+mpQuery.equalTo("privacylevel", "Private");
+mpQuery.equalTo("asker", user);
+mpQuery.ascending("createdAt");
 
-	var myPastQueries = mpQuery.collection();
-	console.log(myPastQueries);
+var myPastQueries = mpQuery.collection();
+console.log(myPastQueries);
 
-	mpQuery.find({
-		success: function(results) {
-			console.log(results.length);
+mpQuery.find({
+	success: function(results) {
+		console.log(results.length);
 
 //Append each of the active queries to the active queries list
 Y.Array.each(results, function(val, i, arr) {
@@ -224,6 +223,12 @@ var newPrivacyLevel = privacyLevelActive.get("text");
 		$(this).addClass("active");
 		newPrivacyLevel = $(this).text();
 		console.log(newPrivacyLevel);
+		if (newPrivacyLevel == "All KP" || newPrivacyLevel == "FB Friends") {
+			$(this).parents(".previous_query_wrapper").prependTo("#active_past_queries_list");
+		}
+		else {
+			$(this).parents(".previous_query_wrapper").prependTo("#private_past_queries_list");
+		}
 
 		query = new Parse.Query(KarmaQuery);
 		query.get($(this).attr('id'), {
@@ -265,6 +270,7 @@ $("#active_queries").click(function(){
 	$("#past_queries").removeClass("active");
 	$("#private_past_queries_list").addClass("hidden");
 	$("#active_past_queries_list").removeClass("hidden");
+	
 
 });
 
@@ -273,6 +279,7 @@ $("#past_queries").click(function(){
 	$("#active_queries").removeClass("active");
 	$("#private_past_queries_list").removeClass("hidden");
 	$("#active_past_queries_list").addClass("hidden");
+
 
 });
 
