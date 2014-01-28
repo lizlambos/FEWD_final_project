@@ -4,7 +4,9 @@ $(document).ready(function(){
     var KarmaQuery, 
       maQuery,
       activeQueryList,
-      privateQueryList;
+      privateQueryList,
+      myQueriesList,
+      prevQueryContainer;
 
   var user = "default";
   var askerName = "default";
