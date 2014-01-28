@@ -14,6 +14,7 @@
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script src="http://yui.yahooapis.com/3.14.1/build/yui/yui-min.js"></script>  
   <script src="http://www.parsecdn.com/js/parse-1.2.16.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/main_script.js"></script>
@@ -25,32 +26,76 @@
 
 <body class="all-app-pages">
 
-  <!--facebookapp initialization
+  <!--facebookapp initialization-->
 
   <div id="fb-root"></div>
-    <script>
-      window.fbAsyncInit = function() {
-      // init the FB JS SDK
-     FB.init({
-      appId      : '254848478004741',                        // App ID from the app dashboard
-      status     : true,                                 // Check Facebook Login status
-      xfbml      : true                                  // Look for social plugins on the page
-      });
 
-    // Additional initialization code such as adding Event Listeners goes here
-     };
+  <script type="text/javascript">
 
-   // Load the SDK asynchronously
-    (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js";
-    fjs.parentNode.insertBefore(js, fjs);
+  //initialize parse//
+
+  Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL"); 
+
+     // Load the SDK asynchronously
+     (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "http://connect.facebook.net/en_US/all.js";
+       fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
+
+     window.fbAsyncInit = function() {
+
+      // init the FB JS SDK
+      Parse.FacebookUtils.init({
+      appId      : '254848478004741', // Facebook App ID
+      channelUrl : 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/login_page/', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow Parse to access the session
+      xfbml      : true  // parse XFBML
+    });
+
+    }
+
     </script>
 
-    end facebookapp initialization--> 
+    <script id="friends_queries_section" type="x/handlebars">
+    <div class="row">
+    <div class="col-xs-12">
+
+    <div class="content_component_container" id="{id}">
+    <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+    <div class="top-navbar-icon hidden-sm hidden-md hidden-lg hidden-xl"href="#">
+    <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
+    <span class="badge">18</span> 
+    </div>
+    <div class="user-info-wrapper">
+    <div class="fbpic_container">
+    <img class="fbpic_small user_num_1_fb_photo" src="{askerPicURL}">
+    </div> 
+    </div>  
+    <h3 class="friend-name">{askerName}</h3>
+    </div>
+
+    <div class="question">
+    <p>{queryText}</p>
+    <span class="label label-default"><span class="glyphicon glyphicon-time"></span>{timeStamp}</span>
+    </div>
+    <div class="answers">
+    <a href="#" class="btn  btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
+    <a href="#" class="btn btn-inline btn-warning no-button" role="button">&#xe612;</a>
+    </div>
+
+    </div>
+    </div> 
+    </div> 
+
+
+    </script>
+
+
+    <!--end facebookapp initialization--> 
 
     <!-- screen navbar -->
     <nav class="navbar navbar-fixed-top hidden-xs" role="navigation">
@@ -65,11 +110,11 @@
 
       <a href="#" class="navbar-brand hidden-xs">KarmaPolice</a>
 
-         <div class="collapse navbar-collapse navbar-left pull-left">
-          <ul class="nav navbar-nav">
-            <li class="visible-link active"><a href="#">Get Karma</a></li>
-           <li class="visible-link"><a href="../me_page/index.html">My Karma</a></li>
-           <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
+      <div class="collapse navbar-collapse navbar-left pull-left">
+        <ul class="nav navbar-nav">
+          <li class="visible-link active"><a href="#">Get Karma</a></li>
+          <li class="visible-link"><a href="../me_page/index.html">My Karma</a></li>
+          <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
             <ul class="dropdown-menu pull-right">
               <li class="dropdown_item"><a href="../get_karma_page/index.html">New Karma Query</a></li>
               <li class="dropdown_item"><a href="../recent_questions_page/index.html">Activity</a></li>
@@ -89,7 +134,7 @@
 
     
 
-</div> <!--container-->    
+  </div> <!--container-->    
 
 </nav>
 
@@ -118,7 +163,7 @@
   </div>
 </div>
 
- end pageheader -->
+end pageheader -->
 
 <!-- tilepage -->
 
@@ -135,10 +180,10 @@
     </div>
 
   </div>
-  <div class="row">
 
-    <div class="col-xs-12 col-sm-4 photo-col">
+  <div class="row hidden" id="friends_active_queries_list">
 
+    <div class="col-xs-12 col-sm-4 photo-col friends_queries_section1" id="friends_queries_section1">
       <div class="row">
         <div class="col-xs-12">
 
@@ -166,12 +211,12 @@
        </div>
 
      </div><!--content_component_container-->
-
-   </div><!--column-->
- </div><!--row-->
+   </div><!--column--> 
+ </div><!--row--> 
 
  <div class="row">
   <div class="col-xs-12">
+
    <div class="content_component_container">
      <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
      <div class="top-navbar-icon hidden-sm hidden-md hidden-lg hidden-xl"href="#">
@@ -196,12 +241,13 @@
  </div>
 
 </div><!--content_component_container-->
-</div><!--column-->
-</div><!--row-->
+</div><!--column--> 
+</div><!--row--> 
+
 
 </div><!--column-->  
 
-<div class="col-xs-12 col-sm-4 photo-col">
+<div class="col-xs-12 col-sm-4 photo-col friends_queries_section2" id="friends_queries_section2">
 
   <div class="row">
     <div class="col-xs-12">
@@ -230,12 +276,14 @@
    </div>
 
  </div><!--content_component_container-->
+</div><!--column--> 
+</div><!--row--> 
 
-</div><!--column-->
-</div><!--row-->
 
 <div class="row">
   <div class="col-xs-12">
+
+
    <div class="content_component_container">
      <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
      <div class="top-navbar-icon hidden-sm hidden-md hidden-lg hidden-xl"href="#">
@@ -260,12 +308,13 @@
  </div>
 
 </div><!--content_component_container-->
-</div><!--column-->
-</div><!--row-->
+</div><!--column--> 
+</div><!--row--> 
+
 
 </div><!--column-->  
 
-<div class="col-xs-12 col-sm-4 photo-col">
+<div class="col-xs-12 col-sm-4 photo-col friends_queries_section3" id="friends_queries_section3">
 
   <div class="row">
     <div class="col-xs-12">
@@ -294,12 +343,12 @@
    </div>
 
  </div><!--content_component_container-->
-
-</div><!--column-->
-</div><!--row-->
+</div><!--column--> 
+</div><!--row--> 
 
 <div class="row">
   <div class="col-xs-12">
+
    <div class="content_component_container">
      <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
      <div class="top-navbar-icon hidden-sm hidden-md hidden-lg hidden-xl"href="#">
@@ -324,8 +373,209 @@
  </div>
 
 </div><!--content_component_container-->
-</div><!--column-->
-</div><!--row-->
+</div><!--column--> 
+</div><!--row--> 
+
+
+</div><!--column-->  
+
+
+
+</div> <!-- end row -->
+
+<div class="row" id="allKP_active_queries_list">
+
+  <div class="col-xs-12 col-sm-4 photo-col friends_queries_section1" id="">
+
+    <div class="row">
+      <div class="col-xs-12">
+
+       <div class="content_component_container">
+         <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+         <div class="top-navbar-icon hidden-sm hidden-md hidden-lg hidden-xl"href="#">
+          <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
+          <span class="badge">18</span> 
+        </div>
+        <div class="user-info-wrapper">
+         <div class="fbpic_container">
+          <div class="fbpic_small user_num_1_fb_photo">
+          </div> 
+        </div>  
+        <h3 class="friend-name">Bob Jones</h3>
+      </div><!--user-info-wrapper-->
+
+      <div class="question">
+        <p>Am I annoying when I drink at parties?</p>
+        <span class="label label-default"><span class="glyphicon glyphicon-time"></span>4 days</span>
+      </div>
+      <div class="answers">
+       <a href="#" class="btn  btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
+       <a href="#" class="btn btn-inline btn-warning no-button" role="button">&#xe612;</a>
+     </div>
+
+   </div><!--content_component_container-->
+ </div><!--column--> 
+</div><!--row--> 
+
+<div class="row">
+  <div class="col-xs-12">
+
+   <div class="content_component_container">
+     <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+     <div class="top-navbar-icon hidden-sm hidden-md hidden-lg hidden-xl"href="#">
+      <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
+      <span class="badge">18</span> 
+    </div>
+    <div class="user-info-wrapper">
+     <div class="fbpic_container">
+      <div class="fbpic_small user_num_1_fb_photo">
+      </div> 
+    </div>  
+    <h3 class="friend-name">Bob Jones</h3>
+  </div><!--user-info-wrapper-->
+
+  <div class="question">
+    <p>Am I annoying when I drink at parties?</p>
+    <span class="label label-default"><span class="glyphicon glyphicon-time"></span>4 days</span>
+  </div>
+  <div class="answers">
+   <a href="#" class="btn  btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
+   <a href="#" class="btn btn-inline btn-warning no-button" role="button">&#xe612;</a>
+ </div>
+
+</div><!--content_component_container-->
+</div><!--column--> 
+</div><!--row--> 
+
+
+</div><!--column-->  
+
+<div class="col-xs-12 col-sm-4 photo-col friends_queries_section2" id="friends_queries_section2">
+
+  <div class="row">
+    <div class="col-xs-12">
+
+     <div class="content_component_container">
+       <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+       <div class="top-navbar-icon hidden-sm hidden-md hidden-lg hidden-xl"href="#">
+        <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
+        <span class="badge">18</span> 
+      </div>
+      <div class="user-info-wrapper">
+       <div class="fbpic_container">
+        <div class="fbpic_small user_num_1_fb_photo">
+        </div> 
+      </div>  
+      <h3 class="friend-name">Bob Jones</h3>
+    </div><!--user-info-wrapper-->
+
+    <div class="question">
+      <p>Am I annoying when I drink at parties?</p>
+      <span class="label label-default"><span class="glyphicon glyphicon-time"></span>4 days</span>
+    </div>
+    <div class="answers">
+     <a href="#" class="btn  btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
+     <a href="#" class="btn btn-inline btn-warning no-button" role="button">&#xe612;</a>
+   </div>
+
+ </div><!--content_component_container-->
+</div><!--column--> 
+</div><!--row--> 
+
+<div class="row">
+  <div class="col-xs-12">
+
+   <div class="content_component_container">
+     <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+     <div class="top-navbar-icon hidden-sm hidden-md hidden-lg hidden-xl"href="#">
+      <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
+      <span class="badge">18</span> 
+    </div>
+    <div class="user-info-wrapper">
+     <div class="fbpic_container">
+      <div class="fbpic_small user_num_1_fb_photo">
+      </div> 
+    </div>  
+    <h3 class="friend-name">Bob Jones</h3>
+  </div><!--user-info-wrapper-->
+
+  <div class="question">
+    <p>Am I annoying when I drink at parties?</p>
+    <span class="label label-default"><span class="glyphicon glyphicon-time"></span>4 days</span>
+  </div>
+  <div class="answers">
+   <a href="#" class="btn  btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
+   <a href="#" class="btn btn-inline btn-warning no-button" role="button">&#xe612;</a>
+ </div>
+
+</div><!--content_component_container-->
+</div><!--column--> 
+</div><!--row--> 
+
+</div><!--column-->  
+
+<div class="col-xs-12 col-sm-4 photo-col friends_queries_section3" id="friends_queries_section3">
+
+  <div class="row">
+    <div class="col-xs-12">
+
+     <div class="content_component_container">
+       <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+       <div class="top-navbar-icon hidden-sm hidden-md hidden-lg hidden-xl"href="#">
+        <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
+        <span class="badge">18</span> 
+      </div>
+      <div class="user-info-wrapper">
+       <div class="fbpic_container">
+        <div class="fbpic_small user_num_1_fb_photo">
+        </div> 
+      </div>  
+      <h3 class="friend-name">Bob Jones</h3>
+    </div><!--user-info-wrapper-->
+
+    <div class="question">
+      <p>Am I annoying when I drink at parties?</p>
+      <span class="label label-default"><span class="glyphicon glyphicon-time"></span>4 days</span>
+    </div>
+    <div class="answers">
+     <a href="#" class="btn  btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
+     <a href="#" class="btn btn-inline btn-warning no-button" role="button">&#xe612;</a>
+   </div>
+
+ </div><!--content_component_container-->
+</div><!--column--> 
+</div><!--row--> 
+
+<div class="row">
+  <div class="col-xs-12">
+
+   <div class="content_component_container">
+     <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+     <div class="top-navbar-icon hidden-sm hidden-md hidden-lg hidden-xl"href="#">
+      <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
+      <span class="badge">18</span> 
+    </div>
+    <div class="user-info-wrapper">
+     <div class="fbpic_container">
+      <div class="fbpic_small user_num_1_fb_photo">
+      </div> 
+    </div>  
+    <h3 class="friend-name">Bob Jones</h3>
+  </div><!--user-info-wrapper-->
+
+  <div class="question">
+    <p>Am I annoying when I drink at parties?</p>
+    <span class="label label-default"><span class="glyphicon glyphicon-time"></span>4 days</span>
+  </div>
+  <div class="answers">
+   <a href="#" class="btn  btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
+   <a href="#" class="btn btn-inline btn-warning no-button" role="button">&#xe612;</a>
+ </div>
+
+</div><!--content_component_container-->
+
+</div><!--column--> 
+</div><!--row--> 
 
 </div><!--column-->  
 
@@ -340,24 +590,24 @@
 
 <!-- mobile bottom navbar -->
 
-  <footer class="mobile-footer fixed-bottom hidden-sm hidden-md hidden-lg hidden-xl">
-   <ul class="nav navbar-nav">
-    <li class="hidden-xl hidden-lg hidden-md hidden-sm">
-      <a class="btn onpage bottom-navbar-icon" data-icon="&#xe60a;" href="../get_karma_page/index.html"><span class="bottom-navbar-icon-label">Get Karma</span></a>
-    </li>
-    <li class="hidden-xl hidden-lg hidden-md hidden-sm">
-      <a class="btn  bottom-navbar-icon" data-icon="&#xe608;" href="../recent_questions_page/index.html"><span class="bottom-navbar-icon-label">Activity</span></a>
-    </li>
-    <li class="hidden-xl hidden-lg hidden-md hidden-sm">
-      <a class="btn  bottom-navbar-icon" data-icon="&#xe60c;" href="../new_question_page/index.html"><span class="bottom-navbar-icon-label">New Query</span></a>
-    </li>
-    <li class="hidden-xl hidden-lg hidden-md hidden-sm">
-      <a class="btn bottom-navbar-icon" data-icon="&#xe607;" href="../invite_friends_page/index.html"><span class="bottom-navbar-icon-label">Friends</span></a>
-    </li>
-    <li class="hidden-xl hidden-lg hidden-md hidden-sm">
-      <a class="btn bottom-navbar-icon" data-icon="&#xe614;" href="../me_page/index.html"><span class="bottom-navbar-icon-label">My Karma</span></a>
-    </li>
-  </ul> 
+<footer class="mobile-footer fixed-bottom hidden-sm hidden-md hidden-lg hidden-xl">
+ <ul class="nav navbar-nav">
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn onpage bottom-navbar-icon" data-icon="&#xe60a;" href="../get_karma_page/index.html"><span class="bottom-navbar-icon-label">Get Karma</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn  bottom-navbar-icon" data-icon="&#xe608;" href="../recent_questions_page/index.html"><span class="bottom-navbar-icon-label">Activity</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn  bottom-navbar-icon" data-icon="&#xe60c;" href="../new_question_page/index.html"><span class="bottom-navbar-icon-label">New Query</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn bottom-navbar-icon" data-icon="&#xe607;" href="../invite_friends_page/index.html"><span class="bottom-navbar-icon-label">Friends</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn bottom-navbar-icon" data-icon="&#xe614;" href="../me_page/index.html"><span class="bottom-navbar-icon-label">My Karma</span></a>
+  </li>
+</ul> 
 </div>
 </footer>
 
