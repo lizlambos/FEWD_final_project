@@ -25,87 +25,6 @@ $(document).ready(function(){
   KarmaQuery = Parse.Object.extend("KarmaQuery");
 
   
-
-
-/*Query Object Model
-
-var KarmaQuery = Parse.Object.extend("KarmaQuery");
-var karmaQuery = new KarmaQuery();
-karmaQuery.set = ("asker", user);
-karmaQuery.set = ("text", questionText);
-karmaQuery.set = ("privacy-level", privacyLevel);
-karmaQuery.set = ("yesAnswers", totalYesAnswers);
-karmaQuery.set = ("noAnswers", totalNoAnswers);
-karmaQuery.set = ("responders", responders); //responder array
-//object ID, created at and updated at are generated automatically
-
-newQuery.save(null, {
-  success: function(karmaQuery) {
-    // Execute any logic that should take place after the object is saved.
-    alert('New object created with objectId: ' + karmaQuery.id + 'by' + karmaQuery.user +
-    	'at' + karmaQuery.createdAt);
-
-  },
-  error: function(karmaQuery, error) {
-    // Execute any logic that should take place if the save fails.
-    // error is a Parse.Error with an error code and description.
-    alert('Failed to create new object, with error code: ' + error.description);
-  }
-});
-
-//Query Collection Model
-
-// friendsactive queries collection
-var faQuery = new Parse.Query(karmaQuery);
-faQuery.notEqualTo("privacy-level", "private");
-faQuery.notEqualTo("asker", user);
-var friendsActiveQueries = faQuery.collection();
-
-//users own active queries collection
-var maQuery = new Parse.Query(karmaQuery);
-maQuery.notEqualTo("privacy-level", "private");
-maQuery.equalTo("asker", user);
-var myActiveQueries = maQuery.collection();
-
-//users private queries collection
-var mpQuery = new Parse.Query(karmaQuery);
-mpQuery.equalTo("privacy-level", "private");
-mpQuery.equalTo("asker", user);
-var myPreviousQueries = mpQuery.collection();*/
-
-//getting the karmapoints balance as a variable to be stored
-
-/*function askQuestion () {
-
-    createOnEnter: function(e) {
-      var self = this;
-      if (e.keyCode != 13) return;
-
-      this.todos.create({
-        content: this.input.val(),
-        order:   this.todos.nextOrder(),
-        done:    false,
-        user:    Parse.User.current(),
-        ACL:     new Parse.ACL(Parse.User.current())
-      });
-
-      this.input.val('');
-      this.resetFilters();
-    },
-
-
-
-}
-
-function updateKarmaQueries () {
-
-    this.karmaQuery.query = new Parse.Query(karmaQuery);
-    this.karmaQuery.query.equalTo("user", Parse.User.current());
-
-
-  
-}
-
 // functions to get users facebook id, friends and picture via graph API
 
 
@@ -259,69 +178,9 @@ $("#fb_login_button").click(function(){
    };
    */
 
-//Generate users of Karma Police who are also their facebook friends
 
 
 
-
-//Create different data types stored to the user object
-
-
-
-
-
- /*//generate new query
-
-var user = Parse.User.current();
- 
-// Make a new post
-var Post = Parse.Object.extend("Post");
-var karmaQuery = new Post();
-post.set("asker", user);
-post.set("text", "This is some great content");
-post.set("karmaQueryID", "My New Post");
-post.set("timeStamp","now");
-post.set("answerer", answerer.username)
-post.save(null, {
-  success: function(post) {
-    // Find all posts by the current user
-    var query = new Parse.Query(Post);
-    query.equalTo("user", user);
-    query.find({
-      success: function(usersPosts) {
-        // userPosts contains all of the posts by the current user.
-      }
-    });
-  }
-});
-
-
-
- function getUserInfo() {
-        FB.api('/me', function(response) {
-          var name = response.name;
-          var id = response.id;
-          //document.getElementById("status").innerHTML=str;
-            console.log(name); 
-    }
-    )}
-
-
-
-    function getPhoto()
-    {
-      FB.api('/me/picture?type=normal', function(response) {
- 
-          var pic ="<img src='"+response.data.url+"'/>";
-          document.getElementById("user_FB_pic").innerHTML+=pic;
- 
-    });
-
-
-});*/
-
-/*not sure how sheets read scripts written on html doc
-*/
 
 
 
@@ -342,7 +201,6 @@ post.save(null, {
   "updated_at": "2014-01-20T21:01:35Z" }*/
 
 
-//create new query 
 
 
 
