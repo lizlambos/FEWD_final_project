@@ -69,25 +69,28 @@ $(function(){
 				
 			});
 
+			var privacyLevelButtons = Y.one(".privacy-level");
+
 			var privacyLevelActive = Y.one(".privacy-level .btn.active");
 			var newPrivacyLevel = privacyLevelActive.get("text");
 			
-			$(".privacy-level").click(function () {
-				var self = this;
+			$(".privacy-level .btn").click(function () {
+				
 				$(this).siblings(".btn").removeClass("active");
 				$(this).addClass("active");
 				newPrivacyLevel = $(this).text();
 				console.log(newPrivacyLevel);
 
 				query = new Parse.Query(KarmaQuery);
-				query.get(self.one(".privacy-level .btn.active").get('id'), {
+				query.get($(this).attr('id'), {
 					success: function(item) {
-						item.set('privacyLevel', newPrivacyLevel);
+						item.set('privacylevel', newPrivacyLevel);
 						item.save();
 						console.log(newPrivacyLevel);
-						test1 = item.get("privacyLevel");
+						test1 = item.get("privacylevel");
+						test2 = item.id;
 						console.log(test1);
-						
+						console.log(test2);
 
 
 					},
