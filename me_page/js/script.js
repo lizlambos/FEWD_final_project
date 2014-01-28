@@ -38,15 +38,12 @@ $(function(){
 
     //load the array of recent active and private queries for the user
 
-    function loadMyQueries () {
-
-
-    	if ( $("#active_queries").hasClass("active") == true) {
+ function loadMyQueries () {
 
     		KarmaQuery = Parse.Object.extend("KarmaQuery");
 
     		maQuery = new Parse.Query(KarmaQuery);
-    		maQuery.notEqualTo("privacylevel", "private");
+    		maQuery.notEqualTo("privacylevel", "Private");
     		maQuery.equalTo("asker", user);
     		maQuery.ascending("createdAt");
 
@@ -59,7 +56,7 @@ $(function(){
     			success: function(results) {
     				console.log(results.length);
 
-    				
+
 
 			//Append each of the active queries to the active queries list
 			Y.Array.each(results, function(val, i, arr) {
@@ -107,7 +104,7 @@ $(function(){
 				
 				
 				activeQueryList.prepend(content);
-				
+
 				
 			});
 
@@ -156,62 +153,124 @@ $(function(){
 
 });
 
-}
+	mpQuery = new Parse.Query(KarmaQuery);
+	mpQuery.equalTo("privacylevel", "Private");
+	mpQuery.equalTo("asker", user);
+	mpQuery.ascending("createdAt");
 
-else {
+	var myPastQueries = mpQuery.collection();
+	console.log(myPastQueries);
 
-
-
-	KarmaQuery = Parse.Object.extend("KarmaQuery");
-
-	maQuery = new Parse.Query(KarmaQuery);
-	maQuery.equalTo("privacylevel", "private");
-	maQuery.equalTo("asker", user);
-	maQuery.ascending("createdAt");
-
-	var myActiveQueries = maQuery.collection();
-	console.log(myActiveQueries);
-
-	maQuery.find({
+	mpQuery.find({
 		success: function(results) {
 			console.log(results.length);
 
-			//Append each of the active queries to the active queries list
-			Y.Array.each(results, function(val, i, arr) {
-				var content = Y.Lang.sub(Y.one('#past_queries_section').getHTML(), {
-					queryText: val.get('text'),
-					timeStamp: val.createdAt,
-					id: val.id
+//Append each of the active queries to the active queries list
+Y.Array.each(results, function(val, i, arr) {
 
-				});
-				
+	var activeSetter1 = "";
+	var activeSetter2 = "";	
+	var activeSetter3 = "";	
 
-				privateQueryList.prepend(content);
-				
-			});
+	function setPrivacyLevelButtons () {
+
+		var tester = val.get("privacylevel");
+		console.log(tester);	
+		if (tester == "All KP") {
+			activeSetter1 = "active";
+			activeSetter2 = "";	
+			activeSetter3 = "";	
 
 		}
+
+		else if (tester == "FB Friends") {
+			activeSetter1 = "";
+			activeSetter2 = "active";	
+			activeSetter3 = "";	
+		}
+
+		else {
+			activeSetter1 = "";
+			activeSetter2 = "";	
+			activeSetter3 = "active";	
+		}
+	};
+
+	setPrivacyLevelButtons();
+
+	var content = Y.Lang.sub(Y.one('#past_queries_section').getHTML(), {
+		queryText: val.get('text'),
+		timeStamp: val.createdAt,
+		id: val.id,
+		privacylevel: val.get('privacylevel'),
+		active1: activeSetter1,
+		active2: activeSetter2,
+		active3: activeSetter3
 	});
 
+	privateQueryList.prepend(content);
+
+});//yArray
+
+var privacyLevelButtons = Y.one(".privacy-level");
+var privacyLevelActive = Y.one(".privacy-level .btn.active");
+var newPrivacyLevel = privacyLevelActive.get("text");
+
+	//allow the user to change the privacy level of the question via the button
+
+	$(".privacy-level .btn").click(function () {
+
+		$(this).siblings(".btn").removeClass("active");
+		$(this).addClass("active");
+		newPrivacyLevel = $(this).text();
+		console.log(newPrivacyLevel);
+
+		query = new Parse.Query(KarmaQuery);
+		query.get($(this).attr('id'), {
+			success: function(item) {
+				item.set('privacylevel', newPrivacyLevel);
+				item.save();
+				console.log(newPrivacyLevel);
+				test1 = item.get("privacylevel");
+				test2 = item.id;
+				console.log(test1);
+				console.log(test2);
 
 
-}
+			},
+			error: function(object, error) {
+				alert("Error when updating todo item: " + error.code + " " + error.message);
+			}
 
 
-}
+		});//query get
+
+	});//privacyleel buttn click
+
+}//success
+
+
+});//find
+
+
+
+
+}//loadMyQueries
 
 loadMyQueries();
 
 
 $("#active_queries").click(function(){
-	$(".query_nav_buttons button").toggleClass("active");
+	$(this).addClass("active");
+	$("#past_queries").removeClass("active");
 	$("#private_past_queries_list").addClass("hidden");
 	$("#active_past_queries_list").removeClass("hidden");
 
 });
 
 $("#past_queries").click(function(){
-	$(".query_nav_buttons button").toggleClass("active");
+	$(this).addClass("active");
+	$("#active_queries").removeClass("active");
 	$("#private_past_queries_list").removeClass("hidden");
 	$("#active_past_queries_list").addClass("hidden");
 
@@ -219,14 +278,8 @@ $("#past_queries").click(function(){
 
 
 
-    	//allow to update the privacy level by clicking the button
+    });//doc.ready
 
+});//node
 
-
-
-
-    });
-
-});
-
-});
+});//main function
