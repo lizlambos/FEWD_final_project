@@ -12,7 +12,6 @@ $(document).ready(function(){
 		allKPActiveQueryList = Y.one('#allKP_active_queries_list');
 		QueryContainer = Y.one(".content_component_container");
 
-
 		Parse.$ = jQuery;
 
 		Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL");   
@@ -69,48 +68,33 @@ $(document).ready(function(){
 						privacylevel: val.get('privacylevel'),
 						askerPicURL: askerPic
 
-
 					});
 
 					allKPQueryColumn1.prepend(content);
-
-
-
 				},
 				error: function(object, error) {
 					alert("Error when updating todo item: " + error.code + " " + error.message);
 				}
 
 			});
-				
 
 			}//get asker pic about
 
-			
 			getAskerPic();
 			
-
-			
-
 		});//y.array
 
 	}//success
 
 	});//find
 
-
-
-
 	}//load friend queries
 
-	loadFriendQueries();
+loadFriendQueries();
 
-
-	
 function answerQuery() {
 
 	user = Parse.User.current();
-<<<<<<< HEAD
 	answer = $(".answers .btn.active").attr("name");
 	console.log(answer);
 	answererName = user.get("username");
@@ -119,18 +103,6 @@ function answerQuery() {
 	timeStamp = dString.substring(4,11);
 	queryID = $(".answers .btn.active").attr("id");
 	console.log(queryID);
-	//testing = $(this).text();
-	//console.log(testing);
-=======
-	answer = $(this).attr("name");
-	answererName = user.get("username");
-	console.log(answer);
-	var d = new Date();
-	var dString = d.toString();
-	timeStamp = dString.substring(4,11);
-	queryID = $(this).attr("value");
->>>>>>> 5102ececf7b07b7f5b77729ce47f3743908d6113
-
 
 	var QueryAnswer = Parse.Object.extend("QueryAnswer");
 	queryAnswer = new QueryAnswer();
@@ -140,7 +112,6 @@ function answerQuery() {
 	queryAnswer.set("answer", answer);
 	queryAnswer.set("queryID", queryID);
 	queryAnswer.set("timeStamp", timeStamp);
-
 
 	queryAnswer.save(null, {
 		success: function(queryAnswer) {
@@ -159,7 +130,6 @@ error: function(queryAnswer, error) {
 
 	}//answer questions
 
-<<<<<<< HEAD
 	$("#allKP_active_queries_list").on("click",".answers .btn", function(){
 		
 		$(".answers .btn").removeClass("active");
@@ -170,21 +140,6 @@ error: function(queryAnswer, error) {
 	
 
 
-=======
-
-	$("#yes-button").click(function(){
-		answerQuery();
-	})
-
-
-
-	$("#no-button").click(function(){
-		answerQuery();
-		addClass("green");
-
-	})	;
-
->>>>>>> 5102ececf7b07b7f5b77729ce47f3743908d6113
 
 });//YUI
 
