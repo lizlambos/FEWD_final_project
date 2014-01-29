@@ -65,16 +65,19 @@
     <div class="col-xs-12">
 
     <div class="content_component_container" id="{id}">
+
     <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
     <div class="top-navbar-icon hidden-sm hidden-md hidden-lg hidden-xl"href="#">
     <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
     <span class="badge">18</span> 
     </div>
+
     <div class="user-info-wrapper">
+
     <div class="fbpic_container">
     <img class="fbpic_small user_num_1_fb_photo" src="{askerPicURL}">
-    </div> 
     </div>  
+
     <h3 class="friend-name">{askerName}</h3>
     </div>
 
@@ -82,13 +85,16 @@
     <p>{queryText}</p>
     <span class="label label-default"><span class="glyphicon glyphicon-time"></span>{timeStamp}</span>
     </div>
-    <div class="answers">
-    <a href="#" class="btn  btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
-    <a href="#" class="btn btn-inline btn-warning no-button" role="button">&#xe612;</a>
+
+    <div class="answers" id="answers">
+    <button class="btn  btn-success btn-inline yes-button" id="yes-button" value="{id}" name="yes">&#xe60b;</button> 
+    <button class="btn btn-inline btn-warning no-button" id="no-button" name="no" value="{id}">&#xe612;</button>
     </div>
 
     </div>
+
     </div> 
+
     </div> 
 
 

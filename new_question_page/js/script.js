@@ -13,6 +13,9 @@ $(document).ready(function(){
 		var d = new Date();
 		var dString = d.toString();
 		timeStamp = dString.substring(4,11);
+		//yesAnswers = [];
+		//noAnswers = [];
+		//responders = [];
 
 	KarmaQuery = Parse.Object.extend("KarmaQuery");
 
@@ -23,6 +26,9 @@ $(document).ready(function(){
 	karmaQuery.set("text", questionText);
 	karmaQuery.set("privacylevel", privacyLevel);
 	karmaQuery.set("timeStamp", timeStamp);
+	//karmaQuery.set("yesAnswers", yesAnswers);
+	//karmaQuery.set("noAnswers", noAnswers);
+	//karmaQuery.set("responders", responders);
 
 	console.log(questionText);
 	console.log(privacyLevel);
@@ -36,10 +42,7 @@ $(document).ready(function(){
 	console.log(test3);
 	console.log(karmaQuery);
 
-	/*//these come later from being answered/
-	karmaQuery.set = ("yesAnswers", totalYesAnswers);
-	karmaQuery.set = ("noAnswers", totalNoAnswers);
-	karmaQuery.set = ("responders", responders); //responder array */
+
 //object ID, created at and updated at are generated automatically
 
 karmaQuery.save(null, {
