@@ -110,6 +110,7 @@ $(document).ready(function(){
 function answerQuery() {
 
 	user = Parse.User.current();
+<<<<<<< HEAD
 	answer = $(".answers .btn.active").attr("name");
 	console.log(answer);
 	answererName = user.get("username");
@@ -120,6 +121,15 @@ function answerQuery() {
 	console.log(queryID);
 	//testing = $(this).text();
 	//console.log(testing);
+=======
+	answer = $(this).attr("name");
+	answererName = user.get("username");
+	console.log(answer);
+	var d = new Date();
+	var dString = d.toString();
+	timeStamp = dString.substring(4,11);
+	queryID = $(this).attr("value");
+>>>>>>> 5102ececf7b07b7f5b77729ce47f3743908d6113
 
 
 	var QueryAnswer = Parse.Object.extend("QueryAnswer");
@@ -149,6 +159,7 @@ error: function(queryAnswer, error) {
 
 	}//answer questions
 
+<<<<<<< HEAD
 	$("#allKP_active_queries_list").on("click",".answers .btn", function(){
 		
 		$(".answers .btn").removeClass("active");
@@ -159,6 +170,21 @@ error: function(queryAnswer, error) {
 	
 
 
+=======
+
+	$("#yes-button").click(function(){
+		answerQuery();
+	})
+
+
+
+	$("#no-button").click(function(){
+		answerQuery();
+		addClass("green");
+
+	})	;
+
+>>>>>>> 5102ececf7b07b7f5b77729ce47f3743908d6113
 
 });//YUI
 
