@@ -15,7 +15,7 @@ $(document).ready(function(){
 		timeStamp = dString.substring(4,11);
 		//yesAnswers = [];
 		//noAnswers = [];
-		//responders = [];
+		var responderNum = 0;
 
 	KarmaQuery = Parse.Object.extend("KarmaQuery");
 
@@ -28,7 +28,7 @@ $(document).ready(function(){
 	karmaQuery.set("timeStamp", timeStamp);
 	//karmaQuery.set("yesAnswers", yesAnswers);
 	//karmaQuery.set("noAnswers", noAnswers);
-	//karmaQuery.set("responders", responders);
+
 
 	console.log(questionText);
 	console.log(privacyLevel);

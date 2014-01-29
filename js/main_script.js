@@ -1,30 +1,36 @@
 $(document).ready(function(){
 
+  YUI().use('node', function (Y) {
 
     var KarmaQuery, 
-      maQuery,
-      activeQueryList,
-      privateQueryList,
-      myQueriesList,
-      prevQueryContainer;
+    maQuery,
+    activeQueryList,
+    privateQueryList,
+    myQueriesList,
+    prevQueryContainer
+    ;
 
-  var user = "default";
-  var askerName = "default";
-  var questionText = "default";
-  var privacyLevel = "default";
-  var timeStamp = "default";
+    var user = "default";
+    var askerName = "default";
+    var questionText = "default";
+    var privacyLevel = "default";
+    var timeStamp = "default";
+    var karmaPointsBalance = 0;
+    var friendsInvitedBalance = 0;
+    var answersGivenBalance = 0;
+    var answersGottenBalance = 0;
 
-      
 
-  Parse.$ = jQuery;
 
-  Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL");   
+    Parse.$ = jQuery;
 
-  var user = Parse.User.current();
+    Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL");   
 
-  KarmaQuery = Parse.Object.extend("KarmaQuery");
+    var user = Parse.User.current();
 
-  
+    var KarmaQuery = Parse.Object.extend("KarmaQuery");
+
+
 // functions to get users facebook id, friends and picture via graph API
 
 
@@ -59,21 +65,23 @@ function getPhoto()
 
     var str= response.data.url;
     console.log(str);
+
     user.set("userPic", str);
+
     var userPic = user.get("userPic");
     console.log(userPic);
     user.save(null, {
-        success: function(user) {
+      success: function(user) {
 
-        },
-        error: function(user, error) {
-          console.log("Oops, something went wrong saving your name.");
-        }
-      });
+      },
+      error: function(user, error) {
+        console.log("Oops, something went wrong saving your name.");
+      }
+    });
 
   });
 
- } 
+} 
 
 // Got the array of their facebook friends, need to save as an array
 
@@ -83,18 +91,168 @@ function getFriends() {
     if(response.data) {
      var friendsArray = response.data; 
      console.log(friendsArray);
+
      user.set("fbFriends", friendsArray);
+
      var currUserFriends = user.get("fbFriends");
      console.log(currUserFriends);
      $.each(response.data,function(index,friend) {
       //console.log(friend.name + ' has id:' + friend.id);
-   
+
     });
    } else {
     console.log("Error!");
   }
 });
 }
+
+function getKarmaPoints () {
+
+  //find total answers given
+
+  var QueryAnswer = Parse.Object.extend("QueryAnswer");
+  query = new Parse.Query(QueryAnswer);
+  query.equalTo("answerer", user);
+
+  query.find({
+    success: function(results) {
+      console.log(results.length);
+      answersGivenBalance = results.length;
+      user.set("answersGivenBalance", answersGivenBalance);
+      user.save();
+    },
+
+    error: function(error) {
+      alert("Error: " + error.code + " " + error.message);
+    }
+
+  })//answers given
+
+  //find total answers recieved
+
+  var KarmaQuery = Parse.Object.extend("KarmaQuery");
+
+  query = new Parse.Query(KarmaQuery);
+
+  //return all query id's asked by user
+
+  query.equalTo("asker", user);
+
+  query.find({
+    success: function(results) {
+      console.log(results.length);
+
+      //Y.Array.each(results, function(val, i, arr) {
+      var responderNum = 0;
+
+        for (var i = 0; i < results.length; i++) {
+
+          function getAnswersSummed(j){
+           var qID= results[j].id;
+
+           var QueryAnswer = Parse.Object.extend("QueryAnswer");
+           answerQuery = new Parse.Query(QueryAnswer);
+           answerQuery.equalTo("queryID", qID);
+           return answerQuery.find({
+            success: function(answerResults) {
+              responderNum = answerResults.length;
+              console.log(responderNum);
+              return responderNum;
+              
+
+        },//succes
+
+        error: function(error) {
+          alert("Error: " + error.code + " " + error.message);
+           
+        }
+
+
+      });//find
+          
+
+          }//get answers summed
+
+          getAnswersSummed(i);
+    
+
+          console.log(responderNum);
+
+          answersGottenBalance = answersGottenBalance + responderNum;
+          console.log(answersGottenBalance);
+
+        }//for
+
+        user.set("answersGottenBalance", answersGottenBalance);
+        user.save();
+
+      }//success
+
+  });//find
+
+
+        /*for each query asked by user get the answers which correspond
+
+        var QueryAnswer = Parse.Object.extend("QueryAnswer");
+        answerQuery = new Parse.Query(QueryAnswer);
+        answerQuery.equalTo("queryID", val.id);
+        answerQuery.include("KarmaQuery");
+
+        answerQuery.find({
+          success: function(answerResults) {
+            responderNum = answerResults.length;
+            console.log(answerResults.length);
+
+        },//succes
+
+        error: function(error) {
+          alert("Error: " + error.code + " " + error.message);
+        }
+
+      });//find
+
+
+            //sum up the total answers across all questions
+
+            var responderTotal = 0;
+            Y.Array.each(answerResults, function(val2, j, arr) {
+              responderCount = answerResults.length[j];
+              console.log(responderCount);
+              responderTotal += responderCount;
+              console.log(responderTotal);
+
+
+             });//yarray
+
+      });//yarray
+
+  },//success
+
+  error: function(error) {
+    alert("Error: " + error.code + " " + error.message);
+  }
+
+  })//query find*/
+
+karmaPointsBalance = user.get("friendsInvitedBalance") + 
+user.get("answersGivenBalance") - user.get("answersGottenBalance");
+
+user.set("karmaPointsBalance", karmaPointsBalance);
+user.set("friendsInvitedBalance", friendsInvitedBalance);
+
+user.set("answersGottenBalance", answersGottenBalance);
+
+user.save(null, {
+  success: function(user) {
+
+  },
+  error: function(user, error) {
+    console.log("Oops, something went wrong saving your karmapoints.");
+  }
+});
+
+
+}//get karmapoints balance
 
 
 //translate FBlogin generated username into a real username
@@ -105,17 +263,24 @@ $("#fb_login_button").click(function(){
   success: function(user) {
     if (!user.existed())
     {
+      setKPUserName();
+      getFriends();
+      getPhoto();
+      getKarmaPoints();
       console.log("User signed up and logged in through Facebook!");
       
             // If it's an existing user that was logged in, we welcome them back
           }
           else {
-            console.log("User logged in through Facebook!");
+           getFriends();
+           getPhoto();
+           getKarmaPoints();
+           console.log("User logged in through Facebook!");
 
-          }
-        },
+         }
+       },
 
-        error: function(user, error) {
+       error: function(user, error) {
          console.log("User cancelled the Facebook login or did not fully authorize."); }
 
        });
@@ -131,9 +296,6 @@ $("#fb_login_button").click(function(){
       // The response object is returned with a status field that lets the app know the current
       // login status of the person. In this case, we're handling the situation where they 
       // have logged in to the app.
-      setKPUserName();
-      getFriends();
-      getPhoto();
       
     } else if (response.status === 'not_authorized') {
       // In this case, the person is logged into Facebook, but not into the app, so we call
@@ -204,6 +366,6 @@ $("#fb_login_button").click(function(){
 
 
 
+});//node
 
-
-});
+});//document ready

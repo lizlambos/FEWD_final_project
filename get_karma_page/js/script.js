@@ -18,7 +18,7 @@ $(document).ready(function(){
 
 		var user = Parse.User.current();
 
-		function loadFriendQueries(){
+		function loadFriendQueries(contentColumn){
 
 			KarmaQuery = Parse.Object.extend("KarmaQuery");
 			User = Parse.Object.extend("User");
@@ -70,7 +70,7 @@ $(document).ready(function(){
 
 					});
 
-					allKPQueryColumn1.prepend(content);
+					contentColumn.prepend(content);
 				},
 				error: function(object, error) {
 					alert("Error when updating todo item: " + error.code + " " + error.message);
@@ -90,7 +90,11 @@ $(document).ready(function(){
 
 	}//load friend queries
 
-loadFriendQueries();
+//calling function on three columns but content is being repeated need to put in more arugments for each query	
+
+loadFriendQueries(allKPQueryColumn1);
+loadFriendQueries(allKPQueryColumn2);
+loadFriendQueries(allKPQueryColumn3);
 
 function answerQuery() {
 
@@ -130,11 +134,27 @@ error: function(queryAnswer, error) {
 
 	}//answer questions
 
+
+function displayKarmaPoints () {
+	
+
+
+
+
+	
+}	
+
 	$("#allKP_active_queries_list").on("click",".answers .btn", function(){
 		
 		$(".answers .btn").removeClass("active");
 		$(this).addClass("active");
 		answerQuery();
+	});
+
+	//delete button to hide queries
+
+	$("#allKP_active_queries_list").on("click",".delete-button", function(){
+		$(this).parents(".parent_row").addClass("hidden");
 	});
 
 	
