@@ -98,9 +98,66 @@ $(document).ready(function(){
 
 	});//find
 
+
+
+
 	}//load friend queries
 
 	loadFriendQueries();
+
+
+	
+function answerQuery() {
+
+	user = Parse.User.current();
+	answer = $(".answers .btn.active").attr("name");
+	console.log(answer);
+	answererName = user.get("username");
+	var d = new Date();
+	var dString = d.toString();
+	timeStamp = dString.substring(4,11);
+	queryID = $(".answers .btn.active").attr("id");
+	console.log(queryID);
+	//testing = $(this).text();
+	//console.log(testing);
+
+
+	var QueryAnswer = Parse.Object.extend("QueryAnswer");
+	queryAnswer = new QueryAnswer();
+
+	queryAnswer.set("answerer", user);
+	queryAnswer.set("answererName", answererName);
+	queryAnswer.set("answer", answer);
+	queryAnswer.set("queryID", queryID);
+	queryAnswer.set("timeStamp", timeStamp);
+
+
+	queryAnswer.save(null, {
+		success: function(queryAnswer) {
+    // Execute any logic that should take place after the object is saved.
+    alert('New object created with objectId: ' + queryAnswer.id + 'by' + queryAnswer.answerer +
+    	'at' + queryAnswer.createdAt+'.');
+
+},
+error: function(queryAnswer, error) {
+    // Execute any logic that should take place if the save fails.
+    // error is a Parse.Error with an error code and description.
+    alert('Failed to create new object, with error code: ' + error.description);
+}
+
+});
+
+	}//answer questions
+
+	$("#allKP_active_queries_list").on("click",".answers .btn", function(){
+		
+		$(".answers .btn").removeClass("active");
+		$(this).addClass("active");
+		answerQuery();
+	});
+
+	
+
 
 
 });//YUI
