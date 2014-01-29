@@ -128,7 +128,8 @@ function getKarmaPoints () {
 
   })//answers given
 
-  //find total answers recieved
+  //find total answers recieved 
+  /*
 
   var KarmaQuery = Parse.Object.extend("KarmaQuery");
 
