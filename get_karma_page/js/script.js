@@ -18,8 +18,25 @@ $(document).ready(function(){
 
 		var user = Parse.User.current();
 
+		name = user.get("username");
+		console.log(name);
+
+		var toast = user.get("answersGottenBalance");
+			console.log(toast);
+
+			var toast2 = user.get("friendsInvitedBalance");
+			console.log(toast2);
+
+			var toast3 = user.get("answersGivenBalance");
+			console.log(toast3);
+
+			var karmaPointsBalance = toast3 + toast2 - toast;
+
+
+
 		function loadFriendQueries(contentColumn){
 
+			
 			KarmaQuery = Parse.Object.extend("KarmaQuery");
 			User = Parse.Object.extend("User");
 
@@ -52,20 +69,12 @@ $(document).ready(function(){
 			askerName = val.get('askerName');
 			console.log(askerName);
 
-			var toast = user.get("answersGottenBalance");
-			console.log(toast);
 
-			var toast2 = user.get("friendsInvitedBalance");
-			console.log(toast2);
 
-			var toast3 = user.get("answersGivenBalance");
-			console.log(toast3);
+		$(".row.scoreboard .scoreboard .karma_points_display")
+	.html("<span class='badge'>"+karmaPointsBalance+"</span>");
 
-			var karmaPointsBalance = toast3 + toast2 - toast;
-
-			$(".row.scoreboard .scoreboard .karma_points_display").html("<span class="karmaPointsBalance">18</span>");
-
-			function getAskerPic() {
+		function getAskerPic() {
 				query = new Parse.Query(User);
 				query.get(askerID, {
 					success: function(item) {
@@ -117,7 +126,7 @@ function answerQuery() {
 	user = Parse.User.current();
 	answer = $(".answers .btn.active").attr("name");
 	console.log(answer);
-	answererName = user.get("username");
+	answererName = Parse.User.current().get("username");
 	var d = new Date();
 	var dString = d.toString();
 	timeStamp = dString.substring(4,11);
@@ -148,94 +157,47 @@ error: function(queryAnswer, error) {
 
 });
 
-	//increment answers given and karma points
-
-	user.set("answersGivenBalance", 
-		user.get("answersGivenBalance") +1);
-	user.save();
-	
-	var toast = user.get("answersGottenBalance");
-	console.log(toast);
-
-	var toast2 = user.get("friendsInvitedBalance");
-	console.log(toast2);
-
-	var toast3 = user.get("answersGivenBalance");
-	console.log(toast3);
-
-	var karmaPointsBalance = toast3 + toast2 - toast;
-
-	$(".row.scoreboard .scoreboard .karma_points_display").html("<span class="karmaPointsBalance">18</span>");
-
 	}//answer questions
 
-//literal copy paste from main script page because I dont know how to call function
+		//increment answers given and karma points
 
-
-/*function updateKarmaPoints () {
-
-  //find total answers given
- 
-  var QueryAnswer = Parse.Object.extend("QueryAnswer");
-  query = new Parse.Query(QueryAnswer);
-  query.equalTo("answerer", user);
-
-    //reset karmaPointsBalance to 0 
-  var karmaPointsBalance = 0;
-  user.set("karmaPointsBalance",karmaPointsBalance);
-  user.save();
-
-  query.find({
-  	success: function(results) {
-  		user = Parse.User.current();
-  		console.log(results.length);
-  		answersGivenBalance = results.length;
-  		user.set("answersGivenBalance", answersGivenBalance);
-  		user.save();
-
-  		var testa = user.get("username");
-  		console.log(testa);
-  		var testb = user.get("friendsInvitedBalance");
-  		console.log(testb);
-  		var testc = user.get("karmaPointsBalance");
-  		console.log(testc);
-
-  		karmaPointsBalance = (
-  			user.get("answersGivenBalance") - 
-  			user.get("answersGottenBalance"))
-  		+ user.get("friendsInvitedBalance");
-
-  		console.log(karmaPointsBalance);
-  		user.set("karmaPointsBalance", karmaPointsBalance);
-  		user.save();
-  	},
-
-  	error: function(error) {
-  		alert("Error: " + error.code + " " + error.message);
-  	}
-
-  })//answers given
-
-}//update Karma Points
-*/
-
-
-function displayKarmaPoints () {
+function incrementScore() {
+	user.set("answersGivenBalance", 
+		user.get("answersGivenBalance")+1);
+	user.save();
 	
-	//update karmapoints
+	var toast4 = user.get("answersGottenBalance");
+	console.log(toast4);
+
+	var toast5 = user.get("friendsInvitedBalance");
+	console.log(toast5);
+
+	var toast6 = user.get("answersGivenBalance");
+	console.log(toast6);
+
+	var karmaPointsBalance = toast6 + toast5 - toast4;
+
+	$(".row.scoreboard .scoreboard .karma_points_display")
+	.html("<span class='badge'>"+karmaPointsBalance+"</span>");
+
+}
+
+//reveal answers
+
+function revealAnswers(){
 
 
 
+}
 
-
-	
-}	
 
 $("#allKP_active_queries_list").on("click",".answers .btn", function(){
 
 	$(".answers .btn").removeClass("active");
 	$(this).addClass("active");
 	answerQuery();
+	incrementScore();
+	revealAnswers();
 	
 
 	

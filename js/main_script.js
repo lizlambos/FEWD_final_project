@@ -131,13 +131,13 @@ function getKarmaPoints () {
   //find total answers recieved by returning all query id's asked by user
   
   var KarmaQuery = Parse.Object.extend("KarmaQuery");
-  aGQuery = new Parse.Query(KarmaQuery);
+ query = new Parse.Query(KarmaQuery);
 
-  aGQuery.equalTo("asker", user);
+  query.equalTo("asker", user);
 
   //reset karmaPointsBalance to 0 
 
-  aGQuery.find({
+  query.find({
     success: function(results1) {
       console.log(results1.length);
 
@@ -171,30 +171,6 @@ function getKarmaPoints () {
   var bears = user.get("friendsInvitedBalance");
   console.log(bears);
 
-  /*(karmaPointsBalance = (
-    user.get("answersGivenBalance") - 
-    user.get("answersGottenBalance"))
-  + user.get("friendsInvitedBalance");
-
-  console.log(karmaPointsBalance);
-
-  user.set("karmaPointsBalance", karmaPointsBalance);
-  user.save();
-
-  var mears = user.get("karmaPointsBalance");
-  console.log(mears);
-
-
-user.save(null, {
-  success: function(user) {
-
-  },
-  error: function(user, error) {
-    console.log("Oops, something went wrong saving your karmapoints.");
-  }
-});
-*/ 
-
 
 }//get karmapoints balance
 
@@ -216,6 +192,7 @@ $("#fb_login_button").click(function(){
             // If it's an existing user that was logged in, we welcome them back
           }
           else {
+           setKPUserName(); 
            getFriends();
            getPhoto();
            getKarmaPoints();
@@ -240,6 +217,10 @@ $("#fb_login_button").click(function(){
       // The response object is returned with a status field that lets the app know the current
       // login status of the person. In this case, we're handling the situation where they 
       // have logged in to the app.
+          setKPUserName(); 
+           getFriends();
+           getPhoto();
+           getKarmaPoints();
       
     } else if (response.status === 'not_authorized') {
       // In this case, the person is logged into Facebook, but not into the app, so we call
