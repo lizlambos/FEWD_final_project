@@ -15,7 +15,7 @@ $(document).ready(function(){
 		timeStamp = dString.substring(4,11);
 		//yesAnswers = [];
 		//noAnswers = [];
-		var responderNum = 0;
+		var responderCount = 0;
 
 	KarmaQuery = Parse.Object.extend("KarmaQuery");
 
@@ -26,6 +26,7 @@ $(document).ready(function(){
 	karmaQuery.set("text", questionText);
 	karmaQuery.set("privacylevel", privacyLevel);
 	karmaQuery.set("timeStamp", timeStamp);
+	
 	//karmaQuery.set("yesAnswers", yesAnswers);
 	//karmaQuery.set("noAnswers", noAnswers);
 
@@ -41,6 +42,28 @@ $(document).ready(function(){
 	var test3 = karmaQuery.get("privacylevel");
 	console.log(test3);
 	console.log(karmaQuery);
+
+
+	var QueryAnswer = Parse.Object.extend("QueryAnswer");
+	answerQuery = new Parse.Query(QueryAnswer);
+	answerQuery.equalTo("queryID",karmaQuery.id);
+	answerQuery.ascending("createdAt");
+
+	answerQuery.find({
+		success: function(totalResults) {
+			var responderCount = totalResults.length;
+			console.log(totalResults.length);
+			console.log(responderCount);
+			karmaQuery.set("responderCount",responderCount);
+			karmaQuery.save();
+
+		},
+		error: function(error) {
+      alert("Error: " + error.code + " " + error.message);
+    }
+
+  })
+
 
 
 //object ID, created at and updated at are generated automatically
