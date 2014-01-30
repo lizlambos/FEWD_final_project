@@ -177,8 +177,12 @@ function incrementScore() {
 
 	var karmaPointsBalance = toast6 + toast5 - toast4;
 
+
 	$(".row.scoreboard .scoreboard .karma_points_display")
 	.html("<span class='badge'>"+karmaPointsBalance+"</span>");
+
+
+
 
 }
 
