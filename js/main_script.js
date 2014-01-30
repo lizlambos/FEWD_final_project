@@ -128,120 +128,63 @@ function getKarmaPoints () {
 
   })//answers given
 
-  //find total answers recieved 
-  /*
-
+  //find total answers recieved by returning all query id's asked by user
+  
   var KarmaQuery = Parse.Object.extend("KarmaQuery");
+  aGQuery = new Parse.Query(KarmaQuery);
 
-  query = new Parse.Query(KarmaQuery);
+  aGQuery.equalTo("asker", user);
 
-  //return all query id's asked by user
+  //reset answersGottenBalance to 0 
+  var answersGottenBalance = 0;
+  user.set("answersGottenBalance",answersGottenBalance);
+  user.save;
 
-  query.equalTo("asker", user);
-
-  query.find({
-    success: function(results) {
-      console.log(results.length);
-
-      //Y.Array.each(results, function(val, i, arr) {
-      var responderNum = 0;
-
-        for (var i = 0; i < results.length; i++) {
-
-          function getAnswersSummed(j){
-           var qID= results[j].id;
-
-           var QueryAnswer = Parse.Object.extend("QueryAnswer");
-           answerQuery = new Parse.Query(QueryAnswer);
-           answerQuery.equalTo("queryID", qID);
-           return answerQuery.find({
-            success: function(answerResults) {
-              responderNum = answerResults.length;
-              console.log(responderNum);
-              return responderNum;
-              
-
-        },//succes
-
-        error: function(error) {
-          alert("Error: " + error.code + " " + error.message);
-           
-        }
-
-
-      });//find
-          
-
-          }//get answers summed
-
-          getAnswersSummed(i);
-    
-
-          console.log(responderNum);
-
-          answersGottenBalance = answersGottenBalance + responderNum;
-          console.log(answersGottenBalance);
-
-        }//for
-
+  aGQuery.find({
+    success: function(results1) {
+      console.log(results1.length);
+      Y.Array.each(results1, function(val, i, arr) {
+        var answersGotten = val.get("responderCount");
+        answersGottenBalance += answersGotten;
         user.set("answersGottenBalance", answersGottenBalance);
         user.save();
-
-      }//success
-
-  });//find
-
-
-        /*for each query asked by user get the answers which correspond
-
-        var QueryAnswer = Parse.Object.extend("QueryAnswer");
-        answerQuery = new Parse.Query(QueryAnswer);
-        answerQuery.equalTo("queryID", val.id);
-        answerQuery.include("KarmaQuery");
-
-        answerQuery.find({
-          success: function(answerResults) {
-            responderNum = answerResults.length;
-            console.log(answerResults.length);
+        var test2 = user.get("answersGottenBalance");
+        console.log(test2);
+      });
 
         },//succes
 
         error: function(error) {
           alert("Error: " + error.code + " " + error.message);
+
         }
 
       });//find
 
+user.set("friendsInvitedBalance", friendsInvitedBalance);
+  
+  //reset karmaPointsBalance to 0 
+var karmaPointsBalance = 0;
+user.set("karmaPointsBalance",karmaPointsBalance);
+user.save;
+test4 = user.get("karmaPointsBalance");
+console.log(test4);
+test5 = user.get("answersGivenBalance");
+console.log(test5);
+test6 = user.get("answersGottenBalance");
+console.log(test6);
 
-            //sum up the total answers across all questions
+karmaPointsBalance = (
+user.get("answersGivenBalance") - 
+user.get("answersGottenBalance"))
++ user.get("friendsInvitedBalance");
 
-            var responderTotal = 0;
-            Y.Array.each(answerResults, function(val2, j, arr) {
-              responderCount = answerResults.length[j];
-              console.log(responderCount);
-              responderTotal += responderCount;
-              console.log(responderTotal);
-
-
-             });//yarray
-
-      });//yarray
-
-  },//success
-
-  error: function(error) {
-    alert("Error: " + error.code + " " + error.message);
-  }
-
-  })//query find*/
-
-karmaPointsBalance = user.get("friendsInvitedBalance") + 
-user.get("answersGivenBalance") - user.get("answersGottenBalance");
+console.log(karmaPointsBalance);
 
 user.set("karmaPointsBalance", karmaPointsBalance);
-user.set("friendsInvitedBalance", friendsInvitedBalance);
 
-user.set("answersGottenBalance", answersGottenBalance);
+var test3 = user.get("karmaPointsBalance");
+console.log(test3);
 
 user.save(null, {
   success: function(user) {
