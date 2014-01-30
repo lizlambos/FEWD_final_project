@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(function(){
 
   YUI().use('node', function (Y) {
 
@@ -15,10 +15,10 @@ $(document).ready(function(){
     var questionText = "default";
     var privacyLevel = "default";
     var timeStamp = "default";
-    var karmaPointsBalance = 0;
-    var friendsInvitedBalance = 0;
-    var answersGivenBalance = 0;
-    var answersGottenBalance = 0;
+    //var karmaPointsBalance = 0;
+    //var friendsInvitedBalance = 0;
+    //var answersGivenBalance = 0;
+    //var answersGottenBalance = 0;
 
 
 
@@ -135,24 +135,26 @@ function getKarmaPoints () {
 
   aGQuery.equalTo("asker", user);
 
-  //reset answersGottenBalance to 0 
-  var answersGottenBalance = 0;
-  user.set("answersGottenBalance",answersGottenBalance);
-  user.save;
+  //reset karmaPointsBalance to 0 
 
   aGQuery.find({
     success: function(results1) {
       console.log(results1.length);
-      Y.Array.each(results1, function(val, i, arr) {
-        var answersGotten = val.get("responderCount");
-        answersGottenBalance += answersGotten;
-        user.set("answersGottenBalance", answersGottenBalance);
-        user.save();
-        var test2 = user.get("answersGottenBalance");
-        console.log(test2);
-      });
 
-        },//succes
+        //reset answersGottenBalance to 0 
+        answersGottenBalance = 0;
+        user.set("answersGottenBalance",answersGottenBalance);
+        user.save();
+
+        Y.Array.each(results1, function(val, i, arr) {
+          var answersGotten = val.get("responderCount");
+          answersGottenBalance += answersGotten;
+          user.set("answersGottenBalance", answersGottenBalance);
+          user.save();
+          console.log(answersGottenBalance);
+        });
+
+        },//success
 
         error: function(error) {
           alert("Error: " + error.code + " " + error.message);
@@ -161,30 +163,27 @@ function getKarmaPoints () {
 
       });//find
 
-user.set("friendsInvitedBalance", friendsInvitedBalance);
-  
-  //reset karmaPointsBalance to 0 
-var karmaPointsBalance = 0;
-user.set("karmaPointsBalance",karmaPointsBalance);
-user.save;
-test4 = user.get("karmaPointsBalance");
-console.log(test4);
-test5 = user.get("answersGivenBalance");
-console.log(test5);
-test6 = user.get("answersGottenBalance");
-console.log(test6);
+  friendsInvitedBalance = 0;
 
-karmaPointsBalance = (
-user.get("answersGivenBalance") - 
-user.get("answersGottenBalance"))
-+ user.get("friendsInvitedBalance");
+  user.set("friendsInvitedBalance", friendsInvitedBalance);
+  user.save();
 
-console.log(karmaPointsBalance);
+  var bears = user.get("friendsInvitedBalance");
+  console.log(bears);
 
-user.set("karmaPointsBalance", karmaPointsBalance);
+  /*(karmaPointsBalance = (
+    user.get("answersGivenBalance") - 
+    user.get("answersGottenBalance"))
+  + user.get("friendsInvitedBalance");
 
-var test3 = user.get("karmaPointsBalance");
-console.log(test3);
+  console.log(karmaPointsBalance);
+
+  user.set("karmaPointsBalance", karmaPointsBalance);
+  user.save();
+
+  var mears = user.get("karmaPointsBalance");
+  console.log(mears);
+
 
 user.save(null, {
   success: function(user) {
@@ -194,6 +193,7 @@ user.save(null, {
     console.log("Oops, something went wrong saving your karmapoints.");
   }
 });
+*/ 
 
 
 }//get karmapoints balance
