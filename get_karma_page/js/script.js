@@ -231,8 +231,13 @@ function revealAnswers(){
 
 
 							$("#allKP_active_queries_list").on("click",".answers .btn", function(){
-							$(this).parents(".answers").children(".yes-button").html(percentYesAnswers);
-							$(this).parents(".answers").children(".no-button").html(percentNoAnswers);
+							$(this).parents(".answers").
+							children(".yes-button").html(percentYesAnswers+"%")
+							.css({"font-size": "3em", "padding":"25px 7px 30px 7px"});
+
+							$(this).parents(".answers").
+							children(".no-button").html(percentNoAnswers+"%")
+							.css({"font-size": "3em", "padding":"25px 7px 30px 7px"});
 							});
 
 						},	
