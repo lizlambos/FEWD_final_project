@@ -7,15 +7,15 @@ $(document).ready(function(){
 	function queryCreator () {
 
 		user = Parse.User.current();
+		console.log(user);
+		//user.fetch();
 		askerName = user.get("username");
+		console.log(askerName);
 		questionText = $("#query_area").val();
 		privacyLevel = $("button.active").text();
 		var d = new Date();
 		var dString = d.toString();
 		timeStamp = dString.substring(4,11);
-		//yesAnswers = [];
-		//noAnswers = [];
-		var responderCount = 0;
 
 	KarmaQuery = Parse.Object.extend("KarmaQuery");
 
@@ -43,29 +43,6 @@ $(document).ready(function(){
 	console.log(test3);
 	console.log(karmaQuery);
 
-
-	var QueryAnswer = Parse.Object.extend("QueryAnswer");
-	answerQuery = new Parse.Query(QueryAnswer);
-	answerQuery.equalTo("queryID",karmaQuery.id);
-	answerQuery.ascending("createdAt");
-
-	answerQuery.find({
-		success: function(totalResults) {
-			var responderCount = totalResults.length;
-			console.log(totalResults.length);
-			console.log(responderCount);
-			karmaQuery.set("responderCount",responderCount);
-			karmaQuery.save();
-
-		},
-		error: function(error) {
-      alert("Error: " + error.code + " " + error.message);
-    }
-
-  })
-
-
-
 //object ID, created at and updated at are generated automatically
 
 karmaQuery.save(null, {
@@ -81,6 +58,14 @@ error: function(karmaQuery, error) {
     alert('Failed to create new object, with error code: ' + error.description);
 }
 });
+
+	var test = karmaQuery.get("askerName");
+	console.log(test);
+	var test2 = karmaQuery.get("text");
+	console.log(test2);
+	var test3 = karmaQuery.get("privacylevel");
+	console.log(test3);
+	console.log(karmaQuery);
 
 }
 
@@ -107,7 +92,7 @@ $("#fb_button").click(function(){
 
 $("#submit_button").click(function(){
 	queryCreator();
-	console.log(user);
+	console.log(askerName);
 	console.log(questionText);
 	console.log(privacyLevel);
 
@@ -122,55 +107,6 @@ $("#go_button").click(function(){
 
 
 });
-
-/*Query Collection Model
-
-// friendsactive queries collection
-var faQuery = new Parse.Query(karmaQuery);
-faQuery.notEqualTo("privacy-level", "private");
-faQuery.notEqualTo("asker", user);
-var friendsActiveQueries = faQuery.collection();
-
-//users own active queries collection
-var maQuery = new Parse.Query(karmaQuery);
-maQuery.notEqualTo("privacy-level", "private");
-maQuery.equalTo("asker", user);
-var myActiveQueries = maQuery.collection();
-
-//users private queries collection
-var mpQuery = new Parse.Query(karmaQuery);
-mpQuery.equalTo("privacy-level", "private");
-mpQuery.equalTo("asker", user);
-var myPreviousQueries = mpQuery.collection();
-
-function karmaQuery () {
-
-	var self = this;
-
-
-	this.karmaQuery.create({
-		asker:    Parse.User.current(),
-		text:     this.input.val(),
-		privacy-level:   this.todos.nextOrder(),
-		done:    false,
-		user:    Parse.User.current(),
-		ACL:     new Parse.ACL(Parse.User.current())
-	});
-
-	this.input.val('');
-	this.resetFilters();
-},
-
-karmaQuery.set = ("asker", user);
-karmaQuery.set = ("text", questionText);
-karmaQuery.set = ("privacy-level", privacyLevel);
-karmaQuery.set = ("yesAnswers", totalYesAnswers);
-karmaQuery.set = ("noAnswers", totalNoAnswers);
-karmaQuery.set = ("responders", responders); 
-
-}
-
-*/
 
 
 
