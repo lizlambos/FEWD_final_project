@@ -39,22 +39,24 @@ $(function(){
     	grabUserName();
 
     //load the array of recent active and private queries for the user
-        
-    function loadMyQueries (queryList, panda) {
+
+    function loadMyQueries (queryList, privacylevel1, privacylevel2) {
 
     	KarmaQuery = Parse.Object.extend("KarmaQuery");
 
-    	query = new Parse.Query(KarmaQuery);
-    	query.equalTo('privacylevel', panda);
-    	query.equalTo("asker", user);
-    	query.ascending("createdAt");
+    	var query1 = new Parse.Query(KarmaQuery);
+    	query1.equalTo('privacylevel', privacylevel1);
 
-    	var myActiveQueries = query.collection();
-    	console.log(myActiveQueries);
+    	var query2 = new Parse.Query(KarmaQuery);
+    	query2.equalTo('privacylevel', privacylevel2);
+
+    	var mainQuery = Parse.Query.or(query1, query2);
 
 
+    	mainQuery.equalTo("asker", user);
+    	mainQuery.ascending("createdAt");
 
-    	query.find({
+    	mainQuery.find({
     		success: function(results) {
     			console.log(results.length);
 
@@ -206,9 +208,8 @@ $("#private_past_queries_list").addClass("hidden");
 
 }//loadMyQueries
 
-loadMyQueries(activeQueryList, "All KP");
-loadMyQueries(activeQueryList, "FB Friends");
-loadMyQueries(privateQueryList, "Private");
+loadMyQueries(activeQueryList, "All KP", "FB Friends");
+loadMyQueries(privateQueryList, "Private", "Private");
 
 
 //allow the user to change the privacy level of the question via the button
