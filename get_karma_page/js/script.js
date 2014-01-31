@@ -181,7 +181,7 @@ function incrementScore() {
 	$(".row.scoreboard .scoreboard .karma_points_display")
 	.html("<span class='badge'>"+karmaPointsBalance+"</span>");
 
-	$(".top-navbar-icon .badge")
+	$(".top-navbar-icon.karma-points .badge")
 	.html(karmaPointsBalance);
 
 }//increment score
