@@ -136,7 +136,8 @@ function getQueryAnswers (queryList) {
 				success: function(yesResults) {
 					var yesResponderCount = yesResults.length;
 					console.log(yesResults.length);
-					var percentYesAnswers = (yesResponderCount / responderCount)*100;
+					var percentYesAnswers = Math.round(
+						(yesResponderCount / responderCount)*100);
 
 					noQuery = new Parse.Query(QueryAnswer);
 					noQuery.equalTo("queryID",val.id);
@@ -150,7 +151,8 @@ function getQueryAnswers (queryList) {
 							console.log(yesResponderCount);
 							console.log(noResponderCount);
 							console.log(val.id);
-							var percentNoAnswers = (noResponderCount / responderCount)*100;
+							var percentNoAnswers = Math.round(
+								(noResponderCount / responderCount)*100);
 
 							var content = Y.Lang.sub(Y.one('#past_queries_section').getHTML(), {
 								queryText: val.get('text'),

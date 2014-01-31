@@ -29,13 +29,20 @@
     font-size:4em;
 }
 
+.top-navbar-icon {
+    z-index:100000;
+    position:fixed;
+    top:45px;
+    right:10px;
+}
+
 
 .main_content_container {
     padding:0px;
 }
 
 .content_component_container { 
-    padding-top:5px;
+    padding-top:50px;
     position:relative;
     height:475px;
 

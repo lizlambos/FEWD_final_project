@@ -69,9 +69,12 @@ $(document).ready(function(){
 			askerName = val.get('askerName');
 			console.log(askerName);
 
-
+		//display the karma points balance on the two scoreboard areas (screen and mobile)	
 
 		$(".row.scoreboard .scoreboard .karma_points_display")
+	.html("<span class='badge'>"+karmaPointsBalance+"</span>");
+
+		$(".top-navbar-icon .badge")
 	.html("<span class='badge'>"+karmaPointsBalance+"</span>");
 
 		function getAskerPic() {
@@ -181,7 +184,8 @@ function incrementScore() {
 	$(".row.scoreboard .scoreboard .karma_points_display")
 	.html("<span class='badge'>"+karmaPointsBalance+"</span>");
 
-
+	$(".top-navbar-icon .badge")
+	.html(karmaPointsBalance);
 
 
 }
