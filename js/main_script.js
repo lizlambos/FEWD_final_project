@@ -1,20 +1,30 @@
 $(function(){
 
-  YUI().use('node', function (Y) {
+//INITIALIZE NODE
 
-    var KarmaQuery, 
-    maQuery,
-    activeQueryList,
-    privateQueryList,
-    myQueriesList,
-    prevQueryContainer
-    ;
+YUI().use('node', function (Y) {
 
-    var user = "default";
-    var askerName = "default";
-    var questionText = "default";
-    var privacyLevel = "default";
-    var timeStamp = "default";
+  //INITIALIZE PARSE  
+
+  Parse.$ = jQuery;
+
+  Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL");  
+
+  //VARIABLE DECLARATIONS 
+
+  var KarmaQuery, 
+  maQuery,
+  activeQueryList,
+  privateQueryList,
+  myQueriesList,
+  prevQueryContainer
+  ;
+
+  var user = "default";
+  var askerName = "default";
+  var questionText = "default";
+  var privacyLevel = "default";
+  var timeStamp = "default";
     //var karmaPointsBalance = 0;
     //var friendsInvitedBalance = 0;
     //var answersGivenBalance = 0;
@@ -41,13 +51,7 @@ $(function(){
     allKPActiveQueryList = Y.one('#allKP_active_queries_list');
     QueryContainer = Y.one(".content_component_container");
     
-    
-
     //FROM ORIGINAL MAIN PAGE
-
-    Parse.$ = jQuery;
-
-    Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL");   
 
     var user = Parse.User.current();
 
@@ -70,8 +74,9 @@ $(function(){
     var karmaPointsBalance = toast3 + toast2 - toast;
 
 
-// functions to get users facebook id, friends and picture via graph API
+//FUNCTIONS
 
+// functions to get users facebook id, friends and picture via graph API
 
 function setKPUserName() {
   FB.api('/me', function(response) {
@@ -149,6 +154,12 @@ function getKarmaPoints () {
 
   //find total answers given
 
+  //reset to 0
+
+  answersGivenBalance = 0;
+  user.set("answersGivenBalance",answersGivenBalance);
+  user.save();
+
   var QueryAnswer = Parse.Object.extend("QueryAnswer");
   query = new Parse.Query(QueryAnswer);
   query.equalTo("answerer", user);
@@ -170,11 +181,9 @@ function getKarmaPoints () {
   //find total answers recieved by returning all query id's asked by user
   
   var KarmaQuery = Parse.Object.extend("KarmaQuery");
- query = new Parse.Query(KarmaQuery);
+  query = new Parse.Query(KarmaQuery);
 
   query.equalTo("asker", user);
-
-  //reset karmaPointsBalance to 0 
 
   query.find({
     success: function(results1) {
@@ -202,6 +211,8 @@ function getKarmaPoints () {
 
       });//find
 
+  //get friends invited balance (function to be written)
+
   friendsInvitedBalance = 0;
 
   user.set("friendsInvitedBalance", friendsInvitedBalance);
@@ -214,7 +225,7 @@ function getKarmaPoints () {
 }//get karmapoints balance
 
 
-//translate FBlogin generated username into a real username
+//LOGIN FUNCTION - TO BE FIXED 
 
 $("#fb_login_button").click(function(){
 
@@ -256,10 +267,10 @@ $("#fb_login_button").click(function(){
       // The response object is returned with a status field that lets the app know the current
       // login status of the person. In this case, we're handling the situation where they 
       // have logged in to the app.
-          setKPUserName(); 
-           getFriends();
-           getPhoto();
-           getKarmaPoints();
+      setKPUserName(); 
+      getFriends();
+      getPhoto();
+      getKarmaPoints();
       
     } else if (response.status === 'not_authorized') {
       // In this case, the person is logged into Facebook, but not into the app, so we call
@@ -287,25 +298,25 @@ $("#fb_login_button").click(function(){
 
 //FROM ME PAGE
 
+// coule be kept on that page
+
 var userPic = user.get("userPic");
-    var userName = user.get("username");
+var userName = user.get("username");
 
-    function putUpUserPic () {
+function putUpUserPic () {
 
-      $("#current_user_fbPic").attr("src",userPic);
-      console.log(userPic);
-      console.log(userName);
+  $("#current_user_fbPic").attr("src",userPic);
+  console.log(userPic);
+  console.log(userName);
 
-    };
+};
 
-    function grabUserName () {
-      $("#current_user_name").html("<p class='user-name'>"+userName+"</p>");
-    };
+function grabUserName () {
+  $("#current_user_name").html("<p class='user-name'>"+userName+"</p>");
+};
 
-    $(document).ready(function(){
-
-      putUpUserPic(); 
-      grabUserName();
+putUpUserPic(); 
+grabUserName();
 
     //load the array of recent active and private queries for the user
 
@@ -367,112 +378,108 @@ var userPic = user.get("userPic");
 //retrieve the answers for each query and the rest of hte content
 
 function getQueryAnswers (queryList) { 
-  
+
   var QueryAnswer = Parse.Object.extend("QueryAnswer");
-  answerQuery = new Parse.Query(QueryAnswer);
-  answerQuery.equalTo("queryID",val.id);
-  answerQuery.ascending("createdAt");
 
-  answerQuery.find({
-    success: function(totalResults) {
-      var responderCount = totalResults.length;
-      console.log(totalResults.length);
-      console.log(val.id);
+  yesQuery = new Parse.Query(QueryAnswer);
+  yesQuery.equalTo("queryID",val.id);
+  yesQuery.equalTo("answer", "yes");
 
-      var KarmaQuery = Parse.Object.extend("KarmaQuery");
+  yesQuery.find({
+    success: function(yesResults) {
+      var yesResponderCount = yesResults.length;
+      console.log(yesResults.length);
 
-      rQuery = new Parse.Query(KarmaQuery);
-      rQuery.get(val.id, {
-        success: function(item) {
-          item.set('responderCount', responderCount);
-          test = item.get("responderCount");
+                //assign the relevant query the attribute yesresponder count
 
-          item.save();
+                var KarmaQuery = Parse.Object.extend("KarmaQuery");
 
-        },
-        error: function(object, error) {
-          alert("Error when updating todo item: " + error.code + " " + error.message);
-        }
+                yQuery = new Parse.Query(KarmaQuery);
+                yQuery.get(val.id, {
+                  success: function(item) {
+                    item.set('yesResponderCount', yesResponderCount);
+                    item.save();
 
-    });//get function
+                  },
+                  error: function(object, error) {
+                    alert("Error when updating todo item: " + error.code + " " + error.message);
+                  }
 
+                 });//get function
 
-      yesQuery = new Parse.Query(QueryAnswer);
-      yesQuery.equalTo("queryID",val.id);
-      yesQuery.equalTo("answer", "yes");
+                noQuery = new Parse.Query(QueryAnswer);
+                noQuery.equalTo("queryID",val.id);
+                noQuery.equalTo("answer", "no");
 
-      yesQuery.find({
-        success: function(yesResults) {
-          var yesResponderCount = yesResults.length;
-          console.log(yesResults.length);
-          var percentYesAnswers = Math.round(
-            (yesResponderCount / responderCount)*100);
+                noQuery.find({
+                  success: function(noResults) {
+                    var noResponderCount = noResults.length;
+                    var responderCount = yesResponderCount + noResponderCount;
 
-          noQuery = new Parse.Query(QueryAnswer);
-          noQuery.equalTo("queryID",val.id);
-          noQuery.equalTo("answer", "no");
+                    console.log(noResults.length);
+                    console.log(responderCount);
+                    console.log(yesResponderCount);
+                    console.log(noResponderCount);
+                    console.log(val.id);
+                    var percentYesAnswers = Math.round(
+                      (yesResponderCount / responderCount)*100);
+                    var percentNoAnswers = Math.round(
+                      (noResponderCount / responderCount)*100);
 
-          noQuery.find({
-            success: function(noResults) {
-              var noResponderCount = noResults.length;
-              console.log(noResults.length);
-              console.log(responderCount);
-              console.log(yesResponderCount);
-              console.log(noResponderCount);
-              console.log(val.id);
-              var percentNoAnswers = Math.round(
-                (noResponderCount / responderCount)*100);
+                    var KarmaQuery = Parse.Object.extend("KarmaQuery");
 
-              var content = Y.Lang.sub(Y.one('#past_queries_section').getHTML(), {
-                queryText: val.get('text'),
-                timeStamp: val.createdAt,
-                id: val.id,
-                privacylevel: val.get('privacylevel'),
-                active1: activeSetter1,
-                active2: activeSetter2,
-                active3: activeSetter3,
-                percentYesAnswers: percentYesAnswers,
-                percentNoAnswers: percentNoAnswers,
-                responderCount: responderCount
+                    nQuery = new Parse.Query(KarmaQuery);
+                    nQuery.get(val.id, {
+                      success: function(item) {
+                        item.set('noResponderCount', noResponderCount);
+                        item.set('responderCount', responderCount);
+                        item.save();
 
-              });
+                      },
+                      error: function(object, error) {
+                        alert("Error when updating todo item: " + error.code + " " + error.message);
+                      }
 
-              queryList.prepend(content);
+                 });//get function
 
-            },
-            error: function(object, error) {
-              alert("Error when updating todo item: " + error.code + " " + error.message);
-            }
+                    var content = Y.Lang.sub(Y.one('#past_queries_section').getHTML(), {
+                      queryText: val.get('text'),
+                      timeStamp: val.createdAt,
+                      id: val.id,
+                      privacylevel: val.get('privacylevel'),
+                      active1: activeSetter1,
+                      active2: activeSetter2,
+                      active3: activeSetter3,
+                      percentYesAnswers: percentYesAnswers,
+                      percentNoAnswers: percentNoAnswers,
+                      responderCount: responderCount
+
+                    });
+
+                    queryList.prepend(content);
+                  },
+                  error: function(object, error) {
+                    alert("Error when updating todo item: " + error.code + " " + error.message);
+                  }
 
       });//no find
-        },
-        error: function(object, error) {
-          alert("Error when updating todo item: " + error.code + " " + error.message);
-        }
-
-      });//yes find
-
 },
 error: function(object, error) {
   alert("Error when updating todo item: " + error.code + " " + error.message);
 }
 
-      });//get find
+      });//yes find
 
   }//get active query answers
 
   getQueryAnswers(queryList);
   
-  
-
 }); //y Array function
 
 },//success function
 
 
-});// active query finrfind function
-
-
+});// active query find function
 
 $("#private_past_queries_list").addClass("hidden");
 
@@ -536,7 +543,7 @@ $("#past_queries").click(function(){
 
 
 });
-});//document ready function
+
 
 // FROM GET KARMA PAGE
 
@@ -629,43 +636,7 @@ loadFriendQueries(allKPQueryColumn1);
 loadFriendQueries(allKPQueryColumn2);
 loadFriendQueries(allKPQueryColumn3);
 
-function setQueryAnswer() {
 
-  user = Parse.User.current();
-  answer = $(".answers .btn.active").attr("name");
-  console.log(answer);
-  answererName = Parse.User.current().get("username");
-  var d = new Date();
-  var dString = d.toString();
-  timeStamp = dString.substring(4,11);
-  queryID = $(".answers .btn.active").attr("id");
-  console.log(queryID);
-
-  var QueryAnswer = Parse.Object.extend("QueryAnswer");
-  queryAnswer = new QueryAnswer();
-
-  queryAnswer.set("answerer", user);
-  queryAnswer.set("answererName", answererName);
-  queryAnswer.set("answer", answer);
-  queryAnswer.set("queryID", queryID);
-  queryAnswer.set("timeStamp", timeStamp);
-
-  queryAnswer.save(null, {
-    success: function(queryAnswer) {
-    // Execute any logic that should take place after the object is saved.
-    alert('New object created with objectId: ' + queryAnswer.id + 'by' + queryAnswer.answerer +
-      'at' + queryAnswer.createdAt+'.');
-
-},
-error: function(queryAnswer, error) {
-    // Execute any logic that should take place if the save fails.
-    // error is a Parse.Error with an error code and description.
-    alert('Failed to create new object, with error code: ' + error.description);
-}
-
-});
-
-  }//answer questions
 
 //increment answers given and karma points
 
@@ -694,96 +665,107 @@ function incrementScore() {
 
 }//increment score
 
-//reveal answers
+//two separate functions bount to the answers button being clicked, the first one reveals the answers 
 
-function revealAnswers(){
+$("#allKP_active_queries_list").on("mouseenter",".answers .btn", function(){
 
-  var QueryAnswer = Parse.Object.extend("QueryAnswer");
-  answerQuery = new Parse.Query(QueryAnswer);
-  answerQuery.equalTo("queryID",queryID);
-  answerQuery.ascending("createdAt");
+    var queryID = $(this).attr("id");
 
-  answerQuery.find({
-    success: function(totalResults) {
-      var responderCount = totalResults.length;
-      console.log(totalResults.length);
+    //reveal answers
 
-      yesQuery = new Parse.Query(QueryAnswer);
-      yesQuery.equalTo("queryID", queryID);
-      yesQuery.equalTo("answer", "yes");
+    function revealAnswers(){
 
-      yesQuery.find({
-        success: function(yesResults) {
-          var yesResponderCount = yesResults.length;
-          console.log(yesResults.length);
+      var KarmaQuery = Parse.Object.extend("KarmaQuery");
+      getAnswersQuery = new Parse.Query(KarmaQuery);
+
+      getAnswersQuery.get(queryID, {
+        success: function(item) {
+          noAnswers = item.get('noResponderCount');
+          yesAnswers = item.get('yesResponderCount');
+          var totalAnswers = noAnswers + yesAnswers;
+          //console.log(totalAnswers);
+          responders = item.get('responderCount');
+          //console.log(responders);
+
           var percentYesAnswers = Math.round(
-            (yesResponderCount / responderCount)*100);
+            (yesAnswers / responders)*100);
 
-          noQuery = new Parse.Query(QueryAnswer);
-          noQuery.equalTo("queryID",queryID);
-          noQuery.equalTo("answer", "no");
+          var percentNoAnswers = Math.round(
+            (noAnswers / responders)*100);
 
-          noQuery.find({
-            success: function(noResults) {
-              var noResponderCount = noResults.length;
-              console.log(noResults.length);
-              console.log(responderCount);
-              console.log(yesResponderCount);
-              console.log(noResponderCount);
+          console.log(percentYesAnswers);
+          console.log(percentNoAnswers);
 
-              var percentNoAnswers = Math.round(
-                (noResponderCount / responderCount)*100);
+          //i dont want to have two click events, but I dont know how to get the html to change otherwise
 
-              console.log(percentYesAnswers);
-              console.log(percentNoAnswers);
+          $("#allKP_active_queries_list").on("click",".answers .btn", function(){
 
+            $(this).parents(".answers").
+            children(".yes-button").html(percentYesAnswers+"%")
+            .css({"font-size": "3em", "padding":"25px 7px 30px 7px"});
 
-              $("#allKP_active_queries_list").on("click",".answers .btn", function(){
-              $(this).parents(".answers").
-              children(".yes-button").html(percentYesAnswers+"%")
-              .css({"font-size": "3em", "padding":"25px 7px 30px 7px"});
+            $(this).parents(".answers").
+            children(".no-button").html(percentNoAnswers+"%")
+            .css({"font-size": "3em", "padding":"25px 7px 30px 7px"});
 
-              $(this).parents(".answers").
-              children(".no-button").html(percentNoAnswers+"%")
-              .css({"font-size": "3em", "padding":"25px 7px 30px 7px"});
-              });
+          });
 
-            },  
-            error: function(object, error) {
-              alert("Error when updating todo item: " + error.code + " " + error.message);
-            }
-
-      });//no find
         },
         error: function(object, error) {
           alert("Error when updating todo item: " + error.code + " " + error.message);
         }
 
-      });//yes find
+});//get function
 
-},
-error: function(object, error) {
-  alert("Error when updating todo item: " + error.code + " " + error.message);
-}
+}//revealanswers
 
-      });//get find
+revealAnswers();
 
-  }//reveal  query answers
+}); // end of mouseenter function
 
-  $("#allKP_active_queries_list").on("click",".answers .btn", function(){
+$("#allKP_active_queries_list").on("click",".answers .btn", function(){
+ var queryID = $(this).attr("id");
+ answer = $(this).attr("name");
+ user = Parse.User.current();
 
-    $(".answers .btn").removeClass("active");
-    $(this).addClass("active");
+ function setQueryAnswer() {
+  console.log(answer);
+  answererName = Parse.User.current().get("username");
+  console.log(answererName);
+  var d = new Date();
+  var dString = d.toString();
+  timeStamp = dString.substring(4,11);
+  console.log(queryID);
 
-    setQueryAnswer();
+  var QueryAnswer = Parse.Object.extend("QueryAnswer");
+  queryAnswer = new QueryAnswer();
 
-    incrementScore();
+  queryAnswer.set("answerer", user);
+  queryAnswer.set("answererName", answererName);
+  queryAnswer.set("answer", answer);
+  queryAnswer.set("queryID", queryID);
+  queryAnswer.set("timeStamp", timeStamp);
 
-    var queryID = $(this).attr("id");
-    console.log(queryID);
-    revealAnswers();
+  queryAnswer.save(null, {
+    success: function(queryAnswer) {
+    // Execute any logic that should take place after the object is saved.
+    alert('New object created with objectId: ' + queryAnswer.id + 'by' + queryAnswer.answerer +
+      'at' + queryAnswer.createdAt+'.');
 
-  });
+  },
+  error: function(queryAnswer, error) {
+    // Execute any logic that should take place if the save fails.
+    // error is a Parse.Error with an error code and description.
+    alert('Failed to create new object, with error code: ' + error.description);
+  }
+
+});
+
+  }//answer questions
+  setQueryAnswer();
+  incrementScore();
+
+});
 
   //delete button to hide queries
 
@@ -791,32 +773,32 @@ error: function(object, error) {
     $(this).parents(".parent_row").addClass("hidden");
   });
 
- 
+
  //FROM NEW QUERY PAGE
 
  function queryCreator () {
 
-    user = Parse.User.current();
-    askerName = user.get("username");
-    questionText = $("#query_area").val();
-    privacyLevel = $("button.active").text();
-    var d = new Date();
-    var dString = d.toString();
-    timeStamp = dString.substring(4,11);
+  user = Parse.User.current();
+  askerName = user.get("username");
+  questionText = $("#query_area").val();
+  privacyLevel = $("button.active").text();
+  var d = new Date();
+  var dString = d.toString();
+  timeStamp = dString.substring(4,11);
     //yesAnswers = [];
     //noAnswers = [];
     var responderCount = 0;
 
-  KarmaQuery = Parse.Object.extend("KarmaQuery");
+    KarmaQuery = Parse.Object.extend("KarmaQuery");
 
-  var karmaQuery = new KarmaQuery();
+    var karmaQuery = new KarmaQuery();
 
-  karmaQuery.set("asker", user);
-  karmaQuery.set("askerName", askerName);
-  karmaQuery.set("text", questionText);
-  karmaQuery.set("privacylevel", privacyLevel);
-  karmaQuery.set("timeStamp", timeStamp);
-  
+    karmaQuery.set("asker", user);
+    karmaQuery.set("askerName", askerName);
+    karmaQuery.set("text", questionText);
+    karmaQuery.set("privacylevel", privacyLevel);
+    karmaQuery.set("timeStamp", timeStamp);
+
   //karmaQuery.set("yesAnswers", yesAnswers);
   //karmaQuery.set("noAnswers", noAnswers);
 
@@ -864,12 +846,12 @@ karmaQuery.save(null, {
     alert('New object created with objectId: ' + karmaQuery.id + 'by' + karmaQuery.authorName +
       'at' + karmaQuery.createdAt+'.');
 
-},
-error: function(karmaQuery, error) {
+  },
+  error: function(karmaQuery, error) {
     // Execute any logic that should take place if the save fails.
     // error is a Parse.Error with an error code and description.
     alert('Failed to create new object, with error code: ' + error.description);
-}
+  }
 });
 
 }
@@ -912,7 +894,7 @@ $("#go_button").click(function(){
 
 
 });
- 
+
 
 
 /*function populateFriendList () {
