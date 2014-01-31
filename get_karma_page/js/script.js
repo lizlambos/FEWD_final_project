@@ -22,26 +22,25 @@ $(document).ready(function(){
 		console.log(name);
 
 		var toast = user.get("answersGottenBalance");
-			console.log(toast);
+		console.log(toast);
 
-			var toast2 = user.get("friendsInvitedBalance");
-			console.log(toast2);
+		var toast2 = user.get("friendsInvitedBalance");
+		console.log(toast2);
 
-			var toast3 = user.get("answersGivenBalance");
-			console.log(toast3);
+		var toast3 = user.get("answersGivenBalance");
+		console.log(toast3);
 
-			var karmaPointsBalance = toast3 + toast2 - toast;
+		var karmaPointsBalance = toast3 + toast2 - toast;
 
+//refresh friends questions in the question area (no filters at this time)		
 
+function loadFriendQueries(contentColumn){
 
-		function loadFriendQueries(contentColumn){
+	KarmaQuery = Parse.Object.extend("KarmaQuery");
+	User = Parse.Object.extend("User");
 
-			
-			KarmaQuery = Parse.Object.extend("KarmaQuery");
-			User = Parse.Object.extend("User");
-
-			faQuery = new Parse.Query(KarmaQuery);
-			faQuery.notEqualTo("privacylevel", "Private");
+	faQuery = new Parse.Query(KarmaQuery);
+	faQuery.notEqualTo("privacylevel", "Private");
 			//faQuery.notEqualTo("asker", user);
 			
 			faQuery.include("User");
@@ -59,31 +58,31 @@ $(document).ready(function(){
 					var askerPic = "default";
 					var askerID = "default";				
 
+	//Append each of the active queries to the active queries list
+	Y.Array.each(results, function(val, i, arr) {
+		asker = val.get('asker');
+		console.log(asker);
+		askerID = asker.id;
+		console.log(askerID);
+		askerName = val.get('askerName');
+		console.log(askerName);
 
-		//Append each of the active queries to the active queries list
-		Y.Array.each(results, function(val, i, arr) {
-			asker = val.get('asker');
-			console.log(asker);
-			askerID = asker.id;
-			console.log(askerID);
-			askerName = val.get('askerName');
-			console.log(askerName);
+	//display the karma points balance on the two scoreboard areas (screen and mobile)	
 
-		//display the karma points balance on the two scoreboard areas (screen and mobile)	
-
-		$(".row.scoreboard .scoreboard .karma_points_display")
+	$(".row.scoreboard .scoreboard .karma_points_display")
 	.html("<span class='badge'>"+karmaPointsBalance+"</span>");
 
-		$(".top-navbar-icon .badge")
+	$(".top-navbar-icon .badge")
 	.html("<span class='badge'>"+karmaPointsBalance+"</span>");
+
+		//load picture of query asker
 
 		function getAskerPic() {
-				query = new Parse.Query(User);
-				query.get(askerID, {
-					success: function(item) {
-						askerPic = item.get('userPic');
-						console.log(askerPic);
-					//$(".fbpic_small").attr("src",askerPic)
+			query = new Parse.Query(User);
+			query.get(askerID, {
+				success: function(item) {
+					askerPic = item.get('userPic');
+					console.log(askerPic);
 					
 					var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
 						queryText: val.get('text'),
@@ -114,9 +113,7 @@ $(document).ready(function(){
 
 	});//find
 
-
-
-	}//load friend queries
+}//load friend queries
 
 //calling function on three columns but content is being repeated need to put in more arugments for each query	
 
@@ -124,7 +121,7 @@ loadFriendQueries(allKPQueryColumn1);
 loadFriendQueries(allKPQueryColumn2);
 loadFriendQueries(allKPQueryColumn3);
 
-function answerQuery() {
+function setQueryAnswer() {
 
 	user = Parse.User.current();
 	answer = $(".answers .btn.active").attr("name");
@@ -162,13 +159,13 @@ error: function(queryAnswer, error) {
 
 	}//answer questions
 
-		//increment answers given and karma points
+//increment answers given and karma points
 
 function incrementScore() {
 	user.set("answersGivenBalance", 
 		user.get("answersGivenBalance")+1);
 	user.save();
-	
+
 	var toast4 = user.get("answersGottenBalance");
 	console.log(toast4);
 
@@ -187,29 +184,93 @@ function incrementScore() {
 	$(".top-navbar-icon .badge")
 	.html(karmaPointsBalance);
 
-
-}
+}//increment score
 
 //reveal answers
 
 function revealAnswers(){
 
+	var QueryAnswer = Parse.Object.extend("QueryAnswer");
+	answerQuery = new Parse.Query(QueryAnswer);
+	answerQuery.equalTo("queryID",queryID);
+	answerQuery.ascending("createdAt");
+
+	answerQuery.find({
+		success: function(totalResults) {
+			var responderCount = totalResults.length;
+			console.log(totalResults.length);
+
+			yesQuery = new Parse.Query(QueryAnswer);
+			yesQuery.equalTo("queryID", queryID);
+			yesQuery.equalTo("answer", "yes");
+
+			yesQuery.find({
+				success: function(yesResults) {
+					var yesResponderCount = yesResults.length;
+					console.log(yesResults.length);
+					var percentYesAnswers = Math.round(
+						(yesResponderCount / responderCount)*100);
+
+					noQuery = new Parse.Query(QueryAnswer);
+					noQuery.equalTo("queryID",queryID);
+					noQuery.equalTo("answer", "no");
+
+					noQuery.find({
+						success: function(noResults) {
+							var noResponderCount = noResults.length;
+							console.log(noResults.length);
+							console.log(responderCount);
+							console.log(yesResponderCount);
+							console.log(noResponderCount);
+
+							var percentNoAnswers = Math.round(
+								(noResponderCount / responderCount)*100);
+
+							console.log(percentYesAnswers);
+							console.log(percentNoAnswers);
 
 
+							$("#allKP_active_queries_list").on("click",".answers .btn", function(){
+							$(this).parents(".answers").children(".yes-button").html(percentYesAnswers);
+							$(this).parents(".answers").children(".no-button").html(percentNoAnswers);
+							});
+
+						},	
+						error: function(object, error) {
+							alert("Error when updating todo item: " + error.code + " " + error.message);
+						}
+
+			});//no find
+				},
+				error: function(object, error) {
+					alert("Error when updating todo item: " + error.code + " " + error.message);
+				}
+
+			});//yes find
+
+},
+error: function(object, error) {
+	alert("Error when updating todo item: " + error.code + " " + error.message);
 }
 
+			});//get find
 
-$("#allKP_active_queries_list").on("click",".answers .btn", function(){
+	}//reveal  query answers
 
-	$(".answers .btn").removeClass("active");
-	$(this).addClass("active");
-	answerQuery();
-	incrementScore();
-	revealAnswers();
-	
+	$("#allKP_active_queries_list").on("click",".answers .btn", function(){
 
-	
-});
+		$(".answers .btn").removeClass("active");
+		$(this).addClass("active");
+
+		setQueryAnswer();
+
+		incrementScore();
+
+		var queryID = $(this).attr("id");
+		console.log(queryID);
+		revealAnswers();
+
+	});
 
 	//delete button to hide queries
 
