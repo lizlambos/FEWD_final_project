@@ -47,9 +47,11 @@ $(document).ready(function(){
 
 karmaQuery.save(null, {
 	success: function(karmaQuery) {
+		location.reload(true);
+
     // Execute any logic that should take place after the object is saved.
-    alert('New object created with objectId: ' + karmaQuery.id + 'by' + karmaQuery.authorName +
-    	'at' + karmaQuery.createdAt+'.');
+    //alert('New object created with objectId: ' + karmaQuery.id + 'by' + karmaQuery.authorName +
+    	//'at' + karmaQuery.createdAt+'.');
 
 },
 error: function(karmaQuery, error) {

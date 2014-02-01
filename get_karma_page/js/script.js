@@ -44,7 +44,7 @@ function loadFriendQueries(contentColumn){
 
 	faQuery = new Parse.Query(KarmaQuery);
 	faQuery.notEqualTo("privacylevel", "Private");
-      //faQuery.notEqualTo("asker", user);
+      faQuery.notEqualTo("asker", user);
       
       faQuery.include("User");
       faQuery.ascending("createdAt");
@@ -176,6 +176,8 @@ $("#allKP_active_queries_list").on("mouseenter",".answers .btn", function(){
           responders = item.get('responderCount');
           //console.log(responders);
 
+          if (responders != 0) {
+
           var percentYesAnswers = Math.round(
           	(yesAnswers / responders)*100);
 
@@ -184,6 +186,13 @@ $("#allKP_active_queries_list").on("mouseenter",".answers .btn", function(){
 
           console.log(percentYesAnswers);
           console.log(percentNoAnswers);
+
+          }
+
+          else {
+            var percentYesAnswers = 0;
+            var percentNoAnswers = 0;
+          }
 
           //i dont want to have two click events, but I dont know how to get the html to change otherwise
 

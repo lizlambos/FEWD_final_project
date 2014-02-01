@@ -57,22 +57,6 @@ YUI().use('node', function (Y) {
 
     var KarmaQuery = Parse.Object.extend("KarmaQuery");
 
-    //From GET KARMA PAGE
-
-    name = user.get("username");
-    console.log(name);
-
-    var toast = user.get("answersGottenBalance");
-    console.log(toast);
-
-    var toast2 = user.get("friendsInvitedBalance");
-    console.log(toast2);
-
-    var toast3 = user.get("answersGivenBalance");
-    console.log(toast3);
-
-    var karmaPointsBalance = toast3 + toast2 - toast;
-
 
 //FUNCTIONS
 
@@ -221,6 +205,22 @@ function getKarmaPoints () {
   var bears = user.get("friendsInvitedBalance");
   console.log(bears);
 
+      //From GET KARMA PAGE
+
+    name = user.get("username");
+    console.log(name);
+
+    var toast = user.get("answersGottenBalance");
+    console.log(toast);
+
+    var toast2 = user.get("friendsInvitedBalance");
+    console.log(toast2);
+
+    var toast3 = user.get("answersGivenBalance");
+    console.log(toast3);
+
+    var karmaPointsBalance = toast3 + toast2 - toast;
+
 
 }//get karmapoints balance
 
@@ -272,6 +272,7 @@ Parse.FacebookUtils.logIn(null, {
       getFriends();
       getPhoto();
       getKarmaPoints();
+      //redirect();
 
       
     } else if (response.status === 'not_authorized') {
@@ -302,21 +303,35 @@ function redirect()
     window.location.href='../get_karma_page/index.html';
 }
 
+function redirect2()
+{
+    window.location.href='../login_page/index.html';
+}
+
 
 
 $("#fb_login_button").click(function(){
 
  initiateFBLogin();
+
  //redirect();
 
 // setTimeout('Redirect()', 10000);
 
+/*, function(){
+  redirect();
+  setTimeout('Redirect()', 50000);
+}*/
+
+});
+
+$("#logout_button").click(function(){
+  Parse.User.logOut();
+
 
 }, function(){
-  redirect();
-}
-
-);
+  redirect2();
+});
 
  
 

@@ -167,46 +167,61 @@ function getQueryAnswers (queryList) {
                 		console.log(yesResponderCount);
                 		console.log(noResponderCount);
                 		console.log(val.id);
-                		var percentYesAnswers = Math.round(
-                			(yesResponderCount / responderCount)*100);
-                		var percentNoAnswers = Math.round(
-                			(noResponderCount / responderCount)*100);
 
-                		var KarmaQuery = Parse.Object.extend("KarmaQuery");
 
-                		nQuery = new Parse.Query(KarmaQuery);
-                		nQuery.get(val.id, {
-                			success: function(item) {
-                				item.set('noResponderCount', noResponderCount);
-                				item.set('responderCount', responderCount);
-                				item.save();
+                		if (responderCount != 0) {
 
-                			},
-                			error: function(object, error) {
-                				alert("Error when updating todo item: " + error.code + " " + error.message);
-                			}
+                      var percentYesAnswers = Math.round(
+                        (yesResponderCount / responderCount)*100);
+
+                      var percentNoAnswers = Math.round(
+                        (noResponderCount / responderCount)*100);
+
+                      console.log(percentYesAnswers);
+                      console.log(percentNoAnswers);
+
+                    }
+
+                    else {
+                      var percentYesAnswers = 0;
+                      var percentNoAnswers = 0;
+                    }
+
+                    var KarmaQuery = Parse.Object.extend("KarmaQuery");
+
+                    nQuery = new Parse.Query(KarmaQuery);
+                    nQuery.get(val.id, {
+                     success: function(item) {
+                      item.set('noResponderCount', noResponderCount);
+                      item.set('responderCount', responderCount);
+                      item.save();
+
+                    },
+                    error: function(object, error) {
+                      alert("Error when updating todo item: " + error.code + " " + error.message);
+                    }
 
                  });//get function
 
-                		var content = Y.Lang.sub(Y.one('#past_queries_section').getHTML(), {
-                			queryText: val.get('text'),
-                			timeStamp: val.get('timeStamp'),
-                			id: val.id,
-                			privacylevel: val.get('privacylevel'),
-                			active1: activeSetter1,
-                			active2: activeSetter2,
-                			active3: activeSetter3,
-                			percentYesAnswers: percentYesAnswers,
-                			percentNoAnswers: percentNoAnswers,
-                			responderCount: responderCount
+                    var content = Y.Lang.sub(Y.one('#past_queries_section').getHTML(), {
+                     queryText: val.get('text'),
+                     timeStamp: val.get('timeStamp'),
+                     id: val.id,
+                     privacylevel: val.get('privacylevel'),
+                     active1: activeSetter1,
+                     active2: activeSetter2,
+                     active3: activeSetter3,
+                     percentYesAnswers: percentYesAnswers,
+                     percentNoAnswers: percentNoAnswers,
+                     responderCount: responderCount
 
-                		});
+                   });
 
-                		queryList.prepend(content);
-                	},
-                	error: function(object, error) {
-                		alert("Error when updating todo item: " + error.code + " " + error.message);
-                	}
+                    queryList.prepend(content);
+                  },
+                  error: function(object, error) {
+                    alert("Error when updating todo item: " + error.code + " " + error.message);
+                  }
 
       });//no find
 },
