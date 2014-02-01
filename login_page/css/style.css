@@ -38,7 +38,11 @@
 	margin-bottom:50px;
 }
 
+<<<<<<< HEAD
 #fb_button {
+=======
+.fb-login-button {
+>>>>>>> f5bb665bed73dee7153bdb2dda320fed1d03a387
 	clear:both;
 	margin: 0 auto;
 	padding:10px;

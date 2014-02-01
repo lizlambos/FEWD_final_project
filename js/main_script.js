@@ -295,6 +295,7 @@ Parse.FacebookUtils.logIn(null, {
 
 }
 
+<<<<<<< HEAD
 //redirect to the next page
 
 function redirect()
@@ -302,17 +303,32 @@ function redirect()
     window.location.href='../get_karma_page/index.html';
 }
 
+=======
+$(".facebook-button").click(function(){
+>>>>>>> f5bb665bed73dee7153bdb2dda320fed1d03a387
 
+ initiateFBLogin();
 
+<<<<<<< HEAD
 $("#fb_button").click(function(){
 
  initiateFBLogin();
  redirect();
+=======
+
+});
+>>>>>>> f5bb665bed73dee7153bdb2dda320fed1d03a387
 
  setTimeout('Redirect()', 10000);
 
+<<<<<<< HEAD
 
 });
+=======
+  //redirect to the next page - dont know how to do this without killing function//
+     // window.location.href = '../get_karma_page/index.html';
+
+>>>>>>> f5bb665bed73dee7153bdb2dda320fed1d03a387
 
  
 
