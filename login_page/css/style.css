@@ -38,7 +38,7 @@
 	margin-bottom:50px;
 }
 
-.fb_button {
+#fb_button {
 	clear:both;
 	margin: 0 auto;
 	padding:10px;
@@ -50,8 +50,11 @@
 
 .signin_container .login_label {
 	padding:15px;
+	margin:0 auto;
 	margin-top:10px;
 	font-size:1.25em;
+	display:block;
+	width:70%;
 }
 
 .screen-footer .footer-container {
@@ -100,7 +103,7 @@
 	margin-bottom:50px;
 }
 
-.fb_button {
+#fb_button {
 	font-size:2em;
 	width:45%;
 	padding:30px;
@@ -111,6 +114,7 @@
 	padding:15px;
 	margin-top:20px;
 	font-size:2em;
+	width:60%;
 }	
 
 }
