@@ -14,7 +14,8 @@
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-    <script src="http://www.parsecdn.com/js/parse-1.2.16.min.js"></script>
+  <script src="http://yui.yahooapis.com/3.14.1/build/yui/yui-min.js"></script>  
+  <script src="http://www.parsecdn.com/js/parse-1.2.16.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/main_script.js"></script>
   <script src="js/script.js"></script>
@@ -56,7 +57,7 @@
     <nav class="navbar navbar-fixed-top hidden-xs" role="navigation">
       <div class="container">
 
-     <form class="navbar-form form-inline navbar-left hidden-sm hidden-xs" role="search">
+       <form class="navbar-form form-inline navbar-left hidden-sm hidden-xs" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Find your friends">
         </div>
@@ -65,11 +66,11 @@
 
       <a href="#" class="navbar-brand hidden-xs">KarmaPolice</a>
 
-        <div class="collapse navbar-collapse navbar-left pull-left">
-          <ul class="nav navbar-nav">
-            <li class="visible-link"><a href="#">Get Karma</a></li>
-           <li class="visible-link"><a href="../me_page/index.html">My Karma</a></li>
-           <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
+      <div class="collapse navbar-collapse navbar-left pull-left">
+        <ul class="nav navbar-nav">
+          <li class="visible-link"><a href="#">Get Karma</a></li>
+          <li class="visible-link"><a href="../me_page/index.html">My Karma</a></li>
+          <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
             <ul class="dropdown-menu pull-right">
               <li class="dropdown_item"><a href="../get_karma_page/index.html">New Karma Query</a></li>
               <li class="dropdown_item"><a href="../recent_questions_page/index.html">Activity</a></li>
@@ -97,8 +98,8 @@
     <li>
       <a href="#" class="navbar-brand hidden-sm hidden-md hidden-lg hidden-xl">Friends</a>
     </li>
-      <li>
-        <a class="btn back-button" href="#"><span class="glyphicon glyphicon-chevron-left"</span></a>
+    <li>
+      <a class="btn back-button" href="#"><span class="glyphicon glyphicon-chevron-left"</span></a>
     </li>
   </ul>
 </nav>
@@ -114,116 +115,116 @@
 
 <!--<h1>Expand your audience<small> Invite friends and get instant karma!</small></h1>->
 
-<!-- end pageheader -->
+  <!-- end pageheader -->
 
-<!-- new question editor -->
+  <!-- new question editor -->
 
-<div class="main_content_container">
+  <div class="main_content_container">
 
-  <div class="row small_screen_pagetitle hidden-xs hidden-md hidden-lg hidden-xl">
-    <div class="col-xs-12">
-      <h1>Invite Friends</h1>
+    <div class="row small_screen_pagetitle hidden-xs hidden-md hidden-lg hidden-xl">
+      <div class="col-xs-12">
+        <h1>Invite Friends</h1>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
+    <div class="row">
+      <div class="col-xs-12">
 
-      <div class="jumbotron hidden-sm hidden-md hidden-lg hidden-xl">
-        <h2 class="mobile-headertext">Add friends for instant karma</h2>
-      </div>
-
-      <form class="form-inline mobile-searchbox" role="search">
-        <div class="invite-friends form-group">
-          <input type="text" class="form-control" placeholder="Find my friends">
+        <div class="jumbotron hidden-sm hidden-md hidden-lg hidden-xl">
+          <h2 class="mobile-headertext">Add friends for instant karma</h2>
         </div>
-        <button type="submit" class="btn search-button"> <span class="glyphicon glyphicon-search"></span></button>
-      </div>
-    </form>
 
-
-
-    <div class="row fb_friendsarea">
-
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 fb-column">
-
-        <div class="user-info-wrapper">
-          <div class="fbpic_container">
-            <img class="fbpic_small" src="img/ganesha-hi.png"/>
+        <form class="form-inline mobile-searchbox" role="search">
+          <div class="invite-friends form-group">
+            <input type="text" class="form-control" placeholder="Find my friends">
           </div>
-          <h3 class="friend-name">Bob Jones</h3>
-          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
-        </div><!--user-info-wrapper-->
-
-        <div class="user-info-wrapper">
-          <div class="fbpic_container">
-            <img class="fbpic_small user_num_1_fb_photo" src="img/ganesha-hi.png"/>
-          </div>
-          <h3 class="friend-name">Bob Jones</h3>
-          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
-        </div><!--user-info-wrapper-->
-
-        <div class="user-info-wrapper">
-          <div class="fbpic_container">
-            <img class="fbpic_small" src="img/ganesha-hi.png"/>
-          </div>
-          <h3 class="friend-name">Bob Jones</h3>
-          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
-        </div><!--user-info-wrapper-->
-
-        <div class="user-info-wrapper">
-          <div class="fbpic_container">
-            <img class="fbpic_small" src="img/ganesha-hi.png"/>
-          </div>
-          <h3 class="friend-name">Bob Jones</h3>
-          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
-        </div><!--user-info-wrapper-->
-
-        
+          <button type="submit" class="btn search-button"> <span class="glyphicon glyphicon-search"></span></button>
+        </div>
+      </form>
 
 
-      </div><!--col-->
+
+      <div class="row fb_friendsarea">
+
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 fb-column">
+
+          <div class="user-info-wrapper">
+            <div class="fbpic_container">
+              <img class="fbpic_small" src="img/ganesha-hi.png"/>
+            </div>
+            <h3 class="friend-name">Bob Jones</h3>
+            <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
+          </div><!--user-info-wrapper-->
+
+          <div class="user-info-wrapper">
+            <div class="fbpic_container">
+              <img class="fbpic_small user_num_1_fb_photo" src="img/ganesha-hi.png"/>
+            </div>
+            <h3 class="friend-name">Bob Jones</h3>
+            <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
+          </div><!--user-info-wrapper-->
+
+          <div class="user-info-wrapper">
+            <div class="fbpic_container">
+              <img class="fbpic_small" src="img/ganesha-hi.png"/>
+            </div>
+            <h3 class="friend-name">Bob Jones</h3>
+            <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
+          </div><!--user-info-wrapper-->
+
+          <div class="user-info-wrapper">
+            <div class="fbpic_container">
+              <img class="fbpic_small" src="img/ganesha-hi.png"/>
+            </div>
+            <h3 class="friend-name">Bob Jones</h3>
+            <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
+          </div><!--user-info-wrapper-->
+
+          
 
 
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 fb-column">
-
-        <div class="user-info-wrapper">
-          <div class="fbpic_container">
-            <img class="fbpic_small" src="img/ganesha-hi.png"/>
-          </div>
-          <h3 class="friend-name">Bob Jones</h3>
-          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
-        </div><!--user-info-wrapper-->
-
-        <div class="user-info-wrapper">
-          <div class="fbpic_container">
-            <img class="fbpic_small" src="img/ganesha-hi.png"/>
-          </div>
-          <h3 class="friend-name">Bob Jones</h3>
-          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
-        </div><!--user-info-wrapper-->
-
-        <div class="user-info-wrapper">
-          <div class="fbpic_container">
-            <img class="fbpic_small" src="img/ganesha-hi.png"/>
-          </div>
-          <h3 class="friend-name">Bob Jones</h3>
-          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
-        </div><!--user-info-wrapper-->
-
-        <div class="user-info-wrapper">
-          <div class="fbpic_container">
-            <img class="fbpic_small" src="img/ganesha-hi.png"/>
-          </div>
-          <h3 class="friend-name">Bob Jones</h3>
-          <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
-        </div><!--user-info-wrapper-->
+        </div><!--col-->
 
 
-      </div><!--col-->
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 fb-column">
 
-    </div><!--fb_friendsarea-->
-  </div><!--col-->
-</div><!--new query-->
+          <div class="user-info-wrapper">
+            <div class="fbpic_container">
+              <img class="fbpic_small" src="img/ganesha-hi.png"/>
+            </div>
+            <h3 class="friend-name">Bob Jones</h3>
+            <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
+          </div><!--user-info-wrapper-->
+
+          <div class="user-info-wrapper">
+            <div class="fbpic_container">
+              <img class="fbpic_small" src="img/ganesha-hi.png"/>
+            </div>
+            <h3 class="friend-name">Bob Jones</h3>
+            <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
+          </div><!--user-info-wrapper-->
+
+          <div class="user-info-wrapper">
+            <div class="fbpic_container">
+              <img class="fbpic_small" src="img/ganesha-hi.png"/>
+            </div>
+            <h3 class="friend-name">Bob Jones</h3>
+            <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
+          </div><!--user-info-wrapper-->
+
+          <div class="user-info-wrapper">
+            <div class="fbpic_container">
+              <img class="fbpic_small" src="img/ganesha-hi.png"/>
+            </div>
+            <h3 class="friend-name">Bob Jones</h3>
+            <button class="add-friend-button glyphicon glyphicon-plus-sign"></button>
+          </div><!--user-info-wrapper-->
+
+
+        </div><!--col-->
+
+      </div><!--fb_friendsarea-->
+    </div><!--col-->
+  </div><!--new query-->
 </div><!--friendsarea_container-->
 
 
@@ -231,24 +232,24 @@
 
 <!-- mobile bottom navbar -->
 
- <footer class="mobile-footer fixed-bottom hidden-sm hidden-md hidden-lg hidden-xl">
-   <ul class="nav navbar-nav">
-    <li class="hidden-xl hidden-lg hidden-md hidden-sm">
-      <a class="btn bottom-navbar-icon" data-icon="&#xe60a;" href="../get_karma_page/index.html"><span class="bottom-navbar-icon-label">Get Karma</span></a>
-    </li>
-    <li class="hidden-xl hidden-lg hidden-md hidden-sm">
-      <a class="btn  bottom-navbar-icon" data-icon="&#xe608;" href="../recent_questions_page/index.html"><span class="bottom-navbar-icon-label">Activity</span></a>
-    </li>
-    <li class="hidden-xl hidden-lg hidden-md hidden-sm">
-      <a class="btn  bottom-navbar-icon" data-icon="&#xe60c;" href="../new_question_page/index.html"><span class="bottom-navbar-icon-label">New Query</span></a>
-    </li>
-    <li class="hidden-xl hidden-lg hidden-md hidden-sm">
-      <a class="btn bottom-navbar-icon onpage" data-icon="&#xe607;" href="../invite_friends_page/index.html"><span class="bottom-navbar-icon-label">Friends</span></a>
-    </li>
-    <li class="hidden-xl hidden-lg hidden-md hidden-sm">
-      <a class="btn bottom-navbar-icon" data-icon="&#xe614;" href="../me_page/index.html"><span class="bottom-navbar-icon-label">My Karma</span></a>
-    </li>
-  </ul> 
+<footer class="mobile-footer fixed-bottom hidden-sm hidden-md hidden-lg hidden-xl">
+ <ul class="nav navbar-nav">
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn bottom-navbar-icon" data-icon="&#xe60a;" href="../get_karma_page/index.html"><span class="bottom-navbar-icon-label">Get Karma</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn  bottom-navbar-icon" data-icon="&#xe608;" href="../recent_questions_page/index.html"><span class="bottom-navbar-icon-label">Activity</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn  bottom-navbar-icon" data-icon="&#xe60c;" href="../new_question_page/index.html"><span class="bottom-navbar-icon-label">New Query</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn bottom-navbar-icon onpage" data-icon="&#xe607;" href="../invite_friends_page/index.html"><span class="bottom-navbar-icon-label">Friends</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn bottom-navbar-icon" data-icon="&#xe614;" href="../me_page/index.html"><span class="bottom-navbar-icon-label">My Karma</span></a>
+  </li>
+</ul> 
 </div>
 </footer>
 

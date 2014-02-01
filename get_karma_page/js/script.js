@@ -128,7 +128,8 @@ loadFriendQueries(allKPQueryColumn3);
 
 function displayKarmaPoints() {
 
-  user.fetch();
+  user.set("answersGivenBalance",user.get("answersGivenBalance")+1)
+  user.save();
 
   var toast4 = user.get("answersGottenBalance");
   console.log(toast4);
@@ -252,9 +253,11 @@ error: function(queryAnswer, error) {
 
 });
 
+     displayKarmaPoints();
+
   }//answer questions
   setQueryAnswer();
-  displayKarmaPoints();
+ 
 
 });
 

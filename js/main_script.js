@@ -295,7 +295,6 @@ Parse.FacebookUtils.logIn(null, {
 
 }
 
-<<<<<<< HEAD
 //redirect to the next page
 
 function redirect()
@@ -303,32 +302,21 @@ function redirect()
     window.location.href='../get_karma_page/index.html';
 }
 
-=======
-$(".facebook-button").click(function(){
->>>>>>> f5bb665bed73dee7153bdb2dda320fed1d03a387
+
+
+$("#fb_login_button").click(function(){
 
  initiateFBLogin();
+ //redirect();
 
-<<<<<<< HEAD
-$("#fb_button").click(function(){
+// setTimeout('Redirect()', 10000);
 
- initiateFBLogin();
- redirect();
-=======
 
-});
->>>>>>> f5bb665bed73dee7153bdb2dda320fed1d03a387
+}, function(){
+  redirect();
+}
 
- setTimeout('Redirect()', 10000);
-
-<<<<<<< HEAD
-
-});
-=======
-  //redirect to the next page - dont know how to do this without killing function//
-     // window.location.href = '../get_karma_page/index.html';
-
->>>>>>> f5bb665bed73dee7153bdb2dda320fed1d03a387
+);
 
  
 
@@ -371,21 +359,7 @@ $("#active_past_queries_list, #private_past_queries_list").on("click",".privacy-
 
 
 
-/*function populateFriendList () {
 
-	FB.api('/me/friends', { fields : 'id', offset : 0, limit : 25 }, function(response) { 
-
-	 var outstring = '<p>Friends:</p>';
-       for (var i=0, l=response.data.length; i<l; i++) {
-         var friend = response.data[i];
-         outstring = outstring + '<fb:profile-pic uid="' + friend.id + '"  width="50" height="50" ></fb:profile-pic>' 
-		                        + '<fb:name uid="' + friend.id + '"></fb:name>&nbsp;&nbsp;&nbsp;'
-       }
-       document.getElementById('myFriendList').innerHTML = outstring; 
-       FB.XFBML.parse(document.getElementById('myFriendList'));
-
-   };
-   */
 
 
 
