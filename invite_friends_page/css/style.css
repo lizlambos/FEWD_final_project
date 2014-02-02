@@ -51,16 +51,21 @@
 
 .fbpic_container {
 	padding:5px;
+	background:none;
 }
 
 .fbpic_small {
 	width:50px;
 	height:50px;
+	z-index:10000;
+	background:none;
 
 } 
 
 .friend-name {
 	top:20px;
+	color:#FFFFFF;
+	font-size:1em;
 }
 
 .add-friend-button {
