@@ -137,95 +137,6 @@ function getFriends() {
 });
 }
 
-function refreshKarmaPoints () {
-
-  //find total answers given
-
-  //reset to 0
-
-  answersGivenBalance = 0;
-  user.set("answersGivenBalance",answersGivenBalance);
-  user.save();
-
-  var QueryAnswer = Parse.Object.extend("QueryAnswer");
-  query = new Parse.Query(QueryAnswer);
-  query.equalTo("answerer", user);
-
-  query.find({
-    success: function(results) {
-      console.log(results.length);
-      answersGivenBalance = results.length;
-      user.set("answersGivenBalance", answersGivenBalance);
-      user.save();
-
-       //find total answers recieved by returning all query id's asked by user
-
-  //reset answersGottenBalance to 0 
-  answersGottenBalance = 0;
-  user.set("answersGottenBalance",answersGottenBalance);
-  user.save();
-
-  var KarmaQuery = Parse.Object.extend("KarmaQuery");
-  query1 = new Parse.Query(KarmaQuery);
-
-  query1.equalTo("asker", user);
-
-  query1.find({
-    success: function(results1) {
-      console.log(results1.length);
-
-      Y.Array.each(results1, function(val, i, arr) {
-        var answersGotten = val.get("responderCount");
-        answersGottenBalance += answersGotten;
-        user.set("answersGottenBalance", answersGottenBalance);
-        user.save();
-        console.log(answersGottenBalance);
-
-          //get friends invited balance (function to be written)
-
-          friendsInvitedBalance = 0;
-
-          user.set("friendsInvitedBalance", friendsInvitedBalance);
-          user.save();
-
-          var toast = user.get("answersGottenBalance");
-          console.log(toast);
-
-          var toast2 = user.get("friendsInvitedBalance");
-          console.log(toast2);
-
-          var toast3 = user.get("answersGivenBalance");
-          console.log(toast3);
-
-          var karmaPointsBalance = toast3 + toast2 - toast;
-
-          user.set("karmaPointsBalance", karmaPointsBalance);
-          user.save();
-          console.log(karmaPointsBalance);
-
-        });
-
-        },//success
-
-        error: function(error) {
-          alert("Error: " + error.code + " " + error.message);
-
-        }
-
-      });//find
-},
-
-error: function(error) {
-  alert("Error: " + error.code + " " + error.message);
-}
-
-  })//answers given
-
-
-
-
-}//get karmapoints balance
-
 
 //LOGIN FUNCTION - TO BE FIXED 
 
@@ -237,8 +148,10 @@ function initiateFBLogin() {
       {
         setKPUserName();
      // getFriends();
-     getPhoto();
-     refreshKarmaPoints();
+         getPhoto();
+        
+       
+    
 
       //other function which has a tour
       console.log("User signed up and logged in through Facebook!");
@@ -249,9 +162,7 @@ function initiateFBLogin() {
            //setKPUserName();
            //getFriends();
            //getPhoto();
-          refreshKarmaPoints();
-
-
+       
            console.log("User logged in through Facebook!");
 
          }
@@ -278,8 +189,9 @@ function initiateFBLogin() {
 
       var testy = user.get("username");
       console.log(testy);
+      
 
-      //redirect();
+      redirect();
 
       
     } else if (response.status === 'not_authorized') {
@@ -291,6 +203,7 @@ function initiateFBLogin() {
       // result from direct interaction from people using the app (such as a mouse click)
       // (2) it is a bad experience to be continually prompted to login upon page load.
       Parse.FacebookUtils.login();
+        location.reload(true);
     } else {
       // In this case, the person is not logged into Facebook, so we call the login() 
       // function to prompt them to do so. Note that at this stage there is no indication
@@ -298,6 +211,7 @@ function initiateFBLogin() {
       // dialog right after they log in to Facebook. 
       // The same caveats as above apply to the FB.login() call here.
       Parse.FacebookUtils.login();
+        location.reload(true);
     }
   });
 
