@@ -137,7 +137,7 @@ function getFriends() {
 });
 }
 
-function getKarmaPoints () {
+function refreshKarmaPoints () {
 
   //find total answers given
 
@@ -238,7 +238,7 @@ function initiateFBLogin() {
         setKPUserName();
      // getFriends();
      getPhoto();
-     getKarmaPoints();
+     refreshKarmaPoints();
 
       //other function which has a tour
       console.log("User signed up and logged in through Facebook!");
@@ -249,7 +249,7 @@ function initiateFBLogin() {
            //setKPUserName();
            //getFriends();
            //getPhoto();
-           getKarmaPoints();
+          refreshKarmaPoints();
 
 
            console.log("User logged in through Facebook!");
@@ -275,6 +275,9 @@ function initiateFBLogin() {
       // The response object is returned with a status field that lets the app know the current
       // login status of the person. In this case, we're handling the situation where they 
       // have logged in to the app.
+
+      var testy = user.get("username");
+      console.log(testy);
 
       //redirect();
 
