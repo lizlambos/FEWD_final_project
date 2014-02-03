@@ -46,23 +46,23 @@ function loadFriendQueries(contentColumn){
 
 	faQuery = new Parse.Query(KarmaQuery);
 	faQuery.notEqualTo("privacylevel", "Private");
-      faQuery.notEqualTo("asker", user);
-      
-      faQuery.include("User");
-      faQuery.ascending("createdAt");
+  faQuery.notEqualTo("asker", user);
 
-      var myActiveQueries = faQuery.collection();
-      console.log(myActiveQueries);
+  faQuery.include("User");
+  faQuery.ascending("createdAt");
 
-      faQuery.find({
-      	success: function(results) {
-      		console.log(results.length);
+  var myActiveQueries = faQuery.collection();
+  console.log(myActiveQueries);
 
-      		var asker = "default";
-      		var askerName = "default";
-      		var askerPic = "default";
-      		var askerID = "default"; 
-          var askerFbID = "default";
+  faQuery.find({
+   success: function(results) {
+    console.log(results.length);
+
+    var asker = "default";
+    var askerName = "default";
+    var askerPic = "default";
+    var askerID = "default"; 
+    var askerFbID = "default";
 
 
   //Append each of the active queries to the active queries list
@@ -73,7 +73,7 @@ function loadFriendQueries(contentColumn){
   	console.log(askerID);
   	askerName = val.get('askerName');
   	console.log(askerName);
-  
+
 
   //display the karma points balance on the two scoreboard areas (screen and mobile)  
 
@@ -92,35 +92,85 @@ function loadFriendQueries(contentColumn){
     			askerPic = item.get('userPic');
     			console.log(askerPic);
 
-    			var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
-    				queryText: val.get('text'),
-    				timeStamp: val.get('timeStamp'),
-    				askerName: val.get('askerName'),
-    				id: val.id,
-    				privacylevel: val.get('privacylevel'),
+         //screen by privacy level 
+
+          var privacySetting = val.get('privacylevel');
+
+          if (privacySetting == "All KP") {
+
+           var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
+            queryText: val.get('text'),
+            timeStamp: val.get('timeStamp'),
+            askerName: val.get('askerName'),
+            id: val.id,
+            privacylevel: "",
             askerID: askerID,
-    				askerPicURL: askerPic,
+            askerPicURL: askerPic,
     				//karmaPointsBal: karmaPointsBalance
 
     			});
 
+          contentColumn.prepend(content);
+
+        }
+
+        else {
+
+          var askerFbID = item.get('fbID');
+          console.log(askerFbID);
+          var userFbID = user.get('fbID');
+          console.log(userFbID);
+
+          FB.api(
+            "/{"+askerFbID+"}/friends/{"+userFbID+"}",
+            function (response) {
+              if (response && !response.error) {
+                var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
+                  queryText: val.get('text'),
+                  timeStamp: val.get('timeStamp'),
+                  askerName: val.get('askerName'),
+                  id: val.id,
+                  privacylevel: "",
+                  askerID: askerID,
+                  askerPicURL: askerPic,
+            //karmaPointsBal: karmaPointsBalance
+
+          });
+
+          contentColumn.prepend(content);
+
+        }
+        else {
+
+          var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
+            queryText: val.get('text'),
+            timeStamp: val.get('timeStamp'),
+            askerName: val.get('askerName'),
+            id: val.id,
+            privacylevel: "hidden",
+            askerID: askerID,
+            askerPicURL: askerPic,
+            //karmaPointsBal: karmaPointsBalance
+
+          });
+
           //filter by privacy level
 
-          
+          contentColumn.prepend(content);
 
-    			contentColumn.prepend(content);
-     
+        }//else
 
+      }//function response
+      );//fb api
 
+        }//else
 
+      },
+      error: function(object, error) {
+       alert("Error when updating todo item: " + error.code + " " + error.message);
+     }
 
-
-    		},
-    		error: function(object, error) {
-    			alert("Error when updating todo item: " + error.code + " " + error.message);
-    		}
-
-    	});
+   });
 
       }//get asker pic about
 
@@ -169,7 +219,7 @@ function updateAnswererKarmaPoints() {
   $(".top-navbar-icon.karma-points .badge")
   .html(karmaPointsBalance);
 
-   
+
 
 }//update karma points
 
@@ -200,14 +250,14 @@ $("#allKP_active_queries_list").on("mouseenter",".answers .btn", function(){
 
           if (responders != 0) {
 
-          var percentYesAnswers = Math.round(
-          	(yesAnswers / responders)*100);
+            var percentYesAnswers = Math.round(
+             (yesAnswers / responders)*100);
 
-          var percentNoAnswers = Math.round(
-          	(noAnswers / responders)*100);
+            var percentNoAnswers = Math.round(
+             (noAnswers / responders)*100);
 
-          console.log(percentYesAnswers);
-          console.log(percentNoAnswers);
+            console.log(percentYesAnswers);
+            console.log(percentNoAnswers);
 
           }
 
@@ -230,10 +280,10 @@ $("#allKP_active_queries_list").on("mouseenter",".answers .btn", function(){
 
           });
 
-      },
-      error: function(object, error) {
-      	alert("Error when updating todo item: " + error.code + " " + error.message);
-      }
+        },
+        error: function(object, error) {
+         alert("Error when updating todo item: " + error.code + " " + error.message);
+       }
 
 });//get function
 
@@ -249,74 +299,74 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
   var askerId = $(this).parents(".parent_row").children(".friend-name").attr("id");
 
 
-	function setQueryAnswer() {
-		console.log(answer);
-		user.fetch();
-		var answererName = user.get("username");
-		console.log(answererName);
-		myid = user.id;
-		console.log(myid);
-		var d = new Date();
-		var dString = d.toString();
-		timeStamp = dString.substring(4,11);
-		console.log(queryID);
+  function setQueryAnswer() {
+    console.log(answer);
+    user.fetch();
+    var answererName = user.get("username");
+    console.log(answererName);
+    myid = user.id;
+    console.log(myid);
+    var d = new Date();
+    var dString = d.toString();
+    timeStamp = dString.substring(4,11);
+    console.log(queryID);
 
-		var QueryAnswer = Parse.Object.extend("QueryAnswer");
-		queryAnswer = new QueryAnswer();
+    var QueryAnswer = Parse.Object.extend("QueryAnswer");
+    queryAnswer = new QueryAnswer();
 
-		queryAnswer.set("answerer", user);
-		queryAnswer.set("answererName", answererName);
-		queryAnswer.set("answer", answer);
-		queryAnswer.set("queryID", queryID);
-		queryAnswer.set("timeStamp", timeStamp);
+    queryAnswer.set("answerer", user);
+    queryAnswer.set("answererName", answererName);
+    queryAnswer.set("answer", answer);
+    queryAnswer.set("queryID", queryID);
+    queryAnswer.set("timeStamp", timeStamp);
 
-		queryAnswer.save(null, {
-			success: function(queryAnswer) {
+    queryAnswer.save(null, {
+     success: function(queryAnswer) {
     // Execute any logic that should take place after the object is saved.
     alert('New object created with objectId: ' + queryAnswer.id + 'by' + queryAnswer.answerer +
     	'at' + queryAnswer.createdAt+'.');
 
-},
-error: function(queryAnswer, error) {
+  },
+  error: function(queryAnswer, error) {
     // Execute any logic that should take place if the save fails.
     // error is a Parse.Error with an error code and description.
     alert('Failed to create new object, with error code: ' + error.description);
-}
+  }
 
 });
 
-//update the answers gotten points for the asker
+//update the answers gotten points for the asker DOES NOT WORK
 
 function updateAskerKarmaPoints () {
 
   var userQuery = new Parse.Query(Parse.User);
-        userQuery.get(askerId, {
-          success: function(item) {
-          
-          item.set("answersGottenBalance", 
-            item.get("answersGottenBalance")+1);
-          item.save();
+  userQuery.get(askerId, {
+    success: function(item) {
+
+      item.set("answersGottenBalance", 
+        item.get("answersGottenBalance")+1);
+      item.save();
 
           //???
           item.set("karmaPointsBalance",
             item.get("karmaPointsBalance")-1);
           item.save();
 
-          },
-          error: function(item, error) {
+        },
+        error: function(item, error) {
             //alert("Error when checking for friend ID: " + error.code + " " + error.message);
           }
       });//find
 
 }//update asker karma points
- 
 
-  updateAnswererKarmaPoints();
-  updateAskerKarmaPoints();
+
+updateAnswererKarmaPoints();
+  updateAskerKarmaPoints(); //DOES NOT WORK
 
   }//answer questions
   setQueryAnswer();
- 
+
 
 });
 
