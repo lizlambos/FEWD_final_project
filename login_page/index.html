@@ -48,7 +48,7 @@
       // init the FB JS SDK
       Parse.FacebookUtils.init({
       appId      : '254848478004741', // Facebook App ID
-      channelUrl : 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/login_page/', // Channel File
+      channelUrl : 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/login_page/channel.html', // Channel File
       status     : true, // check login status
       cookie     : true, // enable cookies to allow Parse to access the session
       xfbml      : true  // parse XFBML
@@ -65,8 +65,8 @@
    <div class="signin_container">
     <h1 class="navbar-brand navbar-brand1">Karma</h1>
     <h1 class="navbar-brand navbar-brand2">Police</h1>
-    <fb:login-button show-faces="false" width="200" max-rows="1" id="fb_login_button" class="btn btn-lg btn-primary fb_button fb_iframe_widget" login_text="Sign-in with Facebook" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=254848478004741&amp;locale=en_US&amp;login_text=Sign-in%20with%20Facebook&amp;max_rows=1&amp;sdk=joey&amp;show_faces=false&amp;width=200"><span style="vertical-align: bottom; width: 155px; height: 23px;"><iframe name="fdc4d2898" width="200px" height="1000px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:login_button Facebook Social Plugin" src="http://www.facebook.com/plugins/login_button.php?app_id=254848478004741&amp;channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D29%23cb%3Df34e73011%26domain%3Dstudio.generalassemb.ly%26origin%3Dhttp%253A%252F%252Fstudio.generalassemb.ly%252Ff168b54f2%26relation%3Dparent.parent&amp;locale=en_US&amp;login_text=Sign-in%20with%20Facebook&amp;max_rows=1&amp;sdk=joey&amp;show_faces=false&amp;width=200" style="border: none; visibility: visible; width: 155px; height: 23px;" class=""></iframe></span></fb:login-button>
-  </button>
+    <button id="fb_login_button" class="btn btn-lg btn-primary fb_button">Sign-in with Facebook</button>
+  
     <label for="" class="label-warning login_label">We will NEVER post to your Facebook!</label>
 
   </div>

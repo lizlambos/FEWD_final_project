@@ -157,15 +157,8 @@ function getKarmaPoints () {
       answersGivenBalance = results.length;
       user.set("answersGivenBalance", answersGivenBalance);
       user.save();
-    },
 
-    error: function(error) {
-      alert("Error: " + error.code + " " + error.message);
-    }
-
-  })//answers given
-
-  //find total answers recieved by returning all query id's asked by user
+       //find total answers recieved by returning all query id's asked by user
 
   //reset answersGottenBalance to 0 
   answersGottenBalance = 0;
@@ -187,7 +180,30 @@ function getKarmaPoints () {
         user.set("answersGottenBalance", answersGottenBalance);
         user.save();
         console.log(answersGottenBalance);
-      });
+
+          //get friends invited balance (function to be written)
+
+          friendsInvitedBalance = 0;
+
+          user.set("friendsInvitedBalance", friendsInvitedBalance);
+          user.save();
+
+          var toast = user.get("answersGottenBalance");
+          console.log(toast);
+
+          var toast2 = user.get("friendsInvitedBalance");
+          console.log(toast2);
+
+          var toast3 = user.get("answersGivenBalance");
+          console.log(toast3);
+
+          var karmaPointsBalance = toast3 + toast2 - toast;
+
+          user.set("karmaPointsBalance", karmaPointsBalance);
+          user.save();
+          console.log(karmaPointsBalance);
+
+        });
 
         },//success
 
@@ -197,32 +213,15 @@ function getKarmaPoints () {
         }
 
       });//find
+},
 
-  //get friends invited balance (function to be written)
+error: function(error) {
+  alert("Error: " + error.code + " " + error.message);
+}
 
-  friendsInvitedBalance = 0;
+  })//answers given
 
-  user.set("friendsInvitedBalance", friendsInvitedBalance);
-  user.save();
 
-  var bears = user.get("friendsInvitedBalance");
-  console.log(bears);
-
-      //From GET KARMA PAGE
-
-    name = user.get("username");
-    console.log(name);
-
-    var toast = user.get("answersGottenBalance");
-    console.log(toast);
-
-    var toast2 = user.get("friendsInvitedBalance");
-    console.log(toast2);
-
-    var toast3 = user.get("answersGivenBalance");
-    console.log(toast3);
-
-    var karmaPointsBalance = toast3 + toast2 - toast;
 
 
 }//get karmapoints balance
@@ -232,14 +231,14 @@ function getKarmaPoints () {
 
 function initiateFBLogin() {
 
-Parse.FacebookUtils.logIn(null, {
-  success: function(user) {
-    if (!user.existed())
-    {
-      setKPUserName();
-      getFriends();
-      getPhoto();
-      getKarmaPoints();
+  Parse.FacebookUtils.logIn(null, {
+    success: function(user) {
+      if (!user.existed())
+      {
+        setKPUserName();
+     // getFriends();
+     getPhoto();
+     getKarmaPoints();
 
       //other function which has a tour
       console.log("User signed up and logged in through Facebook!");
@@ -247,10 +246,12 @@ Parse.FacebookUtils.logIn(null, {
             // If it's an existing user that was logged in, we welcome them back
           }
           else {
-           setKPUserName();
-           getFriends();
-           getPhoto();
+           //setKPUserName();
+           //getFriends();
+           //getPhoto();
            getKarmaPoints();
+
+
            console.log("User logged in through Facebook!");
 
          }
@@ -260,6 +261,9 @@ Parse.FacebookUtils.logIn(null, {
          console.log("User cancelled the Facebook login or did not fully authorize."); }
 
        });
+
+
+//prompt for login if not connected
 
 // Here we subscribe to the auth.authResponseChange JavaScript event. This event is fired
   // for any authentication related change, such as login, logout or session refresh. This means that
@@ -271,10 +275,7 @@ Parse.FacebookUtils.logIn(null, {
       // The response object is returned with a status field that lets the app know the current
       // login status of the person. In this case, we're handling the situation where they 
       // have logged in to the app.
-      setKPUserName(); 
-      getFriends();
-      getPhoto();
-      getKarmaPoints();
+
       //redirect();
 
       
@@ -286,7 +287,7 @@ Parse.FacebookUtils.logIn(null, {
       // (1) JavaScript created popup windows are blocked by most browsers unless they 
       // result from direct interaction from people using the app (such as a mouse click)
       // (2) it is a bad experience to be continually prompted to login upon page load.
-     Parse.FacebookUtils.login();
+      Parse.FacebookUtils.login();
     } else {
       // In this case, the person is not logged into Facebook, so we call the login() 
       // function to prompt them to do so. Note that at this stage there is no indication
@@ -297,18 +298,20 @@ Parse.FacebookUtils.logIn(null, {
     }
   });
 
-}
+
+
+}//initiate FB login
 
 //redirect to the next page
 
 function redirect()
 {
-    window.location.href='../get_karma_page/index.html';
+  window.location.href='../get_karma_page/index.html';
 }
 
 function redirect2()
 {
-    window.location.href='../login_page/index.html';
+  window.location.href='../login_page/index.html';
 }
 
 
@@ -336,7 +339,7 @@ $("#logout_button").click(function(){
   redirect2();
 });
 
- 
+
 
 //allow the user to change the privacy level of the question via the button
 

@@ -19,7 +19,7 @@ $(document).ready(function(){
 		user = Parse.User.current();
 		console.log(user);
 
-		name = user.get("username");
+		/*name = user.get("username");
 		console.log(name);
 
 		var toast = user.get("answersGottenBalance");
@@ -31,7 +31,9 @@ $(document).ready(function(){
 		var toast3 = user.get("answersGivenBalance");
 		console.log(toast3);
 
-		var karmaPointsBalance = toast3 + toast2 - toast;
+		var karmaPointsBalance = toast3 + toast2 - toast;*/
+    user.fetch();
+    var karmaPointsBalance = user.get("karmaPointsBalance");
 
 
 
@@ -59,7 +61,9 @@ function loadFriendQueries(contentColumn){
       		var asker = "default";
       		var askerName = "default";
       		var askerPic = "default";
-      		var askerID = "default";        
+      		var askerID = "default"; 
+          var askerFbID = "default";
+
 
   //Append each of the active queries to the active queries list
   Y.Array.each(results, function(val, i, arr) {
@@ -69,6 +73,7 @@ function loadFriendQueries(contentColumn){
   	console.log(askerID);
   	askerName = val.get('askerName');
   	console.log(askerName);
+  
 
   //display the karma points balance on the two scoreboard areas (screen and mobile)  
 
@@ -93,12 +98,23 @@ function loadFriendQueries(contentColumn){
     				askerName: val.get('askerName'),
     				id: val.id,
     				privacylevel: val.get('privacylevel'),
+            askerID: askerID,
     				askerPicURL: askerPic,
-    				karmaPointsBal: karmaPointsBalance
+    				//karmaPointsBal: karmaPointsBalance
 
     			});
 
+          //filter by privacy level
+
+          
+
     			contentColumn.prepend(content);
+     
+
+
+
+
+
     		},
     		error: function(object, error) {
     			alert("Error when updating todo item: " + error.code + " " + error.message);
@@ -126,7 +142,7 @@ loadFriendQueries(allKPQueryColumn3);
 
 //display updated Karma point balance
 
-function displayKarmaPoints() {
+function updateAnswererKarmaPoints() {
 
   user.set("answersGivenBalance",user.get("answersGivenBalance")+1)
   user.save();
@@ -141,6 +157,8 @@ function displayKarmaPoints() {
   console.log(toast6);
 
   var karmaPointsBalance = toast6 + toast5 - toast4;
+  user.set("karmaPointsBalance", karmaPointsBalance);
+  user.save();
 
   user.fetch();
 
@@ -151,7 +169,11 @@ function displayKarmaPoints() {
   $(".top-navbar-icon.karma-points .badge")
   .html(karmaPointsBalance);
 
-}//display karma points
+   
+
+}//update karma points
+
+
 
 
 //two separate functions bount to the answers button being clicked, the first one reveals the answers 
@@ -224,6 +246,7 @@ revealAnswers();
 $("#allKP_active_queries_list").on("click",".answers .btn", function(){
 	var queryID = $(this).attr("id");
 	answer = $(this).attr("name");
+  var askerId = $(this).parents(".parent_row").children(".friend-name").attr("id");
 
 
 	function setQueryAnswer() {
@@ -262,7 +285,34 @@ error: function(queryAnswer, error) {
 
 });
 
-     displayKarmaPoints();
+//update the answers gotten points for the asker
+
+function updateAskerKarmaPoints () {
+
+  var userQuery = new Parse.Query(Parse.User);
+        userQuery.get(askerId, {
+          success: function(item) {
+          
+          item.set("answersGottenBalance", 
+            item.get("answersGottenBalance")+1);
+          item.save();
+
+          //???
+          item.set("karmaPointsBalance",
+            item.get("karmaPointsBalance")-1);
+          item.save();
+
+          },
+          error: function(item, error) {
+            //alert("Error when checking for friend ID: " + error.code + " " + error.message);
+          }
+      });//find
+
+}//update asker karma points
+ 
+
+  updateAnswererKarmaPoints();
+  updateAskerKarmaPoints();
 
   }//answer questions
   setQueryAnswer();

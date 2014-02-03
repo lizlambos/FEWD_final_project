@@ -37,7 +37,7 @@ $(function(){
 
     	user.fetch();
 
-    	var toast4 = user.get("answersGottenBalance");
+    	/*var toast4 = user.get("answersGottenBalance");
     	console.log(toast4);
 
     	var toast5 = user.get("friendsInvitedBalance");
@@ -46,9 +46,11 @@ $(function(){
     	var toast6 = user.get("answersGivenBalance");
     	console.log(toast6);
 
-    	var karmaPointsBalance = toast6 + toast5 - toast4;
+    	var karmaPointsBalance = user.get("karmaPointsBalance");
+      */
 
     	user.fetch();
+        var karmaPointsBalance = user.get("karmaPointsBalance");
 
 
     	$(".row.scoreboard .scoreboard .karma_points_display")
