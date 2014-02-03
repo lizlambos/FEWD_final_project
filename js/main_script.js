@@ -67,7 +67,10 @@ function setKPUserName() {
     if (!response.error) {
       var userName = response.name;
       console.log(userName);
-      user.set("username", userName);  
+      user.set("username", userName); 
+      var userFbID = response.id;
+      console.log(userFbID);
+      user.set("fbID", userFbID); 
       user.save(null, {
         success: function(user) {
 

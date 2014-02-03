@@ -20,27 +20,87 @@ YUI().use('node', function (Y) {
   function populateFriendList () {
 
   	FB.api('/me/friends', { fields : 'id, name, picture, email'
-  		}, function(response) { 
-  		var FBArray = response.data;
-  		console.log(FBArray);	
-  		var numFriends = FBArray.length;
-  		console.log(numFriends);
+  }, function(response) { 
+  	var FBArray = response.data;
+  	console.log(FBArray);	
+  	var numFriends = FBArray.length;
+  	console.log(numFriends);
+  	
 
-  		for (var i=0, l=response.data.length; i<l; i++) {
-  			var friend = response.data[i];
-  			var friendID = friend.id;
-  			var fbFriendName = friend.name;
+  	for (var i=0, l=response.data.length; i<l; i++) {
+  		friend = response.data[i];
+  		fbFriendName = friend.name;
+  		friendID = friend.id;
+  		console.log(fbFriendName);
+  		friendPicLink = friend.picture.data.url;
+  		//var friendExists = 0;
+  
+  		
+  		//check if friend is an existing user of KarmaPolice
+  		function checkIfUserExists () {
+
+  			console.log(friendID);
   			console.log(fbFriendName);
-  			var friendPicLink = friend.picture.data.url;
 
-  			var content = Y.Lang.sub
-  			(Y.one('#fb_friends_invite_list').getHTML(), {
-  				id: friendID,
-  				friendName: fbFriendName,
-  				friendPicURL: friendPicLink
-  			
-  		});
-  			friendListColumn1.prepend(content);
+  			var queryID = friendID;
+  			var queryName = fbFriendName;
+  			var friendPicURL = friendPicLink;
+
+  			var userQuery = new Parse.Query(Parse.User);
+  			userQuery.equalTo("fbID", queryID);
+  			userQuery.find({
+  				success: function(results) {
+  					var friendExists = results.length;
+  					console.log(queryID);
+  					console.log(friendExists);
+  					console.log(queryName);
+  					var visibleState = "";
+
+  					if (friendExists != 0) {
+  						visibleState = "hidden";
+  						console.log(visibleState);
+  						var content = Y.Lang.sub
+  						(Y.one('#fb_friends_invite_list').getHTML(), {
+  							id: queryID,
+  							friendName: queryName,
+  							friendPicURL: friendPicURL,
+  							visibleState: visibleState
+
+  				});//content
+
+  						friendListColumn1.prepend(content);
+  						
+
+  					}
+  					else {
+  						visibleState = "monkey";
+  						console.log(visibleState);
+  						var content = Y.Lang.sub
+  						(Y.one('#fb_friends_invite_list').getHTML(), {
+  							id: queryID,
+  							friendName: queryName,
+  							friendPicURL: friendPicURL,
+  							visibleState: visibleState
+
+  				});//content
+
+  						friendListColumn1.prepend(content);
+  						
+  					}
+
+
+
+  				},
+  				error: function(object, error) {
+  					//alert("Error when checking for friend ID: " + error.code + " " + error.message);
+  				}
+  		});//find
+
+
+
+  	}//check if user exists
+
+  	checkIfUserExists();
 
  }//for
 
@@ -48,7 +108,7 @@ YUI().use('node', function (Y) {
 
   }//populate friend list
 
-populateFriendList();
+  populateFriendList();
 
 });//node
 
