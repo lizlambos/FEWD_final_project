@@ -16,13 +16,16 @@ $(document).ready(function(){
 
 		Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL");   
 
-		user = Parse.User.current();
+		var user = Parse.User.current();
 		console.log(user);
 
     user.fetch();
 
     var toast7 = user.get("answersGivenBalance");
-    console.log(toast7);
+    console.log(toast7);//74
+
+    var toast9 = user.get("answersGottenBalance");
+    console.log(toast9);//0 post login
 
     var karmaPointsBalance = user.get("karmaPointsBalance");
     console.log(karmaPointsBalance);
@@ -33,9 +36,9 @@ $(document).ready(function(){
 
   //reset to 0
 
-  answersGivenBalance = 0;
-  user.set("answersGivenBalance",answersGivenBalance);
-  user.save();
+  //answersGivenBalance = 0;
+  //user.set("answersGivenBalance",answersGivenBalance);
+  //user.save();
 
   var QueryAnswer = Parse.Object.extend("QueryAnswer");
   query = new Parse.Query(QueryAnswer);
@@ -45,16 +48,22 @@ $(document).ready(function(){
     success: function(results) {
       console.log(results.length);
       answersGivenBalance = results.length;
+      console.log(answersGivenBalance);
       user.set("answersGivenBalance", answersGivenBalance);
       user.save();
+
+      var toast8 = user.get("answersGivenBalance");
+console.log(toast8);
+
 
        //find total answers recieved by returning all query id's asked by user
 
   //reset answersGottenBalance to 0 
-  answersGottenBalance = 0;
-  user.set("answersGottenBalance",answersGottenBalance);
-  user.save();
+  answersGottenCalc = 0;
+  //user.set("answersGottenBalance",answersGottenBalance);
+  //user.save();
 
+  user.fetch();
   var KarmaQuery = Parse.Object.extend("KarmaQuery");
   query1 = new Parse.Query(KarmaQuery);
 
@@ -66,10 +75,10 @@ $(document).ready(function(){
 
       Y.Array.each(results1, function(val, i, arr) {
         var answersGotten = val.get("responderCount");
-        answersGottenBalance += answersGotten;
-        user.set("answersGottenBalance", answersGottenBalance);
+        answersGottenCalc += answersGotten;
+        user.set("answersGottenBalance", answersGottenCalc);
         user.save();
-        console.log(answersGottenBalance);
+        console.log(answersGottenCalc);
 
           //get friends invited balance (function to be written)
 
@@ -102,7 +111,7 @@ error: function(error) {
   })//answers given
 
 var toast = user.get("answersGottenBalance");
-console.log(toast);
+console.log(toast);//0 before page refresh
 
 var toast2 = user.get("friendsInvitedBalance");
 console.log(toast2);

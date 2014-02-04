@@ -20,7 +20,7 @@ YUI().use('node', function (Y) {
   prevQueryContainer
   ;
 
-  var user = "default";
+  //var user = "default";
   var askerName = "default";
   var questionText = "default";
   var privacyLevel = "default";
@@ -53,66 +53,11 @@ YUI().use('node', function (Y) {
     
     //FROM ORIGINAL MAIN PAGE
 
-    var user = Parse.User.current();
-
-    var KarmaQuery = Parse.Object.extend("KarmaQuery");
+   // var user = Parse.User.current();
 
 
-//FUNCTIONS
+   var KarmaQuery = Parse.Object.extend("KarmaQuery");
 
-// functions to get users facebook id, friends and picture via graph API
-
-function setKPUserName() {
-  FB.api('/me', function(response) {
-    if (!response.error) {
-      var userName = response.name;
-      console.log(userName);
-      user.set("username", userName); 
-      var userFbID = response.id;
-      console.log(userFbID);
-      user.set("fbID", userFbID); 
-      user.save(null, {
-        success: function(user) {
-
-        },
-        error: function(user, error) {
-          console.log("Oops, something went wrong saving your name.");
-        }
-      });
-
-    } 
-    else {
-      console.log("Oops something went wrong with facebook.");
-    }
-  });
-
-}
-
-//how can I fire this on the right page??
-
-function getPhoto()
-{
-  FB.api('/me/picture?type=normal', function(response) {
-
-    var str= response.data.url;
-    console.log(str);
-
-    user.set("userPic", str);
-
-    var userPic = user.get("userPic");
-    console.log(userPic);
-    user.save(null, {
-      success: function(user) {
-
-      },
-      error: function(user, error) {
-        console.log("Oops, something went wrong saving your name.");
-      }
-    });
-
-  });
-
-} 
 
 // Got the array of their facebook friends, need to save as an array
 
@@ -142,79 +87,113 @@ function getFriends() {
 
 function initiateFBLogin() {
 
+  var user = Parse.User.current();
+
   Parse.FacebookUtils.logIn(null, {
     success: function(user) {
-      if (!user.existed())
-      {
-        setKPUserName();
-     // getFriends();
-         getPhoto();
-        
-       
-    
 
-      //other function which has a tour
-      console.log("User signed up and logged in through Facebook!");
-      
-            // If it's an existing user that was logged in, we welcome them back
-          }
+      function setKPUserName() {
+        FB.api('/me', function(response) {
+          if (!response.error) {
+            var userName = response.name;
+            console.log(userName);
+            user.set("username", userName); 
+            var userFbID = response.id;
+            console.log(userFbID);
+            user.set("fbID", userFbID); 
+            user.save(null, {
+              success: function(user) {
+
+              },
+              error: function(user, error) {
+                console.log("Oops, something went wrong saving your name.");
+              }
+            });
+
+          } 
           else {
-           //setKPUserName();
-           //getFriends();
-           //getPhoto();
-       
-           console.log("User logged in through Facebook!");
+            console.log("Oops something went wrong with facebook.");
+          }
+        });
 
-         }
-       },
+      }//set name
 
-       error: function(user, error) {
-         console.log("User cancelled the Facebook login or did not fully authorize."); }
+      function getPhoto(){
+        FB.api('/me/picture?type=normal', function(response) {
 
-       });
+          var str= response.data.url;
+          console.log(str);
+
+          user.set("userPic", str);
+
+          var userPic = user.get("userPic");
+          console.log(userPic);
+          user.save(null, {
+            success: function(user) {
+
+            },
+            error: function(user, error) {
+              console.log("Oops, something went wrong saving your name.");
+            }
+          });
+        });
+
+      } //get photo
+
+      if (!user.existed()) {
+        console.log(user.id);
+        setKPUserName();
+        getPhoto(); 
+        console.log("User signed up and logged in through Facebook!");
+      }
+
+      else {
+        console.log(user.id);
+        setKPUserName();
+        getPhoto();
+        console.log("User logged in through Facebook!");
+      }
+    },
+
+    error: function(user, error) {
+     console.log("User cancelled the Facebook login or did not fully authorize."); }
+
+   });
 
 
 //prompt for login if not connected
 
-// Here we subscribe to the auth.authResponseChange JavaScript event. This event is fired
-  // for any authentication related change, such as login, logout or session refresh. This means that
-  // whenever someone who was previously logged out tries to log in again, the correct case below 
-  // will be handled. 
-  FB.Event.subscribe('auth.authResponseChange', function(response) {
+
+FB.Event.subscribe('auth.authResponseChange', function(response) {
     // Here we specify what we do with the response anytime this event occurs. 
     if (response.status === 'connected') {
-      // The response object is returned with a status field that lets the app know the current
-      // login status of the person. In this case, we're handling the situation where they 
-      // have logged in to the app.
+      console.log(response.status);
+      user = Parse.User.current();
 
+      //This is very strange, but if i dont have these tests the redirect will happen without the user being recognized as a parse currrent user
+      //with them it keeps looping through until the user is set
+
+      var testy3 = user.id;
+      console.log(testy3);
       var testy = user.get("username");
       console.log(testy);
-      
 
-      redirect();
 
-      
-    } else if (response.status === 'not_authorized') {
-      // In this case, the person is logged into Facebook, but not into the app, so we call
-      // FB.login() to prompt them to do so. 
-      // In real-life usage, you wouldn't want to immediately prompt someone to login 
-      // like this, for two reasons:
-      // (1) JavaScript created popup windows are blocked by most browsers unless they 
-      // result from direct interaction from people using the app (such as a mouse click)
-      // (2) it is a bad experience to be continually prompted to login upon page load.
-      Parse.FacebookUtils.login();
-        location.reload(true);
-    } else {
-      // In this case, the person is not logged into Facebook, so we call the login() 
-      // function to prompt them to do so. Note that at this stage there is no indication
-      // of whether they are logged into the app. If they aren't then they'll see the Login
-      // dialog right after they log in to Facebook. 
-      // The same caveats as above apply to the FB.login() call here.
-      Parse.FacebookUtils.login();
-        location.reload(true);
-    }
-  });
+     redirect();
 
+    } 
+    else if (response.status === 'not_authorized') {
+       console.log(response.status);
+    Parse.FacebookUtils.login();
+        //location.reload(true);
+      } 
+
+    else {
+       console.log(response.status);
+    Parse.FacebookUtils.login();
+        //location.reload(true);
+      }
+    });
 
 
 }//initiate FB login
@@ -232,30 +211,130 @@ function redirect2()
 }
 
 
-
 $("#fb_login_button").click(function(){
-
  initiateFBLogin();
 
  //redirect();
 
-// setTimeout('Redirect()', 10000);
-
-/*, function(){
-  redirect();
-  setTimeout('Redirect()', 50000);
-}*/
-
 });
+
+
+
+//want to recalc karma points balance on logout rather than login
 
 $("#logout_button").click(function(){
   Parse.User.logOut();
 
-
 }, function(){
-  redirect2();
-});
+  function refreshKarmaPoints () {
 
+  //find total answers given
+
+  //reset to 0
+
+  //answersGivenBalance = 0;
+  //user.set("answersGivenBalance",answersGivenBalance);
+  //user.save();
+  user = Parse.User.current();
+
+  var QueryAnswer = Parse.Object.extend("QueryAnswer");
+  query = new Parse.Query(QueryAnswer);
+  query.equalTo("answerer", user);
+
+  query.find({
+    success: function(results) {
+      console.log(results.length);
+      answersGivenBalance = results.length;
+      console.log(answersGivenBalance);
+      user.set("answersGivenBalance", answersGivenBalance);
+      user.save();
+
+      var toast8 = user.get("answersGivenBalance");
+      console.log(toast8);
+
+
+       //find total answers recieved by returning all query id's asked by user
+
+  //reset answersGottenBalance to 0 
+  answersGottenBalance = 0;
+  user.set("answersGottenBalance",answersGottenBalance);
+  user.save();
+
+  var KarmaQuery = Parse.Object.extend("KarmaQuery");
+  query1 = new Parse.Query(KarmaQuery);
+
+  query1.equalTo("asker", user);
+
+  query1.find({
+    success: function(results1) {
+      console.log(results1.length);
+
+      Y.Array.each(results1, function(val, i, arr) {
+        var answersGotten = val.get("responderCount");
+        answersGottenBalance += answersGotten;
+        user.set("answersGottenBalance", answersGottenBalance);
+        user.save();
+        console.log(answersGottenBalance);
+
+          //get friends invited balance (function to be written)
+
+          friendsInvitedBalance = 0;
+
+          user.set("friendsInvitedBalance", friendsInvitedBalance);
+          user.save();
+
+          var toast = user.get("answersGottenBalance");
+          console.log(toast);
+
+
+
+        });
+
+        },//success
+
+        error: function(error) {
+          alert("Error: " + error.code + " " + error.message);
+
+        }
+
+      });//find
+},
+
+error: function(error) {
+  alert("Error: " + error.code + " " + error.message);
+}
+
+  })//answers given
+
+var toast = user.get("answersGottenBalance");
+console.log(toast);
+
+var toast2 = user.get("friendsInvitedBalance");
+console.log(toast2);
+
+var toast3 = user.get("answersGivenBalance");
+console.log(toast3);
+
+var karmaPointsBalance = toast3 + toast2 - toast;
+
+user.set("karmaPointsBalance", karmaPointsBalance);
+user.save();
+console.log(karmaPointsBalance);
+
+          //display the karma points balance on the two scoreboard areas (screen and mobile)  
+
+          $(".row.scoreboard .scoreboard .karma_points_display")
+          .html("<span class='badge'>"+karmaPointsBalance+"</span>");
+
+          $(".top-navbar-icon.karma-points .badge")
+          .html("<span class='badge'>"+karmaPointsBalance+"</span>");
+
+
+}//get karmapoints balance
+
+refreshKarmaPoints();   
+redirect2();
+});
 
 
 //allow the user to change the privacy level of the question via the button

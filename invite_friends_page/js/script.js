@@ -88,19 +88,16 @@ YUI().use('node', function (Y) {
   						
   					}
 
-
-
   				},
   				error: function(object, error) {
   					//alert("Error when checking for friend ID: " + error.code + " " + error.message);
   				}
   		});//find
 
-
-
   	}//check if user exists
 
   	checkIfUserExists();
+
 
  }//for
 
@@ -108,7 +105,8 @@ YUI().use('node', function (Y) {
 
   }//populate friend list
 
-  populateFriendList();
+   populateFriendList();
+
 
 });//node
 
