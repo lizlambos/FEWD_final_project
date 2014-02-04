@@ -12,6 +12,11 @@ $(document).ready(function(){
 		allKPActiveQueryList = Y.one('#allKP_active_queries_list');
 		QueryContainer = Y.one(".content_component_container");
 
+    //var karmaPointsBalance = 0;
+    //var friendsInvitedBalance = 0;
+    //var answersGivenBalance = 0;
+    //var answersGottenBalance = 0;
+
 		Parse.$ = jQuery;
 
 		Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL");   
@@ -89,8 +94,6 @@ console.log(toast8);
 
           var toast = user.get("answersGottenBalance");
           console.log(toast);
-
-
 
         });
 

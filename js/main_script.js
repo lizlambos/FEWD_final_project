@@ -25,10 +25,7 @@ YUI().use('node', function (Y) {
   var questionText = "default";
   var privacyLevel = "default";
   var timeStamp = "default";
-    //var karmaPointsBalance = 0;
-    //var friendsInvitedBalance = 0;
-    //var answersGivenBalance = 0;
-    //var answersGottenBalance = 0;
+
 
     //FROM ME PAGE
 
@@ -144,6 +141,11 @@ function initiateFBLogin() {
         console.log(user.id);
         setKPUserName();
         getPhoto(); 
+        user.set("karmaPointsBalance",0);
+        user.set("answersGivenBalance",0);
+        user.set("answersGottenBalance",0);
+        user.set("friendsInvitedBalance",0);
+        user.save();
         console.log("User signed up and logged in through Facebook!");
       }
 
@@ -226,113 +228,7 @@ $("#logout_button").click(function(){
   Parse.User.logOut();
 
 }, function(){
-  function refreshKarmaPoints () {
-
-  //find total answers given
-
-  //reset to 0
-
-  //answersGivenBalance = 0;
-  //user.set("answersGivenBalance",answersGivenBalance);
-  //user.save();
-  user = Parse.User.current();
-
-  var QueryAnswer = Parse.Object.extend("QueryAnswer");
-  query = new Parse.Query(QueryAnswer);
-  query.equalTo("answerer", user);
-
-  query.find({
-    success: function(results) {
-      console.log(results.length);
-      answersGivenBalance = results.length;
-      console.log(answersGivenBalance);
-      user.set("answersGivenBalance", answersGivenBalance);
-      user.save();
-
-      var toast8 = user.get("answersGivenBalance");
-      console.log(toast8);
-
-
-       //find total answers recieved by returning all query id's asked by user
-
-  //reset answersGottenBalance to 0 
-  answersGottenBalance = 0;
-  user.set("answersGottenBalance",answersGottenBalance);
-  user.save();
-
-  var KarmaQuery = Parse.Object.extend("KarmaQuery");
-  query1 = new Parse.Query(KarmaQuery);
-
-  query1.equalTo("asker", user);
-
-  query1.find({
-    success: function(results1) {
-      console.log(results1.length);
-
-      Y.Array.each(results1, function(val, i, arr) {
-        var answersGotten = val.get("responderCount");
-        answersGottenBalance += answersGotten;
-        user.set("answersGottenBalance", answersGottenBalance);
-        user.save();
-        console.log(answersGottenBalance);
-
-          //get friends invited balance (function to be written)
-
-          friendsInvitedBalance = 0;
-
-          user.set("friendsInvitedBalance", friendsInvitedBalance);
-          user.save();
-
-          var toast = user.get("answersGottenBalance");
-          console.log(toast);
-
-
-
-        });
-
-        },//success
-
-        error: function(error) {
-          alert("Error: " + error.code + " " + error.message);
-
-        }
-
-      });//find
-},
-
-error: function(error) {
-  alert("Error: " + error.code + " " + error.message);
-}
-
-  })//answers given
-
-var toast = user.get("answersGottenBalance");
-console.log(toast);
-
-var toast2 = user.get("friendsInvitedBalance");
-console.log(toast2);
-
-var toast3 = user.get("answersGivenBalance");
-console.log(toast3);
-
-var karmaPointsBalance = toast3 + toast2 - toast;
-
-user.set("karmaPointsBalance", karmaPointsBalance);
-user.save();
-console.log(karmaPointsBalance);
-
-          //display the karma points balance on the two scoreboard areas (screen and mobile)  
-
-          $(".row.scoreboard .scoreboard .karma_points_display")
-          .html("<span class='badge'>"+karmaPointsBalance+"</span>");
-
-          $(".top-navbar-icon.karma-points .badge")
-          .html("<span class='badge'>"+karmaPointsBalance+"</span>");
-
-
-}//get karmapoints balance
-
-refreshKarmaPoints();   
+  
 redirect2();
 });
 
