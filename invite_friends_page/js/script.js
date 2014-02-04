@@ -19,6 +19,7 @@ YUI().use('node', function (Y) {
 
   function populateFriendList () {
 
+
   	FB.api('/me/friends', { fields : 'id, name, picture, email'
   }, function(response) { 
   	var FBArray = response.data;
@@ -103,9 +104,13 @@ YUI().use('node', function (Y) {
 
 });//fb api
 
+ 
   }//populate friend list
 
+   
    populateFriendList();
+
+
 
 
 });//node

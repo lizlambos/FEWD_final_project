@@ -181,7 +181,7 @@ FB.Event.subscribe('auth.authResponseChange', function(response) {
       console.log(testy);
 
 
-     redirect();
+     //redirect();
 
     } 
     else if (response.status === 'not_authorized') {

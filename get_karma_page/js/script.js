@@ -17,12 +17,12 @@ $(document).ready(function(){
     //var answersGivenBalance = 0;
     //var answersGottenBalance = 0;
 
-		Parse.$ = jQuery;
+    Parse.$ = jQuery;
 
-		Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL");   
+    Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL");   
 
-		var user = Parse.User.current();
-		console.log(user);
+    var user = Parse.User.current();
+    console.log(user);
 
     user.fetch();
 
@@ -35,41 +35,35 @@ $(document).ready(function(){
     var karmaPointsBalance = user.get("karmaPointsBalance");
     console.log(karmaPointsBalance);
 
+    //refresh the user's Karma points balance by re-running queries
+
     function refreshKarmaPoints () {
 
-  //find total answers given
+      // query answers to get answers given
 
-  //reset to 0
+      var QueryAnswer = Parse.Object.extend("QueryAnswer");
+      query = new Parse.Query(QueryAnswer);
+      query.equalTo("answerer", user);
 
-  //answersGivenBalance = 0;
-  //user.set("answersGivenBalance",answersGivenBalance);
-  //user.save();
+      query.find({
+        success: function(results) {
+          console.log(results.length);
+          answersGivenBalance = results.length;
+          console.log(answersGivenBalance);
+          user.set("answersGivenBalance", answersGivenBalance);
+          user.save();
 
-  var QueryAnswer = Parse.Object.extend("QueryAnswer");
-  query = new Parse.Query(QueryAnswer);
-  query.equalTo("answerer", user);
-
-  query.find({
-    success: function(results) {
-      console.log(results.length);
-      answersGivenBalance = results.length;
-      console.log(answersGivenBalance);
-      user.set("answersGivenBalance", answersGivenBalance);
-      user.save();
-
-      var toast8 = user.get("answersGivenBalance");
-console.log(toast8);
+          var toast8 = user.get("answersGivenBalance");
+          console.log(toast8);
 
 
-       //find total answers recieved by returning all query id's asked by user
+  //find total answers recieved by returning all query id's asked by user
 
-  //reset answersGottenBalance to 0 
+  //reset answersGotten calculator placeholder to 0 
   answersGottenCalc = 0;
-  //user.set("answersGottenBalance",answersGottenBalance);
-  //user.save();
 
-  user.fetch();
   var KarmaQuery = Parse.Object.extend("KarmaQuery");
+
   query1 = new Parse.Query(KarmaQuery);
 
   query1.equalTo("asker", user);
@@ -158,7 +152,7 @@ function loadFriendQueries(contentColumn){
   faQuery.ascending("createdAt");
 
   var myActiveQueries = faQuery.collection();
-  console.log(myActiveQueries);
+  //console.log(myActiveQueries);
 
   faQuery.find({
    success: function(results) {
@@ -174,7 +168,7 @@ function loadFriendQueries(contentColumn){
   //Append each of the active queries to the active queries list
   Y.Array.each(results, function(val, i, arr) {
   	asker = val.get('asker');
-  	console.log(asker);
+  	//console.log(asker);
   	askerID = asker.id;
   	console.log(askerID);
   	askerName = val.get('askerName');
@@ -187,7 +181,7 @@ function getAskerPic() {
  query.get(askerID, {
   success: function(item) {
    askerPic = item.get('userPic');
-   console.log(askerPic);
+   //console.log(askerPic);
 
          //screen by privacy level 
 
@@ -202,7 +196,7 @@ function getAskerPic() {
             id: val.id,
             privacylevel: "",
             askerID: askerID,
-            askerPicURL: askerPic,
+            askerPicURL: askerPic
     				//karmaPointsBal: karmaPointsBalance
 
     			});
@@ -222,6 +216,7 @@ function getAskerPic() {
             "/{"+askerFbID+"}/friends/{"+userFbID+"}",
             function (response) {
               if (response && !response.error) {
+                console.log(response);
                 var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
                   queryText: val.get('text'),
                   timeStamp: val.get('timeStamp'),
@@ -229,7 +224,7 @@ function getAskerPic() {
                   id: val.id,
                   privacylevel: "",
                   askerID: askerID,
-                  askerPicURL: askerPic,
+                  askerPicURL: askerPic
             //karmaPointsBal: karmaPointsBalance
 
           });
@@ -238,6 +233,7 @@ function getAskerPic() {
 
               }
               else {
+                console.log(response);
 
                 var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
                   queryText: val.get('text'),
@@ -246,7 +242,7 @@ function getAskerPic() {
                   id: val.id,
                   privacylevel: "hidden",
                   askerID: askerID,
-                  askerPicURL: askerPic,
+                  askerPicURL: askerPic
             //karmaPointsBal: karmaPointsBalance
 
           });
@@ -293,31 +289,8 @@ function updateAnswererKarmaPoints() {
 
   user.fetch();
 
-  var toast7 = user.get("answersGivenBalance");
-  console.log(toast7);
+  refreshKarmaPoints();   
 
-  user.set("answersGivenBalance",user.get("answersGivenBalance")+1)
-  user.save();
-
-  var toast4 = user.get("answersGottenBalance");
-  console.log(toast4);
-
-  var toast5 = user.get("friendsInvitedBalance");
-  console.log(toast5);
-
-  var toast6 = user.get("answersGivenBalance");
-  console.log(toast6);
-
-  var karmaPointsBalance = toast6 + toast5 - toast4;
-  user.set("karmaPointsBalance", karmaPointsBalance);
-  user.save();
-
-
-  $(".row.scoreboard .scoreboard .karma_points_display")
-  .html("<span class='badge'>"+karmaPointsBalance+"</span>");
-
-  $(".top-navbar-icon.karma-points .badge")
-  .html(karmaPointsBalance);
 
 
 
@@ -341,6 +314,7 @@ $("#allKP_active_queries_list").on("mouseenter",".answers .btn", function(){
 
     	getAnswersQuery.get(queryID, {
     		success: function(item) {
+          item.fetch();
     			noAnswers = item.get('noResponderCount');
     			yesAnswers = item.get('yesResponderCount');
     			var totalAnswers = noAnswers + yesAnswers;
@@ -462,9 +436,10 @@ function updateAskerKarmaPoints () {
 
 
 updateAnswererKarmaPoints();
-  updateAskerKarmaPoints(); //DOES NOT WORK
+updateAskerKarmaPoints(); //DOES NOT WORK
 
   }//answer questions
+
   setQueryAnswer();
 
 
