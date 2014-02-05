@@ -1,30 +1,5 @@
 $(function(){
 
-
-  //initialize parse//
-
-  Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL"); 
-
-     // Load the SDK asynchronously
-     (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "http://connect.facebook.net/en_US/all.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-
-     window.fbAsyncInit = function() {
-
-      // init the FB JS SDK
-      Parse.FacebookUtils.init({
-      appId      : '254848478004741', // Facebook App ID
-      channelUrl : 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/channel.html', // Channel File
-      status     : true, // check login status
-      cookie     : true, // enable cookies to allow Parse to access the session
-      xfbml      : true  // parse XFBML
-      });
-
 //INITIALIZE NODE
 
 YUI().use('node', function (Y) {
@@ -121,6 +96,7 @@ function initiateFBLogin() {
             console.log(userName);
             user.set("username", userName); 
             var userFbID = response.id;
+            console.log(typeof userFbID);
             console.log(userFbID);
             user.set("fbID", userFbID); 
             user.save(null, {
@@ -206,7 +182,7 @@ FB.Event.subscribe('auth.authResponseChange', function(response) {
       console.log(testy);
 
 
-     redirect();
+     //redirect();
 
     } 
     else if (response.status === 'not_authorized') {
@@ -326,7 +302,5 @@ $("#active_past_queries_list, #private_past_queries_list").on("click",".privacy-
 
 
 });//node
-
-}//fb asynch init
 
 });//document ready

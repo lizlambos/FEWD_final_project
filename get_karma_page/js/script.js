@@ -23,6 +23,8 @@ $(document).ready(function(){
 
     var user = Parse.User.current();
     console.log(user);
+    var toad = user.get('fbID');
+    console.log(toad);
 
     user.fetch();
 
@@ -213,7 +215,7 @@ function getAskerPic() {
           console.log(userFbID);
 
           FB.api(
-            "/{"+askerFbID+"}/friends/{"+userFbID+"}",
+            '/{'+askerFbID+'}/friends/{'+userFbID+'}',
             function (response) {
               if (response && !response.error) {
                 console.log(response);
@@ -232,7 +234,7 @@ function getAskerPic() {
                 contentColumn.prepend(content);
 
               }
-              else {
+              else if (!response.error) {
                 console.log(response);
 
                 var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
@@ -251,7 +253,11 @@ function getAskerPic() {
 
           contentColumn.prepend(content);
 
-        }//else
+        }//else if
+
+        else {
+          console.log("facebook graph api not saying if friends");
+        }
 
       }//function response
       );//fb api
