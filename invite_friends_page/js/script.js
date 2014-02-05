@@ -21,7 +21,12 @@ YUI().use('node', function (Y) {
 
   function populateFriendList () {
 
+<<<<<<< HEAD
     FB.api('/me/friends', { fields : 'id, name, picture, email'
+=======
+
+  	FB.api('/me/friends', { fields : 'id, name, picture, email'
+>>>>>>> 75e7618abfc8386cc6e3b4b732a10b82b01d9f41
   }, function(response) { 
     if (!response.error) {
      var FBArray = response.data;
@@ -112,11 +117,21 @@ else {
 
 });//fb api
 
+<<<<<<< HEAD
 
   }//populate friend list
 
 
   populateFriendList();
+
+
+=======
+ 
+  }//populate friend list
+
+   
+   populateFriendList();
+>>>>>>> 75e7618abfc8386cc6e3b4b732a10b82b01d9f41
 
 
 
