@@ -58,6 +58,8 @@ YUI().use('node', function (Y) {
       friend = response.data[i];
       fbFriendName = friend.name;
       friendID = friend.id;
+      friendEmail = friend.email;
+      console.log(friendEmail);
       console.log(fbFriendName);
       friendPicLink = friend.picture.data.url;
       //var friendExists = 0;

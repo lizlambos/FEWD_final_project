@@ -67,28 +67,19 @@ displayKarmaPoints();
 
     //load the array of recent active and private queries for the user
 
-    function loadMyQueries (queryList, privacylevel1, privacylevel2) {
+    function loadMyActiveQueries (queryList) {
 
     	KarmaQuery = Parse.Object.extend("KarmaQuery");
 
-    	var query1 = new Parse.Query(KarmaQuery);
-    	query1.equalTo('privacylevel', privacylevel1);
-      query1.ascending("createdAt");
-
-    	var query2 = new Parse.Query(KarmaQuery);
-    	query2.equalTo('privacylevel', privacylevel2);
-      query2.ascending("createdAt");
-
-    	var mainQuery = Parse.Query.or(query1, query2);
+    	var query = new Parse.Query(KarmaQuery);
+    	query.notEqualTo('privacylevel', "Private");
+      query.equalTo("asker", user);
+      query.ascending("createdAt");
 
 
-    	mainQuery.equalTo("asker", user);
-      mainQuery.ascending("createdAt");
-
-    	mainQuery.find({
+    	query.find({
     		success: function(results) {
     			console.log(results.length);
-
 
 
       //Append each of the active queries to the active queries list
@@ -245,13 +236,187 @@ error: function(object, error) {
 
 });// active query find function
 
-$("#private_past_queries_list").addClass("hidden");
+//$("#private_past_queries_list").addClass("hidden");
 
 
-}//loadMyQueries
+}//loadMyActiveQueries
 
-loadMyQueries(activeQueryList, "All KP", "FB Friends");
-loadMyQueries(privateQueryList, "Private", "Private");
+function loadMyPrivateQueries (queryList) {
+
+      KarmaQuery = Parse.Object.extend("KarmaQuery");
+
+      var query = new Parse.Query(KarmaQuery);
+      query.equalTo('privacylevel', "Private");
+      query.equalTo("asker", user);
+      query.ascending("createdAt");
+
+
+      query.find({
+        success: function(results) {
+          console.log(results.length);
+
+
+      //Append each of the active queries to the active queries list
+      Y.Array.each(results, function(val, i, arr) {
+
+        var activeSetter1 = "";
+        var activeSetter2 = ""; 
+        var activeSetter3 = ""; 
+
+        function setPrivacyLevelButtons () {
+
+          var tester = val.get("privacylevel");
+          console.log(tester);  
+          if (tester == "All KP") {
+            activeSetter1 = "active";
+            activeSetter2 = ""; 
+            activeSetter3 = ""; 
+
+          }
+
+          else if (tester == "FB Friends") {
+            activeSetter1 = "";
+            activeSetter2 = "active"; 
+            activeSetter3 = ""; 
+          }
+
+          else {
+            activeSetter1 = "";
+            activeSetter2 = ""; 
+            activeSetter3 = "active"; 
+          }
+        };
+
+        setPrivacyLevelButtons();
+
+//retrieve the answers for each query and the rest of hte content
+
+function getQueryAnswers (queryList) { 
+
+  var QueryAnswer = Parse.Object.extend("QueryAnswer");
+
+  yesQuery = new Parse.Query(QueryAnswer);
+  yesQuery.equalTo("queryID",val.id);
+  yesQuery.equalTo("answer", "yes");
+
+  yesQuery.find({
+    success: function(yesResults) {
+      var yesResponderCount = yesResults.length;
+      console.log(yesResults.length);
+
+                //assign the relevant query the attribute yesresponder count
+
+                var KarmaQuery = Parse.Object.extend("KarmaQuery");
+
+                yQuery = new Parse.Query(KarmaQuery);
+                yQuery.get(val.id, {
+                  success: function(item) {
+                    item.set('yesResponderCount', yesResponderCount);
+                    item.save();
+
+                  },
+                  error: function(object, error) {
+                    alert("Error when updating todo item: " + error.code + " " + error.message);
+                  }
+
+                 });//get function
+
+                noQuery = new Parse.Query(QueryAnswer);
+                noQuery.equalTo("queryID",val.id);
+                noQuery.equalTo("answer", "no");
+
+                noQuery.find({
+                  success: function(noResults) {
+                    var noResponderCount = noResults.length;
+                    var responderCount = yesResponderCount + noResponderCount;
+
+                    console.log(noResults.length);
+                    console.log(responderCount);
+                    console.log(yesResponderCount);
+                    console.log(noResponderCount);
+                    console.log(val.id);
+
+
+                    if (responderCount != 0) {
+
+                      var percentYesAnswers = Math.round(
+                        (yesResponderCount / responderCount)*100);
+
+                      var percentNoAnswers = Math.round(
+                        (noResponderCount / responderCount)*100);
+
+                      console.log(percentYesAnswers);
+                      console.log(percentNoAnswers);
+
+                    }
+
+                    else {
+                      var percentYesAnswers = 0;
+                      var percentNoAnswers = 0;
+                    }
+
+                    var KarmaQuery = Parse.Object.extend("KarmaQuery");
+
+                    nQuery = new Parse.Query(KarmaQuery);
+                    nQuery.get(val.id, {
+                     success: function(item) {
+                      item.set('noResponderCount', noResponderCount);
+                      item.set('responderCount', responderCount);
+                      item.save();
+
+                    },
+                    error: function(object, error) {
+                      alert("Error when updating todo item: " + error.code + " " + error.message);
+                    }
+
+                 });//get function
+
+                    var content = Y.Lang.sub(Y.one('#past_queries_section').getHTML(), {
+                     queryText: val.get('text'),
+                     timeStamp: val.get('timeStamp'),
+                     id: val.id,
+                     privacylevel: val.get('privacylevel'),
+                     active1: activeSetter1,
+                     active2: activeSetter2,
+                     active3: activeSetter3,
+                     percentYesAnswers: percentYesAnswers,
+                     percentNoAnswers: percentNoAnswers,
+                     responderCount: responderCount
+
+                   });
+
+                    queryList.prepend(content);
+                  },
+                  error: function(object, error) {
+                    alert("Error when updating todo item: " + error.code + " " + error.message);
+                  }
+
+      });//no find
+},
+error: function(object, error) {
+  alert("Error when updating todo item: " + error.code + " " + error.message);
+}
+
+      });//yes find
+
+  }//get active query answers
+
+  getQueryAnswers(queryList);
+  
+}); //y Array function
+
+},//success function
+
+
+});// active query find function
+
+//$("#private_past_queries_list").addClass("hidden");
+
+
+}//loadMyActiveQueries
+
+loadMyActiveQueries(activeQueryList);
+loadMyPrivateQueries(privateQueryList);
 
 
 /*
