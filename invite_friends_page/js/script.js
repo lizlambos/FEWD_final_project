@@ -1,18 +1,42 @@
 $(document).ready(function(){
 	
+  //initialize parse//
+
+  Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL"); 
+
+    // Load the SDK asynchronously
+    (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "http://connect.facebook.net/en_US/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+
+    window.fbAsyncInit = function() {
+
+      // init the FB JS SDK
+      Parse.FacebookUtils.init({
+      appId      : '254848478004741', // Facebook App ID
+      channelUrl : 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/channel.html', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow Parse to access the session
+      xfbml      : true  // parse XFBML
+    });
+
+     // $(document).ready(function(){
+  
 //INITIALIZE NODE
 
 YUI().use('node', function (Y) {
 
-	friendListColumn1 = Y.one("#fb-column1");
+  friendListColumn1 = Y.one("#fb-column1");
 
   //INITIALIZE PARSE  
 
   Parse.$ = jQuery;
-
-  Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX",
-  	"mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL");  
-
 
   user = Parse.User.current();
   console.log(user);
@@ -21,16 +45,11 @@ YUI().use('node', function (Y) {
 
   function populateFriendList () {
 
-<<<<<<< HEAD
     FB.api('/me/friends', { fields : 'id, name, picture, email'
-=======
-
-  	FB.api('/me/friends', { fields : 'id, name, picture, email'
->>>>>>> 75e7618abfc8386cc6e3b4b732a10b82b01d9f41
   }, function(response) { 
     if (!response.error) {
      var FBArray = response.data;
-     console.log(FBArray);	
+     console.log(FBArray);  
      var numFriends = FBArray.length;
      console.log(numFriends);
 
@@ -41,70 +60,70 @@ YUI().use('node', function (Y) {
       friendID = friend.id;
       console.log(fbFriendName);
       friendPicLink = friend.picture.data.url;
-  		//var friendExists = 0;
+      //var friendExists = 0;
 
-  		
-  		//check if friend is an existing user of KarmaPolice
-  		function checkIfUserExists () {
+      
+      //check if friend is an existing user of KarmaPolice
+      function checkIfUserExists () {
 
-  			console.log(friendID);
-  			console.log(fbFriendName);
+        console.log(friendID);
+        console.log(fbFriendName);
 
-  			var queryID = friendID;
-  			var queryName = fbFriendName;
-  			var friendPicURL = friendPicLink;
+        var queryID = friendID;
+        var queryName = fbFriendName;
+        var friendPicURL = friendPicLink;
 
-  			var userQuery = new Parse.Query(Parse.User);
-  			userQuery.equalTo("fbID", queryID);
-  			userQuery.find({
-  				success: function(results) {
-  					var friendExists = results.length;
-  					console.log(queryID);
-  					console.log(friendExists);
-  					console.log(queryName);
-  					var visibleState = "";
+        var userQuery = new Parse.Query(Parse.User);
+        userQuery.equalTo("fbID", queryID);
+        userQuery.find({
+          success: function(results) {
+            var friendExists = results.length;
+            console.log(queryID);
+            console.log(friendExists);
+            console.log(queryName);
+            var visibleState = "";
 
-  					if (friendExists != 0) {
-  						visibleState = "hidden";
-  						console.log(visibleState);
-  						var content = Y.Lang.sub
-  						(Y.one('#fb_friends_invite_list').getHTML(), {
-  							id: queryID,
-  							friendName: queryName,
-  							friendPicURL: friendPicURL,
-  							visibleState: visibleState
+            if (friendExists != 0) {
+              visibleState = "hidden";
+              console.log(visibleState);
+              var content = Y.Lang.sub
+              (Y.one('#fb_friends_invite_list').getHTML(), {
+                id: queryID,
+                friendName: queryName,
+                friendPicURL: friendPicURL,
+                visibleState: visibleState
 
-  				});//content
+          });//content
 
-  						friendListColumn1.prepend(content);
-  						
+              friendListColumn1.prepend(content);
+              
 
-  					}
-  					else {
-  						visibleState = "monkey";
-  						console.log(visibleState);
-  						var content = Y.Lang.sub
-  						(Y.one('#fb_friends_invite_list').getHTML(), {
-  							id: queryID,
-  							friendName: queryName,
-  							friendPicURL: friendPicURL,
-  							visibleState: visibleState
+            }
+            else {
+              visibleState = "monkey";
+              console.log(visibleState);
+              var content = Y.Lang.sub
+              (Y.one('#fb_friends_invite_list').getHTML(), {
+                id: queryID,
+                friendName: queryName,
+                friendPicURL: friendPicURL,
+                visibleState: visibleState
 
-  				});//content
+          });//content
 
-  						friendListColumn1.prepend(content);
-  						
-  					}
+              friendListColumn1.prepend(content);
+              
+            }
 
-  				},
-  				error: function(object, error) {
-  					//alert("Error when checking for friend ID: " + error.code + " " + error.message);
-  				}
-  		});//find
+          },
+          error: function(object, error) {
+            //alert("Error when checking for friend ID: " + error.code + " " + error.message);
+          }
+      });//find
 
-  	}//check if user exists
+    }//check if user exists
 
-  	checkIfUserExists();
+    checkIfUserExists();
 
 
  }//for
@@ -117,7 +136,6 @@ else {
 
 });//fb api
 
-<<<<<<< HEAD
 
   }//populate friend list
 
@@ -125,17 +143,10 @@ else {
   populateFriendList();
 
 
-=======
- 
-  }//populate friend list
-
-   
-   populateFriendList();
->>>>>>> 75e7618abfc8386cc6e3b4b732a10b82b01d9f41
-
-
-
-
 });//node
+
+//});//document ready
+
+    }
 
 });//document ready
