@@ -35,7 +35,7 @@ $(document).ready(function(){
     //refresh the user's Karma points balance by re-running queries
 
       // Load the SDK asynchronously
-     (function(d, s, id){
+      (function(d, s, id){
        var js, fjs = d.getElementsByTagName(s)[0];
        if (d.getElementById(id)) {return;}
        js = d.createElement(s); js.id = id;
@@ -43,7 +43,7 @@ $(document).ready(function(){
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
 
-     window.fbAsyncInit = function() {
+      window.fbAsyncInit = function() {
 
       // init the FB JS SDK
       Parse.FacebookUtils.init({
@@ -54,7 +54,7 @@ $(document).ready(function(){
       xfbml      : true  // parse XFBML
     });
 
-    function refreshKarmaPoints () {
+      function refreshKarmaPoints () {
 
       // query answers to get answers given
 
@@ -229,9 +229,60 @@ function getAskerPic() {
           var userFbID = user.get('fbID');
           console.log(userFbID);
 
-          var searchString = "/{"+askerFbID+"}/friends/{"+userFbID+"}";
-          console.log(searchString);
+          var userFriendsArray = user.get('fbFriends');
+          console.log(userFriendsArray);
 
+          function findFriendMatch(friendFbId){
+            return $.grep(userFriendsArray, function(n, i){
+                return n.id == friendFbId;
+              });
+            };
+
+          findFriendMatch(askerFbID);  
+
+          if (findFriendMatch(askerFbID) != "") {
+            console.log("friends");
+            var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
+              queryText: val.get('text'),
+              timeStamp: val.get('timeStamp'),
+              askerName: val.get('askerName'),
+              id: val.id,
+              privacylevel: "",
+              askerID: askerID,
+              askerPicURL: askerPic
+            //karmaPointsBal: karmaPointsBalance
+
+          });
+
+            contentColumn.prepend(content);
+
+          }
+
+          else {
+
+           console.log("not Friends");
+
+           var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
+            queryText: val.get('text'),
+            timeStamp: val.get('timeStamp'),
+            askerName: val.get('askerName'),
+            id: val.id,
+            privacylevel: "hidden",
+            askerID: askerID,
+            askerPicURL: askerPic
+            //karmaPointsBal: karmaPointsBalance
+
+          });
+
+          //filter by privacy level
+
+          contentColumn.prepend(content);
+
+
+
+        }
+
+          /*
 
           FB.api("/{"+askerFbID+"}/friends/{"+userFbID+"}",
            function(response) {
@@ -281,6 +332,8 @@ function getAskerPic() {
 
       }//function response
       );//fb api
+
+*/
 
         }//else
 
@@ -341,9 +394,9 @@ $("#allKP_active_queries_list").on("mouseenter",".answers .btn", function(){
     	getAnswersQuery.get(queryID, {
     		success: function(item) {
           item.fetch();
-    			noAnswers = item.get('noResponderCount');
-    			yesAnswers = item.get('yesResponderCount');
-    			var totalAnswers = noAnswers + yesAnswers;
+          noAnswers = item.get('noResponderCount');
+          yesAnswers = item.get('yesResponderCount');
+          var totalAnswers = noAnswers + yesAnswers;
           //console.log(totalAnswers);
           responders = item.get('responderCount');
           //console.log(responders);
