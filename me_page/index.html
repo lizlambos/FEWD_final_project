@@ -57,8 +57,17 @@
       xfbml      : true  // parse XFBML
     });
 
-    }
+      FB.api("/me/friends/{735635555}",
+           function(response) {
+            if (response && !response.error) {
+                console.log(response);
+           
 
+              }
+      
+
+    });
+    }
 
 
     </script>

@@ -59,25 +59,6 @@ YUI().use('node', function (Y) {
 // Got the array of their facebook friends, need to save as an array
 
 
-function getFriends() {
-  FB.api('/me/friends', function(response) {
-    if(response.data) {
-     var friendsArray = response.data; 
-     console.log(friendsArray);
-
-     user.set("fbFriends", friendsArray);
-
-     var currUserFriends = user.get("fbFriends");
-     console.log(currUserFriends);
-     $.each(response.data,function(index,friend) {
-      //console.log(friend.name + ' has id:' + friend.id);
-
-    });
-   } else {
-    console.log("Error!");
-  }
-});
-}
 
 
 //LOGIN FUNCTION - TO BE FIXED 
@@ -86,7 +67,7 @@ function initiateFBLogin() {
 
   var user = Parse.User.current();
 
-  Parse.FacebookUtils.logIn(null, {
+  Parse.FacebookUtils.logIn("user_friends,email", {
     success: function(user) {
 
       function setKPUserName() {
@@ -98,6 +79,9 @@ function initiateFBLogin() {
             var userFbID = response.id;
             console.log(typeof userFbID);
             console.log(userFbID);
+            var userEmail = response.email;
+            console.log(userEmail);
+            user.set("email", userEmail);
             user.set("fbID", userFbID); 
             user.save(null, {
               success: function(user) {
@@ -138,30 +122,56 @@ function initiateFBLogin() {
 
       } //get photo
 
-      if (!user.existed()) {
-        console.log(user.id);
-        setKPUserName();
-        getPhoto(); 
-        user.set("karmaPointsBalance",0);
-        user.set("answersGivenBalance",0);
-        user.set("answersGottenBalance",0);
-        user.set("friendsInvitedBalance",0);
-        user.save();
-        console.log("User signed up and logged in through Facebook!");
-      }
 
-      else {
-        console.log(user.id);
-        setKPUserName();
-        getPhoto();
-        console.log("User logged in through Facebook!");
-      }
-    },
+      function getFriends() {
+        FB.api('/me/friends', function(response) {
+          if(response.data) {
+           var friendsArray = response.data; 
+           console.log(friendsArray);
 
-    error: function(user, error) {
-     console.log("User cancelled the Facebook login or did not fully authorize."); }
+           user.set("fbFriends", friendsArray);
+           user.save();
 
-   });
+           var currUserFriends = user.get("fbFriends");
+           console.log(currUserFriends);
+           $.each(response.data,function(index,friend) {
+      //console.log(friend.name + ' has id:' + friend.id);
+
+    });
+         } else {
+          console.log("Error!");
+        }
+      });
+
+
+}//get friends
+
+if (!user.existed()) {
+  console.log(user.id);
+  setKPUserName();
+  getPhoto(); 
+  getFriends();
+  user.set("karmaPointsBalance",0);
+  user.set("answersGivenBalance",0);
+  user.set("answersGottenBalance",0);
+  user.set("friendsInvitedBalance",0);
+  user.save();
+  console.log("User signed up and logged in through Facebook!");
+}
+
+else {
+  console.log(user.id);
+  setKPUserName();
+  getPhoto();
+  getFriends();
+  console.log("User logged in through Facebook!");
+}
+},
+
+error: function(user, error) {
+ console.log("User cancelled the Facebook login or did not fully authorize."); }
+
+});
 
 
 //prompt for login if not connected
@@ -182,18 +192,18 @@ FB.Event.subscribe('auth.authResponseChange', function(response) {
       console.log(testy);
 
 
-     //redirect();
+     redirect();
 
-    } 
-    else if (response.status === 'not_authorized') {
-       console.log(response.status);
-    Parse.FacebookUtils.login();
+   } 
+   else if (response.status === 'not_authorized') {
+     console.log(response.status);
+     Parse.FacebookUtils.login();
         //location.reload(true);
       } 
 
-    else {
+      else {
        console.log(response.status);
-    Parse.FacebookUtils.login();
+       Parse.FacebookUtils.login();
         //location.reload(true);
       }
     });
@@ -229,8 +239,8 @@ $("#logout_button").click(function(){
   Parse.User.logOut();
 
 }, function(){
-  
-redirect2();
+
+  redirect2();
 });
 
 

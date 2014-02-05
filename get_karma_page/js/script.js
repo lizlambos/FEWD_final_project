@@ -12,11 +12,6 @@ $(document).ready(function(){
 		allKPActiveQueryList = Y.one('#allKP_active_queries_list');
 		QueryContainer = Y.one(".content_component_container");
 
-    //var karmaPointsBalance = 0;
-    //var friendsInvitedBalance = 0;
-    //var answersGivenBalance = 0;
-    //var answersGottenBalance = 0;
-
     Parse.$ = jQuery;
 
     Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL");   
@@ -38,6 +33,26 @@ $(document).ready(function(){
     console.log(karmaPointsBalance);
 
     //refresh the user's Karma points balance by re-running queries
+
+      // Load the SDK asynchronously
+     (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "http://connect.facebook.net/en_US/all.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+
+     window.fbAsyncInit = function() {
+
+      // init the FB JS SDK
+      Parse.FacebookUtils.init({
+      appId      : '254848478004741', // Facebook App ID
+      channelUrl : 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/channel.html', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow Parse to access the session
+      xfbml      : true  // parse XFBML
+    });
 
     function refreshKarmaPoints () {
 
@@ -144,13 +159,13 @@ refreshKarmaPoints();
 function loadFriendQueries(contentColumn){
 
 	KarmaQuery = Parse.Object.extend("KarmaQuery");
-	User = Parse.Object.extend("User");
+	//User = Parse.Object.extend("User");
 
 	faQuery = new Parse.Query(KarmaQuery);
 	faQuery.notEqualTo("privacylevel", "Private");
   faQuery.notEqualTo("asker", user);
 
-  faQuery.include("User");
+  //faQuery.include("User");
   faQuery.ascending("createdAt");
 
   var myActiveQueries = faQuery.collection();
@@ -179,7 +194,7 @@ function loadFriendQueries(contentColumn){
 //load picture of query asker
 
 function getAskerPic() {
- query = new Parse.Query(User);
+ var query = new Parse.Query(Parse.User);
  query.get(askerID, {
   success: function(item) {
    askerPic = item.get('userPic');
@@ -214,10 +229,13 @@ function getAskerPic() {
           var userFbID = user.get('fbID');
           console.log(userFbID);
 
-          FB.api(
-            '/{'+askerFbID+'}/friends/{'+userFbID+'}',
-            function (response) {
-              if (response && !response.error) {
+          var searchString = "/{"+askerFbID+"}/friends/{"+userFbID+"}";
+          console.log(searchString);
+
+
+          FB.api("/{"+askerFbID+"}/friends/{"+userFbID+"}",
+           function(response) {
+            if (response && !response.error) {
                 console.log(response);
                 var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
                   queryText: val.get('text'),
@@ -234,6 +252,7 @@ function getAskerPic() {
                 contentColumn.prepend(content);
 
               }
+      
               else if (!response.error) {
                 console.log(response);
 
@@ -256,6 +275,7 @@ function getAskerPic() {
         }//else if
 
         else {
+          console.log(response);
           console.log("facebook graph api not saying if friends");
         }
 
@@ -458,7 +478,7 @@ updateAskerKarmaPoints(); //DOES NOT WORK
   });
 
 
-
+}//fb load
 
 
 });//YUI
