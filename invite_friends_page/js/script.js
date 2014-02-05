@@ -16,25 +16,28 @@ YUI().use('node', function (Y) {
 
   user = Parse.User.current();
   console.log(user);
+  var bird = user.get("username");
+  console.log(bird);
 
   function populateFriendList () {
 
-  	FB.api('/me/friends', { fields : 'id, name, picture, email'
+    FB.api('/me/friends', { fields : 'id, name, picture, email'
   }, function(response) { 
-  	var FBArray = response.data;
-  	console.log(FBArray);	
-  	var numFriends = FBArray.length;
-  	console.log(numFriends);
-  	
+    if (!response.error) {
+     var FBArray = response.data;
+     console.log(FBArray);	
+     var numFriends = FBArray.length;
+     console.log(numFriends);
 
-  	for (var i=0, l=response.data.length; i<l; i++) {
-  		friend = response.data[i];
-  		fbFriendName = friend.name;
-  		friendID = friend.id;
-  		console.log(fbFriendName);
-  		friendPicLink = friend.picture.data.url;
+
+     for (var i=0, l=response.data.length; i<l; i++) {
+      friend = response.data[i];
+      fbFriendName = friend.name;
+      friendID = friend.id;
+      console.log(fbFriendName);
+      friendPicLink = friend.picture.data.url;
   		//var friendExists = 0;
-  
+
   		
   		//check if friend is an existing user of KarmaPolice
   		function checkIfUserExists () {
@@ -101,11 +104,21 @@ YUI().use('node', function (Y) {
 
  }//for
 
+}//if not error
+
+else {
+  console.log("Oops something went wrong with getting your friends from facebook.");
+}
+
 });//fb api
+
 
   }//populate friend list
 
-   populateFriendList();
+
+  populateFriendList();
+
+
 
 
 });//node
