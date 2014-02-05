@@ -18,7 +18,7 @@
   <script src="http://www.parsecdn.com/js/parse-1.2.16.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/main_script.js"></script>
-  <script src="js/script.js"></script>
+  <!--<script src="js/script.js"></script>-->
   
 
 
@@ -36,90 +36,213 @@
 
   Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL"); 
 
-     // Load the SDK asynchronously
-     (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "http://connect.facebook.net/en_US/all.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
+    // Load the SDK asynchronously
+    (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "http://connect.facebook.net/en_US/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
 
-     window.fbAsyncInit = function() {
+
+
+    window.fbAsyncInit = function() {
 
       // init the FB JS SDK
       Parse.FacebookUtils.init({
       appId      : '254848478004741', // Facebook App ID
-      channelUrl : 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/login_page/', // Channel File
+      channelUrl : 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/channel.html', // Channel File
       status     : true, // check login status
       cookie     : true, // enable cookies to allow Parse to access the session
       xfbml      : true  // parse XFBML
     });
 
+     // $(document).ready(function(){
+  
+//INITIALIZE NODE
+
+YUI().use('node', function (Y) {
+
+  friendListColumn1 = Y.one("#fb-column1");
+
+  //INITIALIZE PARSE  
+
+  Parse.$ = jQuery;
+
+  user = Parse.User.current();
+  console.log(user);
+  var bird = user.get("username");
+  console.log(bird);
+
+  function populateFriendList () {
+
+    FB.api('/me/friends', { fields : 'id, name, picture, email'
+  }, function(response) { 
+    if (!response.error) {
+     var FBArray = response.data;
+     console.log(FBArray);  
+     var numFriends = FBArray.length;
+     console.log(numFriends);
+
+
+     for (var i=0, l=response.data.length; i<l; i++) {
+      friend = response.data[i];
+      fbFriendName = friend.name;
+      friendID = friend.id;
+      console.log(fbFriendName);
+      friendPicLink = friend.picture.data.url;
+      //var friendExists = 0;
+
+      
+      //check if friend is an existing user of KarmaPolice
+      function checkIfUserExists () {
+
+        console.log(friendID);
+        console.log(fbFriendName);
+
+        var queryID = friendID;
+        var queryName = fbFriendName;
+        var friendPicURL = friendPicLink;
+
+        var userQuery = new Parse.Query(Parse.User);
+        userQuery.equalTo("fbID", queryID);
+        userQuery.find({
+          success: function(results) {
+            var friendExists = results.length;
+            console.log(queryID);
+            console.log(friendExists);
+            console.log(queryName);
+            var visibleState = "";
+
+            if (friendExists != 0) {
+              visibleState = "hidden";
+              console.log(visibleState);
+              var content = Y.Lang.sub
+              (Y.one('#fb_friends_invite_list').getHTML(), {
+                id: queryID,
+                friendName: queryName,
+                friendPicURL: friendPicURL,
+                visibleState: visibleState
+
+          });//content
+
+              friendListColumn1.prepend(content);
+              
+
+            }
+            else {
+              visibleState = "monkey";
+              console.log(visibleState);
+              var content = Y.Lang.sub
+              (Y.one('#fb_friends_invite_list').getHTML(), {
+                id: queryID,
+                friendName: queryName,
+                friendPicURL: friendPicURL,
+                visibleState: visibleState
+
+          });//content
+
+              friendListColumn1.prepend(content);
+              
+            }
+
+          },
+          error: function(object, error) {
+            //alert("Error when checking for friend ID: " + error.code + " " + error.message);
+          }
+      });//find
+
+    }//check if user exists
+
+    checkIfUserExists();
+
+
+ }//for
+
+}//if not error
+
+else {
+  console.log("Oops something went wrong with getting your friends from facebook.");
+}
+
+});//fb api
+
+
+  }//populate friend list
+
+
+  populateFriendList();
+
+
+});//node
+
+//});//document ready
+
     }
 
-
+    
 
     </script>
 
 
     <!--end facebookapp initialization--> 
     <!--<fb:profile-pic class="fbpic_small" uid="{id}"  width="50" height="50" >
-    </fb:profile-pic>-->
-    <!-- <fb:name class="friend-name" uid="{id}"></fb:name>-->
+  </fb:profile-pic>-->
+  <!-- <fb:name class="friend-name" uid="{id}"></fb:name>-->
 
-    <script id="fb_friends_invite_list" type="x/handlebars">
+  <script id="fb_friends_invite_list" type="x/handlebars">
 
-    <div class="user-info-wrapper {visibleState}" id="{id}">
-    <div class="fbpic_container">
-
-    
-    <img class="fbpic_small" src="{friendPicURL}"/>
-    </div>
-    <h3 class="friend-name">{friendName}</h3>
-   
-    <button class="add-friend-button glyphicon glyphicon-plus-sign" id="{id}"></button>
-    </div>
+  <div class="user-info-wrapper {visibleState}" id="{id}">
+  <div class="fbpic_container">
 
 
-    </script>
+  <img class="fbpic_small" src="{friendPicURL}"/>
+  </div>
+  <h3 class="friend-name">{friendName}</h3>
 
-    <!-- screen navbar -->
-    <nav class="navbar navbar-fixed-top hidden-xs" role="navigation">
-      <div class="container">
-
-       <form class="navbar-form form-inline navbar-left hidden-sm hidden-xs" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Find your friends">
-        </div>
-        <button type="submit" class="btn search-button"> <span class="glyphicon glyphicon-search"></span></button>
-      </form>
-
-      <a href="#" class="navbar-brand hidden-xs">KarmaPolice</a>
+  <button class="add-friend-button glyphicon glyphicon-plus-sign" id="{id}"></button>
+  </div>
 
 
-      <div class="collapse navbar-collapse navbar-left pull-left">
-        <ul class="nav navbar-nav">
-          <li class="visible-link"><a href="../get_karma_page/index.html">Get Karma</a></li>
-          <li class="visible-link"><a href="../me_page/index.html">My Karma</a></li>
-          <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
-            <ul class="dropdown-menu pull-right">
-              <li class="dropdown_item"><a href="../new_question_page/index.html">New Karma Query</a></li>
-              <li class="dropdown_item"><a href="../recent_questions_page/index.html">Activity</a></li>
-              <li class="dropdown_item"><a href="../invite_friends_page/index.html">Friends</a></li>
-              <li class="dropdown_item"><a href="../settings_page/index.html">Settings</a></li>
-              <li class="divider"></li>
-              <li class="dropdown_item" id="logout_button"><a href="#">Logout</a></li>
-            </ul>
-          </li>
-        </ul>
+  </script>
 
-      </div><!--collapse navbar-->
+  <!-- screen navbar -->
+  <nav class="navbar navbar-fixed-top hidden-xs" role="navigation">
+    <div class="container">
+
+     <form class="navbar-form form-inline navbar-left hidden-sm hidden-xs" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Find your friends">
+      </div>
+      <button type="submit" class="btn search-button"> <span class="glyphicon glyphicon-search"></span></button>
+    </form>
+
+    <a href="#" class="navbar-brand hidden-xs">KarmaPolice</a>
 
 
-    </div><!--row-->
-    
-  </div> <!--container-->    
+    <div class="collapse navbar-collapse navbar-left pull-left">
+      <ul class="nav navbar-nav">
+        <li class="visible-link"><a href="../get_karma_page/index.html">Get Karma</a></li>
+        <li class="visible-link"><a href="../me_page/index.html">My Karma</a></li>
+        <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
+          <ul class="dropdown-menu pull-right">
+            <li class="dropdown_item"><a href="../new_question_page/index.html">New Karma Query</a></li>
+            <li class="dropdown_item"><a href="../recent_questions_page/index.html">Activity</a></li>
+            <li class="dropdown_item"><a href="../invite_friends_page/index.html">Friends</a></li>
+            <li class="dropdown_item"><a href="../settings_page/index.html">Settings</a></li>
+            <li class="divider"></li>
+            <li class="dropdown_item" id="logout_button"><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+
+    </div><!--collapse navbar-->
+
+
+  </div><!--row-->
+
+</div> <!--container-->    
 </nav>
 
 <!-- end navbar -->

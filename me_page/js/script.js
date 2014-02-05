@@ -35,9 +35,8 @@ $(function(){
 
     function displayKarmaPoints() {
 
-    	user.fetch();
-
-    	/*var toast4 = user.get("answersGottenBalance");
+ 
+   	/*var toast4 = user.get("answersGottenBalance");
     	console.log(toast4);
 
     	var toast5 = user.get("friendsInvitedBalance");
@@ -74,15 +73,17 @@ displayKarmaPoints();
 
     	var query1 = new Parse.Query(KarmaQuery);
     	query1.equalTo('privacylevel', privacylevel1);
+      query1.ascending("createdAt");
 
     	var query2 = new Parse.Query(KarmaQuery);
     	query2.equalTo('privacylevel', privacylevel2);
+      query2.ascending("createdAt");
 
     	var mainQuery = Parse.Query.or(query1, query2);
 
 
     	mainQuery.equalTo("asker", user);
-    	mainQuery.ascending("createdAt");
+      mainQuery.ascending("createdAt");
 
     	mainQuery.find({
     		success: function(results) {
