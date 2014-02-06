@@ -404,6 +404,8 @@ revealAnswers();
 
 }); // end of mouseenter function
 
+//set uuser answers
+
 $("#allKP_active_queries_list").on("click",".answers .btn", function(){
 	var queryID = $(this).attr("id");
 	answer = $(this).attr("name");
@@ -448,13 +450,11 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
 
 function updateAskerKarmaPoints () {
   console.log(queryID);
-
-
   KarmaQuery = Parse.Object.extend("KarmaQuery");
   //User = Parse.Object.extend("User");
 
-  thisAskerQuery = new Parse.Query(KarmaQuery);
-  thisAskerQuery.get(queryID, {
+  thatAskerQuery = new Parse.Query(KarmaQuery);
+  thatAskerQuery.get(queryID, {
    success: function(item1) {
     item1.fetch();
     console.log(item1);
@@ -468,12 +468,12 @@ function updateAskerKarmaPoints () {
 
         console.log(item2);
         var testing4 = item2.get("answersGottenBalance");
-console.log(testing4);//0 before page refresh
-console.log("hi this is gil");
+        console.log(testing4);
+        console.log("hi this is gil");
 
-var QueryAnswer = Parse.Object.extend("QueryAnswer");
-query = new Parse.Query(QueryAnswer);
-query.equalTo("answerer", item2);
+        var QueryAnswer = Parse.Object.extend("QueryAnswer");
+        query = new Parse.Query(QueryAnswer);
+        query.equalTo("answerer", item2);
 
 //then start
 
@@ -505,7 +505,6 @@ query.find({
 
  query3.find({
   success: function(results1) {
-
     console.log(results1.length);
     var answersGottenCalc = 0;
     Y.Array.each(results1, function(val, i, arr) {
@@ -528,7 +527,7 @@ query.find({
         });//save
         //console.log(answersGottenCalc);
 
-      });
+      });//y aray
 
       },//success
 
@@ -536,7 +535,7 @@ query.find({
         console.log("Error: " + error.code + " " + error.message);
 
       }
-    })//save
+    })//find
 
 }).then(function(){
 
@@ -549,16 +548,16 @@ query.find({
 
         }).then(function(){
 
-          var testing1 = item2.get("answersGottenBalance");
-console.log(testing1);//0 before page refresh
+var testing10 = item2.get("answersGottenBalance");
+console.log(testing10);//0 before page refresh
 
-var testing2 = item2.get("friendsInvitedBalance");
-console.log(testing2);
+var testing11 = item2.get("friendsInvitedBalance");
+console.log(testing11);
 
-var testing3 = item2.get("answersGivenBalance");
-console.log(testing3);
+var testing12 = item2.get("answersGivenBalance");
+console.log(testing12);
 
-var karmaPointsBalance = testing3 + testing2 - testing1;
+var karmaPointsBalance = testing12 + testing11 - testing10;
 
 item2.set("karmaPointsBalance", karmaPointsBalance);
 item2.save(null, {
@@ -577,10 +576,10 @@ console.log(karmaPointsBalance);
 
         //then
 
-},
-error: function(item2, error) {
-  console.log(askerId);
-  console.log("cant find ya");
+      },
+      error: function(item2, error) {
+        console.log(askerId);
+        console.log("cant find ya");
             //alert("Error when checking for friend ID: " + error.code + " " + error.message);
           }
       });//get 2
