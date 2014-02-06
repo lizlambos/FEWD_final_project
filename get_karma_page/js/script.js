@@ -34,109 +34,112 @@ $(document).ready(function(){
 
     //refresh the user's Karma points balance by re-running queries
 
-      // Load the SDK asynchronously
-      (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "http://connect.facebook.net/en_US/all.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
 
-      window.fbAsyncInit = function() {
-
-      // init the FB JS SDK
-      Parse.FacebookUtils.init({
-      appId      : '254848478004741', // Facebook App ID
-      channelUrl : 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/channel.html', // Channel File
-      status     : true, // check login status
-      cookie     : true, // enable cookies to allow Parse to access the session
-      xfbml      : true  // parse XFBML
-    });
-
-      function refreshKarmaPoints () {
+    function refreshKarmaPoints (person) {
 
       // query answers to get answers given
 
       var QueryAnswer = Parse.Object.extend("QueryAnswer");
       query = new Parse.Query(QueryAnswer);
-      query.equalTo("answerer", user);
+      query.equalTo("answerer", person);
 
       query.find({
         success: function(results) {
           console.log(results.length);
-          answersGivenBalance = results.length;
+          var answersGivenBalance = results.length;
           console.log(answersGivenBalance);
-          user.set("answersGivenBalance", answersGivenBalance);
-          user.save();
+          person.set("answersGivenBalance", answersGivenBalance);
+          person.save();
 
-          var toast8 = user.get("answersGivenBalance");
+          var toast8 = person.get("answersGivenBalance");
           console.log(toast8);
+
+        },
+
+        error: function(error) {
+          alert("Error: " + error.code + " " + error.message);
+        }
 
 
   //find total answers recieved by returning all query id's asked by user
 
   //reset answersGotten calculator placeholder to 0 
-  answersGottenCalc = 0;
+
+}).then(function(){  
 
   var KarmaQuery = Parse.Object.extend("KarmaQuery");
 
   query1 = new Parse.Query(KarmaQuery);
 
-  query1.equalTo("asker", user);
+  query1.equalTo("asker", person);
 
   query1.find({
     success: function(results1) {
-      console.log(results1.length);
 
+      console.log(results1.length);
+      var answersGottenCalc = 0;
       Y.Array.each(results1, function(val, i, arr) {
         var answersGotten = val.get("responderCount");
+        console.log(answersGotten);
         answersGottenCalc += answersGotten;
-        user.set("answersGottenBalance", answersGottenCalc);
-        user.save();
         console.log(answersGottenCalc);
+
+
+        var burntToast = person.get("username");
+        console.log(burntToast);
+        person.set("answersGottenBalance", answersGottenCalc);
+        person.save(null, {
+          success: function(person) {
+            console.log("ansers gotten saved");
+          },
+          error: function(person, error) {
+            console.log("answersGotten not saved");
+          }
+        });//save
+        //console.log(answersGottenCalc);
+
+      });
+
+      },//success
+
+      error: function(error) {
+        console.log("Error: " + error.code + " " + error.message);
+
+      }
+    })//save
+
+    }).then(function(){
 
           //get friends invited balance (function to be written)
 
           friendsInvitedBalance = 0;
 
-          user.set("friendsInvitedBalance", friendsInvitedBalance);
-          user.save();
+          person.set("friendsInvitedBalance", friendsInvitedBalance);
+          person.save();
 
-          var toast = user.get("answersGottenBalance");
-          console.log(toast);
+        }).then(function(){
 
-        });
+          var testing1 = person.get("answersGottenBalance");
+console.log(testing1);//0 before page refresh
 
-        },//success
+var testing2 = person.get("friendsInvitedBalance");
+console.log(testing2);
 
-        error: function(error) {
-          alert("Error: " + error.code + " " + error.message);
+var testing3 = person.get("answersGivenBalance");
+console.log(testing3);
 
-        }
+var karmaPointsBalance = testing3 + testing2 - testing1;
 
-      });//find
+person.set("karmaPointsBalance", karmaPointsBalance);
+person.save(null, {
+ success: function(person) {
+  console.log("saved the new karma points");
 },
-
-error: function(error) {
-  alert("Error: " + error.code + " " + error.message);
+error: function(person, error) {
+  console.log('Failed to create new object, with error code: ' + error.description);
 }
 
-  })//answers given
-
-var toast = user.get("answersGottenBalance");
-console.log(toast);//0 before page refresh
-
-var toast2 = user.get("friendsInvitedBalance");
-console.log(toast2);
-
-var toast3 = user.get("answersGivenBalance");
-console.log(toast3);
-
-var karmaPointsBalance = toast3 + toast2 - toast;
-
-user.set("karmaPointsBalance", karmaPointsBalance);
-user.save();
+});//person save
 console.log(karmaPointsBalance);
 
           //display the karma points balance on the two scoreboard areas (screen and mobile)  
@@ -147,12 +150,12 @@ console.log(karmaPointsBalance);
           $(".top-navbar-icon.karma-points .badge")
           .html("<span class='badge'>"+karmaPointsBalance+"</span>");
 
+        });//then
+
 
 }//get karmapoints balance
 
-refreshKarmaPoints();   
-
-
+refreshKarmaPoints(user);   
 
 //refresh friends questions in the question area (no filters at this time)    
 
@@ -186,10 +189,12 @@ function loadFriendQueries(contentColumn){
   Y.Array.each(results, function(val, i, arr) {
   	asker = val.get('asker');
   	//console.log(asker);
-  	askerID = asker.id;
-  	console.log(askerID);
-  	askerName = val.get('askerName');
-  	console.log(askerName);
+    var questId = val.id;
+    console.log(questId);
+    askerID = asker.id;
+    console.log(askerID);
+    askerName = val.get('askerName');
+    console.log(askerName);
 
 //load picture of query asker
 
@@ -234,9 +239,9 @@ function getAskerPic() {
 
           function findFriendMatch(friendFbId){
             return $.grep(userFriendsArray, function(n, i){
-                return n.id == friendFbId;
-              });
-            };
+              return n.id == friendFbId;
+            });
+          };
 
           findFriendMatch(askerFbID);  
 
@@ -278,62 +283,7 @@ function getAskerPic() {
 
           contentColumn.prepend(content);
 
-
-
         }
-
-          /*
-
-          FB.api("/{"+askerFbID+"}/friends/{"+userFbID+"}",
-           function(response) {
-            if (response && !response.error) {
-                console.log(response);
-                var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
-                  queryText: val.get('text'),
-                  timeStamp: val.get('timeStamp'),
-                  askerName: val.get('askerName'),
-                  id: val.id,
-                  privacylevel: "",
-                  askerID: askerID,
-                  askerPicURL: askerPic
-            //karmaPointsBal: karmaPointsBalance
-
-          });
-
-                contentColumn.prepend(content);
-
-              }
-      
-              else if (!response.error) {
-                console.log(response);
-
-                var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
-                  queryText: val.get('text'),
-                  timeStamp: val.get('timeStamp'),
-                  askerName: val.get('askerName'),
-                  id: val.id,
-                  privacylevel: "hidden",
-                  askerID: askerID,
-                  askerPicURL: askerPic
-            //karmaPointsBal: karmaPointsBalance
-
-          });
-
-          //filter by privacy level
-
-          contentColumn.prepend(content);
-
-        }//else if
-
-        else {
-          console.log(response);
-          console.log("facebook graph api not saying if friends");
-        }
-
-      }//function response
-      );//fb api
-
-*/
 
         }//else
 
@@ -368,10 +318,7 @@ function updateAnswererKarmaPoints() {
 
   user.fetch();
 
-  refreshKarmaPoints();   
-
-
-
+  refreshKarmaPoints(user);   
 
 }//update karma points
 
@@ -476,7 +423,7 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
     queryAnswer.save(null, {
      success: function(queryAnswer) {
     // Execute any logic that should take place after the object is saved.
-    alert('New object created with objectId: ' + queryAnswer.id + 'by' + queryAnswer.answerer +
+    console.log('New object created with objectId: ' + queryAnswer.id + 'by' + queryAnswer.answerer +
     	'at' + queryAnswer.createdAt+'.');
 
   },
@@ -492,30 +439,51 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
 
 function updateAskerKarmaPoints () {
 
-  var userQuery = new Parse.Query(Parse.User);
-  userQuery.get(askerId, {
-    success: function(item) {
+  KarmaQuery = Parse.Object.extend("KarmaQuery");
+  //User = Parse.Object.extend("User");
 
-      item.set("answersGottenBalance", 
-        item.get("answersGottenBalance")+1);
-      item.save();
+  thisAskerQuery = new Parse.Query(KarmaQuery);
+  thisAskerQuery.get(queryID, {
+   success: function(item1) {
+    console.log(item1);
+    personAsking = item1.get("asker");
+    console.log(personAsking);
+    
 
-          //???
-          item.set("karmaPointsBalance",
-            item.get("karmaPointsBalance")-1);
-          item.save();
+    var userQuery = new Parse.Query(Parse.User);
+    userQuery.get(personAsking.id, {
+      success: function(item2) {
+        console.log(item2);
+        var testing4 = item2.get("answersGottenBalance");
+console.log(testing4);//0 before page refresh
+console.log("hi this is gil");
 
-        },
-        error: function(item, error) {
+
+
+refreshKarmaPoints(personAsking);
+
+},
+error: function(item2, error) {
+  console.log(askerId);
+  console.log("cant find ya");
             //alert("Error when checking for friend ID: " + error.code + " " + error.message);
           }
-      });//find
+      });//get 2
+
+  },
+  error: function(item1, error) {
+    console.log(askerId);
+    console.log("cant find ya");
+            //alert("Error when checking for friend ID: " + error.code + " " + error.message);
+          }
+      });//get 1
+
 
 }//update asker karma points
 
 
 updateAnswererKarmaPoints();
-updateAskerKarmaPoints(); //DOES NOT WORK
+//updateAskerKarmaPoints(); //DOES NOT WORK
 
   }//answer questions
 
@@ -531,7 +499,7 @@ updateAskerKarmaPoints(); //DOES NOT WORK
   });
 
 
-}//fb load
+
 
 
 });//YUI
