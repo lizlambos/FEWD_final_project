@@ -192,7 +192,7 @@ FB.Event.subscribe('auth.authResponseChange', function(response) {
       console.log(testy);
 
       if (testy != 'undefined' || testy != "") {
-         //redirect();
+         redirect();
       }
     
 
