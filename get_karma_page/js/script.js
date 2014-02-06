@@ -22,6 +22,7 @@ $(document).ready(function(){
     console.log(toad);
 
     user.fetch();
+    /*
 
     var toast7 = user.get("answersGivenBalance");
     console.log(toast7);//74
@@ -31,142 +32,135 @@ $(document).ready(function(){
 
     var KPBalance = user.get("karmaPointsBalance");
     console.log(KPBalance);
+    */
 
     //refresh the user's Karma points balance by re-running queries
 
-
-    function refreshKarmaPoints (person) {
+    function refreshKarmaPoints (user) {
 
       // query answers to get answers given
 
       var QueryAnswer = Parse.Object.extend("QueryAnswer");
       query = new Parse.Query(QueryAnswer);
-      query.equalTo("answerer", person);
+      query.equalTo("answerer", user);
 
       query.find({
+
         success: function(results) {
           console.log(results.length);
           var answersGivenBalance = results.length;
           console.log(answersGivenBalance);
-          person.set("answersGivenBalance", answersGivenBalance);
-          person.save();
-
-          var toast8 = person.get("answersGivenBalance");
-          console.log(toast8);
-
-        },
-
-        error: function(error) {
-          alert("Error: " + error.code + " " + error.message);
-        }
-
-
-  //find total answers recieved by returning all query id's asked by user
-
-  //reset answersGotten calculator placeholder to 0 
-
-}).then(function(){  
-
- var toast9 = person.get("answersGivenBalance");
- console.log(toast9);
-
-
- var KarmaQuery = Parse.Object.extend("KarmaQuery");
-
- query1 = new Parse.Query(KarmaQuery);
-
- query1.equalTo("asker", person);
-
- query1.find({
-  success: function(results1) {
-
-    console.log(results1.length);
-    var answersGottenCalc = 0;
-    Y.Array.each(results1, function(val, i, arr) {
-      var answersGotten = val.get("responderCount");
-      console.log(answersGotten);
-      answersGottenCalc += answersGotten;
-      console.log(answersGottenCalc);
-
-
-      var burntToast = person.get("username");
-      console.log(burntToast);
-      person.set("answersGottenBalance", answersGottenCalc);
-      person.save(null, {
-        success: function(person) {
-          console.log("ansers gotten saved");
-        },
-        error: function(person, error) {
-          console.log("answersGotten not saved");
-        }
+          user.set("answersGivenBalance", answersGivenBalance);
+          user.save(null, {
+            success: function(user) {
+               user.set("answersGivenBalance", answersGivenBalance);
+              console.log("ansers given saved");
+              console.log(user.get("answersGottenBalance"));
+            },
+            error: function(user, error) {
+              console.log("answersGiven not saved");
+            }
         });//save
-        //console.log(answersGottenCalc);
 
-      });
-
-      },//success
-
-      error: function(error) {
-        console.log("Error: " + error.code + " " + error.message);
-
-      }
-    })//save
-
-}).then(function(){
-
-          //get friends invited balance (function to be written)
-
-          friendsInvitedBalance = 0;
-
-          person.set("friendsInvitedBalance", friendsInvitedBalance);
-          person.save();
-
-        }).then(function(){
-
-          var testing1 = person.get("answersGottenBalance");
-console.log(testing1);//0 before page refresh
-
-var testing2 = person.get("friendsInvitedBalance");
-console.log(testing2);
-
-var testing3 = person.get("answersGivenBalance");
-console.log(testing3);
-
-var karmaPointsBalance = testing3 + testing2 - testing1;
-
-person.set("karmaPointsBalance", karmaPointsBalance);
-person.save(null, {
- success: function(person) {
-  console.log("saved the new karma points");
-},
-error: function(person, error) {
-  console.log('Failed to create new object, with error code: ' + error.description);
-}
-
-});//person save
-console.log(karmaPointsBalance);
-
-          //display the karma points balance on the two scoreboard areas (screen and mobile)  
-
-
-       // }).then(function(){
-
-        if (person == user) {
-
-          $(".row.scoreboard .scoreboard .karma_points_display")
-          .html("<span class='badge'>"+karmaPointsBalance+"</span>");
-
-          $(".top-navbar-icon.karma-points .badge")
-          .html("<span class='badge'>"+karmaPointsBalance+"</span>");
+        },
+        error: function(error) {
+          console.log("not found");
         }
 
+        });  //find
 
-        });//then
 
+      var toast9 = user.get("answersGivenBalance");
+      console.log(toast9);
+
+      //refresh answers given balance
+
+      var QueryAnswer = Parse.Object.extend("QueryAnswer");
+
+      numQuery = new Parse.Query(QueryAnswer);
+      numQuery.equalTo("asker", user);
+      console.log(user.id);
+
+      numQuery.find({
+        success: function(numResults) {
+          var totalRespCount = numResults.length;
+          console.log(totalRespCount);
+          var burntToast = user.get("username");
+          console.log(burntToast);
+          user.set("answersGottenBalance", totalRespCount);
+          user.save(null, {
+            success: function(user) {
+              user.set("answersGottenBalance", totalRespCount);
+              console.log("ansers gotten saved");
+              console.log(user.get("answersGottenBalance"));
+            },
+            error: function(user, error) {
+              console.log("answersGotten not saved");
+            }
+          });//save
+
+        },
+        error: function(error) {
+          console.log("not found");
+        }
+
+        });//find
+
+      //get friends invited balance (function to be written)
+
+      friendsInvitedBalance = 0;
+
+      user.set("friendsInvitedBalance", friendsInvitedBalance);
+      user.save();
 
 }//get karmapoints balance
 
-refreshKarmaPoints(user);   
+refreshKarmaPoints(user);  
+
+function calcKarmaPointsBalance ()  {
+
+ // user.fetch();
+
+var testing1 = user.get("answersGottenBalance");
+console.log(testing1);//0 before page refresh
+
+var testing2 = user.get("friendsInvitedBalance");
+console.log(testing2);
+
+var testing3 = user.get("answersGivenBalance");
+console.log(testing3);
+
+var karmaPointsBalance = testing3 + testing2 - testing1;
+console.log(karmaPointsBalance);
+
+user.set("karmaPointsBalance", karmaPointsBalance);
+user.save(null, {
+ success: function(user) {
+  user.set("karmaPointsBalance", karmaPointsBalance);
+  console.log("saved the new karma points");
+  console.log(user.get("karmaPointsBalance"));
+},
+error: function(user, error) {
+  console.log('Failed to create new object, with error code: ' + error.description);
+}
+
+});
+
+console.log(karmaPointsBalance);
+console.log(user.get("karmaPointsBalance"));
+
+      //display the karma points balance on the two scoreboard areas (screen and mobile)  
+
+      $(".row.scoreboard .scoreboard .karma_points_display")
+      .html("<span class='badge'>"+karmaPointsBalance+"</span>");
+
+      $(".top-navbar-icon.karma-points .badge")
+      .html("<span class='badge'>"+karmaPointsBalance+"</span>");
+
+
+    } //calc KarmaPointsBalance
+
+calcKarmaPointsBalance();    
 
 //refresh friends questions in the question area (no filters at this time)    
 
@@ -419,7 +413,7 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
   console.log(myid);
   var d = new Date();
   var dString = d.toString();
-  timeStamp = dString.substring(4,11);
+  timeStamp = dString.substring(4,15);
   console.log(queryID);
 
   var QueryAnswer = Parse.Object.extend("QueryAnswer");
@@ -433,23 +427,56 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
 
   queryAnswer.save(null, {
    success: function(queryAnswer) {
-    // Execute any logic that should take place after the object is saved.
+
     console.log('New object created with objectId: ' + queryAnswer.id + 'by' + queryAnswer.answerer +
-    	'at' + queryAnswer.createdAt+'.');
+      'at' + queryAnswer.createdAt+'.');
 
   },
   error: function(queryAnswer, error) {
-    // Execute any logic that should take place if the save fails.
-    // error is a Parse.Error with an error code and description.
-    alert('Failed to create new object, with error code: ' + error.description);
+
+    alert('Failed to create new object WOMP WOMP, with error code: ' + error.description);
   }
 
-}).then(function(){
+    });//save
+
+  var KarmaQuery = Parse.Object.extend("KarmaQuery");
+  queryAsker = new Parse.Query(KarmaQuery);
+  queryAsker.get(queryID, {
+    success:function(item) {
+
+      var questAsker = item.get("asker");
+      console.log(questAsker.id);
+
+      queryAnswer.set("asker", questAsker);
+      queryAnswer.save(null, {
+       success: function(queryAnswer) {
+
+        console.log('New object created with objectId: ' + queryAnswer.id + 'by' + queryAnswer.answerer +
+          'at' + queryAnswer.createdAt+'.');
+
+      },
+      error: function(queryAnswer, error) {
+
+        alert('Failed to create new object because of asker, with error code: ' + error.description);
+      }
+
+    });//save
+
+    },
+    error:function(item, error) {
+      console.log("problem finding asker");
+    }
+
+
+  }).then(function(){
 
 //update the answers gotten points for the asker DOES NOT WORK
 
 function updateAskerKarmaPoints () {
-  console.log(queryID);
+ console.log(queryID);
+
+  //update the answers the user has given 
+
   KarmaQuery = Parse.Object.extend("KarmaQuery");
   //User = Parse.Object.extend("User");
 
@@ -483,7 +510,15 @@ query.find({
     var answersGivenBalance = results.length;
     console.log(answersGivenBalance);
     item2.set("answersGivenBalance", answersGivenBalance);
-    item2.save();
+    item2.save(null, {
+      success:function(item2) {
+        console.log("saving answersGiven");
+      },
+      error: function(item2, error) {
+        console.log("not saving answersgiven");
+      }
+
+    });
     var toast8 = item2.get("answersGivenBalance");
     console.log(toast8);
   },
@@ -492,50 +527,47 @@ query.find({
     alert("Error: " + error.code + " " + error.message);
   }
 
-}).then(function(){  
+}).
 
- var toast9 = item2.get("answersGivenBalance");
- console.log(toast9);
+then(function(){
 
- var KarmaQuery = Parse.Object.extend("KarmaQuery");
+//update the responder counts for their questions
 
- query3 = new Parse.Query(KarmaQuery);
+function getQueryResponders () { 
 
- query3.equalTo("asker", item2);
+  var QueryAnswer = Parse.Object.extend("QueryAnswer");
 
- query3.find({
-  success: function(results1) {
-    console.log(results1.length);
-    var answersGottenCalc = 0;
-    Y.Array.each(results1, function(val, i, arr) {
-      var answersGotten = val.get("responderCount");
-      console.log(answersGotten);
-      answersGottenCalc += answersGotten;
-      console.log(answersGottenCalc);
+  numQuery = new Parse.Query(QueryAnswer);
+  numQuery.equalTo("asker",item2);
+  console.log(item2.id);
 
-
+  numQuery.find({
+    success: function(numResults) {
+      var totalRespCount = numResults.length;
+      console.log(numResults.length);
       var burntToast = item2.get("username");
       console.log(burntToast);
-      item2.set("answersGottenBalance", answersGottenCalc);
+      item2.set("answersGottenBalance", totalRespCount);
       item2.save(null, {
-        success: function(person) {
+        success: function(item2) {
           console.log("ansers gotten saved");
         },
-        error: function(person, error) {
+        error: function(item2, error) {
           console.log("answersGotten not saved");
         }
         });//save
-        //console.log(answersGottenCalc);
 
-      });//y aray
+    },
+    error: function(numResults, error) {
+      alert("Error when updating todo item: " + error.code + " " + error.message);
+    }
 
-      },//success
+});//find function
 
-      error: function(error) {
-        console.log("Error: " + error.code + " " + error.message);
 
-      }
-    })//find
+  }//getquery answers
+
+  getQueryResponders();
 
 }).then(function(){
 
@@ -548,7 +580,9 @@ query.find({
 
         }).then(function(){
 
-var testing10 = item2.get("answersGottenBalance");
+          item2.fetch();
+
+          var testing10 = item2.get("answersGottenBalance");
 console.log(testing10);//0 before page refresh
 
 var testing11 = item2.get("friendsInvitedBalance");
@@ -559,13 +593,15 @@ console.log(testing12);
 
 var karmaPointsBalance = testing12 + testing11 - testing10;
 
+console.log(item2.id);
+
 item2.set("karmaPointsBalance", karmaPointsBalance);
 item2.save(null, {
  success: function(item2) {
   console.log("saved the new karma points");
 },
 error: function(item2, error) {
-  console.log('Failed to create new object, with error code: ' + error.description);
+  console.log('Failed to save karmapoints ' + error.description);
 }
 
 });//person save

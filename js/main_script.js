@@ -191,8 +191,10 @@ FB.Event.subscribe('auth.authResponseChange', function(response) {
       var testy = user.get("username");
       console.log(testy);
 
-
-     redirect();
+      if (testy != 'undefined' || testy != "") {
+         //redirect();
+      }
+    
 
    } 
    else if (response.status === 'not_authorized') {

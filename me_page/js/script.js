@@ -36,7 +36,7 @@ $(function(){
     function displayKarmaPoints() {
 
  
-   	/*var toast4 = user.get("answersGottenBalance");
+   	var toast4 = user.get("answersGottenBalance");
     	console.log(toast4);
 
     	var toast5 = user.get("friendsInvitedBalance");
@@ -45,15 +45,10 @@ $(function(){
     	var toast6 = user.get("answersGivenBalance");
     	console.log(toast6);
 
-    	var karmaPointsBalance = user.get("karmaPointsBalance");
-      */
-
+    	var karmaPointsBalance = toast6 + toast5 - toast4;
+      
     	user.fetch();
-        var karmaPointsBalance = user.get("karmaPointsBalance");
-
-
-    	$(".row.scoreboard .scoreboard .karma_points_display")
-    	.html("<span class='badge'>"+karmaPointsBalance+"</span>");
+        console.log(user.get("karmaPointsBalance"));
 
     	$(".top-navbar-icon.karma-points .badge")
     	.html(karmaPointsBalance);
