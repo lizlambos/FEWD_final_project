@@ -161,7 +161,8 @@ $(document).ready(function(){
     }
 
 
-$.when((refreshFriendsInvited()).done(function(){
+$.when((refreshFriendsInvited()).done(function()
+{
  console.log("hi");
 
 })
