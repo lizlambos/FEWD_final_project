@@ -179,14 +179,19 @@ FB.Event.subscribe('auth.authResponseChange', function(response) {
       console.log(testy3);
       var testy = user.get("username");
       console.log(testy);
+      var val = testy.val();
 
-      if (testy != 'undefined' || testy != "") {
-        // redirect();
+      var hasNum = val.match(/\d+/g);
+      console.log(hasNum);
 
-        Parse.FacebookUtils.login().then(function(){
+      if (hasNum === null) {
+        //edirect();
+      }
+
+        /*Parse.FacebookUtils.login().then(function(){
           redirect();
         });
-      }
+      }*/
     
 
    } 

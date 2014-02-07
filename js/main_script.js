@@ -63,7 +63,8 @@ YUI().use('node', function (Y) {
 
 //LOGIN FUNCTION - TO BE FIXED 
 
-function initiateFBLogin() {
+
+      function initiateFBLogin() {
 
   var user = Parse.User.current();
 
@@ -134,10 +135,7 @@ function initiateFBLogin() {
 
            var currUserFriends = user.get("fbFriends");
            console.log(currUserFriends);
-           $.each(response.data,function(index,friend) {
-      //console.log(friend.name + ' has id:' + friend.id);
 
-    });
          } else {
           console.log("Error!");
         }
@@ -190,10 +188,19 @@ FB.Event.subscribe('auth.authResponseChange', function(response) {
       console.log(testy3);
       var testy = user.get("username");
       console.log(testy);
+      //var val = testy.val();
 
-      if (testy != 'undefined' || testy != "") {
-         redirect();
+      var hasNum = testy.match(/\d+/g);
+      console.log(hasNum);
+
+      if (hasNum === null) {
+        redirect();
       }
+
+        /*Parse.FacebookUtils.login().then(function(){
+          redirect();
+        });
+      }*/
     
 
    } 
@@ -224,6 +231,10 @@ function redirect2()
 {
   window.location.href='../login_page/index.html';
 }
+
+
+
+
 
 
 $("#fb_login_button").click(function(){

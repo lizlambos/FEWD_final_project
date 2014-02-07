@@ -21,6 +21,84 @@ $(document).ready(function(){
     var toad = user.get('fbID');
     console.log(toad);
 
+
+      function setKPUserName() {
+        FB.api('/me', function(response) {
+          if (!response.error) {
+            var userName = response.name;
+            console.log(userName);
+            user.set("username", userName); 
+            var userFbID = response.id;
+            console.log(typeof userFbID);
+            console.log(userFbID);
+            var userEmail = response.email;
+            console.log(userEmail);
+            user.set("email", userEmail);
+            user.set("fbID", userFbID); 
+            user.save(null, {
+              success: function(user) {
+
+              },
+              error: function(user, error) {
+                console.log("Oops, something went wrong saving your name.");
+              }
+            });
+
+          } 
+          else {
+            console.log("Oops something went wrong with facebook.");
+          }
+        });
+
+      }//set name
+
+      function getPhoto(){
+        FB.api('/me/picture?type=normal', function(response) {
+
+          var str= response.data.url;
+          console.log(str);
+
+          user.set("userPic", str);
+
+          var userPic = user.get("userPic");
+          console.log(userPic);
+          user.save(null, {
+            success: function(user) {
+
+            },
+            error: function(user, error) {
+              console.log("Oops, something went wrong saving your name.");
+            }
+          });
+        });
+
+      } //get photo
+
+
+      function getFriends() {
+        FB.api('/me/friends', function(response) {
+          if(response.data) {
+           var friendsArray = response.data; 
+           console.log(friendsArray);
+
+           user.set("fbFriends", friendsArray);
+           user.save();
+
+           var currUserFriends = user.get("fbFriends");
+           console.log(currUserFriends);
+
+         } else {
+          console.log("Error!");
+        }
+      });
+
+
+}//get friends
+
+    setKPUserName();
+    getPhoto();
+    getFriends();
+
     user.fetch();
     /*
 
