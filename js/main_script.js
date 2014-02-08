@@ -50,12 +50,6 @@ YUI().use('node', function (Y) {
     
     //FROM ORIGINAL MAIN PAGE
 
-//ACLs
-
-
-
-
-
 //LOGIN FUNCTION - TO BE FIXED 
 
 
@@ -144,12 +138,23 @@ if (!user.existed()) {
   setKPUserName();
   getPhoto(); 
   getFriends();
+
   user.set("karmaPointsBalance",0);
   user.set("answersGivenBalance",0);
   user.set("answersGottenBalance",0);
   user.set("friendsInvitedBalance",0);
-  user.save();
+  user.save().then(function(){
   console.log("User signed up and logged in through Facebook!");
+
+  //ACLs to allow user points to be updated when they arent logged in
+
+var userACL = new Parse.ACL(user);
+userACL.setPublicReadAccess(true);
+userACL.setPublicWriteAccess(true);
+user.setACL(userACL);
+user.save();
+});
+
 }
 
 else {
