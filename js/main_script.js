@@ -50,13 +50,8 @@ YUI().use('node', function (Y) {
     
     //FROM ORIGINAL MAIN PAGE
 
-   // var user = Parse.User.current();
+//ACLs
 
-
-    var KarmaQuery = Parse.Object.extend("KarmaQuery");
-    var QueryAnswer = Parse.Object.extend("QueryAnswer");
-
-// Got the array of their facebook friends, need to save as an array
 
 
 
