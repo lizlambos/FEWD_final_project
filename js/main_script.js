@@ -64,7 +64,7 @@ YUI().use('node', function (Y) {
 //LOGIN FUNCTION - TO BE FIXED 
 
 
-      function initiateFBLogin() {
+function initiateFBLogin() {
 
   var user = Parse.User.current();
 

@@ -16,7 +16,7 @@ $(document).ready(function(){
 
     Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL");   
 
-    var user = Parse.User.current();
+    user = Parse.User.current();
     console.log(user);
     var toad = user.get('fbID');
     console.log(toad);
@@ -24,34 +24,49 @@ $(document).ready(function(){
     KarmaQuery = Parse.Object.extend("KarmaQuery");
     QueryAnswer = Parse.Object.extend("QueryAnswer");
 
-    user.fetch();
-
     //refresh the user's Karma points balance by re-running queries
 
     function refreshKarmaPoints () {
 
+      var def1 = $.Deferred();
+      def1.done(calcKarmaPointsBalance);
 
-     function calcKarmaPointsBalance ()  {
+      var def2 = $.Deferred();
+      def2.done(refreshAnswersGiven);
 
-       var testing1 = user.get("answersGottenBalance");
-       console.log(testing1);
+      var def3 = $.Deferred();
+      def3.done(refreshAnswersGotten);
 
-       var testing2 = user.get("friendsInvitedBalance");
-       console.log(testing2);
 
-       var testing3 = user.get("answersGivenBalance");
-       console.log(testing3);
+      function calcKarmaPointsBalance ()  {
 
-       var karmaPointsBalance = testing3 + testing2 - testing1;
-       console.log(karmaPointsBalance);
+        console.log("given balance function done");
 
-        //user.set("karmaPointsBalance", karmaPointsBalance);
-        user.save(null, {
+        Parse.User.current().fetch().then(function (user) {
+
+         var testing1 = user.get("answersGottenBalance");
+         console.log(testing1);
+
+         var testing2 = user.get("friendsInvitedBalance");
+         console.log(testing2);
+
+         var testing3 = user.get("answersGivenBalance");
+         console.log(testing3);
+
+         var karmaPointsBalance = testing3 + testing2 - testing1;
+         console.log(karmaPointsBalance);
+
+       // user.set("karmaPointsBalance", karmaPointsBalance);
+       user.save( {karmaPointsBalance: karmaPointsBalance}, {
          success: function() {
           console.log(user);
-          user.set("karmaPointsBalance", karmaPointsBalance);
+
           console.log("saved the new karma points");
+          Parse.User.current().fetch().then(function (user) {
+
           console.log(user.get("karmaPointsBalance"));
+
+        });
         },
         error: function( error) {
           console.log('Failed to create new object, with error code: ' + error.description);
@@ -59,8 +74,12 @@ $(document).ready(function(){
 
       });
 
-        console.log(karmaPointsBalance);
-        console.log(user.get("karmaPointsBalance"));
+       console.log(karmaPointsBalance);
+       Parse.User.current().fetch().then(function (user) {
+        var boar = user.get("karmaPointsBalance")
+        console.log(boar);
+
+      });
 
       //display the karma points balance on the two scoreboard areas (screen and mobile)  
 
@@ -70,7 +89,7 @@ $(document).ready(function(){
       $(".top-navbar-icon.karma-points .badge")
       .html("<span class='badge'>"+karmaPointsBalance+"</span>");
 
-
+    });//current user fetch
     } //calc KarmaPointsBalance
 
 
@@ -78,66 +97,82 @@ $(document).ready(function(){
 
       function refreshAnswersGiven () {
 
-        QueryAnswer = Parse.Object.extend("QueryAnswer");
-        query = new Parse.Query(QueryAnswer);
-        query.equalTo("answerer", user);
+         console.log("gotten balance function done");
 
-        query.find({
+        Parse.User.current().fetch().then(function (user) {
 
-          success: function(results) {
-            console.log(results.length);
-            var answersGivenBalance = results.length;
-            console.log(answersGivenBalance);
-          //user.set("answersGivenBalance", answersGivenBalance);
-          user.save(null, {
-            success: function() {
-              console.log(user.id);
+          QueryAnswer = Parse.Object.extend("QueryAnswer");
+          query = new Parse.Query(QueryAnswer);
+          query.equalTo("answerer", user);
+
+          query.find({
+
+            success: function(results) {
+              console.log(results.length);
+              var answersGivenBalance = results.length;
               console.log(answersGivenBalance);
-              console.log(user.get("answersGivenBalance"));
-              user.set("answersGivenBalance", answersGivenBalance);
-              console.log("ansers given saved");
-              console.log(user.get("answersGottenBalance"));
-            },
-            error: function(error) {
-              console.log("answersGiven not saved");
-            }
-        });//save
+          //user.set("answersGivenBalance", answersGivenBalance);
+          user.save(
+            {answersGivenBalance: answersGivenBalance}, {
+              success: function() {
+                console.log(user.id);
+                console.log(answersGivenBalance);
+                console.log("ansers given saved");
+                console.log(user.get("answersGivenBalance"));
+              },
+              error: function(error) {
+                console.log("answersGiven not saved");
+              }
+            }).then(function()  {
+              def1.resolve();
+            })
 
-        },
-        error: function(error) {
-          console.log("not found");
-        }
+        ;//save
+
+      },
+      error: function(error) {
+        console.log("not found");
+      }
 
         });  //find
 
       
 
+    });//parse current user fetch then
+
     }//refresh answers given balance
 
     function refreshAnswersGotten() {
 
-      var QueryAnswer = Parse.Object.extend("QueryAnswer");
+      Parse.User.current().fetch().then(function (user) {
 
-      numQuery = new Parse.Query(QueryAnswer);
-      numQuery.equalTo("asker", user);
-      console.log(user.id);
+        var QueryAnswer = Parse.Object.extend("QueryAnswer");
 
-      numQuery.find({
-        success: function(numResults) {
-          var totalRespCount = numResults.length;
-          console.log(totalRespCount);
-          var burntToast = user.get("username");
-          console.log(burntToast);
-          //user.set("answersGottenBalance", totalRespCount);
-          user.save(null, {
-            success: function() {
-              user.set("answersGottenBalance", totalRespCount);
-              console.log("ansers gotten saved");
-              console.log(user.get("answersGottenBalance"));
-            },
-            error: function(error) {
+        numQuery = new Parse.Query(QueryAnswer);
+        numQuery.equalTo("asker", user);
+        console.log(user.id);
+
+        numQuery.find({
+          success: function(numResults) {
+            var totalRespCount = numResults.length;
+            console.log(totalRespCount);
+            var burntToast = user.get("username");
+            console.log(burntToast);
+            user.set("answersGottenBalance", totalRespCount);
+            user.save( {
+              success: function() {
+               Parse.User.current().fetch().then(function (user) {
+                user.set("answersGottenBalance", totalRespCount);
+                console.log("ansers gotten saved");
+              //console.log(user.get("answersGottenBalance"));
+
+            });
+             },
+             error: function(error) {
               console.log("answersGotten not saved");
             }
+          }).then(function()  {
+            def2.resolve();
           });//save
 
         },
@@ -147,25 +182,26 @@ $(document).ready(function(){
 
         });//find
 
-  
+  });//parse current user fetch
 
     }//refresh friends gotten
 
-    var refreshFriendsInvited = function()  { 
+    function refreshFriendsInvited()  { 
 
-      friendsInvitedBalance = 0;
+      Parse.User.current().fetch().then(function (user) {
 
-      user.set("friendsInvitedBalance", friendsInvitedBalance);
-      user.save();
+        friendsInvitedBalance = 0;
+
+        user.set("friendsInvitedBalance", friendsInvitedBalance);
+        user.save().then(function(){
+          def3.resolve();
+        });
+
+    });//parse current user fetch
 
     }
 
-
-$.when((refreshFriendsInvited()).done(function()
-{
- console.log("hi");
-
-})
+    refreshFriendsInvited();
 
 
 }//get karmapoints balance
@@ -248,52 +284,58 @@ function getAskerPic() {
 
          else {
 
-          var askerFbID = item.get('fbID');
-          console.log(askerFbID);
-          var userFbID = user.get('fbID');
-          console.log(userFbID);
+          var user = Parse.User.current();
 
-          var userFriendsArray = user.get('fbFriends');
-          console.log(userFriendsArray);
+          user.fetch().then(function (user) {
+            user.get('id');
 
-          function findFriendMatch(friendFbId){
-            return $.grep(userFriendsArray, function(n, i){
-              return n.id == friendFbId;
-            });
-          };
 
-          findFriendMatch(askerFbID);  
+            var askerFbID = item.get('fbID');
+            console.log(askerFbID);
+            var userFbID = user.get('fbID');
+            console.log(userFbID);
 
-          if (findFriendMatch(askerFbID) != "") {
-            console.log("friends");
-            var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
-              queryText: val.get('text'),
-              timeStamp: val.get('timeStamp'),
-              askerName: val.get('askerName'),
-              id: val.id,
-              privacylevel: "",
-              askerID: askerID,
-              askerPicURL: askerPic
+            var userFriendsArray = user.get('fbFriends');
+            console.log(userFriendsArray);
+
+            function findFriendMatch(friendFbId){
+              return $.grep(userFriendsArray, function(n, i){
+                return n.id == friendFbId;
+              });
+            };
+
+            findFriendMatch(askerFbID);  
+
+            if (findFriendMatch(askerFbID) != "") {
+              console.log("friends");
+              var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
+                queryText: val.get('text'),
+                timeStamp: val.get('timeStamp'),
+                askerName: val.get('askerName'),
+                id: val.id,
+                privacylevel: "",
+                askerID: askerID,
+                askerPicURL: askerPic
             //karmaPointsBal: karmaPointsBalance
 
           });
 
-            contentColumn.prepend(content);
+              contentColumn.prepend(content);
 
-          }
+            }
 
-          else {
+            else {
 
-           console.log("not Friends");
+             console.log("not Friends");
 
-           var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
-            queryText: val.get('text'),
-            timeStamp: val.get('timeStamp'),
-            askerName: val.get('askerName'),
-            id: val.id,
-            privacylevel: "hidden",
-            askerID: askerID,
-            askerPicURL: askerPic
+             var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
+              queryText: val.get('text'),
+              timeStamp: val.get('timeStamp'),
+              askerName: val.get('askerName'),
+              id: val.id,
+              privacylevel: "hidden",
+              askerID: askerID,
+              askerPicURL: askerPic
             //karmaPointsBal: karmaPointsBalance
 
           });
@@ -303,6 +345,8 @@ function getAskerPic() {
           contentColumn.prepend(content);
 
         }
+
+      });//fetch then
 
         }//else
 
