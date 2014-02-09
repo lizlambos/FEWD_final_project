@@ -259,6 +259,159 @@ function getAskerPic() {
    askerPic = item.get('userPic');
    //console.log(askerPic);
 
+   //update the answers gotten points for the asker DOES NOT WORK
+
+function updateAskerKarmaPoints () {
+
+ console.log(questId);
+
+ thatAskerQuery = new Parse.Query(KarmaQuery);
+ thatAskerQuery.get(questId, {
+   success: function(item1) {
+    item1.fetch();
+    console.log(item1);
+    var personAsking = item1.get("asker");
+    console.log(personAsking);
+    console.log(personAsking.id);
+
+    var userQuery = new Parse.Query(Parse.User);
+    userQuery.get(personAsking.id, {
+      success: function(item2) {
+
+       var def1 = $.Deferred();
+       def1.done(calcKarmaPointsBalance);
+
+       var def2 = $.Deferred();
+       def2.done(refreshAnswersGiven);
+
+       var def3 = $.Deferred();
+       def3.done(refreshAnswersGotten);
+
+       function calcKarmaPointsBalance (answersGivenBalance, totalRespCount, friendsInvitedBalance)  {
+
+        console.log("given balance function done");
+        /*
+         var testing = friendsInvitedBalance;
+         console.log(testing1);
+
+         var testing2 = totalRespCount;
+         console.log(testing2);
+
+         var testing3 = answersGivenBalance;
+         console.log(testing3);
+  */
+         var karmaPointsBalance = answersGivenBalance + 
+         friendsInvitedBalance - totalRespCount;
+         console.log(karmaPointsBalance);
+         return karmaPointsBalance;
+
+    } //calc KarmaPointsBalance
+
+  //update the answers the user has given 
+
+  function refreshAnswersGiven ()  {
+
+    console.log(item2.id);
+
+      KarmaQuery = Parse.Object.extend("KarmaQuery");
+  //User = Parse.Object.extend("User");
+  console.log(item2);
+
+  var QueryAnswer = Parse.Object.extend("QueryAnswer");
+  query = new Parse.Query(QueryAnswer);
+  query.equalTo("answerer", item2);
+
+  query.find({
+    success: function(results) {
+      console.log(results.length);
+      var answersGivenBalance = results.length;
+      console.log(answersGivenBalance);
+      return answersGivenBalance;
+      def1.resolve();
+    },
+    error: function(error) {
+      alert("Error: " + error.code + " " + error.message);
+    }
+
+          });//find
+
+}//get queryAnswers
+
+//update the responder counts for their questions
+
+function refreshAnswersGotten () { 
+
+  console.log(item2.id);
+
+    var QueryAnswer = Parse.Object.extend("QueryAnswer");
+
+    numQuery = new Parse.Query(QueryAnswer);
+    numQuery.equalTo("asker",item2);
+    console.log(item2.id);
+
+    numQuery.find({
+      success: function(numResults) {
+        var totalRespCount = numResults.length;
+        console.log(numResults.length);
+        return numResults
+
+          def2.resolve();
+       
+      },
+      error: function(numResults, error) {
+        alert("Error when updating todo item: " + error.code + " " + error.message);
+      }
+
+});//find function
+
+  }//getquery answers
+
+  function refreshFriendsInvited()  { 
+    console.log(item2.username);
+    console.log(item2);
+    //item2.fetch().then(function (item2) {
+      var friendsInvitedBalance = 0;
+      return friendsInvitedBalance;
+        def3.resolve();
+
+    //});//parse current user fetch
+
+  }//refresh friends invited
+
+  refreshFriendsInvited();
+
+  },//item 2 success
+
+  error: function(item2, error) {
+    console.log(askerId);
+    console.log("cant find ya");
+            //alert("Error when checking for friend ID: " + error.code + " " + error.message);
+          }
+  });//get 2
+
+},
+error: function(item1, error) {
+  console.log(askerId);
+  console.log("cant find ya");
+            //alert("Error when checking for friend ID: " + error.code + " " + error.message);
+          }
+
+});// get 1
+
+if (karmaPointsBalance <= 0) {
+  console.log("hidden");
+  return "hidden";
+}
+else {
+  console.log("enough points");
+  return "";
+}
+
+
+}//update asker karma points
+
+updateAskerKarmaPoints();
+
          //screen by privacy level 
 
          var privacySetting = val.get('privacylevel');
@@ -551,223 +704,14 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
 
   }).then(function(){
 
-//update the answers gotten points for the asker DOES NOT WORK
-
-function updateAskerKarmaPoints () {
-
- console.log(queryID);
-
- thatAskerQuery = new Parse.Query(KarmaQuery);
- thatAskerQuery.get(queryID, {
-   success: function(item1) {
-    item1.fetch();
-    console.log(item1);
-    var personAsking = item1.get("asker");
-    console.log(personAsking);
-    console.log(personAsking.id);
-
-    var userQuery = new Parse.Query(Parse.User);
-    userQuery.get(personAsking.id, {
-      success: function(item2) {
-
-       var def1 = $.Deferred();
-       def1.done(calcKarmaPointsBalance);
-
-       var def2 = $.Deferred();
-       def2.done(refreshAnswersGiven);
-
-       var def3 = $.Deferred();
-       def3.done(refreshAnswersGotten);
-
-       function calcKarmaPointsBalance ()  {
-
-        console.log("given balance function done");
-
-        console.log(item2.id);
-
-        item2.fetch().then(function (item2) {
-
-         var testing = item2.get("answersGottenBalance");
-         console.log(testing1);
-
-         var testing2 = item2.get("friendsInvitedBalance");
-         console.log(testing2);
-
-         var testing3 = item2.get("answersGivenBalance");
-         console.log(testing3);
-
-         var karmaPointsBalance = testing3 + testing2 - testing1;
-         console.log(karmaPointsBalance);
-
-         item2.save( {karmaPointsBalance: karmaPointsBalance}, {
-           success: function() {
-            console.log(item2);
-
-            console.log("saved the new karma points");
-            Parse.User.current().fetch().then(function (item2) {
-
-              console.log(item2.get("karmaPointsBalance"));
-
-            });
-          },
-          error: function( error) {
-            console.log('Failed to create new object, with error code: ' + error.description);
-          }
-
-        });
-
-         console.log(karmaPointsBalance);
-         item2.fetch().then(function (item2) {
-          var boar = item2.get("karmaPointsBalance")
-          console.log(boar);
-
-        });
-
-    });//current user fetch
-    } //calc KarmaPointsBalance
-
-  //update the answers the user has given 
-
-  function refreshAnswersGiven ()  {
-
-    console.log(item2.id);
-
-    item2.fetch().then(function (item2) {
-
-      KarmaQuery = Parse.Object.extend("KarmaQuery");
-  //User = Parse.Object.extend("User");
-  console.log(item2);
-  var testing4 = item2.get("answersGottenBalance");
-  console.log(testing4);
-  console.log("hi this is gil");
-
-  var QueryAnswer = Parse.Object.extend("QueryAnswer");
-  query = new Parse.Query(QueryAnswer);
-  query.equalTo("answerer", item2);
-
-  query.find({
-    success: function(results) {
-      console.log(results.length);
-      var answersGivenBalance = results.length;
-      console.log(answersGivenBalance);
-      item2.save({answersGivenBalance: answersGivenBalance}, {
-        success:function(item2) {
-          console.log("saving answersGiven");
-        },
-        error: function(item2, error) {
-          console.log("not saving answersgiven");
-        }
-      }).then(function(){def1.resolve();});
-      item2.fetch().then(function(){
-        var toast8 = item2.get("answersGivenBalance");
-        console.log(toast8); });
-    },
-    error: function(error) {
-      alert("Error: " + error.code + " " + error.message);
-    }
-
-          });//find
 
 
-});//fetch
-
-}//get queryAnswers
-
-//update the responder counts for their questions
-
-function refreshAnswersGotten () { 
-
-  console.log(item2.id);
-
-  item2.fetch().then(function (item2) {
-
-    var QueryAnswer = Parse.Object.extend("QueryAnswer");
-
-    numQuery = new Parse.Query(QueryAnswer);
-    numQuery.equalTo("asker",item2);
-    console.log(item2.id);
-
-    numQuery.find({
-      success: function(numResults) {
-        var totalRespCount = numResults.length;
-        console.log(numResults.length);
-        var burntToast = item2.get("username");
-        console.log(burntToast);
-        item2.save({answersGottenBalance: totalRespCount}, {
-          success: function(item2) {
-            console.log("ansers gotten saved");
-          },
-          error: function(item2, error) {
-            console.log("answersGotten not saved");
-          }
-        }).then(function(){
-          def2.resolve();
-        });
-
-      },
-      error: function(numResults, error) {
-        alert("Error when updating todo item: " + error.code + " " + error.message);
-      }
-
-});//find function
-
-}); //fetch
-
-  }//getquery answers
-
-  function refreshFriendsInvited()  { 
-    console.log(item2.username);
-    console.log(item2);
-    item2.fetch().then(function (item2) {
-      friendsInvitedBalance = 1;
-      item2.save({friendsInvitedBalance: friendsInvitedBalance}, {
-        success: function(item2) {
-          console.log("friends invited saved");
-        },
-        error: function(error) {
-          console.log("friends invited not saved");
-        }
-      }).then(function(){
-        def3.resolve();
-      });
-
-    });//parse current user fetch
-
-  }//refresh friends invited
-
-  refreshFriendsInvited();
-
-  },//item 2 success
-
-  error: function(item2, error) {
-    console.log(askerId);
-    console.log("cant find ya");
-            //alert("Error when checking for friend ID: " + error.code + " " + error.message);
-          }
-  });//get 2
-
-},
-error: function(item1, error) {
-  console.log(askerId);
-  console.log("cant find ya");
-            //alert("Error when checking for friend ID: " + error.code + " " + error.message);
-          }
-
-});// get 1
-
-}//update asker karma points
-
-updateAskerKarmaPoints();
-
-}).then(function(){
-  refreshKarmaPoints(user);
+  refreshKarmaPoints();
   
 
 });
 
 });//onclick
-
- //DOES NOT WORK
 
 
   //delete button to hide queries
