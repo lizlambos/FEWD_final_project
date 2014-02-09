@@ -214,7 +214,7 @@ refreshKarmaPoints();
 
 //refresh friends questions in the question area (no filters at this time)    
 
-function loadFriendQueries(contentColumn){
+function loadFriendQueries(){
 
 	KarmaQuery = Parse.Object.extend("KarmaQuery");
 	//User = Parse.Object.extend("User");
@@ -223,7 +223,6 @@ function loadFriendQueries(contentColumn){
 	faQuery.notEqualTo("privacylevel", "Private");
   faQuery.notEqualTo("asker", user);
 
-  //faQuery.include("User");
   faQuery.ascending("createdAt");
 
   var myActiveQueries = faQuery.collection();
@@ -278,49 +277,66 @@ function getAskerPic() {
 
     			});
 
-           contentColumn.prepend(content);
+           if ((i+1)%3 ===0) {
+             allKPQueryColumn1.prepend(content);
+           }
+           else if ((i+1)%2 ===0) {
+            allKPQueryColumn2.prepend(content);
+          }
+          else{
+            allKPQueryColumn3.prepend(content);
+          }
 
-         }
+        }
 
-         else {
+          else {
 
-          var user = Parse.User.current();
+            var user = Parse.User.current();
 
-          user.fetch().then(function (user) {
-            user.get('id');
+            user.fetch().then(function (user) {
+              user.get('id');
 
 
-            var askerFbID = item.get('fbID');
-            console.log(askerFbID);
-            var userFbID = user.get('fbID');
-            console.log(userFbID);
+              var askerFbID = item.get('fbID');
+              console.log(askerFbID);
+              var userFbID = user.get('fbID');
+              console.log(userFbID);
 
-            var userFriendsArray = user.get('fbFriends');
-            console.log(userFriendsArray);
+              var userFriendsArray = user.get('fbFriends');
+              console.log(userFriendsArray);
 
-            function findFriendMatch(friendFbId){
-              return $.grep(userFriendsArray, function(n, i){
-                return n.id == friendFbId;
-              });
-            };
+              function findFriendMatch(friendFbId){
+                return $.grep(userFriendsArray, function(n, i){
+                  return n.id == friendFbId;
+                });
+              };
 
-            findFriendMatch(askerFbID);  
+              findFriendMatch(askerFbID);  
 
-            if (findFriendMatch(askerFbID) != "") {
-              console.log("friends");
-              var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
-                queryText: val.get('text'),
-                timeStamp: val.get('timeStamp'),
-                askerName: val.get('askerName'),
-                id: val.id,
-                privacylevel: "",
-                askerID: askerID,
-                askerPicURL: askerPic
+              if (findFriendMatch(askerFbID) != "") {
+                console.log("friends");
+                var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
+                  queryText: val.get('text'),
+                  timeStamp: val.get('timeStamp'),
+                  askerName: val.get('askerName'),
+                  id: val.id,
+                  privacylevel: "",
+                  askerID: askerID,
+                  askerPicURL: askerPic
             //karmaPointsBal: karmaPointsBalance
 
           });
 
-              contentColumn.prepend(content);
+                if ((i+1)%3 ===0) {
+                 allKPQueryColumn1.prepend(content);
+               }
+               else if ((i+1)%2 ===0) {
+                allKPQueryColumn2.prepend(content);
+              }
+              else{
+                allKPQueryColumn3.prepend(content);
+              }
+
 
             }
 
@@ -342,9 +358,18 @@ function getAskerPic() {
 
           //filter by privacy level
 
-          contentColumn.prepend(content);
-
+          if ((i+1)%3 ===0) {
+           allKPQueryColumn1.prepend(content);
+         }
+         else if ((i+1)%2 ===0) {
+          allKPQueryColumn2.prepend(content);
         }
+        else{
+          allKPQueryColumn3.prepend(content);
+        }
+
+
+      }
 
       });//fetch then
 
@@ -371,9 +396,8 @@ function getAskerPic() {
 
 //calling function on three columns but content is being repeated need to put in more arugments for each query  
 
-loadFriendQueries(allKPQueryColumn1);
-loadFriendQueries(allKPQueryColumn2);
-loadFriendQueries(allKPQueryColumn3);
+loadFriendQueries();
+
 
 //display updated Karma point balance
 
@@ -559,7 +583,7 @@ function updateAskerKarmaPoints () {
 
         console.log("given balance function done");
 
-          console.log(item2.id);
+        console.log(item2.id);
 
         item2.fetch().then(function (item2) {
 
@@ -606,7 +630,7 @@ function updateAskerKarmaPoints () {
 
   function refreshAnswersGiven ()  {
 
-      console.log(item2.id);
+    console.log(item2.id);
 
     item2.fetch().then(function (item2) {
 
@@ -653,7 +677,7 @@ function updateAskerKarmaPoints () {
 
 function refreshAnswersGotten () { 
 
-    console.log(item2.id);
+  console.log(item2.id);
 
   item2.fetch().then(function (item2) {
 
@@ -693,17 +717,17 @@ function refreshAnswersGotten () {
 
   function refreshFriendsInvited()  { 
     console.log(item2.username);
-      console.log(item2);
+    console.log(item2);
     item2.fetch().then(function (item2) {
       friendsInvitedBalance = 1;
       item2.save({friendsInvitedBalance: friendsInvitedBalance}, {
         success: function(item2) {
-        console.log("friends invited saved");
-      },
-      error: function(error) {
-        console.log("friends invited not saved");
-      }
-    }).then(function(){
+          console.log("friends invited saved");
+        },
+        error: function(error) {
+          console.log("friends invited not saved");
+        }
+      }).then(function(){
         def3.resolve();
       });
 
