@@ -256,42 +256,21 @@ function getAskerPic() {
       function updateAskerKarmaPoints () {
         console.log(askerID);
 
-        var def4 = $.Deferred();
+        /*var def4 = $.Deferred();
         def4.done(calcKarmaPointsBalance2);
 
         var def5 = $.Deferred();
         def5.done(refreshAnswersGiven2);
 
         var def6 = $.Deferred();
-        def6.done(refreshAnswersGotten2);
+        def6.done(refreshAnswersGotten2);*/
 
-        function calcKarmaPointsBalance2 (){
-          console.log("given balance function done");
-
-          var bear = refreshAnswersGiven2();
-          console.log(bear);
-
-          var karmaPointsBalance = refreshAnswersGiven2() + 
-          refreshFriendsInvited2()- refreshAnswersGotten2();
-          console.log(karmaPointsBalance);
-
-          if (karmaPointsBalance <= 0) {
-            $(document).getElementByID(questId).
-            parents("parent_row").addClass("hidden");
-
-          }
-
-    }; //calc KarmaPointsBalance
 
   //update the answers the user has given 
 
   function refreshAnswersGiven2 ()  {
 
-    console.log(item2.id);
-
-    KarmaQuery = Parse.Object.extend("KarmaQuery");
-  //User = Parse.Object.extend("User");
-  console.log(item2);
+  console.log(item2.id);
 
   var QueryAnswer = Parse.Object.extend("QueryAnswer");
   query = new Parse.Query(QueryAnswer);
@@ -302,68 +281,69 @@ function getAskerPic() {
       console.log(results.length);
       var answersGivenBalance = results.length;
       console.log(answersGivenBalance);
-      return answersGivenBalance;
 
-    },
-    error: function(error) {
-      alert("Error: " + error.code + " " + error.message);
-    }
+      //update the responder counts for their questions
 
-          }).then(function(){
-             def4.resolve();
-          });//find
+      function refreshAnswersGotten2 () { 
+        numQuery = new Parse.Query(QueryAnswer);
+        numQuery.equalTo("asker",item2);
+        numQuery.find({
+          success: function(numResults) {
+            var totalRespCount = numResults.length;
+            console.log(numResults.length);
+    
+            function refreshFriendsInvited2()  { 
+              var friendsInvitedBalance = 0;
+              console.log(friendsInvitedBalance);
 
+              function calcKarmaPointsBalance2 (){
 
- 
+                var karmaPointsBalance = answersGivenBalance + 
+                friendsInvitedBalance - totalRespCount;
+                console.log(karmaPointsBalance);
 
-}//get queryAnswers
+                if (karmaPointsBalance <= 0) {
+                  $("#"+questId+"").
+                  parents(".parent_row").addClass("hidden");
 
-//update the responder counts for their questions
+                }
 
-function refreshAnswersGotten2 () { 
+              }; //calc KarmaPointsBalance
 
-  console.log(item2.id);
-
-  var QueryAnswer = Parse.Object.extend("QueryAnswer");
-
-  numQuery = new Parse.Query(QueryAnswer);
-  numQuery.equalTo("asker",item2);
-  console.log(item2.id);
-
-  numQuery.find({
-    success: function(numResults) {
-      var totalRespCount = numResults.length;
-      console.log(numResults.length);
-      return totalRespCount;
+    calcKarmaPointsBalance2();
 
 
-    },
-    error: function(numResults, error) {
-      alert("Error when updating todo item: " + error.code + " " + error.message);
-    }
-
-}).then(function(){
-  def5.resolve();
-});//find function
-  
-
-}//getquery answers
-
-function refreshFriendsInvited2()  { 
-
-  //console.log(item2);
-  var friendsInvitedBalance = 0;
- 
-  console.log(friendsInvitedBalance);
-  refreshAnswersGotten2();
-  return friendsInvitedBalance;
-  }//refresh friends invited
+  }
 
   refreshFriendsInvited2();
 
-  }//update asker karma points
 
-  updateAskerKarmaPoints();
+},
+error: function(numResults, error) {
+  alert("Error when updating todo item: " + error.code + " " + error.message);
+}
+
+});//find function
+
+
+}//getquery answers
+
+refreshAnswersGotten2();
+
+},
+error: function(error) {
+  alert("Error: " + error.code + " " + error.message);
+}
+
+ });//find
+
+}//get queryAnswers
+
+refreshAnswersGiven2();
+
+}//update asker karma points
+
+updateAskerKarmaPoints();
 
          //screen by privacy level 
 
