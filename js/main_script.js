@@ -66,7 +66,7 @@ function initiateFBLogin() {
   def3.done(getFriends);
 
   var def4 = $.Deferred();
-  def3.done(checkStatus);
+  def4.done(checkStatus);
 
 
   function getFriends() {
