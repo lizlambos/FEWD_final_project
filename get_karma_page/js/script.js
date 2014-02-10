@@ -203,14 +203,9 @@ $(document).ready(function(){
 
     refreshFriendsInvited();
 
-
 }//get karmapoints balance
 
-
-
 refreshKarmaPoints();  
-
-
 
 //refresh friends questions in the question area (no filters at this time)    
 
@@ -224,9 +219,6 @@ function loadFriendQueries(){
   faQuery.notEqualTo("asker", user);
 
   faQuery.ascending("createdAt");
-
-  var myActiveQueries = faQuery.collection();
-  //console.log(myActiveQueries);
 
   faQuery.find({
    success: function(results) {
@@ -253,67 +245,51 @@ function loadFriendQueries(){
 //load picture of query asker
 
 function getAskerPic() {
- var query = new Parse.Query(Parse.User);
- query.get(askerID, {
-  success: function(item) {
-   askerPic = item.get('userPic');
-   //console.log(askerPic);
 
    //update the answers gotten points for the asker DOES NOT WORK
 
-function updateAskerKarmaPoints () {
+   var userQuery = new Parse.Query(Parse.User);
+   userQuery.get(askerID, {
+    success: function(item2) {
+      askerPic = item2.get('userPic');
 
- console.log(questId);
+      function updateAskerKarmaPoints () {
+        console.log(askerID);
 
- thatAskerQuery = new Parse.Query(KarmaQuery);
- thatAskerQuery.get(questId, {
-   success: function(item1) {
-    item1.fetch();
-    console.log(item1);
-    var personAsking = item1.get("asker");
-    console.log(personAsking);
-    console.log(personAsking.id);
+        var def4 = $.Deferred();
+        def4.done(calcKarmaPointsBalance2);
 
-    var userQuery = new Parse.Query(Parse.User);
-    userQuery.get(personAsking.id, {
-      success: function(item2) {
+        var def5 = $.Deferred();
+        def5.done(refreshAnswersGiven2);
 
-       var def1 = $.Deferred();
-       def1.done(calcKarmaPointsBalance);
+        var def6 = $.Deferred();
+        def6.done(refreshAnswersGotten2);
 
-       var def2 = $.Deferred();
-       def2.done(refreshAnswersGiven);
+        function calcKarmaPointsBalance2 (){
+          console.log("given balance function done");
 
-       var def3 = $.Deferred();
-       def3.done(refreshAnswersGotten);
+          var bear = refreshAnswersGiven2();
+          console.log(bear);
 
-       function calcKarmaPointsBalance (answersGivenBalance, totalRespCount, friendsInvitedBalance)  {
+          var karmaPointsBalance = refreshAnswersGiven2() + 
+          refreshFriendsInvited2()- refreshAnswersGotten2();
+          console.log(karmaPointsBalance);
 
-        console.log("given balance function done");
-        /*
-         var testing = friendsInvitedBalance;
-         console.log(testing1);
+          if (karmaPointsBalance <= 0) {
+            $(document).getElementByID(questId).
+            parents("parent_row").addClass("hidden");
 
-         var testing2 = totalRespCount;
-         console.log(testing2);
+          }
 
-         var testing3 = answersGivenBalance;
-         console.log(testing3);
-  */
-         var karmaPointsBalance = answersGivenBalance + 
-         friendsInvitedBalance - totalRespCount;
-         console.log(karmaPointsBalance);
-         return karmaPointsBalance;
-
-    } //calc KarmaPointsBalance
+    }; //calc KarmaPointsBalance
 
   //update the answers the user has given 
 
-  function refreshAnswersGiven ()  {
+  function refreshAnswersGiven2 ()  {
 
     console.log(item2.id);
 
-      KarmaQuery = Parse.Object.extend("KarmaQuery");
+    KarmaQuery = Parse.Object.extend("KarmaQuery");
   //User = Parse.Object.extend("User");
   console.log(item2);
 
@@ -327,90 +303,67 @@ function updateAskerKarmaPoints () {
       var answersGivenBalance = results.length;
       console.log(answersGivenBalance);
       return answersGivenBalance;
-      def1.resolve();
+
     },
     error: function(error) {
       alert("Error: " + error.code + " " + error.message);
     }
 
+          }).then(function(){
+             def4.resolve();
           });//find
+
+
+ 
 
 }//get queryAnswers
 
 //update the responder counts for their questions
 
-function refreshAnswersGotten () { 
+function refreshAnswersGotten2 () { 
 
   console.log(item2.id);
 
-    var QueryAnswer = Parse.Object.extend("QueryAnswer");
+  var QueryAnswer = Parse.Object.extend("QueryAnswer");
 
-    numQuery = new Parse.Query(QueryAnswer);
-    numQuery.equalTo("asker",item2);
-    console.log(item2.id);
+  numQuery = new Parse.Query(QueryAnswer);
+  numQuery.equalTo("asker",item2);
+  console.log(item2.id);
 
-    numQuery.find({
-      success: function(numResults) {
-        var totalRespCount = numResults.length;
-        console.log(numResults.length);
-        return numResults
+  numQuery.find({
+    success: function(numResults) {
+      var totalRespCount = numResults.length;
+      console.log(numResults.length);
+      return totalRespCount;
 
-          def2.resolve();
-       
-      },
-      error: function(numResults, error) {
-        alert("Error when updating todo item: " + error.code + " " + error.message);
-      }
 
+    },
+    error: function(numResults, error) {
+      alert("Error when updating todo item: " + error.code + " " + error.message);
+    }
+
+}).then(function(){
+  def5.resolve();
 });//find function
+  
 
-  }//getquery answers
+}//getquery answers
 
-  function refreshFriendsInvited()  { 
-    console.log(item2.username);
-    console.log(item2);
-    //item2.fetch().then(function (item2) {
-      var friendsInvitedBalance = 0;
-      return friendsInvitedBalance;
-        def3.resolve();
+function refreshFriendsInvited2()  { 
 
-    //});//parse current user fetch
-
+  //console.log(item2);
+  var friendsInvitedBalance = 0;
+ 
+  console.log(friendsInvitedBalance);
+  refreshAnswersGotten2();
+  return friendsInvitedBalance;
   }//refresh friends invited
 
-  refreshFriendsInvited();
+  refreshFriendsInvited2();
 
-  },//item 2 success
+  }//update asker karma points
 
-  error: function(item2, error) {
-    console.log(askerId);
-    console.log("cant find ya");
-            //alert("Error when checking for friend ID: " + error.code + " " + error.message);
-          }
-  });//get 2
-
-},
-error: function(item1, error) {
-  console.log(askerId);
-  console.log("cant find ya");
-            //alert("Error when checking for friend ID: " + error.code + " " + error.message);
-          }
-
-});// get 1
-
-if (karmaPointsBalance <= 0) {
-  console.log("hidden");
-  return "hidden";
-}
-else {
-  console.log("enough points");
-  return "";
-}
-
-
-}//update asker karma points
-
-updateAskerKarmaPoints();
+  updateAskerKarmaPoints();
 
          //screen by privacy level 
 
@@ -442,69 +395,69 @@ updateAskerKarmaPoints();
 
         }
 
-          else {
+        else {
 
-            var user = Parse.User.current();
+          var user = Parse.User.current();
 
-            user.fetch().then(function (user) {
-              user.get('id');
+          user.fetch().then(function (user) {
+            user.get('id');
 
 
-              var askerFbID = item.get('fbID');
-              console.log(askerFbID);
-              var userFbID = user.get('fbID');
-              console.log(userFbID);
+            var askerFbID = item2.get('fbID');
+            console.log(askerFbID);
+            var userFbID = user.get('fbID');
+            console.log(userFbID);
 
-              var userFriendsArray = user.get('fbFriends');
-              console.log(userFriendsArray);
+            var userFriendsArray = user.get('fbFriends');
+            console.log(userFriendsArray);
 
-              function findFriendMatch(friendFbId){
-                return $.grep(userFriendsArray, function(n, i){
-                  return n.id == friendFbId;
-                });
-              };
+            function findFriendMatch(friendFbId){
+              return $.grep(userFriendsArray, function(n, i){
+                return n.id == friendFbId;
+              });
+            };
 
-              findFriendMatch(askerFbID);  
+            findFriendMatch(askerFbID);  
 
-              if (findFriendMatch(askerFbID) != "") {
-                console.log("friends");
-                var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
-                  queryText: val.get('text'),
-                  timeStamp: val.get('timeStamp'),
-                  askerName: val.get('askerName'),
-                  id: val.id,
-                  privacylevel: "",
-                  askerID: askerID,
-                  askerPicURL: askerPic
+            if (findFriendMatch(askerFbID) != "") {
+              console.log("friends");
+              var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
+                queryText: val.get('text'),
+                timeStamp: val.get('timeStamp'),
+                askerName: val.get('askerName'),
+                id: val.id,
+                privacylevel: "",
+                askerID: askerID,
+                askerPicURL: askerPic
             //karmaPointsBal: karmaPointsBalance
 
           });
 
-                if ((i+1)%3 ===0) {
-                 allKPQueryColumn1.prepend(content);
-               }
-               else if ((i+1)%2 ===0) {
-                allKPQueryColumn2.prepend(content);
-              }
-              else{
-                allKPQueryColumn3.prepend(content);
-              }
-
-
+              if ((i+1)%3 ===0) {
+               allKPQueryColumn1.prepend(content);
+             }
+             else if ((i+1)%2 ===0) {
+              allKPQueryColumn2.prepend(content);
+            }
+            else{
+              allKPQueryColumn3.prepend(content);
             }
 
-            else {
 
-             console.log("not Friends");
+          }
 
-             var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
-              queryText: val.get('text'),
-              timeStamp: val.get('timeStamp'),
-              askerName: val.get('askerName'),
-              id: val.id,
-              privacylevel: "hidden",
-              askerID: askerID,
-              askerPicURL: askerPic
+          else {
+
+           console.log("not Friends");
+
+           var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
+            queryText: val.get('text'),
+            timeStamp: val.get('timeStamp'),
+            askerName: val.get('askerName'),
+            id: val.id,
+            privacylevel: "hidden",
+            askerID: askerID,
+            askerPicURL: askerPic
             //karmaPointsBal: karmaPointsBalance
 
           });
@@ -528,12 +481,14 @@ updateAskerKarmaPoints();
 
         }//else
 
-      },
-      error: function(object, error) {
-       alert("Error when updating todo item: " + error.code + " " + error.message);
-     }
+          },//item 2 success
 
-   });
+          error: function(item2, error) {
+            console.log(askerId);
+            console.log("cant find ya");
+            //alert("Error when checking for friend ID: " + error.code + " " + error.message);
+          }
+  });//get 2
 
       }//get asker pic about
 
@@ -706,10 +661,10 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
 
 
 
-  refreshKarmaPoints();
-  
+    refreshKarmaPoints();
 
-});
+
+  });
 
 });//onclick
 
