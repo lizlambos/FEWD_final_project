@@ -69,7 +69,18 @@ error: function(karmaQuery, error) {
 	console.log(test3);
 	console.log(karmaQuery);
 
+}//query Creator
+
+function karmaPointsWarning () {
+
+
+
+
+	
 }
+
+
+
 
 
 $("#kp_button").click(function(){

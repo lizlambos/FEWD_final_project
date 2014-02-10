@@ -52,75 +52,40 @@ YUI().use('node', function (Y) {
 
 //LOGIN FUNCTION - TO BE FIXED 
 
-
 function initiateFBLogin() {
 
   var user = Parse.User.current();
 
-  Parse.FacebookUtils.logIn("user_friends,email", {
-    success: function(user) {
+  var def1 = $.Deferred();
+  def1.done(setKPUserName);
 
-      function setKPUserName() {
-        FB.api('/me', function(response) {
-          if (!response.error) {
-            var userName = response.name;
-            console.log(userName);
-            user.set("username", userName); 
-            var userFbID = response.id;
-            console.log(typeof userFbID);
-            console.log(userFbID);
-            var userEmail = response.email;
-            console.log(userEmail);
-            user.set("email", userEmail);
-            user.set("fbID", userFbID); 
-            user.save(null, {
-              success: function(user) {
+  var def2 = $.Deferred();
+  def2.done(getPhoto);
 
-              },
-              error: function(user, error) {
-                console.log("Oops, something went wrong saving your name.");
-              }
-            });
+  var def3 = $.Deferred();
+  def3.done(getFriends);
 
-          } 
-          else {
-            console.log("Oops something went wrong with facebook.");
-          }
-        });
+  var def4 = $.Deferred();
+  def3.done(checkStatus);
 
-      }//set name
 
-      function getPhoto(){
-        FB.api('/me/picture?type=normal', function(response) {
+  function getFriends() {
+    FB.api('/me/friends', function(response) {
+      if(response.data) {
+       var friendsArray = response.data; 
+       console.log(friendsArray);
 
-          var str= response.data.url;
-          console.log(str);
-
-          user.set("userPic", str);
-
-          var userPic = user.get("userPic");
-          console.log(userPic);
-          user.save(null, {
+           //user.set("fbFriends", friendsArray);
+           user.save({fbFriends: friendsArray}, {
             success: function(user) {
 
             },
             error: function(user, error) {
-              console.log("Oops, something went wrong saving your name.");
+              console.log("Oops, something went wrong saving your friends.");
             }
+          }).then(function(){
+            def4.resolve();
           });
-        });
-
-      } //get photo
-
-
-      function getFriends() {
-        FB.api('/me/friends', function(response) {
-          if(response.data) {
-           var friendsArray = response.data; 
-           console.log(friendsArray);
-
-           user.set("fbFriends", friendsArray);
-           user.save();
 
            var currUserFriends = user.get("fbFriends");
            console.log(currUserFriends);
@@ -133,46 +98,106 @@ function initiateFBLogin() {
 
 }//get friends
 
-if (!user.existed()) {
-  console.log(user.id);
-  setKPUserName();
-  getPhoto(); 
-  getFriends();
+function getPhoto(){
+  FB.api('/me/picture?type=normal', function(response) {
 
-  user.set("karmaPointsBalance",0);
-  user.set("answersGivenBalance",0);
-  user.set("answersGottenBalance",0);
-  user.set("friendsInvitedBalance",0);
-  user.save().then(function(){
-  console.log("User signed up and logged in through Facebook!");
 
-  //ACLs to allow user points to be updated when they arent logged in
 
-var userACL = new Parse.ACL(user);
-userACL.setPublicReadAccess(true);
-userACL.setPublicWriteAccess(true);
-user.setACL(userACL);
-user.save();
-});
+    var str= response.data.url;
+    console.log(str);
 
-}
+    user.set("userPic", str);
 
-else {
-  console.log(user.id);
-  setKPUserName();
-  getPhoto();
-  getFriends();
-  console.log("User logged in through Facebook!");
-}
-},
+    var userPic = user.get("userPic");
+    console.log(userPic);
+    user.save( {
+      success: function(user) {
 
-error: function(user, error) {
- console.log("User cancelled the Facebook login or did not fully authorize."); }
+      },
+      error: function(user, error) {
+        console.log("Oops, something went wrong saving your picture.");
+      }
+    }).then(function(){
+      def3.resolve();
+    });
 
-});
+  });
+
+      } //get photo
+
+      function setKPUserName() {
+
+        user = Parse.User.current();
+        FB.api('/me', function(response) {
+          if (!response.error) {
+            var userName = response.name;
+            console.log(userName);
+            //user.set("username", userName); 
+            var userFbID = response.id;
+            console.log(typeof userFbID);
+            console.log(userFbID);
+            var userEmail = response.email;
+            console.log(userEmail);
+            //user.set("email", userEmail);
+            //user.set("fbID", userFbID); 
+            user.save({username: userName, email: userEmail, fbID: userFbID}, {
+              success: function(user) {
+
+              },
+              error: function(user, error) {
+                console.log("Oops, something went wrong saving your name.");
+              }
+            }).then(function(){
+              def2.resolve();
+            });
+
+          } 
+          else {
+            console.log("Oops something went wrong with facebook.");
+          }
+        });
+
+      }//set name
+
+      Parse.FacebookUtils.logIn("user_friends,email", {
+        success: function(user) {
+
+          if (!user.existed()) {
+            console.log(user.id);
+        //setKPUserName();
+        //getPhoto(); 
+        //getFriends();
+
+        user.set("karmaPointsBalance",0);
+        user.set("answersGivenBalance",0);
+        user.set("answersGottenBalance",0);
+        user.set("friendsInvitedBalance",0);
+        user.save().then(function(){
+          console.log("User signed up and logged in through Facebook!");
+          def1.resolve();
+
+        });
+
+      }
+
+      else {
+        console.log(user.id);
+        setKPUserName();
+        getPhoto();
+        getFriends();
+        console.log("User logged in through Facebook!");
+      }
+    },
+
+    error: function(user, error) {
+     console.log("User cancelled the Facebook login or did not fully authorize."); }
+
+   });
 
 
 //prompt for login if not connected
+
+function checkStatus()  {
 
 
 FB.Event.subscribe('auth.authResponseChange', function(response) {
@@ -200,13 +225,13 @@ FB.Event.subscribe('auth.authResponseChange', function(response) {
         /*Parse.FacebookUtils.login().then(function(){
           redirect();
         });
-      }*/
-    
+}*/
 
-   } 
-   else if (response.status === 'not_authorized') {
-     console.log(response.status);
-     Parse.FacebookUtils.login();
+
+} 
+else if (response.status === 'not_authorized') {
+ console.log(response.status);
+ Parse.FacebookUtils.login();
         //location.reload(true);
       } 
 
@@ -217,6 +242,7 @@ FB.Event.subscribe('auth.authResponseChange', function(response) {
       }
     });
 
+}//check fb status
 
 }//initiate FB login
 

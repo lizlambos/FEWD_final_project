@@ -34,20 +34,20 @@
 }
 
 #query_area::-webkit-input-placeholder {
-	color:#FFFFEB;
+	color:#CCC;
 	font-style: italic;
 }
 
 #query_area:-moz-placeholder { /* Firefox 18- */
-	color:#FFFFEB;
+	color:#CCC;
 }
 
 #query_area::-moz-placeholder {  /* Firefox 19+ */
-	color:#FFFFEB;
+	color:#CCC;
 }
 
 #query_area:-ms-input-placeholder {  
-	color:#FFFFEB; 
+	color:#CCC; 
 }
 
 

@@ -125,18 +125,14 @@ $(document).ready(function(){
               }
             }).then(function()  {
               def1.resolve();
-            })
+            });//save
 
-        ;//save
-
-      },
-      error: function(error) {
-        console.log("not found");
-      }
+          },
+          error: function(error) {
+            console.log("not found");
+          }
 
         });  //find
-
-
 
     });//parse current user fetch then
 
@@ -174,7 +170,6 @@ $(document).ready(function(){
           }).then(function()  {
             def2.resolve();
           });//save
-
         },
         error: function(error) {
           console.log("not found");
@@ -242,9 +237,9 @@ function loadFriendQueries(){
     askerName = val.get('askerName');
     console.log(askerName);
 
-//load picture of query asker
+//function loads user picture and question and screens by privacy level and whether asker has enough karma points
 
-function getAskerPic() {
+function screenAndLoad() {
 
    //update the answers gotten points for the asker DOES NOT WORK
 
@@ -253,78 +248,64 @@ function getAskerPic() {
     success: function(item2) {
       askerPic = item2.get('userPic');
 
+      //get the karma points balance of hte asker (note this is not saved for the asker until they log on but can be calc'ed when they are offline)
+
       function updateAskerKarmaPoints () {
         console.log(askerID);
 
-        /*var def4 = $.Deferred();
-        def4.done(calcKarmaPointsBalance2);
 
-        var def5 = $.Deferred();
-        def5.done(refreshAnswersGiven2);
+          //update the answers the user has given 
 
-        var def6 = $.Deferred();
-        def6.done(refreshAnswersGotten2);*/
+          function refreshAnswersGiven2 ()  {
 
+            console.log(item2.id);
 
-  //update the answers the user has given 
+            var QueryAnswer = Parse.Object.extend("QueryAnswer");
+            query = new Parse.Query(QueryAnswer);
+            query.equalTo("answerer", item2);
 
-  function refreshAnswersGiven2 ()  {
+            query.find({
+              success: function(results) {
+                console.log(results.length);
+                var answersGivenBalance = results.length;
+                console.log(answersGivenBalance);
 
-  console.log(item2.id);
+            //update the responder counts for their questions
 
-  var QueryAnswer = Parse.Object.extend("QueryAnswer");
-  query = new Parse.Query(QueryAnswer);
-  query.equalTo("answerer", item2);
+            function refreshAnswersGotten2 () { 
+              numQuery = new Parse.Query(QueryAnswer);
+              numQuery.equalTo("asker",item2);
+              numQuery.find({
+                success: function(numResults) {
+                  var totalRespCount = numResults.length;
+                  console.log(numResults.length);
 
-  query.find({
-    success: function(results) {
-      console.log(results.length);
-      var answersGivenBalance = results.length;
-      console.log(answersGivenBalance);
+                  function refreshFriendsInvited2()  { 
+                    var friendsInvitedBalance = 0;
+                    console.log(friendsInvitedBalance);
 
-      //update the responder counts for their questions
+                    function calcKarmaPointsBalance2 (){
 
-      function refreshAnswersGotten2 () { 
-        numQuery = new Parse.Query(QueryAnswer);
-        numQuery.equalTo("asker",item2);
-        numQuery.find({
-          success: function(numResults) {
-            var totalRespCount = numResults.length;
-            console.log(numResults.length);
-    
-            function refreshFriendsInvited2()  { 
-              var friendsInvitedBalance = 0;
-              console.log(friendsInvitedBalance);
+                      var karmaPointsBalance = answersGivenBalance + 
+                      friendsInvitedBalance - totalRespCount;
+                      console.log(karmaPointsBalance);
 
-              function calcKarmaPointsBalance2 (){
+                      if (karmaPointsBalance <= 0) {
+                        $("#"+questId+"").
+                        parents(".parent_row").addClass("hidden");}
 
-                var karmaPointsBalance = answersGivenBalance + 
-                friendsInvitedBalance - totalRespCount;
-                console.log(karmaPointsBalance);
+                      }; //calc KarmaPointsBalance
 
-                if (karmaPointsBalance <= 0) {
-                  $("#"+questId+"").
-                  parents(".parent_row").addClass("hidden");
+                      calcKarmaPointsBalance2();
+                    }//friendsinvited
 
-                }
+                    refreshFriendsInvited2();
+                  },
+                  error: function(numResults, error) {
+                    alert("Error when updating todo item: " + error.code + " " + error.message);
+                  }
 
-              }; //calc KarmaPointsBalance
-
-    calcKarmaPointsBalance2();
-
-
-  }
-
-  refreshFriendsInvited2();
-
-
-},
-error: function(numResults, error) {
-  alert("Error when updating todo item: " + error.code + " " + error.message);
-}
-
-});//find function
-
+              });//find function
 
 }//getquery answers
 
@@ -472,7 +453,7 @@ updateAskerKarmaPoints();
 
       }//get asker pic about
 
-      getAskerPic();
+      screenAndLoad();
       
     });//y.array
 
