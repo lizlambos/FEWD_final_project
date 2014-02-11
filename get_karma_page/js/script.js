@@ -285,15 +285,46 @@ function screenAndLoad() {
                     console.log(friendsInvitedBalance);
 
                     function calcKarmaPointsBalance2 (){
-
                       var karmaPointsBalance = answersGivenBalance + 
                       friendsInvitedBalance - totalRespCount;
                       console.log(karmaPointsBalance);
 
+                      //screen to not show question if asker doesnt have karma points
+
                       if (karmaPointsBalance <= 0) {
                         $("#"+questId+"").
                         parents(".parent_row").addClass("hidden");}
+                       else {
+                         //screen if someone has answered it before
 
+                      function screenIfAnswered () {
+                        console.log("screen answered function running");
+                      QueryAnswer = Parse.Object.extend("QueryAnswer");
+                      var answeredYetQuery = new Parse.Query(QueryAnswer);
+                      answeredYetQuery.equalTo("questId", questId);
+                      answeredYetQuery.find({
+                        success:function(results3){
+                          console.log("for function going");
+                          for (var i=0; i< results3.length; i++) {
+                            results3[i].fetch().then(function(){
+                            console.log(results3[i].get("answerer"));
+                            if (results3[i].get("answerer") == user) {
+                             $("#"+questId+"").
+                             parents(".parent_row").addClass("hidden");}  
+                            else {
+                              console.log("new question for user");
+                            }
+                          });//fetch
+                       }
+                     },
+                     error: function(error) {
+                        console.log("somehting wrong with the answer query");
+                     }
+                   });
+                    }
+
+                    screenIfAnswered();
+                       } 
                       }; //calc KarmaPointsBalance
 
                       calcKarmaPointsBalance2();

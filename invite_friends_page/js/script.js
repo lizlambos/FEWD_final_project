@@ -148,9 +148,9 @@ else {
 
   $(".fb_friendsarea").on("click", ".add-friend-button",function(){
         FB.ui({method: 'apprequests',
-        appId: '254848478004741', 
+        //appId: '254848478004741', 
         message: 'Dying to know how friends perceive you? Join Karma Police and find out!',
-        filters: 'app_non_users',
+        //filters: 'app_non_users',
         //redirect_uri: 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/login_page/',
         title: 'KarmaPolice - An anonymous read on your karma'
     });
