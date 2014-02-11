@@ -294,6 +294,7 @@ function screenAndLoad() {
                       if (karmaPointsBalance <= 0) {
                         $("#"+questId+"").
                         parents(".parent_row").addClass("hidden");}
+                       
                        else {
                          //screen if someone has answered it before
 
@@ -313,6 +314,7 @@ function screenAndLoad() {
                              else {
                               console.log("new question for user "+questId+"");
                              }
+
                             
                      },
                      error: function(error) {
@@ -322,7 +324,10 @@ function screenAndLoad() {
                     }
 
                     screenIfAnswered();
+
                        } 
+
+
                       }; //calc KarmaPointsBalance
 
                       calcKarmaPointsBalance2();
@@ -331,7 +336,7 @@ function screenAndLoad() {
                     refreshFriendsInvited2();
                   },
                   error: function(numResults, error) {
-                    alert("Error when updating todo item: " + error.code + " " + error.message);
+                    alert("Error when updating scrren when answered section: " + error.code + " " + error.message);
                   }
 
               });//find function
@@ -342,7 +347,7 @@ refreshAnswersGotten2();
 
 },
 error: function(error) {
-  alert("Error: " + error.code + " " + error.message);
+  alert("Error Answers Gotten Section line 350: " + error.code + " " + error.message);
 }
 
  });//find
@@ -515,13 +520,13 @@ $("#allKP_active_queries_list").on("mouseenter",".answers .btn", function(){
 
     	getAnswersQuery.get(queryID, {
     		success: function(item) {
-          item.fetch();
+          item.fetch().then(function(){
           noAnswers = item.get('noResponderCount');
           yesAnswers = item.get('yesResponderCount');
           var totalAnswers = noAnswers + yesAnswers;
-          //console.log(totalAnswers);
+          console.log(totalAnswers);
           responders = item.get('responderCount');
-          //console.log(responders);
+          console.log(responders);
 
           if (responders != 0) {
 
@@ -553,11 +558,13 @@ $("#allKP_active_queries_list").on("mouseenter",".answers .btn", function(){
           	children(".no-button").html(percentNoAnswers+"%")
           	.css({"font-size": "3em", "padding":"25px 7px 30px 7px"});
 
-          });
+          });//on click
+
+        });//fetch
 
         },
-        error: function(object, error) {
-         alert("Error when updating todo item: " + error.code + " " + error.message);
+        error: function(error) {
+         alert("Error when updating revealing answers line 565");
        }
 
 });//get function
@@ -626,7 +633,7 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
           'at' + queryAnswer.createdAt+'.');
 
       },
-      error: function(queryAnswer, error) {
+      error: function(error) {
 
         alert('Failed to create new object because of asker, with error code: ' + error.description);
       }
