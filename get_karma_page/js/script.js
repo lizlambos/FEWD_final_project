@@ -373,10 +373,10 @@ updateAskerKarmaPoints();
 
     			});
 
-           if ((i+1)%3 ===0) {
+           if ((i+1)%3 === 0) {
              allKPQueryColumn1.prepend(content);
            }
-           else if ((i+1)%2 ===0) {
+           else if ((i+1)%2 === 0) {
             allKPQueryColumn2.prepend(content);
           }
           else{
