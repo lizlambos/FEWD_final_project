@@ -91,6 +91,8 @@ function countUserFriends () {
         } 
         console.log(friendsTotal);
         $(".friends_badge").text(friendsTotal);
+        user.set("friendsTotal",friendsTotal);
+        user.save();
     }//for
   },
 

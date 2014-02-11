@@ -142,11 +142,25 @@ function karmaPointsWarning () {
 
        });
 
+       //also invite to add more friends if setting is FB only and user has <5 friends on KP
+
+      friendsTotal = user.get("friendsTotal");
+      console.log(friendsTotal);
+      console.log($("button.active").text());
+
        if (karmaPointsBalance <= 0)	{
        	$("body").prepend(
-       		"<div class='helper_popup' id='need_points'><p class='popup_text first'>You have karmaPointsBalance Karma Points</p><p class='popup_text'> Get more points so friends can answer your Karma Queries</p><div class='btn_wrapper'><a href='../get_karma_page/index.html' class='btn btn-success'>Sounds Great</a><a href='#' class='btn btn-warning later_button'>Later</a></div><input class='user_pref_checkbox' type='checkbox' name='user_pref' value='no_karma_points_reminders'> <p class='user_pref_checkbox_label'>Don't nag me about this anymore</p></div>"
+       		"<div class='helper_popup' id='need_points'><p class='popup_text first'>You have "=karmaPointsBalance+" Karma Points</p><p class='popup_text'> Get more points so friends can answer your Karma Queries</p><div class='btn_wrapper'><a href='../get_karma_page/index.html' class='btn btn-success'>Sounds Great</a><a href='#' class='btn btn-warning later_button'>Later</a></div><input class='user_pref_checkbox' type='checkbox' name='user_pref' value='no_karma_points_reminders'> <p class='user_pref_checkbox_label'>Don't nag me about this anymore</p></div>"
        		)
        }
+       else if ($("button.active").text() == "FB Friends" && 
+        user.get("friendsTotal") <= 5) {
+  
+        $("body").prepend(
+          "<div class='helper_popup' id='need_points'><p class='popup_text first'>You have "+friendsTotal+" friends who can answer your query</p><p class='popup_text'> Expand your audience by inviting more friends</p><div class='btn_wrapper'><a href='../invite_friends_page/index.html' class='btn btn-success'>Sounds Great</a><a href='#' class='btn btn-warning later_button'>Later</a></div><input class='user_pref_checkbox' type='checkbox' name='user_pref' value='no_karma_points_reminders'> <p class='user_pref_checkbox_label'>Don't nag me about this anymore</p></div>"
+          )
+       }
+
        else {
        	queryCreator();
        }
