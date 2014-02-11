@@ -35,30 +35,73 @@ $(function(){
 
     function displayKarmaPoints() {
 
- 
-   	var toast4 = user.get("answersGottenBalance");
-    	console.log(toast4);
 
-    	var toast5 = user.get("friendsInvitedBalance");
-    	console.log(toast5);
+      var toast4 = user.get("answersGottenBalance");
+      console.log(toast4);
 
-    	var toast6 = user.get("answersGivenBalance");
-    	console.log(toast6);
+      var toast5 = user.get("friendsInvitedBalance");
+      console.log(toast5);
 
-    	var karmaPointsBalance = toast6 + toast5 - toast4;
+      var toast6 = user.get("answersGivenBalance");
+      console.log(toast6);
+
+      var karmaPointsBalance = toast6 + toast5 - toast4;
       
-    	user.fetch();
-        console.log(user.get("karmaPointsBalance"));
+      user.fetch();
+      console.log(user.get("karmaPointsBalance"));
 
-    	$(".top-navbar-icon.karma-points .badge")
-    	.html(karmaPointsBalance);
+      $(".top-navbar-icon.karma-points .badge")
+      .html(karmaPointsBalance);
 
 }//display karma points
 
+function countUserFriends () {
 
-putUpUserPic(); 
-grabUserName();
-displayKarmaPoints();
+ var user = Parse.User.current();
+
+ user.fetch().then(function (user) {
+  user.get('id');
+
+  var userFbID = user.get('fbID');
+  console.log(userFbID);
+
+  var userFriendsArray = user.get('fbFriends');
+  console.log(userFriendsArray);
+
+  var friendsTotal = 0;
+
+  friendCountQuery = new Parse.Query(Parse.User);
+  friendCountQuery.find({
+    success: function(results) {
+
+      console.log(results.length);
+
+      for (var i = 0; i<results.length; i++) {
+        var friendFbId = results[i].get("fbID");
+        if ($.inArray(friendFbId, userFriendsArray) != -1)
+        { friendsTotal = friendsTotal + 1 }
+        else { friendsTotal = friendsTotal;
+        } 
+        console.log(friendsTotal);
+        $(".friends_badge").text(friendsTotal);
+    }//for
+  },
+
+  error: function(error) {
+    console.log("didn't find parse users!")
+  }
+
+  });//friend count query find
+
+    });//fetch
+
+  }
+
+
+  putUpUserPic(); 
+  grabUserName();
+  displayKarmaPoints();
+  countUserFriends();
 
     //load the array of recent active and private queries for the user
 
@@ -72,9 +115,9 @@ displayKarmaPoints();
       query.ascending("createdAt");
 
 
-    	query.find({
-    		success: function(results) {
-    			console.log(results.length);
+      query.find({
+        success: function(results) {
+         console.log(results.length);
 
 
       //Append each of the active queries to the active queries list
@@ -238,17 +281,17 @@ error: function(object, error) {
 
 function loadMyPrivateQueries (queryList) {
 
-      KarmaQuery = Parse.Object.extend("KarmaQuery");
+  KarmaQuery = Parse.Object.extend("KarmaQuery");
 
-      var query = new Parse.Query(KarmaQuery);
-      query.equalTo('privacylevel', "Private");
-      query.equalTo("asker", user);
-      query.ascending("createdAt");
+  var query = new Parse.Query(KarmaQuery);
+  query.equalTo('privacylevel', "Private");
+  query.equalTo("asker", user);
+  query.ascending("createdAt");
 
 
-      query.find({
-        success: function(results) {
-          console.log(results.length);
+  query.find({
+    success: function(results) {
+      console.log(results.length);
 
 
       //Append each of the active queries to the active queries list
