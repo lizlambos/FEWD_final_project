@@ -298,20 +298,16 @@ function screenAndLoad() {
                          //screen if someone has answered it before
 
                       function screenIfAnswered () {
-                        console.log("screen answered function running");
-                      QueryAnswer = Parse.Object.extend("QueryAnswer");
+                      console.log("screen answered function running");
+                      var QueryAnswer = Parse.Object.extend("QueryAnswer");
                       var answeredYetQuery = new Parse.Query(QueryAnswer);
                       answeredYetQuery.equalTo("queryID", questId);
                       answeredYetQuery.equalTo("answerer", user);
                       answeredYetQuery.find({
                         success:function(results3){
-                          console.log(results3.length);
-                          if (results3.length > 0) {
                              $("#"+questId+"").
-                             parents(".parent_row").addClass("hidden");}  
-                            else {
-                              console.log("new question for user");
-                            }
+                             parents(".parent_row").addClass("hidden"); 
+                            
                      },
                      error: function(error) {
                         console.log("somehting wrong with the answer query");
@@ -497,16 +493,6 @@ loadFriendQueries();
 
 //display updated Karma point balance
 
-function updateAnswererKarmaPoints() {
-
-  user.fetch();
-
-  refreshKarmaPoints();   
-
-}//update karma points
-
-
-
 
 //two separate functions bount to the answers button being clicked, the first one reveals the answers 
 
@@ -591,7 +577,7 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
   console.log(myid);
   var d = new Date();
   var dString = d.toString();
-  timeStamp = dString.substring(4,15);
+  timeStamp = dString.substring(4,21);
   console.log(queryID);
 
   var QueryAnswer = Parse.Object.extend("QueryAnswer");
@@ -616,6 +602,8 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
   }
 
   });//save
+
+  // save the asker of the question as an attribute of the answer for easy querying later
 
   var KarmaQuery = Parse.Object.extend("KarmaQuery");
   queryAsker = new Parse.Query(KarmaQuery);
@@ -652,6 +640,8 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
     refreshKarmaPoints();
 
 
+  }).then(function(){
+     $(this).parents(".parent_row").fadeOut("slow");
   });
 
 });//onclick
