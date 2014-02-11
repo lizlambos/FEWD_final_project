@@ -78,7 +78,14 @@ function countUserFriends () {
 
       for (var i = 0; i<results.length; i++) {
         var friendFbId = results[i].get("fbID");
-        if ($.inArray(friendFbId, userFriendsArray) != -1)
+        console.log(friendFbId);
+        function findFriendMatch(friendFbId){
+              return $.grep(userFriendsArray, function(n, j){
+                return n.id == friendFbId;
+              });
+            };
+
+        if (findFriendMatch(friendFbId)!= "")
         { friendsTotal = friendsTotal + 1 }
         else { friendsTotal = friendsTotal;
         } 
