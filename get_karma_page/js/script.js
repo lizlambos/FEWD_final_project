@@ -301,21 +301,17 @@ function screenAndLoad() {
                         console.log("screen answered function running");
                       QueryAnswer = Parse.Object.extend("QueryAnswer");
                       var answeredYetQuery = new Parse.Query(QueryAnswer);
-                      answeredYetQuery.equalTo("questId", questId);
+                      answeredYetQuery.equalTo("queryID", questId);
+                      answeredYetQuery.equalTo("answerer", user);
                       answeredYetQuery.find({
                         success:function(results3){
-                          console.log("for function going");
-                          for (var i=0; i< results3.length; i++) {
-                            results3[i].fetch().then(function(){
-                            console.log(results3[i].get("answerer"));
-                            if (results3[i].get("answerer") == user) {
+                          console.log(results3.length);
+                          if (results3.length > 0) {
                              $("#"+questId+"").
                              parents(".parent_row").addClass("hidden");}  
                             else {
                               console.log("new question for user");
                             }
-                          });//fetch
-                       }
                      },
                      error: function(error) {
                         console.log("somehting wrong with the answer query");
