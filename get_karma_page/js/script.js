@@ -22,7 +22,7 @@ $(document).ready(function(){
     console.log(toad);
 
     KarmaQuery = Parse.Object.extend("KarmaQuery");
-    QueryAnswer = Parse.Object.extend("QueryAnswer");
+    var QueryAnswer = Parse.Object.extend("QueryAnswer");
 
     //refresh the user's Karma points balance by re-running queries
 
@@ -101,8 +101,8 @@ $(document).ready(function(){
 
        Parse.User.current().fetch().then(function (user) {
 
-        QueryAnswer = Parse.Object.extend("QueryAnswer");
-        query = new Parse.Query(QueryAnswer);
+        var QueryAnswer = Parse.Object.extend("QueryAnswer");
+        var query = new Parse.Query(QueryAnswer);
         query.equalTo("answerer", user);
 
         query.find({
@@ -305,8 +305,14 @@ function screenAndLoad() {
                       answeredYetQuery.equalTo("answerer", user);
                       answeredYetQuery.find({
                         success:function(results3){
+                             console.log(results3.length);
+                             if (results3.length > 0) {
+                              console.log("user already answered this question "+questId+"");
                              $("#"+questId+"").
-                             parents(".parent_row").addClass("hidden"); 
+                             parents(".parent_row").addClass("hidden"); }
+                             else {
+                              console.log("new question for user "+questId+"");
+                             }
                             
                      },
                      error: function(error) {
@@ -641,7 +647,12 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
 
 
   }).then(function(){
-     $(this).parents(".parent_row").fadeOut("slow");
+
+    setTimeout( function(){ 
+     $(this).parents(".parent_row").addClass("hidden");
+  }
+ , 10000 );
+    
   });
 
 });//onclick
