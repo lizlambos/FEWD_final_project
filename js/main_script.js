@@ -172,6 +172,7 @@ function getPhoto(){
         user.set("answersGivenBalance",0);
         user.set("answersGottenBalance",0);
         user.set("friendsInvitedBalance",0);
+        user.set("friendsTotal",0);
         user.save().then(function(){
           console.log("User signed up and logged in through Facebook!");
           def1.resolve();

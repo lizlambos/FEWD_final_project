@@ -23,7 +23,8 @@ $(document).ready(function(){
       channelUrl : 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/channel.html', // Channel File
       status     : true, // check login status
       cookie     : true, // enable cookies to allow Parse to access the session
-      xfbml      : true  // parse XFBML
+      xfbml      : true,  // parse XFBML
+      frictionlessRequests : true
     });
 
      // $(document).ready(function(){
@@ -143,6 +144,18 @@ else {
 
 
   populateFriendList();
+
+
+  $(".fb_friendsarea").on("click", ".add-friend-button",function(){
+        FB.ui({method: 'apprequests',
+        appId: '254848478004741', 
+        message: 'Dying to know how friends perceive you? Join Karma Police and find out!',
+        filters: 'app_non_users',
+        //redirect_uri: 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/login_page/',
+        title: 'KarmaPolice - An anonymous read on your karma'
+    });
+
+  })
 
 
 });//node
