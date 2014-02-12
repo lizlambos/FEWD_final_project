@@ -328,8 +328,8 @@ function karmaPointsWarning () {
       console.log($("button.active").text());
 
        if (karmaPointsBalance <= 0)	{
-       	$("body").prepend("<div class='helper_popup' id='need_points'><p class='popup_text first'>You have "=karmaPointsBalance+" Karma Points</p><p class='popup_text'> Get more points so friends can answer your Karma Queries</p><div class='btn_wrapper'><a href='../get_karma_page/index.html' class='btn btn-success'>Sounds Great</a><a href='#' class='btn btn-warning later_button'>Later</a></div><input class='user_pref_checkbox' type='checkbox' name='user_pref' value='no_karma_points_reminders'> <p class='user_pref_checkbox_label'>Don't nag me about this anymore</p></div>");
-       }
+       	$("body").prepend("<div class='helper_popup' id='need_points'><p class='popup_text first'>You have "+karmaPointsBalance+" Karma Points</p><p class='popup_text'> Get more points so friends can answer your Karma Queries</p><div class='btn_wrapper'><a href='../get_karma_page/index.html' class='btn btn-success'>Sounds Great</a><a href='#' class='btn btn-warning later_button'>Later</a></div><input class='user_pref_checkbox' type='checkbox' name='user_pref' value='no_karma_points_reminders'> <p class='user_pref_checkbox_label'>Don't nag me about this anymore</p></div>");}
+
        else if ($("button.active").text() == "FB Friends" && 
         user.get("friendsTotal") <= 5) {
   

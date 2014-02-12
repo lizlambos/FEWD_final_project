@@ -26,21 +26,29 @@ $(document).ready(function(){
 
    //quick intro for first time users 
 
-    user.fetch.then(function(){
+    user.fetch().then(function(){
       var hadIntro = user.get("hadTour");
        if (hadIntro == true) {
         $(".helper_popup").addClass("hidden");
        }
        else {
-          $("#guided_tour1").children(".later_button").click(function(){
+          $(".go_button").click(function(){
               $("#guided_tour1").fadeOut('slow');
+              user.set("hadTour", true);
+              user.save({
+                success: function(user) {
+                  console.log("saved user tour status")
+                },
+                error: function(error) {
+                  console.log("didn't save user tour status");
+                }
+              })
 
           });
-          
 
        }
 
-    });
+    });//fetch
 
     //refresh the user's Karma points balance by re-running queries
 
