@@ -71,19 +71,17 @@
 .navbar-form {
 	position:relative;
 	width:auto;
-}
-
-.form-group {
-	width:250px;	
+	margin-right:-20px;
 	float:left;
 
 }
+
 
 .form-control{
 	border-radius:25px;
 	padding-right:20px;
 	width:90%;
-	margin-right:-20px;
+	
 }
 
 
@@ -316,20 +314,23 @@
 /* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
 @media (min-width: 768px) { 
 
-	.navbar-brand {
-		font-size:4em;
+	.navbar .navbar-brand {
+		font-size:3em;
 		left:10%;
+		padding-top:10px;
+		margin-top:10px;
+		margin-bottom:-10px;
 
 	}
 
 	.navbar-right {
-		margin-right:90px;
+		margin-right:0px;
 
 	}
 	.navbar-collapse { 
 		padding-right:0px;
 		position:absolute;
-		left:50%;
+		left:65%;
 		background:transparent;
 		margin-top:0px;
 
@@ -337,6 +338,49 @@
 
 	.mobile-searchbox {
 		font-size:1em;
+	}
+
+	.row.scoreboard {
+		margin-top:-10px;
+		margin-bottom:-10px;
+		margin-left:-10px;
+
+	}
+
+	.scoreboard {
+		background:transparent;
+		margin:0px;
+	
+		width:auto;
+
+	}
+
+	.scoreboard h1 {
+		padding: 0px;
+		font-size:1.25em;
+		margin:5px 0px 0px 5px;
+		display:inline;
+		width:100px;
+		line-height: 1.25em;
+		float:left;
+
+	}
+
+	.scoreboard .karma_points_display {
+		padding:5px;
+		margin:0px 0px 0px 0px;
+		font-size:1.5em;
+		display:inline-block;
+		float:left;
+		border:none;
+		background:#FFFFEB;
+		color:#28A9D6;
+
+
+	}
+
+	.karma_points_display .badge {
+		color:#28A9D6;
 	}
 
 }
@@ -356,14 +400,19 @@
 		padding-right:0px;
 		position:absolute;
 		left:70%;
+		padding-bottom:20px;
+		margin-top:0px;
 
 
 	}
 
-	.navbar-brand {
+	.navbar .navbar-brand {
 		font-size:4em;
-		left:5%;
-		padding-bottom:20px;
+		left:10%;
+		padding-bottom:10px;
+		padding-left: 20px;
+		margin-top:-0px;
+		margin-bottom:10px;
 
 	}
 
@@ -373,13 +422,58 @@
 	}
 
 
+
+
+	.row.scoreboard {
+		margin-top:-30px;
+		margin-bottom:-10px;
+		margin-left:-20px;
+	}
+
+	.scoreboard {
+		background:#FFFFEB;
+		margin:0px 0px 0px 0px;
+		padding:5px 5px 10px 5px;
+		border-radius:10px;
+		width:auto;
+
+	}
+
+	.scoreboard h1 {
+		padding: 15px 0px 0px 0px;
+		font-size:1.5em;
+		margin:5px 0px 0px 0px;
+		display:inline-block;
+		line-height: 0.8em;
+		float:left;
+		width:auto;
+
+	}
+
+	.scoreboard .karma_points_display {
+		padding:5px;
+		margin:0px 0px 0px 10px;
+		font-size:1.5em;
+		display:inline-block;
+		float:left;
+		border:none;
+		background:#28A9D6;
+	
+
+
+	}
+		.karma_points_display .badge {
+			color:#FFFFEB;
+	}
+
+
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
-	.navbar-brand {
+	.navbar .navbar-brand {
 		font-size:5em;
-		left:10%;
+		left:15%;
 
 
 	}

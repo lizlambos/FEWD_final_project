@@ -344,7 +344,7 @@
 	.question,
 	.question .form-control {
 		padding:5px 15px 5px 15px;
-		background: #0055A5; 
+		
 		position:relative;
 		border-radius:10px;
 		margin:0 auto;
@@ -370,7 +370,7 @@
 
 	.label-default {
 		background-color:transparent;
-		color:#EDF684;
+		
 	}
 
 
@@ -680,6 +680,8 @@
 		padding:30px 15px 30px 15px;
 
 	}
+
+	
 
 	}
 

@@ -53,6 +53,10 @@ $(function(){
       $(".top-navbar-icon.karma-points .badge")
       .html(karmaPointsBalance);
 
+      
+      $(".row.scoreboard .scoreboard .karma_points_display")
+      .html("<span class='badge'>"+karmaPointsBalance+"</span>");
+
 }//display karma points
 
 function countUserFriends () {
