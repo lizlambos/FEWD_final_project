@@ -4,6 +4,14 @@
 
 /*PHOTO TILES*/
 
+.allKP_active_queries_list {
+    height:400px;
+    overflow:scroll;
+}
+
+.row.scoreboard {
+  
+}
 
 .scoreboard h1 {
     display:inline-block;
@@ -73,7 +81,7 @@
 } 
 
 .scoreboard {
-    padding:12px 20px 10px 20px;
+    padding:12px 10px 10px 10px;
     background:#FFFFEB;
 
 }
@@ -118,23 +126,40 @@
         margin-top:130px;
     }
  
+    .row.scoreboard {
+        margin-top:-30px;
+        margin-bottom:-10px;
+    }
+
     .scoreboard {
         background:#FFFFEB;
-        margin:0px 0px 20px 0px;
-        padding:10px;
+        margin:0px 0px 0px 0px;
+        padding:5px 5px 10px 5px;
         border-radius:10px;
         width:auto;
 
     }
 
     .scoreboard h1 {
-        padding:10px 0px 10px 0px;
+        padding: 15px 0px 0px 0px;
+        font-size:1.5em;
+        margin:0px 0px 0px 0px;
+        display:inline-block;
+        line-height: 0.8em;
+        float:left;
+
+
         
     }
 
     .scoreboard .karma_points_display {
-        margin-bottom:0px;
-        margin-top:10px;
+        margin:0px 0px 0px 10px;
+        font-size:0.5em;
+        display:inline-block;
+        float:left;
+        border:none;
+
+
     }
 
   
