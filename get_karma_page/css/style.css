@@ -53,7 +53,18 @@
     padding-top:50px;
     position:relative;
     height:475px;
+   
 
+}
+
+.question {
+    background:transparent;
+
+}
+
+.question p,
+ .label-default {
+    color: #0055A5;
 }
 
 
