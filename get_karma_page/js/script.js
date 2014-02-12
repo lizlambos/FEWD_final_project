@@ -300,6 +300,7 @@ function screenAndLoad() {
 
                          function screenIfAnswered () {
                           console.log("screen answered function running");
+                          var user = Parse.User.current();
                           var QueryAnswer = Parse.Object.extend("QueryAnswer");
                           var answeredYetQuery = new Parse.Query(QueryAnswer);
                           answeredYetQuery.equalTo("queryID", questId);
@@ -501,8 +502,7 @@ updateAskerKarmaPoints();
 
 loadFriendQueries();
 
-
-//display updated Karma point balance
+//on Click to create answer, update answere KP, reveal answer and make div disappear
 
 $("#allKP_active_queries_list").on("click",".answers .btn", function(){
 
@@ -526,12 +526,9 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
   }
 
   function refresher () {
-
    refreshKarmaPoints();
    def3.resolve();
-
  }
-
     //reveal answers
 
     function revealAnswers(){
@@ -663,7 +660,6 @@ function createAnswer () {
     console.log("problem finding asker 661");
   }
 
-
   });//get
 
 });//then function
@@ -672,15 +668,10 @@ function createAnswer () {
 
 createAnswer();
 
-
 }); // end of onclick function
 
-//set uuser answers
 
-
-
-
-  //delete button to hide queries
+//delete button to hide queries
 
   $("#allKP_active_queries_list").on("click",".delete-button", function(){
   	$(this).parents(".parent_row").addClass("hidden");
