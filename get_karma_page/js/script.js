@@ -24,6 +24,24 @@ $(document).ready(function(){
     KarmaQuery = Parse.Object.extend("KarmaQuery");
     var QueryAnswer = Parse.Object.extend("QueryAnswer");
 
+   //quick intro for first time users 
+
+    user.fetch.then(function(){
+      var hadIntro = user.get("hadTour");
+       if (hadIntro == true) {
+        $(".helper_popup").addClass("hidden");
+       }
+       else {
+          $("#guided_tour1").children(".later_button").click(function(){
+              $("#guided_tour1").fadeOut('slow');
+
+          });
+          
+
+       }
+
+    });
+
     //refresh the user's Karma points balance by re-running queries
 
     function refreshKarmaPoints () {

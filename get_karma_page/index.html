@@ -30,7 +30,7 @@
 
   <div id="fb-root"></div>
 
- <script type="text/javascript">
+  <script type="text/javascript">
 
   //initialize parse//
 
@@ -99,22 +99,49 @@
 
     <!--end facebookapp initialization--> 
 
+    <div class='helper_popup' id='guided_tour1'>
+      <p class='popup_text first'>Welcome to Karma Police!</p>
+      <br>
+      <p class='popup_text'>How about a quick walkthrough before you get started?</p>
+      <div class='btn_wrapper'>
+        <a href='../get_karma_page/index.html' class='btn btn-success'>Sounds Great</a>
+        <a href='#' class='btn btn-warning later_button'>Later</a>
+      </div>
+      <input class='user_pref_checkbox' type='checkbox' name='user_pref' value='no_karma_points_reminders'> 
+      <p class='user_pref_checkbox_label'>Don't show me this again</p>
+    </div>
+
+    <div class='helper_popup hidden' id='guided_tour2'>
+      <p class='popup_text first'>Karma Points</p>
+      <br>
+      <p class='popup_text'>In KarmaPolice as in life, you get what you give</p>
+      <br>
+      <p class='popup_text'>Get KarmaPoints by answering friend's questions and inviting new friends</p>
+      <br>
+      <p class='popup_text'>Use your points get answers for your own question</p>
+      <div class='btn_wrapper'>
+        <a href='#' class='btn btn-success'>Get Started</a>
+      </div>
+    
+    </div>
+
+
     <!-- screen navbar -->
     <nav class="navbar navbar-fixed-top hidden-xs" role="navigation">
       <div class="container">
 
        <form class="navbar-form form-inline navbar-left  hidden-xs" role="search">
-          <div class="row scoreboard hidden-xs">
-    <div class="col-xs-12">
-      <div class="scoreboard">
-        <h1>My Karma Score</h1>
-        <div class="karma_points_display">
-          <span class="badge">18</span>
-        </div>
-      </div>
-    </div>
+        <div class="row scoreboard hidden-xs">
+          <div class="col-xs-12">
+            <div class="scoreboard">
+              <h1>My Karma Score</h1>
+              <div class="karma_points_display">
+                <span class="badge">18</span>
+              </div>
+            </div>
+          </div>
 
-  </div>
+        </div>
       </form>
 
       <a href="#" class="navbar-brand hidden-xs">KarmaPolice</a>
@@ -124,27 +151,27 @@
       <div class="collapse navbar-collapse navbar-left pull-left">
         <ul class="nav navbar-nav">
           <li class="visible-link active"><a href="../get_karma_page/index.html">Get Karma</a></li>
-         <li class="visible-link"><a href="../me_page/index.html">My Karma</a></li>
-         <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="../img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
-          <ul class="dropdown-menu pull-right">
-            <li class="dropdown_item"><a href="../new_question_page/index.html">New Karma Query</a></li>
-            <li class="dropdown_item"><a href="../recent_questions_page/index.html">Activity</a></li>
-            <li class="dropdown_item"><a href="../invite_friends_page/index.html">Friends</a></li>
-            <li class="dropdown_item"><a href="../settings_page/index.html">Settings</a></li>
-            <li class="divider"></li>
-            <li class="dropdown_item" id="logout_button"><a href="#">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
+          <li class="visible-link"><a href="../me_page/index.html">My Karma</a></li>
+          <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="../img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
+            <ul class="dropdown-menu pull-right">
+              <li class="dropdown_item"><a href="../new_question_page/index.html">New Karma Query</a></li>
+              <li class="dropdown_item"><a href="../recent_questions_page/index.html">Activity</a></li>
+              <li class="dropdown_item"><a href="../invite_friends_page/index.html">Friends</a></li>
+              <li class="dropdown_item"><a href="../settings_page/index.html">Settings</a></li>
+              <li class="divider"></li>
+              <li class="dropdown_item" id="logout_button"><a href="#">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
 
-    </div><!--collapse navbar-->
+      </div><!--collapse navbar-->
 
-  </div><!--row-->
-
-
+    </div><!--row-->
 
 
-</div> <!--container-->    
+
+
+  </div> <!--container-->    
 
 </nav>
 
@@ -179,68 +206,68 @@ end pageheader -->
 
 <div class="container main_content_container">
 
-<div class="row" id="allKP_active_queries_list">
+  <div class="row" id="allKP_active_queries_list">
 
-  <div class="top-navbar-icon karma-points hidden-sm hidden-md hidden-lg hidden-xl"href="#">
-    <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
-    <span class="badge">24</span> 
-  </div>
-
-
-  <div class="col-xs-12 col-sm-4 photo-col friends_queries_section1" id="">
-
-    <div class="row">
-      <div class="col-xs-12">
-
-       <div class="content_component_container">
-         <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
-         
-         <div class="user-info-wrapper">
-           <div class="fbpic_container">
-            <div class="fbpic_small user_num_1_fb_photo">
-            </div> 
-          </div>  
-          <h3 class="friend-name">Bob Jones</h3>
-        </div><!--user-info-wrapper-->
-
-        <div class="question">
-          <p>Am I annoying when I drink at parties?</p>
-          <span class="label label-default"><span class="glyphicon glyphicon-time"></span>4 days</span>
-        </div>
-        <div class="answers">
-         <a href="#" class="btn  btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
-         <a href="#" class="btn btn-inline btn-warning no-button" role="button">&#xe612;</a>
-       </div>
-
-     </div><!--content_component_container-->
-   </div><!--column--> 
- </div><!--row--> 
-
- <div class="row">
-  <div class="col-xs-12">
-
-   <div class="content_component_container">
-     <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
-     
-     <div class="user-info-wrapper">
-       <div class="fbpic_container">
-        <div class="fbpic_small user_num_1_fb_photo">
-        </div> 
-      </div>  
-      <h3 class="friend-name">Bob Jones</h3>
-    </div><!--user-info-wrapper-->
-
-    <div class="question">
-      <p>Am I annoying when I drink at parties?</p>
-      <span class="label label-default"><span class="glyphicon glyphicon-time"></span>4 days</span>
+    <div class="top-navbar-icon karma-points hidden-sm hidden-md hidden-lg hidden-xl"href="#">
+      <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
+      <span class="badge">24</span> 
     </div>
-    <div class="answers">
-     <a href="#" class="btn  btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
-     <a href="#" class="btn btn-inline btn-warning no-button" role="button">&#xe612;</a>
-   </div>
 
- </div><!--content_component_container-->
-</div><!--column--> 
+
+    <div class="col-xs-12 col-sm-4 photo-col friends_queries_section1" id="">
+
+      <div class="row">
+        <div class="col-xs-12">
+
+         <div class="content_component_container">
+           <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+
+           <div class="user-info-wrapper">
+             <div class="fbpic_container">
+              <div class="fbpic_small user_num_1_fb_photo">
+              </div> 
+            </div>  
+            <h3 class="friend-name">Bob Jones</h3>
+          </div><!--user-info-wrapper-->
+
+          <div class="question">
+            <p>Am I annoying when I drink at parties?</p>
+            <span class="label label-default"><span class="glyphicon glyphicon-time"></span>4 days</span>
+          </div>
+          <div class="answers">
+           <a href="#" class="btn  btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
+           <a href="#" class="btn btn-inline btn-warning no-button" role="button">&#xe612;</a>
+         </div>
+
+       </div><!--content_component_container-->
+     </div><!--column--> 
+   </div><!--row--> 
+
+   <div class="row">
+    <div class="col-xs-12">
+
+     <div class="content_component_container">
+       <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+
+       <div class="user-info-wrapper">
+         <div class="fbpic_container">
+          <div class="fbpic_small user_num_1_fb_photo">
+          </div> 
+        </div>  
+        <h3 class="friend-name">Bob Jones</h3>
+      </div><!--user-info-wrapper-->
+
+      <div class="question">
+        <p>Am I annoying when I drink at parties?</p>
+        <span class="label label-default"><span class="glyphicon glyphicon-time"></span>4 days</span>
+      </div>
+      <div class="answers">
+       <a href="#" class="btn  btn-success btn-inline yes-button" role="button">&#xe60b;</a> 
+       <a href="#" class="btn btn-inline btn-warning no-button" role="button">&#xe612;</a>
+     </div>
+
+   </div><!--content_component_container-->
+ </div><!--column--> 
 </div><!--row--> 
 
 

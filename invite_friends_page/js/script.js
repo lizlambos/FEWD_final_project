@@ -20,7 +20,7 @@ $(document).ready(function(){
       // init the FB JS SDK
       Parse.FacebookUtils.init({
       appId      : '254848478004741', // Facebook App ID
-      channelUrl : 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/channel.html', // Channel File
+      channelUrl : 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/login_page.html', // Channel File
       status     : true, // check login status
       cookie     : true, // enable cookies to allow Parse to access the session
       xfbml      : true,  // parse XFBML
@@ -235,8 +235,6 @@ refreshKarmaPoints();
       friend = response.data[i];
       fbFriendName = friend.name;
       friendID = friend.id;
-      friendEmail = friend.email;
-      console.log(friendEmail);
       console.log(fbFriendName);
       friendPicLink = friend.picture.data.url;
       //var friendExists = 0;
@@ -263,7 +261,7 @@ refreshKarmaPoints();
             var visibleState = "";
 
             if (friendExists != 0) {
-              visibleState = "hidden";
+              visibleState = "monkey";
               console.log(visibleState);
               var content = Y.Lang.sub
               (Y.one('#fb_friends_invite_list').getHTML(), {
@@ -305,6 +303,8 @@ refreshKarmaPoints();
     checkIfUserExists();
 
 
+
+
  }//for
 
 }//if not error
@@ -312,6 +312,8 @@ refreshKarmaPoints();
 else {
   console.log("Oops something went wrong with getting your friends from facebook.");
 }
+
+
 
 });//fb api
 
@@ -323,15 +325,29 @@ else {
 
 
   $(".fb_friendsarea").on("click", ".add-friend-button",function(){
+      
         FB.ui({method: 'apprequests',
         //appId: '254848478004741', 
         message: 'Dying to know how friends perceive you? Join Karma Police and find out!',
-        //filters: 'app_non_users',
+        filters: 'app_non_users',
         //redirect_uri: 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/login_page/',
         title: 'KarmaPolice - An anonymous read on your karma'
     });
 
-  })
+  /*
+    var friendEmail = $(this).attr("name");
+    var emailSubject = "Check out Karma Police";
+    var emailBody = "This app is awesome. It lets you get anonymous feedback from your friends and check out what friends have been trying to find out. It's FREE and you'll get 10 bonus Karma Points for signing up through this link: http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/login_page.html "
+
+      $(this).attr('action',
+                       'mailto:'+friendEmail+'subject=' +
+                       emailSubject + '&body=' + emailBody);
+        $(this).submit();
+
+        */
+   
+    });
+
 
 
 });//node
