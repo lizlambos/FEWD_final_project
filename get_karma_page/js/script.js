@@ -294,38 +294,38 @@ function screenAndLoad() {
                       if (karmaPointsBalance <= 0) {
                         $("#"+questId+"").
                         parents(".parent_row").addClass("hidden");}
-                       
-                       else {
+
+                        else {
                          //screen if someone has answered it before
 
-                      function screenIfAnswered () {
-                      console.log("screen answered function running");
-                      var QueryAnswer = Parse.Object.extend("QueryAnswer");
-                      var answeredYetQuery = new Parse.Query(QueryAnswer);
-                      answeredYetQuery.equalTo("queryID", questId);
-                      answeredYetQuery.equalTo("answerer", user);
-                      answeredYetQuery.find({
-                        success:function(results3){
+                         function screenIfAnswered () {
+                          console.log("screen answered function running");
+                          var QueryAnswer = Parse.Object.extend("QueryAnswer");
+                          var answeredYetQuery = new Parse.Query(QueryAnswer);
+                          answeredYetQuery.equalTo("queryID", questId);
+                          answeredYetQuery.equalTo("answerer", user);
+                          answeredYetQuery.find({
+                            success:function(results3){
                              console.log(results3.length);
                              if (results3.length > 0) {
                               console.log("user already answered this question "+questId+"");
-                             $("#"+questId+"").
-                             parents(".parent_row").addClass("hidden"); }
-                             else {
-                              console.log("new question for user "+questId+"");
-                             }
+                              $("#"+questId+"").
+                              parents(".parent_row").addClass("hidden"); }
+                              else {
+                                console.log("new question for user "+questId+"");
+                              }
 
-                            
-                     },
-                     error: function(error) {
-                        console.log("somehting wrong with the answer query");
-                     }
-                   });
-                    }
 
-                    screenIfAnswered();
+                            },
+                            error: function(error) {
+                              console.log("somehting wrong with the answer query");
+                            }
+                          });
+                        }
 
-                       } 
+                        screenIfAnswered();
+
+                      } 
 
 
                       }; //calc KarmaPointsBalance
@@ -504,12 +504,33 @@ loadFriendQueries();
 
 //display updated Karma point balance
 
-
-//two separate functions bount to the answers button being clicked, the first one reveals the answers 
-
-$("#allKP_active_queries_list").on("mouseenter",".answers .btn", function(){
+$("#allKP_active_queries_list").on("click",".answers .btn", function(){
 
 	var queryID = $(this).attr("id");
+  var yesButton = $(this).parents(".answers").children(".yes-button");
+  var noButton = $(this).parents(".answers").children(".no-button");
+  var parentRow = $(this).parents(".parent_row");
+  var def1 = $.Deferred();
+  def1.done(revealAnswers);
+  var def2 = $.Deferred();
+  def2.done(refresher);
+  var def3 = $.Deferred();
+  def3.done(divDisappear);
+
+  function divDisappear () {
+    console.log("disappear function being fired");
+    setTimeout(function(){ 
+     parentRow.hide();
+   }, 3000 );
+   
+  }
+
+  function refresher () {
+
+   refreshKarmaPoints();
+   def3.resolve();
+
+ }
 
     //reveal answers
 
@@ -521,65 +542,58 @@ $("#allKP_active_queries_list").on("mouseenter",".answers .btn", function(){
     	getAnswersQuery.get(queryID, {
     		success: function(item) {
           item.fetch().then(function(){
-          noAnswers = item.get('noResponderCount');
-          yesAnswers = item.get('yesResponderCount');
-          var totalAnswers = noAnswers + yesAnswers;
-          console.log(totalAnswers);
-          responders = item.get('responderCount');
-          console.log(responders);
+            noAnswers = item.get('noResponderCount');
+            console.log(noAnswers);
+            yesAnswers = item.get('yesResponderCount');
+            var totalAnswers = noAnswers + yesAnswers;
+            console.log(totalAnswers);
+            responders = item.get('responderCount');
+            console.log(responders);
 
-          if (responders != 0) {
+            if (responders != 0) {
 
-            var percentYesAnswers = Math.round(
-             (yesAnswers / responders)*100);
+              var percentYesAnswers = Math.round(
+               (yesAnswers / responders)*100);
 
-            var percentNoAnswers = Math.round(
-             (noAnswers / responders)*100);
+              var percentNoAnswers = Math.round(
+               (noAnswers / responders)*100);
 
-            console.log(percentYesAnswers);
-            console.log(percentNoAnswers);
+              console.log(percentYesAnswers);
+              console.log(percentNoAnswers);
+            }
 
-          }
+            else {
+              var percentYesAnswers = 0;
+              var percentNoAnswers = 0;
 
-          else {
-            var percentYesAnswers = 0;
-            var percentNoAnswers = 0;
-          }
+              console.log(percentNoAnswers);
+              console.log(percentYesAnswers);
 
-          //i dont want to have two click events, but I dont know how to get the html to change otherwise
+            }
+            yesButton.html(percentYesAnswers+"%")
+            .css({"font-size": "3em", "padding":"25px 7px 30px 7px"});
 
-          $("#allKP_active_queries_list").on("click",".answers .btn", function(){
+            noButton.html(percentNoAnswers+"%")
+            .css({"font-size": "3em", "padding":"25px 7px 30px 7px"});   
 
-          	$(this).parents(".answers").
-          	children(".yes-button").html(percentYesAnswers+"%")
-          	.css({"font-size": "3em", "padding":"25px 7px 30px 7px"});
+            def2.resolve();
 
-          	$(this).parents(".answers").
-          	children(".no-button").html(percentNoAnswers+"%")
-          	.css({"font-size": "3em", "padding":"25px 7px 30px 7px"});
-
-          });//on click
-
+        }).then(function(){
+          def2.resolve;
         });//fetch
 
-        },
-        error: function(error) {
-         alert("Error when updating revealing answers line 565");
-       }
+},
+error: function(error) {
+ alert("Error when updating revealing answers line 565");
+}
 
 });//get function
 
-}//revealanswers
+}//
 
-revealAnswers();
+function createAnswer () {
 
-}); // end of mouseenter function
-
-//set uuser answers
-
-$("#allKP_active_queries_list").on("click",".answers .btn", function(){
-	var queryID = $(this).attr("id");
-	answer = $(this).attr("name");
+  answer = $(this).attr("name");
   var askerId = $(this).parents(".parent_row").children(".friend-name").attr("id");
 
   console.log(answer);
@@ -611,10 +625,10 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
   },
   error: function(queryAnswer, error) {
 
-    alert('Failed to create new object WOMP WOMP, with error code: ' + error.description);
+    alert('Failed to create new object 626 WOMP WOMP, with error code: ' + error.description);
   }
 
-  });//save
+}).then(function(){
 
   // save the asker of the question as an attribute of the answer for easy querying later
 
@@ -635,34 +649,35 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
       },
       error: function(error) {
 
-        alert('Failed to create new object because of asker, with error code: ' + error.description);
+        alert('Failed to create new object 650 because of asker, with error code: ' + error.description);
       }
 
-    });//save
+    }).then(function(){
 
-    },
-    error:function(item, error) {
-      console.log("problem finding asker");
-    }
+      def1.resolve();
 
+    });//then function
 
-  }).then(function(){
-
-
-
-    refreshKarmaPoints();
-
-
-  }).then(function(){
-
-    setTimeout( function(){ 
-     $(this).parents(".parent_row").addClass("hidden");
+  },
+  error:function(item, error) {
+    console.log("problem finding asker 661");
   }
- , 10000 );
-    
-  });
 
-});//onclick
+
+  });//get
+
+});//then function
+
+}//create answer
+
+createAnswer();
+
+
+}); // end of onclick function
+
+//set uuser answers
+
+
 
 
   //delete button to hide queries
