@@ -26,32 +26,39 @@
 
 <body class="all-app-pages">
 
-  <!--facebookapp initialization
+   <!--facebookapp initialization-->
 
   <div id="fb-root"></div>
-    <script>
-      window.fbAsyncInit = function() {
-      // init the FB JS SDK
-     FB.init({
-      appId      : '254848478004741',                        // App ID from the app dashboard
-      status     : true,                                 // Check Facebook Login status
-      xfbml      : true                                  // Look for social plugins on the page
-      });
 
-    // Additional initialization code such as adding Event Listeners goes here
-     };
+  <script type="text/javascript">
 
-   // Load the SDK asynchronously
-    (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js";
-    fjs.parentNode.insertBefore(js, fjs);
+  //initialize parse//
+
+  Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL"); 
+
+     // Load the SDK asynchronously
+     (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "http://connect.facebook.net/en_US/all.js";
+       fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
-    </script>
 
-    end facebookapp initialization--> 
+     window.fbAsyncInit = function() {
+
+      // init the FB JS SDK
+      Parse.FacebookUtils.init({
+      appId      : '254848478004741', // Facebook App ID
+      channelUrl : 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/login_page/', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow Parse to access the session
+      xfbml      : true  // parse XFBML
+    });
+
+    }
+
+    </script>
 
     <!-- screen navbar -->
     <nav class="navbar navbar-fixed-top hidden-xs" role="navigation">
@@ -147,7 +154,7 @@
               <div class="col-xs-12">
                 <div class="btn-group btn-group-justified like_karma_police">
                   <label class="share_label" for="buttongroup"><span>Share Karma Police</span></label>
-                  <a type="button" class="btn btn-lg btn-default" data-icon="&#xe60f;" href="#"></a>
+                  <a type="button" class="btn btn-lg btn-default" id="fb_share_button" data-icon="&#xe60f;" href="#"></a>
                   <a type="button" class="btn btn-lg btn-default" data-icon="&#xe610;" href="#"></a>
                   <a type="button" class="btn btn-lg btn-default" data-icon="&#xe60e;" href="#"></a>
                 </div>

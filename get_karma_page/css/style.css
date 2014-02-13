@@ -5,26 +5,7 @@
 /*PHOTO TILES*/
 
 
-.helper_popup li span {
-    margin-top:10px;
-    font-family:'icomoon';
-    font-weight:bold;
-    display:inline-block;
-    font-size: 1.25em;
-   
-}
 
-.helper_popup ul {
-    list-style-type: none;
-    margin-left:0;
-    padding-left:0px;
-}
-
-.helper_popup li p {
-    display:inline-block;
-    margin-left:35px;
-    margin-top:-27px;
-}
 
 
 .allKP_active_queries_list {
@@ -84,29 +65,7 @@
 @media (min-width: 768px) { 
 
 
-    .popup_text.first {
-        font-weight:bold;
-        display:block;
-        text-align:center;
-        font-size:1.5em;
 
-    }
-
-
-     .helper_popup li span {
-        margin-top:10px;
-        font-size: 1.5em;
-        float:left;
-    }
-
-
-
-    .helper_popup li p {
-    margin-left:35px;
-    margin-top:-40px;
-    margin-bottom:0px;
-    padding-top: 0px;
-}
 
 
     .main_content_container {

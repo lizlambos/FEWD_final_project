@@ -284,9 +284,30 @@
 		font-size:1.1em;
 
 	}
+
+	.helper_popup li span {
+		margin-top:10px;
+		font-family:'icomoon';
+		font-weight:bold;
+		display:inline-block;
+		font-size: 1.25em;
+
+	}
+
+	.helper_popup ul {
+		list-style-type: none;
+		margin-left:0;
+		padding-left:0px;
+	}
+
+	.helper_popup li p {
+		display:inline-block;
+		margin-left:35px;
+		margin-top:-27px;
+	}
 	.helper_popup .btn_wrapper {
-    text-align:center;
-}
+		text-align:center;
+	}
 
 
 	.helper_popup .btn {
@@ -630,14 +651,14 @@
 		/*HELPER POPUP*/
 
 
-    	.helper_popup {
-       
-        width:400px;
-        font-size: 1.25em;
-        padding:30px 30px 30px 15px;
-  		
-	
-    }
+		.helper_popup {
+
+			width:400px;
+			font-size: 1.25em;
+			padding:30px 30px 30px 15px;
+
+
+		}
 
 		.popup_text.first {
 			font-weight:bold;
@@ -645,6 +666,23 @@
 			text-align:center;
 			font-size:1.5em;
 
+		}
+
+
+
+		.helper_popup li span {
+			margin-top:10px;
+			font-size: 1.5em;
+			float:left;
+		}
+
+
+
+		.helper_popup li p {
+			margin-left:35px;
+			margin-top:-40px;
+			margin-bottom:0px;
+			padding-top: 0px;
 		}
 
 		.helper_popup .btn {

@@ -167,6 +167,17 @@ button.reveal_result {
 
 }
 
+.helper_popup ul li span {
+    font-size:1em;
+
+}
+
+.helper_popup ul li p {
+   margin-top:-90px;
+   margin-left:35px;
+
+}
+
 
 }
 

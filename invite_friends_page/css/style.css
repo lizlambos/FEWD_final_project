@@ -19,6 +19,7 @@
 }
 
 .mobile-searchbox .search-button {
+	top:55%;
 	left:85%;
 	padding-top:12px;
 }
@@ -133,8 +134,9 @@
 
 	.mobile-searchbox .search-button {
 		left:85%;
-		margin-top:30px;
+		margin-top:-10px;
 		font-size:1.5em;
+		padding-top:0px;
 	}
 
 	.mobile-headertext {
