@@ -284,6 +284,10 @@
 		font-size:1.1em;
 
 	}
+	.helper_popup .btn_wrapper {
+    text-align:center;
+}
+
 
 	.helper_popup .btn {
 		margin-top:10px;
@@ -625,15 +629,15 @@
 
 		/*HELPER POPUP*/
 
-		.helper_popup {
 
-			height:auto;
-			width:400px;
-		
-
-			padding:30px 15px 30px 15px;
-
-		}
+    	.helper_popup {
+       
+        width:400px;
+        font-size: 1.25em;
+        padding:30px 30px 30px 15px;
+  		
+	
+    }
 
 		.popup_text.first {
 			font-weight:bold;
@@ -676,12 +680,9 @@
 		}
 
 		.helper_popup {
-
-			height:auto;
 			width:400px;
-			top:35%;
-			left:35%;
 			padding:30px 15px 30px 15px;
+			margin-top:100px;
 
 		}
 

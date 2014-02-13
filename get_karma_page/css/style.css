@@ -4,38 +4,20 @@
 
 /*PHOTO TILES*/
 
-.helper_popup {
-    top:0%;
-   
-}
-
-.helper_popup .btn_wrapper {
-    text-align:center;
-}
-
-.helper_popup .btn {
-    margin-top:10px;
-    margin-bottom:0px;
-    width:49%;
-}
-
-.helper_popup ul {
-    padding-left:0px;
-    margin-left:0px;
-    list-style: none;
-}
-
-.helper_popup li {
-   margin-top:0px;
-}
 
 .helper_popup li span {
-    margin-right:5px;
+    margin-top:10px;
     font-family:'icomoon';
     font-weight:bold;
     display:inline-block;
     font-size: 1.25em;
    
+}
+
+.helper_popup ul {
+    list-style-type: none;
+    margin-left:0;
+    padding-left:0px;
 }
 
 .helper_popup li p {
@@ -101,16 +83,6 @@
 
 @media (min-width: 768px) { 
 
-    .helper_popup {
-
-        height:auto;
-        width:400px;
-      
-        font-size: 1.25em;
-        padding:30px 30px 30px 15px;
-  
-
-    }
 
     .popup_text.first {
         font-weight:bold;
@@ -180,9 +152,8 @@
 
     .helper_popup {
         width:400px;
-        top:25%;
         padding:30px 30px 30px 15px;
-
+        margin-top:20px;
     }
 
     .main_content_container {

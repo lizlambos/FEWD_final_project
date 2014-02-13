@@ -331,14 +331,14 @@ function karmaPointsWarning () {
        var wantsFriendsWarning = user.get("wantsFriendsWarning");
         console.log(friendsTotal);
 
-       if (karmaPointsBalance <= 0 && wantsKPWarning == true)	{
+       if (karmaPointsBalance <= 0 && wantsKPWarning != false)	{
         $("#need_points .popup_text.first").html("You have "+karmaPointsBalance+" Karma Points");
         $("#need_points").removeClass("hidden");
     
       }
 
       else if ($("button.active").text() == "FB Friends" && 
-        user.get("friendsTotal" && wantsFriendsWarning == true) <= 5) {
+        user.get("friendsTotal" && wantsFriendsWarning != false) <= 5) {
         if(friendsTotal !=1) {
           $("#need_friends .popup_text.first").html("You have "+friendsTotal+" friends who can answer your query");
         }
