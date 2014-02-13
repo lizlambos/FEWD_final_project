@@ -29,9 +29,10 @@ $(document).ready(function(){
     user.fetch().then(function(){
       var hadIntro = user.get("hadTour");
        if (hadIntro == true) {
-        $(".helper_popup").addClass("hidden");
+       
        }
        else {
+         $(".helper_popup").removeClass("hidden");
           $(".go_button").click(function(){
               $("#guided_tour1").fadeOut('slow');
               user.set("hadTour", true);
@@ -317,7 +318,7 @@ function screenAndLoad() {
 
                       //screen to not show question if asker doesnt have karma points
 
-                      if (karmaPointsBalance <= 0) {
+                      if (karmaPointsBalance <= -10) {
                         $("#"+questId+"").
                         parents(".parent_row").addClass("hidden");}
 
@@ -455,10 +456,10 @@ updateAskerKarmaPoints();
 
           });
 
-              if ((i+1)%3 ===0) {
+              if ((i+1)%3 === 0) {
                allKPQueryColumn1.prepend(content);
              }
-             else if ((i+1)%2 ===0) {
+             else if ((i+1)%2 === 0) {
               allKPQueryColumn2.prepend(content);
             }
             else{
@@ -533,9 +534,11 @@ loadFriendQueries();
 $("#allKP_active_queries_list").on("click",".answers .btn", function(){
 
 	var queryID = $(this).attr("id");
+  var answer = $(this).attr("name");
   var yesButton = $(this).parents(".answers").children(".yes-button");
   var noButton = $(this).parents(".answers").children(".no-button");
   var parentRow = $(this).parents(".parent_row");
+
   var def1 = $.Deferred();
   def1.done(revealAnswers);
   var def2 = $.Deferred();
@@ -547,7 +550,7 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
     console.log("disappear function being fired");
     setTimeout(function(){ 
      parentRow.hide();
-   }, 3000 );
+   }, 5000 );
    
   }
 
@@ -616,8 +619,8 @@ error: function(error) {
 
 function createAnswer () {
 
-  answer = $(this).attr("name");
-  var askerId = $(this).parents(".parent_row").children(".friend-name").attr("id");
+  console.log(answer);
+  var askerId = parentRow.children(".friend-name").attr("id");
 
   console.log(answer);
   user.fetch();
@@ -641,6 +644,7 @@ function createAnswer () {
 
   queryAnswer.save(null, {
    success: function(queryAnswer) {
+    console.log(answer);
 
     console.log('New object created with objectId: ' + queryAnswer.id + 'by' + queryAnswer.answerer +
       'at' + queryAnswer.createdAt+'.');
@@ -659,7 +663,7 @@ function createAnswer () {
   queryAsker = new Parse.Query(KarmaQuery);
   queryAsker.get(queryID, {
     success:function(item) {
-
+      item.fetch().then(function(){
       var questAsker = item.get("asker");
       console.log(questAsker.id);
 
@@ -680,6 +684,8 @@ function createAnswer () {
       def1.resolve();
 
     });//then function
+
+  });//fetch
 
   },
   error:function(item, error) {
