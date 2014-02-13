@@ -7,35 +7,35 @@ $(document).ready(function(){
 	var user = Parse.User.current();
 	console.log(user);
 
-    function refreshKarmaPoints () {
+  function refreshKarmaPoints () {
 
-      var def1 = $.Deferred();
-      def1.done(calcKarmaPointsBalance);
+    var def1 = $.Deferred();
+    def1.done(calcKarmaPointsBalance);
 
-      var def2 = $.Deferred();
-      def2.done(refreshAnswersGiven);
+    var def2 = $.Deferred();
+    def2.done(refreshAnswersGiven);
 
-      var def3 = $.Deferred();
-      def3.done(refreshAnswersGotten);
+    var def3 = $.Deferred();
+    def3.done(refreshAnswersGotten);
 
 
-      function calcKarmaPointsBalance ()  {
+    function calcKarmaPointsBalance ()  {
 
-        console.log("given balance function done");
+      console.log("given balance function done");
 
-        Parse.User.current().fetch().then(function (user) {
+      Parse.User.current().fetch().then(function (user) {
 
-         var testing1 = user.get("answersGottenBalance");
-         console.log(testing1);
+       var testing1 = user.get("answersGottenBalance");
+       console.log(testing1);
 
-         var testing2 = user.get("friendsInvitedBalance");
-         console.log(testing2);
+       var testing2 = user.get("friendsInvitedBalance");
+       console.log(testing2);
 
-         var testing3 = user.get("answersGivenBalance");
-         console.log(testing3);
+       var testing3 = user.get("answersGivenBalance");
+       console.log(testing3);
 
-         var karmaPointsBalance = testing3 + testing2 - testing1;
-         console.log(karmaPointsBalance);
+       var karmaPointsBalance = testing3 + testing2 - testing1;
+       console.log(karmaPointsBalance);
 
        // user.set("karmaPointsBalance", karmaPointsBalance);
        user.save( {karmaPointsBalance: karmaPointsBalance}, {
@@ -183,10 +183,10 @@ $(document).ready(function(){
 
 refreshKarmaPoints();  
 
-	function queryCreator () {
+function queryCreator () {
 
-		var user = Parse.User.current();
-		console.log(user);
+  var user = Parse.User.current();
+  console.log(user);
 		//user.fetch();
 		askerName = user.get("username");
 		console.log(askerName);
@@ -240,7 +240,7 @@ error: function(karmaQuery, error) {
     // Execute any logic that should take place if the save fails.
     // error is a Parse.Error with an error code and description.
     alert('Failed to create new object, with error code: ' + error.description);
-}
+  }
 }).then(function(){
 	location.reload(true);
 });
@@ -323,22 +323,35 @@ function karmaPointsWarning () {
 
        //also invite to add more friends if setting is FB only and user has <5 friends on KP
 
-      friendsTotal = user.get("friendsTotal");
-      console.log(friendsTotal);
-      console.log($("button.active").text());
+       friendsTotal = user.get("friendsTotal");
+       console.log(friendsTotal);
+       console.log($("button.active").text());
+       var wantsKPWarning = user.get("wantsKPWarning");
+        console.log(friendsTotal);
+       var wantsFriendsWarning = user.get("wantsFriendsWarning");
+        console.log(friendsTotal);
 
-       if (karmaPointsBalance <= 0)	{
-       	$("body").prepend("<div class='helper_popup' id='need_points'><p class='popup_text first'>You have "+karmaPointsBalance+" Karma Points</p><p class='popup_text'> Get more points so friends can answer your Karma Queries</p><div class='btn_wrapper'><a href='../get_karma_page/index.html' class='btn btn-success'>Sounds Great</a><a href='#' class='btn btn-warning later_button'>Later</a></div><input class='user_pref_checkbox' type='checkbox' name='user_pref' value='no_karma_points_reminders'> <p class='user_pref_checkbox_label'>Don't nag me about this anymore</p></div>");}
+       if (karmaPointsBalance <= 0 && wantsKPWarning == true)	{
+        $("#need_points .popup_text.first").html("You have "+karmaPointsBalance+" Karma Points");
+        $("#need_points").removeClass("hidden");
+    
+      }
 
-       else if ($("button.active").text() == "FB Friends" && 
-        user.get("friendsTotal") <= 5) {
-  
-        $("body").prepend("<div class='helper_popup' id='need_points'><p class='popup_text first'>You have "+friendsTotal+" friends who can answer your query</p><p class='popup_text'> Expand your audience by inviting more friends</p><div class='btn_wrapper'><a href='../invite_friends_page/index.html' class='btn btn-success'>Sounds Great</a><a href='#' class='btn btn-warning later_button'>Later</a></div><input class='user_pref_checkbox' type='checkbox' name='user_pref' value='no_karma_points_reminders'> <p class='user_pref_checkbox_label'>Don't nag me about this anymore</p></div>");
-       }
+      else if ($("button.active").text() == "FB Friends" && 
+        user.get("friendsTotal" && wantsFriendsWarning == true) <= 5) {
+        if(friendsTotal !=1) {
+          $("#need_friends .popup_text.first").html("You have "+friendsTotal+" friends who can answer your query");
+        }
+        else {
+          $("#need_friends .popup_text.first").html("You have "+friendsTotal+" friend who can answer your query");
 
-       else {
-       	queryCreator();
-       }
+        }
+        $("#need_friends").removeClass("hidden");
+        
+      }
+      else {
+        queryCreator();
+      }
 
     });//current user fetch
     } //calc KarmaPointsBalance
@@ -413,7 +426,7 @@ function karmaPointsWarning () {
     							console.log("ansers gotten saved");
               //console.log(user.get("answersGottenBalance"));
 
-          });
+            });
     					},
     					error: function(error) {
     						console.log("answersGotten not saved");
@@ -458,11 +471,57 @@ refreshKarmaPoints();
 }
 
 
-$("body").on("click", ".later_button", function(){
-	$(this).parents(".helper_popup").fadeOut("slow");
-	queryCreator();
+$("#need_points").on("click", ".later_button", function(){
+  var isChecked = $(this).parents(".helper_popup").children("#points_checker").prop("checked");
+  if (isChecked == true) {
+    user.set("wantsKPWarning", false);
+    user.save({
+      success:function() {
+        console.log("user updated kp warning saved");
+      },
+      error: function(){
+        console.log("user updated kp warning not saved");
+      }
+
+    }).then(function(){
+      $(this).parents(".helper_popup").fadeOut("slow");
+      queryCreator();
+    });
+
+  }
+  else {
+    $(this).parents(".helper_popup").fadeOut("slow");
+    queryCreator();
+  }
 
 });
+
+$("#need_friends").on("click", ".later_button", function(){
+  var isChecked = $(this).parents(".helper_popup").children("#friends_checker").prop("checked");
+  if (isChecked == true) {
+    user.set("wantsFriendsWarning", false);
+    user.save({
+      success:function() {
+        console.log("user updated friends warning saved");
+      },
+      error: function(){
+        console.log("user updated friends warning not saved");
+      }
+
+    }).then(function(){
+      $(this).parents(".helper_popup").fadeOut("slow");
+      queryCreator();
+    });
+
+  }
+  else {
+    $(this).parents(".helper_popup").fadeOut("slow");
+    queryCreator();
+  }
+
+});
+
+
 
 
 

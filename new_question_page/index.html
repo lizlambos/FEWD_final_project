@@ -35,17 +35,27 @@
 
 <body class="all-app-pages">
 
-  <!--<div class='helper_popup' id='need_points'>
-    <p class='popup_text first'>You have "-19" Karma Points</p>
-    <p class='popup_text'> Get more 
-      points so friends can answer your Karma Queries
-    </p>
-    <div class="btn_wrapper">
-      <a href='../../get_karma_page/index.html' class='btn btn-success'>Sounds Great</a>
-      <a href='#' class='btn btn-warning'>Later</a>
-      </div>
-    <input class="user_pref_checkbox" type="checkbox" name="user_pref" value="no_karma_points_reminders">   <p class="user_pref_checkbox_label">Don't nag me about this anymore</p>
-  </div>-->
+  <div class='helper_popup hidden' id='need_points'>
+    <p class='popup_text first'>You have "+karmaPointsBalance+" Karma Points</p>
+    <p class='popup_text'> Get more points so friends can answer your Karma Queries</p>
+    <div class='btn_wrapper'>
+      <a href='../get_karma_page/index.html' class='btn btn-success'>Sounds Great</a>
+      <a href='#' class='btn btn-warning later_button'>Later</a>
+    </div>
+    <input class='user_pref_checkbox' id="points_checker" type='checkbox' name='user_pref' value='no_karma_points_reminders'>
+     <p class='user_pref_checkbox_label'>Don't nag me about this anymore</p>
+   </div>
+
+   <div class='helper_popup hidden' id='need_friends'>
+    <p class='popup_text first'>You have "+friendsTotal+" friends who can answer your query</p>
+    <p class='popup_text'> Expand your audience by inviting more friends</p>
+    <div class='btn_wrapper'>
+      <a href='../invite_friends_page/index.html' class='btn btn-success'>Sounds Great</a>
+      <a href='#' class='btn btn-warning later_button'>Later</a>
+    </div>
+    <input class='user_pref_checkbox' id="friends_checker" type='checkbox' name='user_pref' value='no_karma_points_reminders'> 
+    <p class='user_pref_checkbox_label'>Don't nag me about this anymore</p>
+    </div>
 
   <!--facebookapp initialization-->
 
