@@ -26,28 +26,28 @@ $(document).ready(function(){
 
    //quick intro for first time users 
 
-    user.fetch().then(function(){
-      var hadIntro = user.get("hadTour");
-       if (hadIntro == true) {
-       
-       }
-       else {
-         $(".helper_popup").removeClass("hidden");
-          $(".go_button").click(function(){
-              $("#guided_tour1").fadeOut('slow');
-              user.set("hadTour", true);
-              user.save({
-                success: function(user) {
-                  console.log("saved user tour status")
-                },
-                error: function(error) {
-                  console.log("didn't save user tour status");
-                }
-              })
+   user.fetch().then(function(){
+    var hadIntro = user.get("hadTour");
+    if (hadIntro == true) {
 
-          });
+    }
+    else {
+     $(".helper_popup").removeClass("hidden");
+     $(".go_button").click(function(){
+      $("#guided_tour1").fadeOut('slow');
+      user.set("hadTour", true);
+      user.save({
+        success: function(user) {
+          console.log("saved user tour status")
+        },
+        error: function(error) {
+          console.log("didn't save user tour status");
+        }
+      })
 
-       }
+    });
+
+   }
 
     });//fetch
 
@@ -406,10 +406,10 @@ updateAskerKarmaPoints();
 
     			});
 
-           if ((i+1)%3 === 0) {
+           if ((i)%3 === 0) {
              allKPQueryColumn1.prepend(content);
            }
-           else if ((i+1)%2 === 0) {
+           else if ((i)%2 === 0) {
             allKPQueryColumn2.prepend(content);
           }
           else{
@@ -456,10 +456,10 @@ updateAskerKarmaPoints();
 
           });
 
-              if ((i+1)%3 === 0) {
+              if ((i)%3 === 0) {
                allKPQueryColumn1.prepend(content);
              }
-             else if ((i+1)%2 === 0) {
+             else if ((i)%2 === 0) {
               allKPQueryColumn2.prepend(content);
             }
             else{
@@ -487,10 +487,10 @@ updateAskerKarmaPoints();
 
           //filter by privacy level
 
-          if ((i+1)%3 ===0) {
+          if ((i)%3 ===0) {
            allKPQueryColumn1.prepend(content);
          }
-         else if ((i+1)%2 ===0) {
+         else if ((i)%2 ===0) {
           allKPQueryColumn2.prepend(content);
         }
         else{
@@ -551,7 +551,7 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
     setTimeout(function(){ 
      parentRow.hide();
    }, 5000 );
-   
+
   }
 
   function refresher () {
@@ -568,44 +568,80 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
     	getAnswersQuery.get(queryID, {
     		success: function(item) {
           item.fetch().then(function(){
-            noAnswers = item.get('noResponderCount');
-            console.log(noAnswers);
-            yesAnswers = item.get('yesResponderCount');
-            var totalAnswers = noAnswers + yesAnswers;
-            console.log(totalAnswers);
-            responders = item.get('responderCount');
-            console.log(responders);
 
-            if (responders != 0) {
+            var QueryAnswer = Parse.Object.extend("QueryAnswer");
+            getLatestYesResults = new Parse.Query("QueryAnswer");
+            getLatestYesResults.equalTo("queryID", queryID);
+            getLatestYesResults.equalTo("answer", 'yes');
 
-              var percentYesAnswers = Math.round(
-               (yesAnswers / responders)*100);
+            getLatestYesResults.find({
+              success: function(results4) {
+                var yesAnswers = results4.length;
+                item.set("yesResponderCount", yesAnswers);
 
-              var percentNoAnswers = Math.round(
-               (noAnswers / responders)*100);
+                var QueryAnswer = Parse.Object.extend("QueryAnswer");
+                getLatestNoResults = new Parse.Query("QueryAnswer");
+                getLatestNoResults.equalTo("queryID", queryID);
+                getLatestNoResults.equalTo("answer", 'no');
 
-              console.log(percentYesAnswers);
-              console.log(percentNoAnswers);
-            }
+                getLatestNoResults.find({
+                  success: function(results5) {
+                    var noAnswers = results5.length;
+                    item.set("noResponderCount", noAnswers);
 
-            else {
-              var percentYesAnswers = 0;
-              var percentNoAnswers = 0;
+                    var totalAnswers = noAnswers + yesAnswers;
+                    console.log(totalAnswers);
+                  
 
-              console.log(percentNoAnswers);
-              console.log(percentYesAnswers);
+                    if (totalAnswers != 0) {
 
-            }
-            yesButton.html(percentYesAnswers+"%")
-            .css({"font-size": "3em", "padding":"25px 7px 30px 7px"});
+                      var percentYesAnswers = Math.round(
+                       (yesAnswers / totalAnswers)*100);
 
-            noButton.html(percentNoAnswers+"%")
-            .css({"font-size": "3em", "padding":"25px 7px 30px 7px"});   
+                      var percentNoAnswers = Math.round(
+                       (noAnswers / totalAnswers)*100);
 
-            def2.resolve();
+                      console.log(percentYesAnswers);
+                      console.log(percentNoAnswers);
+                    }
 
-        }).then(function(){
-          def2.resolve;
+                    else {
+                      var percentYesAnswers = 0;
+                      var percentNoAnswers = 0;
+
+                      console.log(percentNoAnswers);
+                      console.log(percentYesAnswers);
+
+                    }
+                    yesButton.html(percentYesAnswers+"%")
+                    .css({"font-size": "3em", "padding":"25px 7px 30px 7px"});
+
+                    noButton.html(percentNoAnswers+"%")
+                    .css({"font-size": "3em", "padding":"25px 7px 30px 7px"});   
+
+                    item.save({
+                      success: function(){
+                        console.log("saved latest yes responders");
+                      },
+                      error: function(){
+                        console.log("didn't save latest yes responders");
+                      }
+                    }).then(function(){
+                      def2.resolve();
+                    });
+                  },
+                  error: function(error) {
+                    console.log("couldn't find good answers")
+                  }
+
+              });//no find
+},
+error: function(error) {
+  console.log("couldn't find good answers")
+}
+
+      });//yes find
+
         });//fetch
 
 },
@@ -664,33 +700,33 @@ function createAnswer () {
   queryAsker.get(queryID, {
     success:function(item) {
       item.fetch().then(function(){
-      var questAsker = item.get("asker");
-      console.log(questAsker.id);
+        var questAsker = item.get("asker");
+        console.log(questAsker.id);
 
-      queryAnswer.save( {asker: questAsker}, {
-       success: function(queryAnswer) {
+        queryAnswer.save( {asker: questAsker}, {
+         success: function(queryAnswer) {
 
-        console.log('New object created with objectId: ' + queryAnswer.id + 'by' + queryAnswer.answerer +
-          'at' + queryAnswer.createdAt+'.');
+          console.log('New object created with objectId: ' + queryAnswer.id + 'by' + queryAnswer.answerer +
+            'at' + queryAnswer.createdAt+'.');
 
-      },
-      error: function(error) {
+        },
+        error: function(error) {
 
-        alert('Failed to create new object 650 because of asker, with error code: ' + error.description);
-      }
+          alert('Failed to create new object 650 because of asker, with error code: ' + error.description);
+        }
 
-    }).then(function(){
+      }).then(function(){
 
-      def1.resolve();
+        def1.resolve();
 
     });//then function
 
   });//fetch
 
-  },
-  error:function(item, error) {
-    console.log("problem finding asker 661");
-  }
+    },
+    error:function(item, error) {
+      console.log("problem finding asker 661");
+    }
 
   });//get
 
@@ -705,9 +741,9 @@ createAnswer();
 
 //delete button to hide queries
 
-  $("#allKP_active_queries_list").on("click",".delete-button", function(){
-  	$(this).parents(".parent_row").addClass("hidden");
-  });
+$("#allKP_active_queries_list").on("click",".delete-button", function(){
+ $(this).parents(".parent_row").addClass("hidden");
+});
 
 
 

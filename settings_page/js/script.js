@@ -186,7 +186,7 @@ $("#fb_share_button").on("click", function(){
 
   var atch = {
            name: 'KarmaPolice',
-           media:[{'type':'image','src':'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/img/SquareLogo_FB_size.png', 'href': 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/login_page/'}],
+           media:[{'type':'image','src':'http://mykarmapolice.com/img/SquareLogo_FB_size.png', 'href': 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/login_page/'}],
            caption: 'Find out how others perceive you',
            description: (
              'KarmaPolice - What will you uncover?'
