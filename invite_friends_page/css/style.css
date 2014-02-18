@@ -1,6 +1,10 @@
 /*INVITE FRIENDS PAGE STYLESHEET*/
 
-/*SEACHBAR*/
+.main_content_container {
+	height:600px;
+}
+
+
 
 .FB_UI_Dialog {
 	
@@ -10,6 +14,20 @@
 
 .fb_dialog {
 
+}
+
+.jumbotron {
+	padding:80px 20px 10px 20px;
+}
+
+.jumbotron p {
+	font-size:0.75em;
+}
+
+.link_wrapper {
+	width:100%;
+	text-align: center;
+	padding-top:20px;
 }
 
 .dialogPopupContent {
@@ -108,6 +126,16 @@
 	.main_content_container {
 		height: 900px;
 
+	}
+
+	.jumbotron {
+		width:70%;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.jumbotron p {
+		margin-top:20px;
 	}
 
 	.content_component_wrapper {
