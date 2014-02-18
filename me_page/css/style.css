@@ -221,16 +221,43 @@
 
 .question p {
 	color:#0055A0;
-	font-style:italic;
+	font-style:none;
+	font-size:0.8em;
 }
 
 .answers {
 	margin-top:0px;
 	padding:0px;
+	text-align: center;
 
 }
 
+.yes-answer,
+.no-answer{
+		font-size:1.25em;
+		padding:2px 0px 2px 0px;
+		display:inline-block;
+		border-radius:5px;
+		color:#FFFFFF;
+		text-align:center;
+		margin:0px;
 
+	}
+
+.na-answer-wrapper {
+	width:10%;
+	padding:0px 0px 0px 0px;
+	display:inline-block;
+	margin-right:10px;
+	margin-left:-10px;
+}
+
+
+.na-answer {
+	
+	margin:0px;
+	padding:0px;
+}	
 
 
 /*MEDIA QUERIES*/
@@ -335,9 +362,31 @@
 
 	}    
 
+	.question p {
+		font-size:1.25em;
+	}
+
 
 	.answers {
 		padding-top:10px;
+	}
+
+	.na-answer-wrapper {
+		margin-right:30px;
+	}
+
+	.na-answer {
+		font-size:1.5em;
+	}
+
+	.responder_count {
+		
+		
+	}
+
+	.yes-answer,
+	.no-answer {
+		font-size:2.5em;
 	}
 
 
@@ -350,7 +399,7 @@
 
 	.main_content_container {
 		min-width:700px;
-		width:60;
+		width:65%;
 		margin-top:40px;
 	}
 

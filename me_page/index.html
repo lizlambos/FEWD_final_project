@@ -92,9 +92,10 @@
     <p>{queryText}</p>    
     </div>
     <div class="answers">
-    <div class="yes-answer"><span class="result">{percentYesAnswers}%</span></div> 
-    <div class="na-answer">&#xe606;<p class="responder_count" id="{id}">{responderCount}</p></div>
-    <div class="no-answer"><span class="result">{percentNoAnswers}%</span></div>
+    <div class="yes-answer" style="width:{formatYesAnswers}px"><span class="result">{percentYesAnswers}%</span></div> <div class="na-answer-wrapper">
+    <div class="na-answer" id="{id}">&#xe606;<p class="responder_count">{responderCount}</p></div>
+    </div>
+    <div class="no-answer" style="width:{formatNoAnswers}px"><span class="result">{percentNoAnswers}%</span></div>
     </div>
 
     </div>
@@ -195,7 +196,7 @@
           <div class="col-xs-6 fb-column">
 
             <div class="fbpic_container">
-              <button class="btn btn-default glyphicon glyphicon-pencil edit_pencil"></button>
+              <button class="btn hidden btn-default glyphicon glyphicon-pencil edit_pencil"></button>
               <img class="fbpic_small user_num_1_fb_photo" id="current_user_fbPic" src=""/>
 
             </div><!--friend_fbpic_container-->    

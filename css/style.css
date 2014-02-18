@@ -427,6 +427,7 @@
 		padding:5px 0px 0px 0px;
 		font-family:"icomoon";
 		display:block;
+		width:100%;
 
 	}
 
@@ -437,19 +438,20 @@
 		margin:0px;
 		padding:5px 25px 5px 25px;
 		display:inline-block;
-		border-radius:10px;
+		border-radius:5px;
 		color:#FFFFFF;
+		text-align:center;
 
 	}
 
 	.yes-answer {
 		background:#5cb85c;
-		border:4px solid #FFFFFF;
+		
 	}
 
 	.no-answer {
 		background:#FF9933;
-		border:4px solid #FFFFFF;
+		
 	}
 
 	.answers .na-answer{
