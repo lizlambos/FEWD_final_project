@@ -54,11 +54,11 @@ YUI().use('node', function (Y) {
         $(this).css({"top": "160px"} );
       }
       if ($(this).css("top")!='-10000px' && $(window).width() < '768') {
-        
+
       }
       
     });
-    setTimeout( function(){move_to_top()}, 1250);
+    setTimeout( function(){move_to_top()}, 10);
   }
 
   function send_request()
@@ -66,18 +66,54 @@ YUI().use('node', function (Y) {
     FB.Canvas.scrollTo(0,0);
     FB.ui({method: 'apprequests',
         //appId: '254848478004741', 
-        message: 'Dying to know how friends perceive you? Join Karma Police and find out!',
+        message: 'Dying to know how friends really perceive you? Join Karma Police and find out!',
         //filters: 'app_non_users',
         //redirect_uri: 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/login_page/',
         title: 'KarmaPolice - An anonymous read of your karma'
       });
 
     $(".fbProfileBrowserResult").ready( function(){
-      t = setTimeout ( function(){ move_to_top(); }, 1250 );
+      t = setTimeout ( function(){ move_to_top(); }, 10 );
+
+      
     }); 
+
+
+
   }
 
   send_request();
+
+// countInvites() {
+  user = Parse.User.current();
+
+      user.fetch().then(function(){
+
+        var friendsInvited = user.get("friendsInvitedBalance");
+        console.log(friendsInvited);
+        var inviteButton = $("._6a._6b  button");
+        console.log(inviteButton.length);
+
+        $('body').on("click", ".fb_dialog", function(){
+          friendsInvited ++;
+          console.log(friendsInvited);
+
+          user.set("friendsInvitedBalance",friendsInvited);
+          user.save({
+            success: function(){
+              console.log("friends invited saved");
+            },
+            error: function(){
+              console.log("friends invited not saved");
+            }
+      });//save
+    });//onclick
+
+  }); //fetch
+
+   // }
+
+ //countInvites();   
   //$(".fb_friendsarea").on("load",function(){
         //$(this).addClass("active");
         
