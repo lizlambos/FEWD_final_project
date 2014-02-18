@@ -37,19 +37,19 @@
 
   <div class="outer">
 
-  <div class='helper_popup hidden' id='need_points'>
-    <p class='popup_text first'>You have "+karmaPointsBalance+" Karma Points</p>
-    <p class='popup_text'> Get more points so friends can answer your Karma Queries</p>
-    <div class='btn_wrapper'>
-      <a href='../get_karma_page/index.html' class='btn btn-success'>Sounds Great</a>
-      <a href='#' class='btn btn-warning later_button'>Later</a>
+    <div class='helper_popup hidden' id='need_points'>
+      <p class='popup_text first'>You have "+karmaPointsBalance+" Karma Points</p>
+      <p class='popup_text'> Get more points so friends can answer your Karma Queries</p>
+      <div class='btn_wrapper'>
+        <a href='../get_karma_page/index.html' class='btn btn-success'>Sounds Great</a>
+        <a href='#' class='btn btn-warning later_button'>Later</a>
+      </div>
+      <input class='user_pref_checkbox' id="points_checker" type='checkbox' name='user_pref' value='no_karma_points_reminders'>
+      <p class='user_pref_checkbox_label'>Don't nag me about this anymore</p>
     </div>
-    <input class='user_pref_checkbox' id="points_checker" type='checkbox' name='user_pref' value='no_karma_points_reminders'>
-     <p class='user_pref_checkbox_label'>Don't nag me about this anymore</p>
-   </div>
-     </div>
+  </div>
 
-     <div class="outer">
+  <div class="outer">
 
    <div class='helper_popup hidden' id='need_friends'>
     <p class='popup_text first'>You have "+friendsTotal+" friends who can answer your query</p>
@@ -60,14 +60,14 @@
     </div>
     <input class='user_pref_checkbox' id="friends_checker" type='checkbox' name='user_pref' value='no_karma_points_reminders'> 
     <p class='user_pref_checkbox_label'>Don't nag me about this anymore</p>
-    </div>
+  </div>
 
-    </div>
+</div>
 
-  <!--facebookapp initialization-->
+<!--facebookapp initialization-->
 
-  <div id="fb-root"></div>
-  <script type="text/javascript">
+<div id="fb-root"></div>
+<script type="text/javascript">
 
   //initialize parse//
 
@@ -195,13 +195,14 @@
          <span class="help-block character_count pull-right" id="help_block_character_count">18</span> 
        </div><!--question-->
 
-       <div class="query_submit_button_wrapper">
-
+       <label class="query_instructions privacy_label hidden-sm hidden-md hidden-lg hidden-xl">Set privacy level:</label>
+        <div class="query_submit_button_wrapper">
+        <label class="query_instructions privacy_label hidden-xs">Set privacy level:</label>
         <div class="btn-group privacy-level">
-          <button type="button" class="btn pic_button"><span class="glyphicon glyphicon-camera"></span></button>
-          <button type="button" id="kp_button" class="btn  kp_button">All KP</button>
-          <button type="button" id="fb_button" class="btn  fb_button">FB Friends</button>
+          <button type="button" id="kp_button" class="btn kp_button">All KP</button>
+          <button type="button" class="btn pic_button hidden"><span class="glyphicon glyphicon-camera"></span></button> 
           <button type="button" id="private_button" class="btn hidden private_button">private</button>
+          <button type="button" id="fb_button" class="btn fb_button">FB Friends</button>
           <button type="button" id="go_button" class="btn go_button hidden-sm hidden-md hidden-lg hidden-xl">Go!</button>
         </div><!--button group-->
         <button type="button" class="btn btn-success hidden-xs" id="submit_button">Get my Karma!</button>

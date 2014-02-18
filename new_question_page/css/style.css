@@ -22,6 +22,7 @@
 	margin-left:0px;
 	padding-bottom:10px;
 	display:block;
+	font-size:1em;
 }
 
 
@@ -64,10 +65,15 @@
 	margin-bottom:200px;
 }
 
+.privacy_label {
+ margin-left:10px;
+ padding-top:5px;	
 
-.privacy-level {
-	font-size:1em;
 
+}
+
+.privacy-level .btn {
+	border-radius:5px;
 }
 
 
@@ -115,10 +121,41 @@
 		font-size:1.5em;
 
 	}
+	
+	label.query_instructions.privacy_label {
+		display:inline-block;
+		float:left;
+		font-size:1.5em;
+		font-weight:lighter;
+		
+		
+	}
 
+	.query_submit_button_wrapper {
+		text-align: left;
+	}
 
 	.privacy-level {
 		font-size:1.5em;
+		display:inline-block;
+		float:left;
+		padding-left:40px;
+		margin-bottom:50px;
+
+		
+	}
+
+	.privacy-level .btn {
+		border:1px solid #28A9D6;
+	}
+
+	#fb_button {
+		border-radius: 0px 5px 5px 0px;
+	}
+
+	#submit_button {
+		margin-top:50px;
+		clear:both;
 	}
 
 }

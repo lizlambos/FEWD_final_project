@@ -94,7 +94,7 @@ YUI().use('node', function (Y) {
         var inviteButton = $("._6a._6b  button");
         console.log(inviteButton.length);
 
-        $('body').on("click", ".fb_dialog", function(){
+        $('body').on("click", ".FB_UI_dialog button", function(){
           friendsInvited ++;
           console.log(friendsInvited);
 
