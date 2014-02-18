@@ -5,7 +5,19 @@
 /*PHOTO TILES*/
 
 
+.top-navbar-icon.karma-points .badge {
+    font-size:1.25em;
+    padding:4px 0px 2px 0pc;
 
+}
+
+.top-navbar-icon.karma-points  {
+    border-radius:20px;
+}
+
+.top-navbar-icon.karma-points  .top-navbar-icon-label {
+    line-height:0.4em;
+}
 
 
 .allKP_active_queries_list {
@@ -13,13 +25,13 @@
     overflow:scroll;
 }
 
-
 .top-navbar-icon {
     z-index:100000;
     position:fixed;
     top:45px;
     right:10px;
 }
+
 
 
 .main_content_container {
@@ -32,6 +44,10 @@
     height:475px;
 
 
+}
+
+.friend-name {
+    font-size:1.25em;
 }
 
 .question {
@@ -50,7 +66,6 @@
  clear:both;
 
 }
-
 
 
 

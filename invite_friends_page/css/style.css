@@ -2,6 +2,19 @@
 
 /*SEACHBAR*/
 
+.FB_UI_Dialog {
+	
+	/*width:600px !important;*/
+	
+}
+
+.fb_dialog {
+
+}
+
+.dialogPopupContent {
+	width:400px;
+}
 
 .invite-friends.form-group,
 .mobile-searchbox .form-control {
@@ -93,7 +106,8 @@
 @media (min-width: 768px) { 
 
 	.main_content_container {
-		min-height: 1000px;
+		height: 900px;
+
 	}
 
 	.content_component_wrapper {
@@ -150,9 +164,11 @@
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
 
-.main_content_container {
-		min-height: 800px;
-		padding-bottom:30px;
+	.main_content_container {
+		width:594px;
+		height:586px;
+		padding-bottom:0px;
+		border-radius:5px;
 	}
 
 

@@ -28,7 +28,7 @@ $(document).ready(function(){
     });
 
      // $(document).ready(function(){
-  
+
 //INITIALIZE NODE
 
 YUI().use('node', function (Y) {
@@ -44,23 +44,77 @@ YUI().use('node', function (Y) {
   var bird = user.get("username");
   console.log(bird);
 
-  function populateFriendList () {
+  function move_to_top()
+  {
+    $(".fb_dialog").each(function(index) {
+      if ($(this).css("top")!='-10000px' && $(window).width() > '990' ) {
+        $(this).css({"top": "265px"} );
+      }
+      if ($(this).css("top")!='-10000px' && $(window).width() > '768'  && $(window).width() < '990' ) {
+        $(this).css({"top": "160px"} );
+      }
+      if ($(this).css("top")!='-10000px' && $(window).width() < '768') {
+        
+      }
+      
+    });
+    setTimeout( function(){move_to_top()}, 1250);
+  }
 
-    FB.api('/me/friends', { fields : 'id, name, picture, email'
-  }, function(response) { 
-    if (!response.error) {
-     var FBArray = response.data;
-     console.log(FBArray);  
-     var numFriends = FBArray.length;
-     console.log(numFriends);
+  function send_request()
+  {
+    FB.Canvas.scrollTo(0,0);
+    FB.ui({method: 'apprequests',
+        //appId: '254848478004741', 
+        message: 'Dying to know how friends perceive you? Join Karma Police and find out!',
+        //filters: 'app_non_users',
+        //redirect_uri: 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/login_page/',
+        title: 'KarmaPolice - An anonymous read of your karma'
+      });
+
+    $(".fbProfileBrowserResult").ready( function(){
+      t = setTimeout ( function(){ move_to_top(); }, 1250 );
+    }); 
+  }
+
+  send_request();
+  //$(".fb_friendsarea").on("load",function(){
+        //$(this).addClass("active");
+        
+        
+
+  /*
+    var friendEmail = $(this).attr("name");
+    var emailSubject = "Check out Karma Police";
+    var emailBody = "This app is awesome. It lets you get anonymous feedback from your friends and check out what friends have been trying to find out. It's FREE and you'll get 10 bonus Karma Points for signing up through this link: http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/login_page.html "
+
+      $(this).attr('action',
+                       'mailto:'+friendEmail+'subject=' +
+                       emailSubject + '&body=' + emailBody);
+        $(this).submit();
+
+        */
+
+    //});
 
 
-     for (var i=0, l=response.data.length; i<l; i++) {
-      friend = response.data[i];
-      fbFriendName = friend.name;
-      friendID = friend.id;
-      console.log(fbFriendName);
-      friendPicLink = friend.picture.data.url;
+function populateFriendList () {
+
+  FB.api('/me/friends', { fields : 'id, name, picture, email'
+}, function(response) { 
+  if (!response.error) {
+   var FBArray = response.data;
+   console.log(FBArray);  
+   var numFriends = FBArray.length;
+   console.log(numFriends);
+
+
+   for (var i=0, l=response.data.length; i<l; i++) {
+    friend = response.data[i];
+    fbFriendName = friend.name;
+    friendID = friend.id;
+    console.log(fbFriendName);
+    friendPicLink = friend.picture.data.url;
       //var friendExists = 0;
 
       
@@ -112,7 +166,7 @@ YUI().use('node', function (Y) {
 
           });//content
 
-              friendListColumn1.prepend(content);
+              friendListColumn1.append(content);
               
             }
 
@@ -145,39 +199,39 @@ else {
   }//populate friend list
 
 
-  populateFriendList();
+  //populateFriendList();
 
   //refresh the user's Karma points balance by re-running queries
 
-    function refreshKarmaPoints () {
+  function refreshKarmaPoints () {
 
-      var def1 = $.Deferred();
-      def1.done(calcKarmaPointsBalance);
+    var def1 = $.Deferred();
+    def1.done(calcKarmaPointsBalance);
 
-      var def2 = $.Deferred();
-      def2.done(refreshAnswersGiven);
+    var def2 = $.Deferred();
+    def2.done(refreshAnswersGiven);
 
-      var def3 = $.Deferred();
-      def3.done(refreshAnswersGotten);
+    var def3 = $.Deferred();
+    def3.done(refreshAnswersGotten);
 
 
-      function calcKarmaPointsBalance ()  {
+    function calcKarmaPointsBalance ()  {
 
-        console.log("given balance function done");
+      console.log("given balance function done");
 
-        Parse.User.current().fetch().then(function (user) {
+      Parse.User.current().fetch().then(function (user) {
 
-         var testing1 = user.get("answersGottenBalance");
-         console.log(testing1);
+       var testing1 = user.get("answersGottenBalance");
+       console.log(testing1);
 
-         var testing2 = user.get("friendsInvitedBalance");
-         console.log(testing2);
+       var testing2 = user.get("friendsInvitedBalance");
+       console.log(testing2);
 
-         var testing3 = user.get("answersGivenBalance");
-         console.log(testing3);
+       var testing3 = user.get("answersGivenBalance");
+       console.log(testing3);
 
-         var karmaPointsBalance = testing3 + testing2 - testing1;
-         console.log(karmaPointsBalance);
+       var karmaPointsBalance = testing3 + testing2 - testing1;
+       console.log(karmaPointsBalance);
 
        // user.set("karmaPointsBalance", karmaPointsBalance);
        user.save( {karmaPointsBalance: karmaPointsBalance}, {
@@ -323,32 +377,10 @@ else {
 
 refreshKarmaPoints();  
 
-  
 
 
-  $(".fb_friendsarea").on("click", ".add-friend-button",function(){
-      
-        FB.ui({method: 'apprequests',
-        //appId: '254848478004741', 
-        message: 'Dying to know how friends perceive you? Join Karma Police and find out!',
-        //filters: 'app_non_users',
-        //redirect_uri: 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/login_page/',
-        title: 'KarmaPolice - An anonymous read of your karma'
-    });
 
-  /*
-    var friendEmail = $(this).attr("name");
-    var emailSubject = "Check out Karma Police";
-    var emailBody = "This app is awesome. It lets you get anonymous feedback from your friends and check out what friends have been trying to find out. It's FREE and you'll get 10 bonus Karma Points for signing up through this link: http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/login_page.html "
 
-      $(this).attr('action',
-                       'mailto:'+friendEmail+'subject=' +
-                       emailSubject + '&body=' + emailBody);
-        $(this).submit();
-
-        */
-   
-    });
 
 
 
@@ -356,6 +388,6 @@ refreshKarmaPoints();
 
 //});//document ready
 
-    }
+}
 
 });//document ready

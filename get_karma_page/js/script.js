@@ -548,9 +548,9 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
 
   function divDisappear () {
     console.log("disappear function being fired");
-    setTimeout(function(){ 
-     parentRow.hide();
-   }, 5000 );
+    //setTimeout(function(){ 
+     //parentRow.hide();
+   //}, 5000 );
 
   }
 
@@ -613,11 +613,14 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
                       console.log(percentYesAnswers);
 
                     }
-                    yesButton.html(percentYesAnswers+"%")
-                    .css({"font-size": "3em", "padding":"25px 7px 30px 7px"});
 
-                    noButton.html(percentNoAnswers+"%")
-                    .css({"font-size": "3em", "padding":"25px 7px 30px 7px"});   
+                
+                      yesButton.html(percentYesAnswers+"%")
+                    .css({"font-size": "2.25em", "width":"100px", "height":"100px"});
+                  
+            
+                    noButton.html(percentNoAnswers+"<span class='percent'>%</span>")
+                    .css({"font-size": "2.25em", "width":"100px", "height":"100px"});   
 
                     item.save({
                       success: function(){
