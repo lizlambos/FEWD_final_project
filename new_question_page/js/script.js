@@ -242,7 +242,7 @@ error: function(karmaQuery, error) {
     alert('Failed to create new object, with error code: ' + error.description);
   }
 }).then(function(){
-	location.reload(true);
+	$("#made_answer").removeClass("hidden");
 });
 
 var test = karmaQuery.get("askerName");
@@ -521,6 +521,10 @@ $("#need_friends").on("click", ".later_button", function(){
 
 });
 
+$("#made_answer").on("click", "#question_reloader", function(){
+  location.reload();
+
+});
 
 
 

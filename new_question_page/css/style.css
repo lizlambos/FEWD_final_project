@@ -66,8 +66,8 @@
 }
 
 .privacy_label {
- margin-left:10px;
- padding-top:5px;	
+	margin-left:10px;
+	padding-top:5px;	
 
 
 }
@@ -86,6 +86,17 @@
 
 }
 
+#made_answer{
+		padding-bottom:5px;
+		
+	}
+
+
+#made_answer.helper_popup  .btn, 
+#made_answer.helpder_popup  .btn {
+	display:block;
+	width:100%;
+}
 
 /*MEDIA QUERIES*/
 
@@ -156,6 +167,19 @@
 	#submit_button {
 		margin-top:50px;
 		clear:both;
+	}
+
+	#made_answer {
+		text-align: center;
+	}
+
+	#made_answer .btn_wrapper {
+		width:70%;
+	}
+
+#made_answer{
+		padding-bottom:10px;
+		
 	}
 
 }
