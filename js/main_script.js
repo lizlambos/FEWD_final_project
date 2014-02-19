@@ -286,6 +286,7 @@ $("#logout_button").click(function(){
   redirect2();
 });
 
+/*
 
 //allow the user to change the privacy level of the question via the button
 
@@ -323,7 +324,7 @@ $("#active_past_queries_list, #private_past_queries_list").on("click",".privacy-
 
 }); //on function
 
-
+*/
 
 
 

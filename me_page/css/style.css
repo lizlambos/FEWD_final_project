@@ -172,7 +172,7 @@
 }
 
 .previous_query_wrapper {
-	padding:10px;
+	padding:10px 0px 10px 0px;
 	border-top:1px solid #28A9D6;
 	text-align: left;
 	width:95%;
@@ -245,15 +245,15 @@
 	}
 
 .na-answer-wrapper {
-	width:10%;
+	width:auto;
 	padding:0px 0px 0px 0px;
 	display:inline-block;
-	margin-right:10px;
-	margin-left:-10px;
+
+
 }
 
 
-.na-answer {
+.answers .na-answer {
 	
 	margin:0px;
 	padding:0px;
@@ -283,12 +283,12 @@
 
 	.col-xs-12 {
 		border:none;
-
 	}   
 	
 	.inner_content_wrapper {
 		background:#0055A5;
-		margin:20px;
+		margin:0 auto;
+		width:700px;
 	}
 
 	.fbpic_small {
@@ -353,12 +353,14 @@
 	}
 
 	.previous_query_wrapper {
-		padding:10px 30px 10px 30px;
+		padding:20px 10px 20px 10px;
+		margin:0px;
+		width:100%;
 	}
 
 
 	.label_wrapper {
-		padding-top:20px;
+		padding-top:0px;
 
 	}    
 
@@ -372,20 +374,22 @@
 	}
 
 	.na-answer-wrapper {
-		margin-right:30px;
+	
 	}
 
-	.na-answer {
-		font-size:1.5em;
+	.answers .na-answer {
+		font-size:2.5em;
+		padding:0px;
 	}
 
 	.responder_count {
-		
+		font-size:0.75em;
+
 		
 	}
 
-	.yes-answer,
-	.no-answer {
+	.answers .yes-answer,
+	.answers .no-answer {
 		font-size:2.5em;
 	}
 
@@ -398,9 +402,14 @@
 @media (min-width: 992px) { 
 
 	.main_content_container {
-		min-width:700px;
-		width:65%;
+		width:700px;
+		
 		margin-top:40px;
+	}
+
+	.inner_content_wrapper {
+		margin:0px;
+		width:100%;
 	}
 
 	.content_component_container {

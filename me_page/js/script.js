@@ -225,9 +225,19 @@ function getQueryAnswers (queryList) {
                       console.log(percentYesAnswers);
                       console.log(percentNoAnswers);
 
-                      var formatYesAnswers = Math.max ( 40, (percentYesAnswers/100)*($(".main_content_container").width() *.58 ));
-                      var formatNoAnswers = Math.max (40, (percentNoAnswers/100)*($(".main_content_container").width() *.58 ));
+                      if (percentYesAnswers == 100 || percentNoAnswers == 100) {
+                          console.log($(window).width());
+                      var formatYesAnswers = Math.max ( 40, (percentYesAnswers/100)*($(window).width() * .62 ));
+                      var formatNoAnswers = Math.max (40, (percentNoAnswers/100)*($(window).width() * .62 ));
                       console.log(formatNoAnswers);
+
+                    }
+                    else {
+                      var formatYesAnswers = (percentYesAnswers/100)*(($(".main_content_container").width()-50) * .95 );
+                      var formatNoAnswers =  (percentNoAnswers/100)*(($(".main_content_container").width()-50) * .95 );
+                      console.log(formatNoAnswers);
+
+                    }
                     }
 
                     else {
@@ -238,6 +248,7 @@ function getQueryAnswers (queryList) {
                     }
                   }
                   else {
+
                     if (responderCount != 0) {
 
                       var percentYesAnswers = Math.round(
@@ -249,9 +260,20 @@ function getQueryAnswers (queryList) {
                       console.log(percentYesAnswers);
                       console.log(percentNoAnswers);
 
-                      var formatYesAnswers = Math.max ( 90, (percentYesAnswers/100)*($(".main_content_container").width() *.48 ));
-                      var formatNoAnswers = Math.max (90, (percentNoAnswers/100)*($(".main_content_container").width() *.48 ));
+
+                      if (percentYesAnswers == 100 || percentNoAnswers == 100) {
+                          console.log($(window).width());
+                      var formatYesAnswers = Math.max ( 90, (percentYesAnswers/100)*($(".previous_query_wrapper").width() * .70 ));
+                      var formatNoAnswers = Math.max (90, (percentNoAnswers/100)*($(".previous_query_wrapper").width() * .70 ));
                       console.log(formatNoAnswers);
+
+                    }
+                    else {
+                      var formatYesAnswers = (percentYesAnswers/100)*(($(".previous_query_wrapper").width()-85) * .95 );
+                      var formatNoAnswers =  (percentNoAnswers/100)*(($(".previous_query_wrapper").width()-85) * .95 );
+                      console.log(formatNoAnswers);
+
+                    }
                     }
 
                     else {
@@ -424,6 +446,41 @@ function getQueryAnswers (queryList) {
                     console.log(noResponderCount);
                     console.log(val.id);
 
+                    if ($(window).width() < "768") {
+                    if (responderCount != 0) {
+
+                      var percentYesAnswers = Math.round(
+                        (yesResponderCount / responderCount)*100);
+
+                      var percentNoAnswers = Math.round(
+                        (noResponderCount / responderCount)*100);
+
+                      console.log(percentYesAnswers);
+                      console.log(percentNoAnswers);
+
+                      if (percentYesAnswers == 100 || percentNoAnswers == 100) {
+                          console.log($(window).width());
+                      var formatYesAnswers = Math.max ( 40, (percentYesAnswers/100)*($(window).width() * .62 ));
+                      var formatNoAnswers = Math.max (40, (percentNoAnswers/100)*($(window).width() * .62 ));
+                      console.log(formatNoAnswers);
+
+                    }
+                    else {
+                      var formatYesAnswers = (percentYesAnswers/100)*(($(".main_content_container").width()-50) * .95 );
+                      var formatNoAnswers =  (percentNoAnswers/100)*(($(".main_content_container").width()-50) * .95 );
+                      console.log(formatNoAnswers);
+
+                    }
+                    }
+
+                    else {
+                      var percentYesAnswers = 0;
+                      var percentNoAnswers = 0;
+                      var formatYesAnswers = 60;
+                      var formatNoAnswers = 60;
+                    }
+                  }
+                  else {
 
                     if (responderCount != 0) {
 
@@ -436,12 +493,32 @@ function getQueryAnswers (queryList) {
                       console.log(percentYesAnswers);
                       console.log(percentNoAnswers);
 
+
+                      if (percentYesAnswers == 100 || percentNoAnswers == 100) {
+                          console.log($(window).width());
+                      var formatYesAnswers = Math.max ( 90, (percentYesAnswers/100)*($(".previous_query_wrapper").width() * .70 ));
+                      var formatNoAnswers = Math.max (90, (percentNoAnswers/100)*($(".previous_query_wrapper").width() * .70 ));
+                      console.log(formatNoAnswers);
+
+                    }
+                    else {
+                      var formatYesAnswers = (percentYesAnswers/100)*(($(".previous_query_wrapper").width()-85) * .95 );
+                      var formatNoAnswers =  (percentNoAnswers/100)*(($(".previous_query_wrapper").width()-85) * .95 );
+                      console.log(formatNoAnswers);
+
+                    }
                     }
 
                     else {
                       var percentYesAnswers = 0;
                       var percentNoAnswers = 0;
+                      var formatYesAnswers = 120;
+                      var formatNoAnswers = 120;
                     }
+
+
+
+                  }
 
                     var KarmaQuery = Parse.Object.extend("KarmaQuery");
 
@@ -469,11 +546,15 @@ function getQueryAnswers (queryList) {
                      active3: activeSetter3,
                      percentYesAnswers: percentYesAnswers,
                      percentNoAnswers: percentNoAnswers,
-                     responderCount: responderCount
+                     responderCount: responderCount,
+                     formatYesAnswers: formatYesAnswers,
+                     formatNoAnswers: formatNoAnswers
 
                    });
 
                     queryList.prepend(content);
+
+
                   },
                   error: function(object, error) {
                     alert("Error when updating todo item: " + error.code + " " + error.message);
@@ -507,7 +588,7 @@ loadMyActiveQueries(activeQueryList);
 loadMyPrivateQueries(privateQueryList);
 
 
-/*
+
 //allow the user to change the privacy level of the question via the button
 
 $("#active_past_queries_list, #private_past_queries_list").on("click",".privacy-level .btn", function () {
@@ -544,7 +625,7 @@ $("#active_past_queries_list, #private_past_queries_list").on("click",".privacy-
 
 }); //on function
 
-*/
+
 
 $("#active_queries").click(function(){
 	$(this).addClass("active");
