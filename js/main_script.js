@@ -48,6 +48,8 @@ YUI().use('node', function (Y) {
     allKPActiveQueryList = Y.one('#allKP_active_queries_list');
     QueryContainer = Y.one(".content_component_container");
     
+ 
+  console.log(Parse.User.current());    
 
 FB.getLoginStatus(function(response) {
     // this will be called when the roundtrip to Facebook has completed
@@ -72,14 +74,18 @@ FB.getLoginStatus(function(response) {
   } else {
     // the user isn't logged in to Facebook.
      console.log("not logged into facebook but not giving change ot relogin");
-    var accessToken = response.authResponse.accessToken;
-    console.log(accessToken);
+      
+    //var accessToken = response.authResponse.accessToken;
+    //console.log(accessToken);
   }
 
 }, true);
+
+
+
      //checkStatus();
       // window.open('https://www.facebook.com/login.php?skip_api_login=1&api_key=254848478004741&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Foauth%3Fredirect_uri%3Dhttp%253A%252F%252Fstatic.ak.facebook.com%252Fconnect%252Fxd_arbiter.php%253Fversion%253D40%2523cb%253Df38be48d28%2526domain%253Dmykarmapolice.com%2526origin%253Dhttp%25253A%25252F%25252Fmykarmapolice.com%25252Ff124d93e8%2526relation%253Dopener%2526frame%253Df9feea2a8%26display%3Dpopup%26scope%3Duser_friends%252Cemail%252Cpublish_actions%26response_type%3Dtoken%252Csigned_request%26domain%3Dmykarmapolice.com%26client_id%3D254848478004741%26ret%3Dlogin%26sdk%3Djoey&cancel_uri=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D40%23cb%3Df38be48d28%26domain%3Dmykarmapolice.com%26origin%3Dhttp%253A%252F%252Fmykarmapolice.com%252Ff124d93e8%26relation%3Dopener%26frame%3Df9feea2a8%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26e2e%3D%257B%257D&display=popup', "SignIn", "width=780,height=410,toolbar=0,scrollbars=0,status=0,resizable=0,location=0,menuBar=0");
-    
+
 
 //LOGIN FUNCTION - TO BE FIXED 
 
@@ -227,39 +233,11 @@ function getPhoto(){
     error: function(user, error) {
 
      console.log("User cancelled the Facebook login or did not fully authorize."); 
-     FB.getLoginStatus(function(response) {
-    // this will be called when the roundtrip to Facebook has completed
-    if (response.status === 'connected') {
-    // the user is logged in and has authenticated your
-    // app, and response.authResponse supplies
-    // the user's ID, a valid access token, a signed
-    // request, and the time the access token 
-    // and signed request each expire
-    console.log("weird error");
-    var uid = response.authResponse.userID;
-    var accessToken = response.authResponse.accessToken;
-    console.log(accessToken);
-    initiateFBLogin();
-  } else if (response.status === 'not_authorized') {
-    // the user is logged in to Facebook, 
-    // but has not authenticated your app
-    console.log("app no longer authorized");
-    var accessToken = response.authResponse.accessToken;
-    console.log(accessToken);
-
-  } else {
-    // the user isn't logged in to Facebook.
-     console.log("not logged into facebook but not giving change ot relogin");
-    var accessToken = response.authResponse.accessToken;
-    console.log(accessToken);
-  }
-
-}, true);
-     //checkStatus();
-      // window.open('https://www.facebook.com/login.php?skip_api_login=1&api_key=254848478004741&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Foauth%3Fredirect_uri%3Dhttp%253A%252F%252Fstatic.ak.facebook.com%252Fconnect%252Fxd_arbiter.php%253Fversion%253D40%2523cb%253Df38be48d28%2526domain%253Dmykarmapolice.com%2526origin%253Dhttp%25253A%25252F%25252Fmykarmapolice.com%25252Ff124d93e8%2526relation%253Dopener%2526frame%253Df9feea2a8%26display%3Dpopup%26scope%3Duser_friends%252Cemail%252Cpublish_actions%26response_type%3Dtoken%252Csigned_request%26domain%3Dmykarmapolice.com%26client_id%3D254848478004741%26ret%3Dlogin%26sdk%3Djoey&cancel_uri=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D40%23cb%3Df38be48d28%26domain%3Dmykarmapolice.com%26origin%3Dhttp%253A%252F%252Fmykarmapolice.com%252Ff124d93e8%26relation%3Dopener%26frame%3Df9feea2a8%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26e2e%3D%257B%257D&display=popup', "SignIn", "width=780,height=410,toolbar=0,scrollbars=0,status=0,resizable=0,location=0,menuBar=0");
-    }
-
-  });
+     location.reload().then(function(){
+      initiateFBLogin();
+     })
+   }
+ });
 
 
 //prompt for login if not connected
@@ -277,8 +255,6 @@ function checkStatus()  {
       console.log(response.status);
       user = Parse.User.current();
 
-
-
       //This is very strange, but if i dont have these tests the redirect will happen without the user being recognized as a parse currrent user
       //with them it keeps looping through until the user is set
 
@@ -295,39 +271,26 @@ function checkStatus()  {
 
       if (hasNum === null) {
         redirect();
-        console.log(accessToken);
-        console.log(user.get("authData"));
+        
       }
 
       else {
        Parse.FacebookUtils.login();
      }
 
-        /*Parse.FacebookUtils.login().then(function(){
-          redirect();
-        });
-}*/
 
+   } 
+   else if (response.status === 'not_authorized') {
+     console.log(response.status);
 
-} 
-else if (response.status === 'not_authorized') {
- console.log(response.status);
- Parse.FacebookUtils.login();
-        //location.reload(true);
+   } 
 
-        console.log(accessToken);
-        console.log(user.get("authData"));
-      } 
+   else {
+     console.log(response.status);
 
-      else {
-       console.log(response.status);
-       Parse.FacebookUtils.login();
-        //location.reload(true);
+   }
+ });
 
-        console.log(accessToken);
-        console.log(user.get("authData"));
-      }
-    });
 
 }//check fb status
 
@@ -340,16 +303,6 @@ function redirect()
   window.location.href='../get_karma_page/index.html';
 }
 
-function redirect2()
-{
-  window.location.href='../login_page/index.html';
-}
-
-
-
-
-
-
 $("#fb_login_button").click(function(){
  initiateFBLogin();
 
@@ -357,15 +310,23 @@ $("#fb_login_button").click(function(){
 
 });
 
-FB.Event.subscribe('auth.logout', function(response) {
-   //initiateFBLogin();
- });
+function redirect2()
+{
+  window.location.href='../login_page/index.html';
+
+}
+
+
+
+
+
+
 
 
 
 //want to recalc karma points balance on logout rather than login
 
-$("#logout_button").click(function(){
+$("#logout_button, #logout_button_bottom").click(function(){
   Parse.User.logOut();
 
 }, function(){

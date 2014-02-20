@@ -9,6 +9,10 @@
 	padding:0px;
 }
 
+.inner_content_wrapper {
+	min-height: 700px;
+}
+
 .inner_content_wrapper .row
 {
 	color:#FFFFEB;
