@@ -337,8 +337,8 @@
 	}
 
 	.fbpic_small {
-		width:90px;
-		height:90px;
+		width:60px;
+		height:60px;
 		background:#28A9D6;
 		background-image: url('../img/shutterstock_157248584.jpg');
 		background-size:600%;
@@ -351,7 +351,7 @@
 
 	.friend-name {
 		position:relative;
-		top:40px;
+		top:30px;
 		margin:0 auto;
 		display:inline-block;
 	}
@@ -375,7 +375,7 @@
 
 	/* QUESTIONS */
 
-	.question,
+	
 	.question .form-control {
 		padding:5px 15px 5px 15px;
 		
@@ -417,6 +417,7 @@
 		border-radius:100%;
 		font-size:6em;
 		font-family: 'icomoon';
+		
 	}
 
 	/*ANSWERS*/

@@ -92,10 +92,10 @@
     <p>{queryText}</p>    
     </div>
     <div class="answers">
-    <div class="yes-answer" style="width:{formatYesAnswers}px"><span class="result">{percentYesAnswers}%</span></div> <div class="na-answer-wrapper">
+    <div class="yes-answer {yesAnswerHide}" style="width:{formatYesAnswers}px"><span class="result">{percentYesAnswers}%</span></div> <div class="na-answer-wrapper">
     <div class="na-answer" id="{id}">&#xe606;<p class="responder_count">{responderCount}</p></div>
     </div>
-    <div class="no-answer" style="width:{formatNoAnswers}px"><span class="result">{percentNoAnswers}%</span></div>
+    <div class="no-answer {noAnswerHide}" style="width:{formatNoAnswers}px"><span class="result">{percentNoAnswers}%</span></div>
     </div>
 
     </div>
@@ -211,7 +211,7 @@
 
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 link-column">
 
-            <div class="row user_karma_info">
+            <div class="row user_karma_info hidden-sm hidden-md hidden-lg hidden-xl">
              <div class="col-xs-12">
               <div class="top-navbar-icon-label"><p class="first-label">Karma</p><p>Points</p></div>
               <div class="top-navbar-icon karma-points">
@@ -228,6 +228,14 @@
               <span class="badge friends_badge">32</span>
             </div>
             <a href="../invite_friends_page/index.html"><span class="glyphicon glyphicon-chevron-right"></span></a>
+          </div><!--col-->   
+        </div><!--row-->
+
+        <div class="row user_karma_info hidden-xs">
+           <div class="col-xs-12 new_query_link">
+              <a href="../new_question_page/index.html" class="btn new_query_link_label">Ask new query</a>
+          
+           
           </div><!--col-->   
         </div><!--row-->
 
