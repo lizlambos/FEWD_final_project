@@ -57,7 +57,35 @@
       //oAuth :true
     });
 
+      FB.getLoginStatus(function(response) {
+    // this will be called when the roundtrip to Facebook has completed
+    if (response.status === 'connected') {
+    // the user is logged in and has authenticated your
+    // app, and response.authResponse supplies
+    // the user's ID, a valid access token, a signed
+    // request, and the time the access token 
+    // and signed request each expire
+    console.log("weird error");
+    var uid = response.authResponse.userID;
+    var accessToken = response.authResponse.accessToken;
+    console.log(accessToken);
+    //initiateFBLogin();
+  } else if (response.status === 'not_authorized') {
+    // the user is logged in to Facebook, 
+    // but has not authenticated your app
+    console.log("app no longer authorized");
+    var accessToken = response.authResponse.accessToken;
+    console.log(accessToken);
 
+  } else {
+    // the user isn't logged in to Facebook.
+     console.log("not logged into facebook but not giving change ot relogin");
+      
+    //var accessToken = response.authResponse.accessToken;
+    //console.log(accessToken);
+  }
+
+}, true);
 
     }
 
