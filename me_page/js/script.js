@@ -118,7 +118,7 @@ countUserFriends();
 
     //load the array of recent active and private queries for the user
 
-    function loadMyActiveQueries (queryList) {
+    function loadMyActiveQueries () {
 
     	KarmaQuery = Parse.Object.extend("KarmaQuery");
 
@@ -168,7 +168,7 @@ countUserFriends();
 
 //retrieve the answers for each query and the rest of hte content
 
-function getQueryAnswers (queryList) { 
+function getQueryAnswers () { 
 
 	var QueryAnswer = Parse.Object.extend("QueryAnswer");
 
@@ -319,7 +319,7 @@ function getQueryAnswers (queryList) {
 
                    });
 
-                    queryList.prepend(content);
+                    activeQueryList.prepend(content);
 
 
                   },
@@ -337,7 +337,7 @@ error: function(object, error) {
 
   }//get active query answers
 
-  getQueryAnswers(queryList);
+  getQueryAnswers();
   
 }); //y Array function
 
@@ -351,7 +351,7 @@ error: function(object, error) {
 
 }//loadMyActiveQueries
 
-function loadMyPrivateQueries (queryList) {
+function loadMyPrivateQueries () {
 
   KarmaQuery = Parse.Object.extend("KarmaQuery");
 
@@ -401,7 +401,7 @@ function loadMyPrivateQueries (queryList) {
 
 //retrieve the answers for each query and the rest of hte content
 
-function getQueryAnswers (queryList) { 
+function getQueryAnswers () { 
 
   var QueryAnswer = Parse.Object.extend("QueryAnswer");
 
@@ -552,7 +552,7 @@ function getQueryAnswers (queryList) {
 
                    });
 
-                    queryList.prepend(content);
+                    privateQueryList.prepend(content);
 
 
                   },
@@ -570,7 +570,7 @@ error: function(object, error) {
 
   }//get active query answers
 
-  getQueryAnswers(queryList);
+  getQueryAnswers();
   
 }); //y Array function
 
@@ -584,8 +584,8 @@ error: function(object, error) {
 
 }//loadMyActiveQueries
 
-loadMyActiveQueries(activeQueryList);
-loadMyPrivateQueries(privateQueryList);
+loadMyActiveQueries();
+loadMyPrivateQueries();
 
 
 
