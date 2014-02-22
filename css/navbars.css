@@ -132,7 +132,7 @@
 /*MOBILE TOP NAVBAR*/	
 
 .mobile-header {
-	background:#28A9D6;
+	background:#BDBEC2;
 	height:44px;
 	text-align:center;
 
@@ -206,7 +206,7 @@
 	bottom:0%;
 	height:62px;
 	width:100%;
-	background:#28A9D6;
+	background:#BDBEC2;
 	z-index:1000;
 
 }

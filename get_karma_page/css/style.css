@@ -42,7 +42,8 @@
     padding-top:0px;
     position:relative;
     height:475px;
-    background:#F7F7F7;
+    background:#FF3B30;
+    
 
 
 }
@@ -54,7 +55,7 @@
 .question {
     background:transparent;
     padding:10px;
-    height:240px;
+    height:auto;
     width:270px;
     position:relative;
     border-radius:0px;
@@ -68,7 +69,7 @@
 .question p,
 .label-default {
     font-size:1.25em;
-    color: #4A4A4A;
+    color: #FFFFFF;
     font-family:'courier';
     
    
@@ -82,6 +83,12 @@
    margin-top:10px;
 
 
+}
+
+.answers .yes-button, 
+.answers .no-button {
+    color:#FF3B30;
+  
 }
 
 
@@ -99,7 +106,7 @@
 
     .question {
         width:240px;
-        height:240px;
+        height:auto;
     }
 
 
