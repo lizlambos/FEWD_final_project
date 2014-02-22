@@ -10,6 +10,7 @@
   <link href="../css/style.css" rel="stylesheet" media="screen">
   <link href="../css/navbars.css" rel="stylesheet" media="screen">
   <link href="css/style.css" rel="stylesheet" media="screen">
+  <link href="../css/color.css" rel="stylesheet" media="screen">
   <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic|Lobster|Exo+2:400,800,700,600,500,200,200italic,300,300italic,400italic,900' rel='stylesheet' type='text/css'>
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -115,35 +116,35 @@
               </div>
             </div>
           </div>
- </div>
-        </form>
+        </div>
+      </form>
 
-        <a href="#" class="navbar-brand hidden-xs">KarmaPolice</a>
-
-
-        <div class="collapse navbar-collapse navbar-left pull-left">
-          <ul class="nav navbar-nav">
-           <li class="visible-link"><a href="../get_karma_page/index.html">Get Karma</a></li>
-           <li class="visible-link active"><a href="../me_page/index.html">My Karma</a></li>
-           <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
-            <ul class="dropdown-menu pull-right">
-              <li class="dropdown_item"><a href="../new_question_page/index.html">New Karma Query</a></li>
-              <li class="dropdown_item"><a href="../recent_questions_page/index.html">Activity</a></li>
-              <li class="dropdown_item"><a href="../invite_friends_page/index.html">Friends</a></li>
-              <li class="dropdown_item"><a href="../settings_page/index.html">Settings</a></li>
-              <li class="divider"></li>
-              <li class="dropdown_item" id="logout_button"><a href="#">Logout</a></li>
-            </ul>
-          </li>
-        </ul>
-
-      </div><!--collapse navbar-->
+      <a href="#" class="navbar-brand hidden-xs">KarmaPolice</a>
 
 
+      <div class="collapse navbar-collapse navbar-left pull-left">
+        <ul class="nav navbar-nav">
+         <li class="visible-link"><a href="../get_karma_page/index.html">Get Karma</a></li>
+         <li class="visible-link active"><a href="../me_page/index.html">My Karma</a></li>
+         <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
+          <ul class="dropdown-menu pull-right">
+            <li class="dropdown_item"><a href="../new_question_page/index.html">New Karma Query</a></li>
+            <li class="dropdown_item"><a href="../recent_questions_page/index.html">Activity</a></li>
+            <li class="dropdown_item"><a href="../invite_friends_page/index.html">Friends</a></li>
+            <li class="dropdown_item"><a href="../settings_page/index.html">Settings</a></li>
+            <li class="divider"></li>
+            <li class="dropdown_item" id="logout_button"><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
 
-    </div><!--row-->
+    </div><!--collapse navbar-->
 
-  </div> <!--container-->    
+
+
+  </div><!--row-->
+
+</div> <!--container-->    
 
 </nav>
 
@@ -221,7 +222,7 @@
             </div><!--col-->   
           </div><!--row-->
 
-          <div class="row user_karma_info">
+          <div class="row user_karma_info mid">
            <div class="col-xs-12">
              <div class="top-navbar-icon-label"><p class="first-label">My</p><p>Friends</p></div>
              <div class="top-navbar-icon friends">
@@ -231,72 +232,30 @@
           </div><!--col-->   
         </div><!--row-->
 
-        <div class="row user_karma_info hidden-xs">
-           <div class="col-xs-12 new_query_link">
-              <a href="../new_question_page/index.html" class="btn new_query_link_label">Ask new query</a>
+        <div class="row user_karma_info hidden-xs last">
+         <div class="col-xs-12 new_query_link">
+          <a href="../new_question_page/index.html" class="btn new_query_link_label">Ask new query</a>
           
-           
-          </div><!--col-->   
-        </div><!--row-->
+
+        </div><!--col-->   
+      </div><!--row-->
 
 
-         </div><!--link-column-->  
+    </div><!--link-column-->  
 
-       </div><!--fb_friendsarea-->
+  </div><!--fb_friendsarea-->
 
-       <div class="row user_info_editor">
-        <div class="col-xs-12">
+  <div class="row user_info_editor">
+    <div class="col-xs-12">
 
-          <div class="btn-group query_nav_buttons">
-            <button type="button" id="active_queries" class="btn btn-default active">Active Queries</button>
-            <button type="button" id="past_queries" class="btn btn-default">Past Queries</button>
-          </div>
+      <div class="btn-group query_nav_buttons">
+        <button type="button" id="active_queries" class="btn btn-default active">Active Queries</button>
+        <button type="button" id="past_queries" class="btn btn-default">Past Queries</button>
+      </div>
 
-          <div class="past_queries_section" id="active_past_queries_list">
+      <div class="past_queries_section" id="active_past_queries_list">
 
-            <div class="previous_query_wrapper">
-             <div class="label_wrapper">
-              <label class="label label-default time-label"><span class="glyphicon glyphicon-time"></span>4 days</label>
-              <div class="btn-group privacy-level">
-                <button type="button" class="btn kp_button">All KP</button>
-                <button type="button" class="btn fb_button active">FB Friends</button>
-                <button type="button " class="btn private_button">Private</button>
-              </div><!--btn-group-->
-            </div><!--label_wrapper-->
-
-            <div class="question">
-              <p>Am I annoying when I drink at parties?</p>    
-            </div>
-            <div class="answers">
-             <div class="yes-answer"><span class="result">78%</span></div> 
-             <div class="na-answer">&#xe606;<p class="responder_count">47</p></div>
-             <div class="no-answer"><span class="result">20%</span></div>
-           </div>
-
-         </div><!--previous_query_wrapper-->
-
-         <div class="previous_query_wrapper">
-           <div class="label_wrapper">
-            <label class="label label-default time-label"><span class="glyphicon glyphicon-time"></span>4 days</label>
-            <div class="btn-group privacy-level">
-              <button type="button" class="btn kp_button">All KP</button>
-              <button type="button" class="btn fb_button active">FB Friends</button>
-              <button type="button " class="btn private_button">Private</button>
-            </div><!--btn-group-->
-          </div><!--label_wrapper-->
-
-          <div class="question">
-            <p>Am I annoying when I drink at parties?</p>    
-          </div>
-          <div class="answers">
-           <div class="yes-answer"><span class="result">78%</span></div> 
-           <div class="na-answer">&#xe606;<p class="responder_count">47</p></div>
-           <div class="no-answer"><span class="result">20%</span></div>
-         </div>
-
-       </div><!--previous_query_wrapper-->
-
-       <div class="previous_query_wrapper">
+        <div class="previous_query_wrapper">
          <div class="label_wrapper">
           <label class="label label-default time-label"><span class="glyphicon glyphicon-time"></span>4 days</label>
           <div class="btn-group privacy-level">
@@ -317,11 +276,28 @@
 
      </div><!--previous_query_wrapper-->
 
-   </div><!--past_queries_section-->
+     <div class="previous_query_wrapper">
+       <div class="label_wrapper">
+        <label class="label label-default time-label"><span class="glyphicon glyphicon-time"></span>4 days</label>
+        <div class="btn-group privacy-level">
+          <button type="button" class="btn kp_button">All KP</button>
+          <button type="button" class="btn fb_button active">FB Friends</button>
+          <button type="button " class="btn private_button">Private</button>
+        </div><!--btn-group-->
+      </div><!--label_wrapper-->
 
-   <div class="past_queries_section hidden" id="private_past_queries_list">
+      <div class="question">
+        <p>Am I annoying when I drink at parties?</p>    
+      </div>
+      <div class="answers">
+       <div class="yes-answer"><span class="result">78%</span></div> 
+       <div class="na-answer">&#xe606;<p class="responder_count">47</p></div>
+       <div class="no-answer"><span class="result">20%</span></div>
+     </div>
 
-    <div class="previous_query_wrapper">
+   </div><!--previous_query_wrapper-->
+
+   <div class="previous_query_wrapper">
      <div class="label_wrapper">
       <label class="label label-default time-label"><span class="glyphicon glyphicon-time"></span>4 days</label>
       <div class="btn-group privacy-level">
@@ -342,7 +318,11 @@
 
  </div><!--previous_query_wrapper-->
 
- <div class="previous_query_wrapper">
+</div><!--past_queries_section-->
+
+<div class="past_queries_section hidden" id="private_past_queries_list">
+
+  <div class="previous_query_wrapper">
    <div class="label_wrapper">
     <label class="label label-default time-label"><span class="glyphicon glyphicon-time"></span>4 days</label>
     <div class="btn-group privacy-level">
@@ -360,6 +340,27 @@
    <div class="na-answer">&#xe606;<p class="responder_count">47</p></div>
    <div class="no-answer"><span class="result">20%</span></div>
  </div>
+
+</div><!--previous_query_wrapper-->
+
+<div class="previous_query_wrapper">
+ <div class="label_wrapper">
+  <label class="label label-default time-label"><span class="glyphicon glyphicon-time"></span>4 days</label>
+  <div class="btn-group privacy-level">
+    <button type="button" class="btn kp_button">All KP</button>
+    <button type="button" class="btn fb_button active">FB Friends</button>
+    <button type="button " class="btn private_button">Private</button>
+  </div><!--btn-group-->
+</div><!--label_wrapper-->
+
+<div class="question">
+  <p>Am I annoying when I drink at parties?</p>    
+</div>
+<div class="answers">
+ <div class="yes-answer"><span class="result">78%</span></div> 
+ <div class="na-answer">&#xe606;<p class="responder_count">47</p></div>
+ <div class="no-answer"><span class="result">20%</span></div>
+</div>
 
 </div><!--previous_query_wrapper-->
 

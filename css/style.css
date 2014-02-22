@@ -70,9 +70,7 @@
 
 	}
 
-	h1 small {
-		color:#333;
-	}
+	
 	.top-navbar-icon-label {
 		font-size:0.75em;
 	} 
@@ -109,7 +107,7 @@
 	.row.settings_button a,
 	.row.settings_button label {
 		color: #FFFFEB;
-	}		
+	}	
 
 
 	.help-block {
@@ -646,7 +644,6 @@
 		.nav_link {
 			font-size:1.5em;
 			padding:15px 15px 15px 15px;
-			color:#333;
 			margin-top:0px;
 			float:right;
 

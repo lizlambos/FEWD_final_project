@@ -1,0 +1,257 @@
+
+/*@darkblue: #0055A5;
+@lightblue: #28A9D6;
+@white: #FFFFFF;
+@limegreen:#5cb85c;
+@lightyellow:#EDF684;
+@moreyellow:rgba(255, 255, 204, 1);
+@offwhite: #FFFFEB;
+@orange: #F0AD4C;
+
+@topMobileNavHeight:7.75%;
+@bottomMobileNavHeight:9.85%;
+@mobileContentHeight:87.5%;
+
+@signatureColor:#5AC8FB;
+@lightBackground:#F7F7F7;
+@navbarBackground:#C7C7CC;
+@navbarFontColor: #FFFFFF;
+@darkTextColor:#2B2B2B;
+@lightTextColor:#F7F7F7;
+@grey1:#D7D7D7;
+@grey2:#DBDDDE;
+@grey3:#898C90;
+@grey4:#4A4A4A;
+@yesColor:#4CD964;
+@noColor:#FF9500;
+@webHeaderColor: rgba(255, 255, 204, 1);
+
+@questionRed:#FF3B30;
+@questionOrange:#FF9500;
+@questionYellow:#FFCC00;
+@questionGreen:#4CD964;
+@questionBlue:#007AFF;
+@questionPurple:#5856D6;
+
+
+.questiongradient1 {  
+    background: #eaeaea;   
+    background: linear-gradient(top, #eaeaea, #cccccc);  
+    background: -o-linear-gradient(top, #eaeaea, #cccccc);   
+    background: -ms-linear-gradient(top, #eaeaea, #cccccc);   
+    background: -moz-linear-gradient(top, #eaeaea, #cccccc);   
+    background: -webkit-linear-gradient(top, #eaeaea, #cccccc);   
+} 
+*/
+
+h1 small,
+.time-label.label-default,
+.privacy-level .pic_button,
+.answers .na-answer,
+.user-name,
+.previous_query_wrapper .question p,
+.small_screen_pagetitle h1,
+.user_karma_info .top-navbar-icon-label,
+.new_query_link a
+{
+	color:#4A4A4A;
+}
+
+.navbar,
+.mobile-header,
+.mobile-footer,
+.top-navbar-icon,
+.karma_points_display
+{
+	background:#4A4A4A;
+}
+
+.like_karma_police a,
+.add-friend-button,
+#sample_query,
+.row.settings_button a,
+.row.settings_button label,
+.privacy-level .btn,
+.question p,
+.query_text,
+.yes-answer,
+.no-answer,
+.top-navbar-icon-label,
+.karma_points_display_label,
+.screen-footer p,
+.nav_link,
+.navbar .nav.navbar-nav  a,
+.friend-name,
+.user_karma_info .glyphicon-chevron-right,
+.edit_pencil
+{
+	color: #FFFFFF;
+}	
+
+.privacy-level .kp_button,
+.privacy-level .fb_button,
+.privacy-level .private_button {
+	background-color:#FFFFFF;
+	border: 1px solid #5AC8FB;
+	color:#5AC8FB;
+}
+
+.privacy-level .btn.active,
+.user_karma_info .top-navbar-icon {
+	background-color:#5AC8FB;
+	color:#FFFFFF;
+
+}
+
+.privacy-level .go_button,
+.yes-answer {
+	background-color:#4CD964;
+}
+
+
+.no-answer {
+	background:#FF9500;
+
+}
+
+
+.content_component_container
+{
+	border: 1px solid #F7F7F7;
+	
+}
+
+.answers .yes-button,
+.answers .no-button {
+	color:#F7F7F7;
+}
+
+.small_screen_pagetitle,
+.link-column,
+.user_karma_info,
+.fb-column,
+.small_screen_pagetitle,
+.content_component_container,
+.helper_popup,
+.user_info_editor
+{
+	background:#FFFFFF;
+}
+
+.helper_popup{
+	border: 1px solid #5AC8FB;
+	color:#2B2B2B;
+}
+
+.page-header {
+	
+	background: rgba(255, 255, 204, 0.7);
+
+}
+
+.link-column {
+	border-left:2px solid #DBDDDE;
+}
+
+.user_karma_info {
+	border-bottom:1px solid #DBDDDE;
+	
+}
+
+.row.user_karma_info.mid {
+	border-bottom:none;
+	
+}
+
+.query_nav_buttons .btn-default {
+	border:1px solid #5AC8FB;
+	color:#5AC8FB;
+	background:#FFFFFF;
+}
+
+.query_nav_buttons .active {
+	color:#FFFFFF;
+	background:#5AC8FB;
+
+}
+
+.previous_query_wrapper {
+
+	border-top:1px solid #DBDDDE;
+}
+
+
+
+/*MEDIA QUERIES*/
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
+@media (min-width: 768px) { 
+
+	.main_content_container,
+	.scoreboard .karma_points_display,
+	.inner_content_wrapper {
+
+		background:#F7F7F7;
+	}  
+
+
+	.scoreboard .karma_points_display {
+
+		
+		color:#5AC8FB;
+
+
+	}
+
+	.karma_points_display .badge {
+		color:#5AC8FB;
+	}
+
+
+	.row.user_karma_info.mid {
+		border-bottom:1px solid #DBDDDE
+
+	}
+
+	.row.user_karma_info.last {
+		border-bottom:none;
+
+	}
+
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+	.scoreboard {
+		background:#F7F7F7;
+
+
+	}
+
+	.scoreboard .karma_points_display {
+
+		background:#5BCAFF;
+
+
+
+	}
+
+	.karma_points_display .badge {
+		color:#FFFFFF;
+	}
+
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+
+}
+
+

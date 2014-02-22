@@ -12,9 +12,66 @@
 @bottomMobileNavHeight:9.85%;
 @mobileContentHeight:87.5%;
 
+@signatureColor:#5AC8FB;
+@lightBackground:#F7F7F7;
+@navbarBackground:#C7C7CC;
+@navbarFontColor: #FFFFFF;
+@darkTextColor:#2B2B2B;
+@lightTextColor:#F7F7F7;
+@grey1:#D7D7D7;
+@grey2:#DBDDDE;
+@grey3:#898C90;
+@yesColor:#4CD964;
+@noColor:#FF9500;
+@webHeaderColor: rgba(255, 255, 204, 1);
+
+@questionRed:#FF3B30;
+@questionOrange:#FF9500;
+@questionYellow:#FFCC00;
+@questionGreen:#4CD964;
+@questionBlue:#007AFF;
+@questionPurple:#5856D6;
 
 
-.test {
-	color:@darkblue;
-	font-size:4em;
+.questiongradient1 {  
+    background: #eaeaea;   
+    background: linear-gradient(top, #eaeaea, #cccccc);  
+    background: -o-linear-gradient(top, #eaeaea, #cccccc);   
+    background: -ms-linear-gradient(top, #eaeaea, #cccccc);   
+    background: -moz-linear-gradient(top, #eaeaea, #cccccc);   
+    background: -webkit-linear-gradient(top, #eaeaea, #cccccc);   
+}  
+
+.question p {
+	color:@darkTextColor;
 }
+
+*.navbar-brand{
+	color:@navbarFontColor;
+}
+
+.navbar,
+.mobile-header,
+.mobile-footer {
+	background:@navbarBackground;
+}
+
+.navbar .nav.navbar-nav  a,
+.mobile-header ul li .btn,
+.mobile-header ul li a,
+.mobile-footer ul li a {
+	color:@navbarFontColor;
+}
+
+.mobile-footer ul li a:focus,
+.mobile-footer ul li a:hover,
+.mobile-footer ul li .onpage {
+	color:@questionYellow;
+}
+
+.search-button {
+	color:@grey2;
+}
+
+.screen-footer {
+ color:@darkTextColor;
