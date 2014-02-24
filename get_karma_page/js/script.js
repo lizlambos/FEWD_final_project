@@ -388,6 +388,24 @@ refreshAnswersGiven2();
 
 updateAskerKarmaPoints();
 
+//create color array
+
+var queryDesignArray = ["#FF3B30","#FFDB4C","#007AFF","#5856D6","#52EDC7"];
+
+var p = Math.floor((Math.random()*queryDesignArray.length));
+
+var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF";
+var buttonDesign="color:"+queryDesignArray[p]+";";
+
+/*@questionRed:#FF3B30;
+@questionOrange:#FF9500;
+@questionYellow:#FFCC00;
+@questionGreen:#4CD964;
+@questionBlue:#007AFF;
+@questionPurple:#5856D6;
+
+background-color:{colorPick};color:{textColorPick*/
+
          //screen by privacy level 
 
          var privacySetting = val.get('privacylevel');
@@ -401,10 +419,12 @@ updateAskerKarmaPoints();
             id: val.id,
             privacylevel: "",
             askerID: askerID,
-            askerPicURL: askerPic
-    				//karmaPointsBal: karmaPointsBalance
+            askerPicURL: askerPic,
+            componentDesign: componentDesign,
+            buttonDesign: buttonDesign
 
-    			});
+
+          });
 
            if ((i)%3 === 0) {
              allKPQueryColumn1.prepend(content);
@@ -451,10 +471,11 @@ updateAskerKarmaPoints();
                 id: val.id,
                 privacylevel: "",
                 askerID: askerID,
-                askerPicURL: askerPic
-            //karmaPointsBal: karmaPointsBalance
+                askerPicURL: askerPic,
+                componentDesign: componentDesign,
+                buttonDesign: buttonDesign
 
-          });
+              });
 
               if ((i)%3 === 0) {
                allKPQueryColumn1.prepend(content);
@@ -480,8 +501,10 @@ updateAskerKarmaPoints();
             id: val.id,
             privacylevel: "hidden",
             askerID: askerID,
-            askerPicURL: askerPic
-            //karmaPointsBal: karmaPointsBalance
+            askerPicURL: askerPic,
+            componentDesign: componentDesign,
+            buttonDesign: buttonDesign
+
 
           });
 
@@ -552,12 +575,12 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
      //parentRow.hide();
    //}, 5000 );
 
-  }
+}
 
-  function refresher () {
-   refreshKarmaPoints();
-   def3.resolve();
- }
+function refresher () {
+ refreshKarmaPoints();
+ def3.resolve();
+}
     //reveal answers
 
     function revealAnswers(){
@@ -591,7 +614,7 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
 
                     var totalAnswers = noAnswers + yesAnswers;
                     console.log(totalAnswers);
-                  
+
 
                     if (totalAnswers != 0) {
 
@@ -614,11 +637,11 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
 
                     }
 
-                
-                      yesButton.html(percentYesAnswers+"%")
+
+                    yesButton.html(percentYesAnswers+"%")
                     .css({"font-size": "2.25em", "width":"100px", "height":"100px"});
-                  
-            
+
+
                     noButton.html(percentNoAnswers+"<span class='percent'>%</span>")
                     .css({"font-size": "2.25em", "width":"100px", "height":"100px"});   
 

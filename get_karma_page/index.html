@@ -66,7 +66,7 @@
     <div class="row parent_row {privacylevel}">
     <div class="col-xs-12">
 
-    <div class="content_component_container" style="background-color:{colorPick};color:{textColorPick}" id="{id}">
+    <div class="content_component_container" style="{componentDesign}" id="{id}">
 
     <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
 
@@ -80,13 +80,13 @@
     </div>
 
     <div class="question">
-    <p>{queryText}</p>
-    <span class="label label-default"><span class="glyphicon glyphicon-time"></span>{timeStamp}</span>
+    <p style="{componentDesign}">{queryText}</p>
+    <span class="label label-default" style="{componentDesign}"><span class="glyphicon glyphicon-time"></span>{timeStamp}</span>
     </div>
 
     <div class="answers" id="answers">
-    <button class="btn  btn-success btn-inline yes-button" id="{id}" name="yes">&#xe60b;</button> 
-    <button class="btn btn-inline btn-warning no-button" id="{id}" name="no">&#xe612;</button>
+    <button class="btn  btn-inline yes-button" style="{buttonDesign}" id="{id}" name="yes">&#xe60b;</button> 
+    <button class="btn btn-inline no-button" style="{buttonDesign}" id="{id}" name="no">&#xe612;</button>
     </div>
 
     </div>
@@ -231,8 +231,8 @@ end pageheader -->
     </div>
 
     <div class="answers" id="answers">
-    <button class="btn  btn-success btn-inline yes-button" id="{id}" name="yes">&#xe60b;</button> 
-    <button class="btn btn-inline btn-warning no-button" id="{id}" name="no">&#xe612;</button>
+    <button class="btn  btn-inline yes-button" id="{id}" name="yes">&#xe60b;</button> 
+    <button class="btn btn-inline no-button" id="{id}" name="no">&#xe612;</button>
     </div>
 
     </div>
