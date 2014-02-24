@@ -45,16 +45,27 @@
 */
 
 h1 small,
-.time-label.label-default,
+
 .privacy-level .pic_button,
-.answers .na-answer,
+
 .user-name,
 .previous_query_wrapper .question p,
 .small_screen_pagetitle h1,
 .user_karma_info .top-navbar-icon-label,
-.new_query_link a
+.friend-name,
+.question p,
+.new_query_link a,
+.query_text,
+.label-default,
+.navbar .nav.navbar-nav  a
 {
 	color:#4A4A4A;
+}
+
+.time-label.label-default,
+.answers .na-answer,
+.help-block {
+	color:#898C90;
 }
 
 .navbar,
@@ -72,16 +83,12 @@ h1 small,
 .row.settings_button a,
 .row.settings_button label,
 .privacy-level .btn,
-.question p,
-.query_text,
 .yes-answer,
 .no-answer,
 .top-navbar-icon-label,
 .karma_points_display_label,
 .screen-footer p,
-.nav_link,
-.navbar .nav.navbar-nav  a,
-.friend-name,
+.nav.navbar-nav .visible-link a,
 .user_karma_info .glyphicon-chevron-right,
 .edit_pencil
 {
@@ -149,6 +156,8 @@ h1 small,
 
 }
 
+/*ME PAGE*/
+
 .link-column {
 	border-left:2px solid #DBDDDE;
 }
@@ -180,7 +189,39 @@ h1 small,
 	border-top:1px solid #DBDDDE;
 }
 
+/*NEW QUESTION*/ 
+#query_area {
+	background: #DBDDDE; 
+	color:#4A4A4A;
 
+}
+
+#query_area::-webkit-input-placeholder {
+	color:#898C90;
+	font-style: italic;
+}
+
+#query_area:-moz-placeholder { /* Firefox 18- */
+	color:#898C90;
+	font-style: italic;
+}
+
+#query_area::-moz-placeholder {  /* Firefox 19+ */
+	color:#898C90;
+	font-style: italic;
+}
+
+/*RECENT QUESTIONS*/
+
+.query_update_row {
+	color:#5AC8FB;
+}
+
+button.reveal_result {
+
+    color:#898C90;
+
+ }
 
 /*MEDIA QUERIES*/
 
