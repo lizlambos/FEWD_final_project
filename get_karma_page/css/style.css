@@ -57,7 +57,7 @@
 .question {
     background:transparent;
     padding:10px;
-    min-height:180px;
+    height:240px;
     width:270px;
     position:relative;
     border-radius:0px;

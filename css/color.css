@@ -59,8 +59,7 @@ h1 small,
 .query_text,
 .label-default,
 .navbar .nav.navbar-nav  a,
-.row.settings_button a
-{
+.row.settings_button a {
 	color:#4A4A4A;
 }
 
@@ -163,7 +162,7 @@ h1 small,
 /*GET KARMA PAGE*/
 
 .friend-name {
-	color:#FFFFFF;
+	
 }
 
 /*ME PAGE*/
