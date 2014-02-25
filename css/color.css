@@ -53,7 +53,7 @@ h1 small,
 .small_screen_pagetitle h1,
 .user_karma_info .top-navbar-icon-label,
 .user_karma_info .glyphicon.glyphicon-chevron-right,
-.friend-name,
+
 .question p,
 .new_query_link a,
 .query_text,
@@ -65,8 +65,12 @@ h1 small,
 
 .time-label.label-default,
 .answers .na-answer,
-.help-block {
+.help-block{
 	color:#898C90;
+}
+
+.delete-button {
+	color:transparent;
 }
 
 .navbar,
@@ -81,7 +85,7 @@ h1 small,
 .like_karma_police a,
 .add-friend-button,
 #sample_query,
-
+.friend-name,
 .privacy-level .btn,
 .yes-answer,
 .no-answer,
