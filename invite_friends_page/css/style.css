@@ -17,12 +17,12 @@
 }
 
 .top-navbar-icon {
-	margin-top:5px;
-	top:0px;
-	right:0px;
-	margin-right:0px;
-	border:none;
-
+    z-index:100000;
+    position:fixed;
+    margin-top:5px;
+    top:0px;
+    right:0px;
+    border:none;
 }
 
 .top-navbar-icon .badge {

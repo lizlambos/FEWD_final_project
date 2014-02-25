@@ -25,6 +25,7 @@
 @yesColor:#4CD964;
 @noColor:#FF9500;
 @webHeaderColor: rgba(255, 255, 204, 1);
+@navbarMobileActiveYellow: :#EDF684;
 
 @questionRed:#FF3B30;
 @questionOrange:#FF9500;
@@ -95,24 +96,43 @@ h1 small,
 .nav.navbar-nav .visible-link a,
 .user_karma_info .glyphicon-chevron-right,
 .edit_pencil,
-.scoreboard h1
+.scoreboard h1,
+.mobile-footer ul li a
 {
 	color: #FFFFFF;
 }	
 
+
+.mobile-footer ul li a:focus,
+.mobile-footer ul li a:hover,
+.mobile-footer ul li .onpage {
+	background:transparent;
+	border:none;
+	color:#EDF684;
+}
+
 .privacy-level .kp_button,
 .privacy-level .fb_button,
-.privacy-level .private_button {
+.privacy-level .private_button,
+.query_nav_buttons .btn {
 	background-color:#FFFFFF;
-	border: 1px solid #5AC8FB;
-	color:#5AC8FB;
+	border: 1px solid #898C90;
+	color:#898C90;
 }
 
 .privacy-level .btn.active,
-.user_karma_info .top-navbar-icon {
-	background-color:#5AC8FB;
+.query_nav_buttons .active {
+	background-color:#1AD6FD;
 	color:#FFFFFF;
+	border: 1px solid #1AD6FD;
+	font-weight:normal;
+	box-shadow: none;
+}
 
+
+
+.user_karma_info .top-navbar-icon{
+	background-color:#1AD6FD;
 }
 
 .privacy-level .go_button, .go_button,
@@ -153,7 +173,7 @@ h1 small,
 }
 
 .helper_popup{
-	border: 1px solid #5AC8FB;
+	border: 1px solid #1AD6FD;
 	color:#2B2B2B;
 }
 
@@ -185,17 +205,7 @@ h1 small,
 	
 }
 
-.query_nav_buttons .btn-default {
-	border:1px solid #5AC8FB;
-	color:#5AC8FB;
-	background:#FFFFFF;
-}
 
-.query_nav_buttons .active {
-	color:#FFFFFF;
-	background:#5AC8FB;
-
-}
 
 .previous_query_wrapper {
 
@@ -227,7 +237,7 @@ h1 small,
 /*RECENT QUESTIONS*/
 
 .query_update_row {
-	color:#5AC8FB;
+	color:#1AD6FD;
 }
 
 button.reveal_result {
@@ -249,7 +259,7 @@ button.reveal_result {
 .like_karma_police a {
 	
 	color:#FFFFFF;
-	background: #5AC8FB; }
+	background: #1AD6FD; }
 
 	/*MEDIA QUERIES*/
 
@@ -276,7 +286,7 @@ button.reveal_result {
 		.scoreboard .karma_points_display {
 
 
-			background:#5BCAFF;
+			background:#1AD6FD;
 
 
 		}

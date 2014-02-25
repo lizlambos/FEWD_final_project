@@ -397,6 +397,8 @@ var p = Math.floor((Math.random()*queryDesignArray.length));
 var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF";
 var buttonDesign="color:"+queryDesignArray[p]+";";
 
+
+
 /*@questionRed:#FF3B30;
 @questionOrange:#FF9500;
 @questionYellow:#FFCC00;
@@ -527,6 +529,9 @@ background-color:{colorPick};color:{textColorPick*/
 
         }//else
 
+
+
+
           },//item 2 success
 
           error: function(item2, error) {
@@ -551,6 +556,21 @@ background-color:{colorPick};color:{textColorPick*/
 //calling function on three columns but content is being repeated need to put in more arugments for each query  
 
 loadFriendQueries();
+
+
+//DOES NOT WORK set question text vertically centered
+
+
+
+$("body").on("click", ".question p", function(){
+  var questHeight = $(this).parents(".question").css("height");
+  var textHeight = $(this).css("height");
+  var setTop = (questHeight - textHeight) * 0.5;
+  $(this).css("top:"+setTop+"px");
+
+});
+
+
 
 //on Click to create answer, update answere KP, reveal answer and make div disappear
 
@@ -639,11 +659,11 @@ function refresher () {
 
 
                     yesButton.html(percentYesAnswers+"%")
-                    .css({"font-size": "2.25em", "width":"100px", "height":"100px"});
+                    .css({"font-size": "2.25em", "color": "#FFFFFF", "width":"100px", "height":"100px"});
 
 
                     noButton.html(percentNoAnswers+"<span class='percent'>%</span>")
-                    .css({"font-size": "2.25em", "width":"100px", "height":"100px"});   
+                    .css({"font-size": "2.25em", "color": "#FFFFFF", "width":"100px", "height":"100px"});   
 
                     item.save({
                       success: function(){
