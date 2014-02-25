@@ -28,8 +28,10 @@
 .top-navbar-icon {
     z-index:100000;
     position:fixed;
-    top:45px;
+    margin-top:7px;
+    top:0px;
     right:10px;
+    border:none;
 }
 
 
