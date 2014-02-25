@@ -56,7 +56,7 @@
 .question p{
     color:#FFFFEB;
     display:block;
-    height:240px;
+    height:250px;
     padding:0px 10px 0px 10px;
 
 }
@@ -151,6 +151,7 @@
 
     .question p {
         font-size:1.5em;
+        height:auto;
     }
 
 
