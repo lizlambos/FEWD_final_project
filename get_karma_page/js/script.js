@@ -591,16 +591,16 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
 
   function divDisappear () {
     console.log("disappear function being fired");
-    //setTimeout(function(){ 
-     //parentRow.hide();
-   //}, 5000 );
+    setTimeout(function(){ 
+     parentRow.fadeOut("slow",2000);
+   }, 5000 );
 
-}
+  }
 
-function refresher () {
- refreshKarmaPoints();
- def3.resolve();
-}
+  function refresher () {
+   refreshKarmaPoints();
+   def3.resolve();
+ }
     //reveal answers
 
     function revealAnswers(){
@@ -657,14 +657,39 @@ function refresher () {
 
                     }
 
+                    @keyframes myfirst
+                    {
+                      from {top:70%; left: 10%; width:100px; height:100px; z-index: 1;}
+                      to {top:50%; left:30%; width:250px; height:250px; z-index: 100000000;}
+                    }
 
-                    yesButton.html(percentYesAnswers+"%")
-                    .css({"font-size": "2.25em", "color": "#FFFFFF", "width":"100px", "height":"100px"});
+                    @-webkit-keyframes animate /* Safari and Chrome */
+                    {
+                      from {top:70%; left: 10%; width:100px; height:100px; z-index: 1;}
+                      to {top:50%; left:30%; width:250px; height:250px; z-index: 100000000;}
+                    }
+
+                    if (percentYesAnswers > percentNoAnswers) {
+
+                      yesButton.html(percentYesAnswers+"%")
+                      .css({"font-size": "2.25em","font-weight":"bold", "color": "#FFFFFF", "width":"100px", "height":"100px", "animation":"myfirst 5s;", "-webkit-animation":"myfirst 5s;"});
 
 
-                    noButton.html(percentNoAnswers+"<span class='percent'>%</span>")
-                    .css({"font-size": "2.25em", "color": "#FFFFFF", "width":"100px", "height":"100px"});   
+                      noButton.html(percentNoAnswers+"<span class='percent'>%</span>")
+                      .css({"font-size": "2.25em", "font-weight":"bold", "color": "#FFFFFF", "width":"100px", "height":"100px"});   
 
+                    }
+
+                    else if (percentNoAnswers > percentYesAnswers) {
+
+                      yesButton.html(percentYesAnswers+"%")
+                      .css({"font-size": "2.25em","font-weight":"bold", "color": "#FFFFFF", "width":"100px", "height":"100px"});
+
+
+                      noButton.html(percentNoAnswers+"<span class='percent'>%</span>")
+                      .css({"font-size": "2.25em","font-weight":"bold", "color": "#FFFFFF", "width":"100px", "height":"100px", "animation":"myfirst 5s;", "-webkit-animation":"myfirst 5s;"});
+
+                    }
                     item.save({
                       success: function(){
                         console.log("saved latest yes responders");

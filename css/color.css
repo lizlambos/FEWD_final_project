@@ -54,12 +54,12 @@ h1 small,
 .small_screen_pagetitle h1,
 .user_karma_info .top-navbar-icon-label,
 .user_karma_info .glyphicon.glyphicon-chevron-right,
-
+.navbar .nav.navbar-nav .dropdown-menu .dropdown-item a ,
 .question p,
 .new_query_link a,
 .query_text,
 .label-default,
-.navbar .nav.navbar-nav  a,
+
 .row.settings_button a {
 	color:#4A4A4A;
 }
@@ -83,6 +83,10 @@ h1 small,
 	background:#4A4A4A;
 }
 
+.row.container.second {
+     border-top: 1px solid #898C90;
+	}
+
 .like_karma_police a,
 .add-friend-button,
 #sample_query,
@@ -93,8 +97,9 @@ h1 small,
 .top-navbar-icon-label,
 .karma_points_display_label,
 .screen-footer p,
-.nav.navbar-nav .visible-link a,
+.navbar .nav.navbar-nav .visible-link a,
 .user_karma_info .glyphicon-chevron-right,
+.navbar .nav.navbar-nav .dropdown .ganesh-dropdown ,
 .edit_pencil,
 .scoreboard h1,
 .mobile-footer ul li a

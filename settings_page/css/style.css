@@ -143,7 +143,7 @@ label {
 @media (min-width: 768px) { 
 
 	.main_content_container {
-		margin-top:80px;
+		margin-top:140px;
 		background:#FFFFEB;
 		min-height: 1000px;
 
@@ -202,16 +202,16 @@ label {
 @media (min-width: 992px) { 
 
 	.main_content_container {
-		margin-top:40px;
+		margin-top:180px;
 		min-height:0px;
 	}
 
 	.content_component_container {
-		padding-top:30px;
+		padding-top:0px;
 	}
 
 	.inner_content_wrapper {
-		margin-top:20px;
+		margin-top:0px;
 	}
 
 

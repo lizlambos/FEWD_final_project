@@ -42,10 +42,7 @@
 
 }
 
-.navbar-right {
-	margin-right:0px;
 
-}
 
 .navbar .nav.navbar-nav  a{
 	color:#333;
@@ -56,28 +53,29 @@
 .navbar .container {
 	margin-top: 15px;
 	margin-bottom:15px;
+	text-align: center;
 }
 
 .navbar .navbar-brand {
-	display:block;
+	
 	padding-top:10px;
 	margin-top:10px;
 	padding-bottom:10px;
-	position:relative;
+	position:absolute;
+	left:40%;
 	
 
 }
 
 .navbar-form {
-	position:relative;
+	
 	width:auto;
-	margin-right:-20px;
 	float:left;
 
 }
 
 
-.form-control{
+.form-control {
 	border-radius:25px;
 	padding-right:20px;
 	width:90%;
@@ -314,25 +312,72 @@
 /* Small devices (tablets, 768px and up !!!!@screen-sm-min not working!!!) */
 @media (min-width: 768px) { 
 
+	.navbar-fixed-top {
+		text-align:center;
+		padding:10px 0px 0px 0px;
+	}
+
+	.navbar .container {
+		margin:0 auto;
+		text-align:center;
+		padding-right:40px;
+	}
+
+	div.row.container.second {
+		margin:0px;
+		padding-top:0px;
+		text-align: center;
+		width:100%;
+		padding-right:0px;
+		
+
+	}
+
+	.dropdown {
+		
+		text-align: left;}
+
+	div.row.container.second .col-xs-12 .nav.navbar-nav{
+		width:100%;
+	}
+
+	.row.container.second .col-xs-12 .nav.navbar-nav li  {
+		text-align: center;
+		float:none;
+		display:inline-block;
+		text-shadow:none;
+		font-family:'icomoon';
+
+	}
+
+	.collapse.navbar-collapse .nav.navbar-nav .dropdown .ganesh-dropdown:hover,
+	.collapse.navbar-collapse .nav.navbar-nav .dropdown .ganesh-dropdown:focus {
+		background:transparent;
+
+	}
+
+	.row.container.second .col-xs-12 ul.nav.navbar-nav li.visible-link a:focus, 
+	.row.container.second .col-xs-12 ul.nav.navbar-nav li.visible-link a:hover,
+	.row.container.second .col-xs-12 ul.nav.navbar-nav li.visible-link.active a {
+		background:transparent;
+		font-weight:bold;
+		color:#1AD6FD;
+	}
+
 	.navbar .navbar-brand {
 		font-size:3em;
-		left:10%;
 		padding-top:10px;
+		margin: 0 auto;
 		margin-top:10px;
 		margin-bottom:-10px;
 
 	}
 
-	.navbar-right {
-		margin-right:0px;
-
-	}
-	.navbar-collapse { 
-		padding-right:0px;
-		position:absolute;
-		left:65%;
+	.navbar-collapse {
+		float:right;
 		background:transparent;
 		margin-top:0px;
+
 
 	}
 
@@ -340,18 +385,22 @@
 		font-size:1em;
 	}
 
-	.row.scoreboard {
-		margin-top:-10px;
-		margin-bottom:-10px;
-		margin-left:-10px;
+	.navbar-form {
+		margin-top:0px;
+		
+		float:left;
 
+	}
+
+	.row.scoreboard {
+		text-align:left;
 	}
 
 	.scoreboard {
 		background:transparent;
 		margin:0px;
-	
 		width:auto;
+		text-align:left;
 
 	}
 
@@ -389,17 +438,14 @@
 @media (min-width: 992px) { 
 
 
-
 	.navbar .container {
-		padding-top:20px;
+		padding-top:0px;
 		margin-top:20px;
+		padding-right:70px;
 
 	}
 
 	.navbar-collapse { 
-		padding-right:0px;
-		position:absolute;
-		left:70%;
 		padding-bottom:20px;
 		margin-top:0px;
 
@@ -407,27 +453,18 @@
 	}
 
 	.navbar .navbar-brand {
+
 		font-size:4em;
-		left:10%;
 		padding-bottom:10px;
-		padding-left: 20px;
 		margin-top:-0px;
 		margin-bottom:10px;
 
 	}
 
-
-	.navbar-right {
-		margin-right:0px;
-	}
-
-
-
-
 	.row.scoreboard {
-		margin-top:-30px;
+		margin-top:-20px;
 		margin-bottom:-10px;
-		margin-left:-20px;
+		
 	}
 
 	.scoreboard {
@@ -458,12 +495,12 @@
 		float:left;
 		border:none;
 		background:#28A9D6;
-	
+
 
 
 	}
-		.karma_points_display .badge {
-			color:#FFFFFF;
+	.karma_points_display .badge {
+		color:#FFFFFF;
 	}
 
 
@@ -471,17 +508,16 @@
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
-	.navbar .navbar-brand {
-		font-size:5em;
-		left:15%;
+	.navbar .container {
+		padding-right:90px;
+	
 
 
 	}
 
 	.navbar-collapse { 
 		padding-right:0px;
-		position:absolute;
-		left:70%;
+		
 
 	}	
 

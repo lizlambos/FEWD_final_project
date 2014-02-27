@@ -53,53 +53,70 @@
 
     end facebookapp initialization--> 
 
-    <!-- screen navbar -->
+            <!-- screen navbar -->
     <nav class="navbar navbar-fixed-top hidden-xs" role="navigation">
       <div class="container">
 
-        <form class="navbar-form form-inline navbar-left  hidden-xs" role="search">
-               <div class="row scoreboard hidden-xs">
-            <div class="col-xs-12">
-              <div class="scoreboard">
-                <h1>My Karma Score</h1>
-                <div class="karma_points_display">
-                  <span class="badge">18</span>
-                </div>
+         
+        
+        <form class="navbar-form form-inline navbar-left  pull-left hidden-xs" role="search">
+         <div class="row scoreboard hidden-xs">
+          <div class="col-xs-12">
+            <div class="scoreboard">
+              <h1>My Karma Score</h1>
+              <div class="karma_points_display">
+                <span class="badge">18</span>
               </div>
             </div>
-
           </div>
-        </form>
+        </div>
+      </form>
 
-        <a href="#" class="navbar-brand hidden-xs">KarmaPolice</a>
+     <a href="#" class="navbar-brand hidden-xs">KarmaPolice</a>
 
-        
-        <div class="collapse navbar-collapse navbar-left pull-left">
+
+      <div class="collapse navbar-collapse navbar-left pull-right">
         <ul class="nav navbar-nav">
-          <li class="visible-link"><a href="../get_karma_page/index.html">Get Karma</a></li>
-          <li class="visible-link"><a href="../me_page/index.html">My Karma</a></li>
-          <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
-            <ul class="dropdown-menu pull-right">
-              <li class="dropdown_item"><a href="../new_question_page/index.html">New Karma Query</a></li>
-              <li class="dropdown_item"><a href="../recent_questions_page/index.html">Activity</a></li>
-              <li class="dropdown_item"><a href="../invite_friends_page/index.html">Friends</a></li>
-              <li class="dropdown_item"><a href="../settings_page/index.html">Settings</a></li>
-              <li class="divider"></li>
-              <li class="dropdown_item" id="logout_button"><a href="#">Logout</a></li>
-            </ul>
-          </li>
-        </ul>
+         <li class="visible-link active hidden "><a href="../get_karma_page/index.html">Get Karma</a></li>
+         <li class="visible-link hidden "><a href="../me_page/index.html">My Karma</a></li>
+         <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#" data-icon="&#xe601;"></a>
+          <ul class="dropdown-menu pull-right">
+            <li class="dropdown_item"><a href="../new_question_page/index.html">New Karma Query</a></li>
+            <li class="dropdown_item"><a href="../recent_questions_page/index.html">Activity</a></li>
+            <li class="dropdown_item"><a href="../invite_friends_page/index.html">Friends</a></li>
+            <li class="dropdown_item"><a href="../settings_page/index.html">Settings</a></li>
+            <li class="divider"></li>
+            <li class="dropdown_item" id="logout_button"><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
 
-      </div><!--collapse navbar-->
+    </div><!--collapse navbar-->
 
 
-      </div><!--row-->
 
-    </div> <!--container-->    
+  </div><!--row-->
 
-  </nav>
+</div> <!--container-->    
 
-  <!-- end navbar -->
+<div class="row container second">
+    <div class="col-xs-12">
+      <ul class="nav navbar-nav">
+        <li class="visible-link"><a href="../get_karma_page/index.html">&#xe60a; Get Karma</a></li>
+        <li class="visible-link"><a href="../me_page/index.html">&#xe614; My Karma</a></li>
+        <li class="visible-link  new_query"><a href="../new_question_page/index.html">&#xe60c; New Query</a></li>
+        <li class="visible-link active"><a href="../recent_questions_page/index.html">&#xe608; Activity</a></li>
+        <li class="visible-link"><a href="../invite_friends_page/index.html">&#xe607; Friends</a></li>
+        
+      
+      </ul>
+
+    </div>
+  </div>   
+
+</nav>
+
+<!-- end navbar -->
 
   <!--mobile top navbar-->
 
@@ -120,7 +137,7 @@
   <!--end mobile top navbar-->
 
   <!-- screen pageheader -->
-  <div class="page-header hidden-sm hidden-xs">
+  <div class="page-header hidden-sm hidden-xs hidden-md hidden-lg hidden-xl">
     <div class="container">
       <h1>Query Info</h1>
     </div>

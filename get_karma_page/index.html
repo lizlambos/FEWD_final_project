@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
- 
+
   <link href="../css/style.css" rel="stylesheet" media="screen">
   <link href="../css/navbars.css" rel="stylesheet" media="screen">
   <link href="css/style.css" rel="stylesheet" media="screen">
-   <link href="../css/color.css" rel="stylesheet" media="screen">
+  <link href="../css/color.css" rel="stylesheet" media="screen">
   <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic|Lobster|Exo+2:400,800,700,600,500,200,200italic,300,300italic,400italic,900' rel='stylesheet' type='text/css'>
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -19,7 +19,7 @@
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/main_script.js"></script>
   <script src="js/script.js"></script>
-    <link rel="shortcut icon" href="http://mykarmapolice.com/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="http://mykarmapolice.com/favicon.ico" type="image/x-icon">
   <link rel="icon" href="http://mykarmapolice.com/favicon.ico" type="image/x-icon">
   
 
@@ -70,20 +70,20 @@
 
     <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
 
-  
+
 
     <div class="question" style="{componentDesign}">
     <p style="{componentDesign}">{queryText}</p>
-      <div class="user-info-wrapper">
+    <div class="user-info-wrapper">
 
     <div class="fbpic_container">
     <img class="fbpic_small user_num_1_fb_photo" src="{askerPicURL}">
     </div>  
 
     <h3 class="friend-name" id="{askerID}">{askerName}</h3>
-      <span class="label label-default" style="{componentDesign}"><span class="glyphicon glyphicon-time"></span>{timeStamp}</span>
+    <span class="label label-default" style="{componentDesign}"><span class="glyphicon glyphicon-time"></span>{timeStamp}</span>
     </div>
-  
+
     </div>
 
     <div class="answers" id="answers">
@@ -102,31 +102,33 @@
 
 
     <!--end facebookapp initialization--> 
-  <div class="outer">
-    <div class='helper_popup hidden ' id='guided_tour1'>
-      <p class='popup_text first'>Welcome to Karma Police!</p>
-      
-      <p class='popup_text'>In KarmaPolice and in life, you get what you give:</p>
-     <ul>
+    <div class="outer">
+      <div class='helper_popup hidden ' id='guided_tour1'>
+        <p class='popup_text first'>Welcome to Karma Police!</p>
 
-      <li class='popup_text'> <span>&#xe60a;</span><p>Get KarmaPoints by answering friend's questions and inviting new friends</p></li>
-     
-      <li class='popup_text'><span>&#xe614;</span><p>Use your KarmaPoints to get answers to the questions you've been dying to ask</p></li>
-    </ul>
-      <p class='popup_text last'>Answers are anonymous and we NEVER post to Facebook!</p>
-      <div class='btn_wrapper'>
-        <a href='#' class='btn go_button btn-success'>Get Started</a>
+        <p class='popup_text'>In KarmaPolice and in life, you get what you give:</p>
+        <ul>
+
+          <li class='popup_text'> <span>&#xe60a;</span><p>Get KarmaPoints by answering friend's questions and inviting new friends</p></li>
+
+          <li class='popup_text'><span>&#xe614;</span><p>Use your KarmaPoints to get answers to the questions you've been dying to ask</p></li>
+        </ul>
+        <p class='popup_text last'>Answers are anonymous and we NEVER post to Facebook!</p>
+        <div class='btn_wrapper'>
+          <a href='#' class='btn go_button btn-success'>Get Started</a>
+        </div>
       </div>
-    </div>
 
     </div>
 
-    <!-- screen navbar -->
+<!-- screen navbar -->
     <nav class="navbar navbar-fixed-top hidden-xs" role="navigation">
       <div class="container">
 
-       <form class="navbar-form form-inline navbar-left  hidden-xs" role="search">
-        <div class="row scoreboard hidden-xs">
+         
+        
+        <form class="navbar-form form-inline navbar-left  pull-left hidden-xs" role="search">
+         <div class="row scoreboard hidden-xs">
           <div class="col-xs-12">
             <div class="scoreboard">
               <h1>My Karma Score</h1>
@@ -135,40 +137,56 @@
               </div>
             </div>
           </div>
-
         </div>
       </form>
 
-      <a href="#" class="navbar-brand hidden-xs">KarmaPolice</a>
+     <a href="#" class="navbar-brand hidden-xs">KarmaPolice</a>
 
 
-
-      <div class="collapse navbar-collapse navbar-left pull-left">
+      <div class="collapse navbar-collapse navbar-left pull-right">
         <ul class="nav navbar-nav">
-          <li class="visible-link active"><a href="../get_karma_page/index.html">Get Karma</a></li>
-          <li class="visible-link"><a href="../me_page/index.html">My Karma</a></li>
-          <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#"><img class="temp-ganesh-logo" src="../img/ganesha-hi.png" alt="temp ganesh logo"/><b class="caret"></b></a>
-            <ul class="dropdown-menu pull-right">
-              <li class="dropdown_item"><a href="../new_question_page/index.html">New Karma Query</a></li>
-              <li class="dropdown_item"><a href="../recent_questions_page/index.html">Activity</a></li>
-              <li class="dropdown_item"><a href="../invite_friends_page/index.html">Friends</a></li>
-              <li class="dropdown_item"><a href="../settings_page/index.html">Settings</a></li>
-              <li class="divider"></li>
-              <li class="dropdown_item" id="logout_button"><a href="#">Logout</a></li>
-            </ul>
-          </li>
-        </ul>
+         <li class="visible-link active hidden "><a href="../get_karma_page/index.html">Get Karma</a></li>
+         <li class="visible-link hidden "><a href="../me_page/index.html">My Karma</a></li>
+          <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#" data-icon="&#xe601;"></a>
+          <ul class="dropdown-menu pull-right">
+            <li class="dropdown_item"><a href="../new_question_page/index.html">New Karma Query</a></li>
+            <li class="dropdown_item"><a href="../recent_questions_page/index.html">Activity</a></li>
+            <li class="dropdown_item"><a href="../invite_friends_page/index.html">Friends</a></li>
+            <li class="dropdown_item"><a href="../settings_page/index.html">Settings</a></li>
+            <li class="divider"></li>
+            <li class="dropdown_item" id="logout_button"><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
 
-      </div><!--collapse navbar-->
-
-    </div><!--row-->
+    </div><!--collapse navbar-->
 
 
 
+  </div><!--row-->
 
-  </div> <!--container-->    
+</div> <!--container-->    
+
+<div class="row container second">
+    <div class="col-xs-12">
+      <ul class="nav navbar-nav">
+        <li class="visible-link active"><a href="../get_karma_page/index.html">&#xe60a; Get Karma</a></li>
+        <li class="visible-link"><a href="../me_page/index.html">&#xe614; My Karma</a></li>
+        <li class="visible-link new_query"><a href="../new_question_page/index.html">&#xe60c; New Query</a></li>
+        <li class="visible-link"><a href="../recent_questions_page/index.html">&#xe608; Activity</a></li>
+        <li class="visible-link"><a href="../invite_friends_page/index.html">&#xe607; Friends</a></li>
+        
+      
+      </ul>
+
+    </div>
+  </div>  
 
 </nav>
+
+<!-- end navbar -->
+
+
 
 <!-- end navbar -->
 
@@ -211,40 +229,40 @@ end pageheader -->
 
     <div class="col-xs-12 col-sm-4 photo-col friends_queries_section1" id="">
 
-       <div class="row parent_row {privacylevel}">
-    <div class="col-xs-12">
+     <div class="row parent_row {privacylevel}">
+      <div class="col-xs-12">
 
-    <div class="content_component_container" id="{id}">
+        <div class="content_component_container" id="{id}">
 
-   
 
-    
 
-    
 
-    <div class="question">
-       <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
-    <p>Should I move to Boston even if the weather is much colder there and I would be less tan there?</p>
-   <div class="user-info-wrapper">
-    <div class="fbpic_container">
-    <img class="fbpic_small user_num_1_fb_photo" src="{askerPicURL}">
-    </div>  
 
-    <h3 class="friend-name" id="{askerID}">{askerName}</h3>
-     <span class="label label-default"><span class="glyphicon glyphicon-time"></span>{timeStamp}</span>
-    </div>
-    </div>
 
-    <div class="answers" id="answers">
-    <button class="btn  btn-inline yes-button" id="{id}" name="yes">&#xe60b;</button> 
-    <button class="btn btn-inline no-button" id="{id}" name="no">&#xe612;</button>
-    </div>
 
-    </div>
+          <div class="question">
+           <button type="button" class="btn btn-default delete-button hidden-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+           <p>Should I move to Boston even if the weather is much colder there and I would be less tan there?</p>
+           <div class="user-info-wrapper">
+            <div class="fbpic_container">
+              <img class="fbpic_small user_num_1_fb_photo" src="{askerPicURL}">
+            </div>  
 
-    </div> 
+            <h3 class="friend-name" id="{askerID}">{askerName}</h3>
+            <span class="label label-default"><span class="glyphicon glyphicon-time"></span>{timeStamp}</span>
+          </div>
+        </div>
+
+        <div class="answers" id="answers">
+          <button class="btn  btn-inline yes-button" id="{id}" name="yes">&#xe60b;</button> 
+          <button class="btn btn-inline no-button" id="{id}" name="no">&#xe612;</button>
+        </div>
+
+      </div>
 
     </div> 
+
+  </div> 
 
 
 
@@ -252,13 +270,13 @@ end pageheader -->
 
 <div class="col-xs-12 col-sm-4 photo-col friends_queries_section2" id="friends_queries_section2">
 
-  
+
 
 </div><!--column-->  
 
 <div class="col-xs-12 col-sm-4 photo-col friends_queries_section3" id="friends_queries_section3">
 
-  
+
 </div><!--column-->  
 
 
