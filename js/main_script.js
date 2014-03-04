@@ -205,9 +205,9 @@ function getPhoto(){
     error: function(user, error) {
 
      console.log("User cancelled the Facebook login or did not fully authorize."); 
-     location.reload().then(function(){
-      initiateFBLogin();
-     })
+     //location.reload().then(function(){
+      //initiateFBLogin();
+     //})
    }
  });
 

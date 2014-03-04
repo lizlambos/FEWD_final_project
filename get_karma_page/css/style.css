@@ -1,5 +1,18 @@
 /*GET KARMA PAGE STYLESHEET*/
 
+/*ANIMATIONS*/
+
+@keyframes myfirst
+{
+  from {top:70%; left: 10%; width:100px; height:100px; z-index: 1;}
+  to {top:50%; left:30%; width:250px; height:250px; z-index: 100000000;}
+}
+
+@-webkit-keyframes animate /* Safari and Chrome */
+{
+  from {top:70%; left: 10%; width:100px; height:100px; z-index: 1;}
+  to {top:50%; left:30%; width:250px; height:250px; z-index: 100000000;}
+}
 
 
 /*PHOTO TILES*/
@@ -236,7 +249,7 @@
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
 
- .answers {
+   .answers {
     width:100%;
     margin-top:10px;
     margin-bottom:30px;

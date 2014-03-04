@@ -32,9 +32,10 @@ $(document).ready(function(){
 
     }
     else {
-     $(".helper_popup").removeClass("hidden");
+     $(".helper_popup, .outer").removeClass("hidden");
      $(".go_button").click(function(){
       $("#guided_tour1").fadeOut('slow');
+      $(".outer").addClass("hidden");
       user.set("hadTour", true);
       user.save({
         success: function(user) {
@@ -657,17 +658,6 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
 
                     }
 
-                    @keyframes myfirst
-                    {
-                      from {top:70%; left: 10%; width:100px; height:100px; z-index: 1;}
-                      to {top:50%; left:30%; width:250px; height:250px; z-index: 100000000;}
-                    }
-
-                    @-webkit-keyframes animate /* Safari and Chrome */
-                    {
-                      from {top:70%; left: 10%; width:100px; height:100px; z-index: 1;}
-                      to {top:50%; left:30%; width:250px; height:250px; z-index: 100000000;}
-                    }
 
                     if (percentYesAnswers > percentNoAnswers) {
 

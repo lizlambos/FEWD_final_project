@@ -143,7 +143,7 @@
 		color:#CCC;
 		margin-top:10px;
 		margin-right:10px;
-		z-index:1000000000;
+		z-index:100;
 	}
 
 	.glyphicon-time {
@@ -258,7 +258,14 @@
 		position:fixed;
 		text-align:center;
 		z-index:999999;
-		margin-top:20px;
+		margin-top:0px;
+		background-color:rgba(000,000,000, 0.7);
+		height:100%;
+		width:100%;
+		top:0;
+		left:0;
+		display:block;
+		padding-top:50px;
 
 	}
 
@@ -270,7 +277,7 @@
 		background:#FFFFFF;
 		border: 1px solid #28A9D6;
 		color:#333;
-		padding:20px 10px 20px 10px;
+		padding:20px 10px 10px 10px;
 		margin: 0 auto;
 		margin-top:0px;
 		text-align:left;
@@ -662,12 +669,13 @@
 		/*HELPER POPUP*/
 
 		.outer {
-			margin-top:60px;
+			margin-top:0px;
+			padding-top:100px;
 		}
 
 
 		.helper_popup {
-
+			
 			width:400px;
 			font-size: 1.25em;
 			padding:30px 30px 30px 15px;
@@ -733,10 +741,12 @@
 		}
 
 		.outer {
-			margin-top:100px;
+			margin-top:0px;
+			padding-top:160px;
 		}
 
 		.helper_popup {
+			
 			width:400px;
 			padding:30px 15px 30px 15px;
 			
