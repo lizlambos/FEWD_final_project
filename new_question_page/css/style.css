@@ -92,11 +92,13 @@
 	}
 
 
-#made_answer.helper_popup  .btn, 
-#made_answer.helpder_popup  .btn {
+ 
+.helper_popup  .btn {
 	display:block;
 	width:100%;
 }
+
+
 
 /*MEDIA QUERIES*/
 
@@ -175,6 +177,7 @@
 
 	#made_answer .btn_wrapper {
 		width:70%;
+		margin:0 auto;
 	}
 
 #made_answer{

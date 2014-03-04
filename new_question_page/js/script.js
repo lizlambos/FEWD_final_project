@@ -243,6 +243,7 @@ error: function(karmaQuery, error) {
   }
 }).then(function(){
 	$("#made_answer").removeClass("hidden");
+  $("#made_answer").parents(".outer").removeClass("hidden");
 });
 
 var test = karmaQuery.get("askerName");
@@ -334,6 +335,7 @@ function karmaPointsWarning () {
        if (karmaPointsBalance <= 0 && wantsKPWarning != false)	{
         $("#need_points .popup_text.first").html("You have "+karmaPointsBalance+" Karma Points");
         $("#need_points").removeClass("hidden");
+        $('#need_points').parents(".outer").removeClass("hidden");
     
       }
 
@@ -347,6 +349,7 @@ function karmaPointsWarning () {
 
         }
         $("#need_friends").removeClass("hidden");
+         $('#need_points').parents(".outer").removeClass("hidden");
         
       }
       else {
@@ -485,12 +488,14 @@ $("#need_points").on("click", ".later_button", function(){
 
     }).then(function(){
       $(this).parents(".helper_popup").fadeOut("slow");
+      $(this).parents(".outer").addClass("hidden");
       queryCreator();
     });
 
   }
   else {
     $(this).parents(".helper_popup").fadeOut("slow");
+    $(this).parents(".outer").addClass("hidden");
     queryCreator();
   }
 
@@ -510,12 +515,14 @@ $("#need_friends").on("click", ".later_button", function(){
 
     }).then(function(){
       $(this).parents(".helper_popup").fadeOut("slow");
+      $(this).parents(".outer").addClass("hidden");
       queryCreator();
     });
 
   }
   else {
     $(this).parents(".helper_popup").fadeOut("slow");
+    $(this).parents(".outer").addClass("hidden");
     queryCreator();
   }
 
@@ -549,20 +556,13 @@ $("#fb_button").click(function(){
 
 //run query creator on click
 
-$("#submit_button").click(function(){	
+$("#submit_button, #go_button").click(function(){	
 	karmaPointsWarning();
 	console.log(user);
 	
 
 });
 
-$("#go_button").click(function(){
-	karmaPointsWarning();
-	console.log(user);
-
-
-
-});
 
 
 

@@ -140,17 +140,20 @@ h1 small,
 	background-color:#1AD6FD;
 }
 
-.privacy-level .go_button, .go_button,
-.yes-answer, .yes-button, .ask_new_query_link {
+.privacy-level .go_button, .go_button, #submit_button,
+.yes-answer, .yes-button, .ask_new_query_link,
+ #invite_more_peeps, .get_points_now  {
 	background-color:#4CD964;
 }
 
-.ask_new_query_link, .go_button {
+.ask_new_query_link, #submit_button, .go_button,
+ #invite_more_peeps,  .later_button , .get_points_now  {
 	color: #FFFFFF;
 }
 
 
-.no-answer, .no-button, #logout_button_bottom {
+.no-answer, .no-button, #logout_button_bottom, 
+.later_button {
 	background:#FF9500;
 
 }

@@ -330,6 +330,11 @@
 		padding-bottom:20px;
 	}
 
+	.user_pref_checkbox_label {
+		display:inline-block;
+		margin-left:3px;
+	}
+
 	/*USER INFO WRAPPER */
 
 	.user-info-wrapper {

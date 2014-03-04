@@ -36,43 +36,43 @@
 
 <body class="all-app-pages">
 
-  <div class="outer">
+  <div class="outer hidden">
 
     <div class='helper_popup hidden' id='need_points'>
       <p class='popup_text first'>You have "+karmaPointsBalance+" Karma Points</p>
       <p class='popup_text'> Get more points so friends can answer your Karma Queries</p>
       <div class='btn_wrapper'>
-        <a href='../get_karma_page/index.html' class='btn btn-success'>Sounds Great</a>
-        <a href='#' class='btn btn-warning later_button'>Later</a>
+        <a href='../get_karma_page/index.html' class='btn get_points_now' id="get_points_now">Answer questions now</a>
+        <a href='#' class='btn later_button'>Later</a>
       </div>
       <input class='user_pref_checkbox' id="points_checker" type='checkbox' name='user_pref' value='no_karma_points_reminders'>
-      <p class='user_pref_checkbox_label'>Don't nag me about this anymore</p>
+      <p class='user_pref_checkbox_label'>Don't nag me about this again</p>
     </div>
   </div>
 
-  <div class="outer">
+  <div class="outer hidden">
 
    <div class='helper_popup hidden' id='need_friends'>
     <p class='popup_text first'>You have "+friendsTotal+" friends who can answer your query</p>
     <p class='popup_text'> Expand your audience by inviting more friends</p>
     <div class='btn_wrapper'>
-      <a href='../invite_friends_page/index.html' class='btn btn-success'>Sounds Great</a>
-      <a href='#' class='btn btn-warning later_button'>Later</a>
+      <a href='../invite_friends_page/index.html' class='btn' id="invite_more_peeps">Invite friends now</a>
+      <a href='#' class='btn later_button'>Later</a>
     </div>
     <input class='user_pref_checkbox' id="friends_checker" type='checkbox' name='user_pref' value='no_karma_points_reminders'> 
-    <p class='user_pref_checkbox_label'>Don't nag me about this anymore</p>
+    <p class='user_pref_checkbox_label'>Don't nag me about this again</p>
   </div>
 
 </div>
 
-  <div class="outer">
+  <div class="outer hidden">
 
    <div class='helper_popup hidden made_answer' id='made_answer'>
     <p class='popup_text first'>New query created!</p>
     <p class='popup_text'> Nice job!</p>
     <div class='btn_wrapper'>
-      <a href='#' class='btn btn-warning later_button' id="question_reloader">Ask another query</a>
-      <a href='../get_karma_page/index.html' class='btn btn-success'>Get more points</a>
+      <a href='' class='btn later_button' id="question_reloader">Ask another query</a>
+      <a href='../get_karma_page/index.html' class='btn get_points_now'>Get more points</a>
       
     </div>
   
@@ -237,7 +237,7 @@
           <button type="button" id="fb_button" class="btn fb_button">FB Friends</button>
           <button type="button" id="go_button" class="btn go_button hidden-sm hidden-md hidden-lg hidden-xl">Go!</button>
         </div><!--button group-->
-        <button type="button" class="btn btn-success hidden-xs" id="submit_button">Get my Karma!</button>
+        <button type="button" class="btn hidden-xs" id="submit_button">Get my Karma!</button>
 
       </div><!--query_submit_button_wrapper-->
 
