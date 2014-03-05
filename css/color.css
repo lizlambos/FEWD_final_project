@@ -78,14 +78,15 @@ h1 small,
 .mobile-header,
 .mobile-footer,
 .top-navbar-icon,
-.karma_points_display
-{
+.karma_points_display {
 	background:#4A4A4A;
 }
 
+
+
 .row.container.second {
-     border-top: 1px solid #898C90;
-	}
+	border-top: 1px solid #898C90;
+}
 
 .like_karma_police a,
 .add-friend-button,
@@ -142,12 +143,12 @@ h1 small,
 
 .privacy-level .go_button, .go_button, #submit_button,
 .yes-answer, .yes-button, .ask_new_query_link,
- #invite_more_peeps, .get_points_now  {
+#invite_more_peeps, .get_points_now  {
 	background-color:#4CD964;
 }
 
 .ask_new_query_link, #submit_button, .go_button,
- #invite_more_peeps,  .later_button , .get_points_now  {
+#invite_more_peeps,  .later_button , .get_points_now  {
 	color: #FFFFFF;
 }
 
@@ -283,6 +284,12 @@ button.reveal_result {
 
 			background:#FFFFFF;
 		}  
+
+		.row.container.second .col-xs-12 ul.nav.navbar-nav li.visible-link a:focus, 
+		.row.container.second .col-xs-12 ul.nav.navbar-nav li.visible-link a:hover,
+		.row.container.second .col-xs-12 ul.nav.navbar-nav li.visible-link.active a {
+			color:#1AD6FD;
+		}
 
 		.content_component_container
 		{

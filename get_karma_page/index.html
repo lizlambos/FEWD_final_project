@@ -97,11 +97,34 @@
 
     </div> 
 
-
+    <div class="outer hidden">
+    <div class="helper_popup hidden" id="answer_reveal">
+    <div class="answer_bubble">{greaterAnswerPercentage}</div>
+      <div class="results_container">
+        <div class="yes_portion" style="{yesStyle}"></div>
+        <div class="no_portion" style="{yesStyle}"></div>
+        <p class="answerText">said {majorityAnswer}</p>
+       </div>
+     </div>
+    </div>
     </script>
 
 
     <!--end facebookapp initialization--> 
+
+     <div class="outer hidden ">
+    <div class="helper_popup answer_reveal" id="answer_reveal">
+    <div class="answer_bubble">80%</div>
+      <div class="results_container">
+        <div class="yes_portion" style="{yesStyle}"></div>
+        <div class="no_portion" style="{yesStyle}"></div>
+        </div>
+        <p class="answerText">said <span class="majority_answer">YES!</span></p>
+       
+     </div>
+    </div>
+
+
     <div class="outer hidden">
       <div class='helper_popup hidden ' id='guided_tour1'>
         <p class='popup_text first'>Welcome to Karma Police!</p>

@@ -360,8 +360,7 @@
 	.row.container.second .col-xs-12 ul.nav.navbar-nav li.visible-link a:hover,
 	.row.container.second .col-xs-12 ul.nav.navbar-nav li.visible-link.active a {
 		background:transparent;
-		font-weight:bold;
-		color:#1AD6FD;
+		
 	}
 
 	.navbar .navbar-brand {
