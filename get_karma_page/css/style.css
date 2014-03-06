@@ -180,6 +180,7 @@
   -o-box-shadow: -1px 1px 3px #000;
   box-shadow: -1px 1px 3px #000;
   margin:0 auto;
+  left:70px;
 
 } 
 
@@ -207,6 +208,7 @@
   border-radius: 90px;
   clip: rect(0px, 90px, 180px, 0px);
 
+
 }
 
 .hold {
@@ -218,6 +220,7 @@
   -o-border-radius: 90px;
   border-radius: 90px;
   clip: rect(0px, 180px, 180px, 90px);
+  left:70px;
 
 }
 
