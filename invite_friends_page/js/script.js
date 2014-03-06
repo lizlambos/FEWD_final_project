@@ -48,7 +48,7 @@ YUI().use('node', function (Y) {
   {
     $(".fb_dialog").each(function(index) {
       if ($(this).css("top")!='-10000px' && $(window).width() > '990' ) {
-        $(this).css({"top": "160px"} );
+        $(this).css({"top": "165px"} );
       }
       if ($(this).css("top")!='-10000px' && $(window).width() > '768'  && $(window).width() < '990' ) {
         $(this).css({"top": "150px"} );

@@ -144,6 +144,7 @@ h1 small,
 .privacy-level .go_button, .go_button, #submit_button,
 .yes-answer, .yes-button, .ask_new_query_link,
 #invite_more_peeps, .get_points_now  {
+#invite_more_peeps, .get_points_now, #yes_portion .pie {
 	background-color:#4CD964;
 }
 

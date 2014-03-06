@@ -157,18 +157,31 @@
 
 .answer_reveal {
     text-align:center;
- 
+
     margin-top:0px;
 }
 
 .results_container {
-    height:180px;
-    width:180px;
-    border-radius:100%;
-    background-color:blue;
-    margin:0 auto;
-    margin-top:10px;
+  height: 180px;
+  text-align:center;
 }
+
+.results_background {
+  background-color: grey;
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  -moz-border-radius: 90px;
+  -webkit-border-radius: 90px;
+  -o-border-radius: 90px;
+  border-radius: 90px;
+  -moz-box-shadow: -1px 1px 3px #000;
+  -webkit-box-shadow: -1px 1px 3px #000;
+  -o-box-shadow: -1px 1px 3px #000;
+  box-shadow: -1px 1px 3px #000;
+  margin:0 auto;
+
+} 
 
 .answer_bubble {
     background:#FFFFFF;
@@ -176,13 +189,48 @@
     width:120px;
     border-radius:100%;
     position:absolute;
-    top:110px;
+    top:100px;
     left:100px;
     text-align:center;
     font-size:2.75em;
     padding-top:30px;
+    z-index:1000000;
 }
 
+.pie {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  -moz-border-radius: 90px;
+  -webkit-border-radius: 90px;
+  -o-border-radius: 90px;
+  border-radius: 90px;
+  clip: rect(0px, 90px, 180px, 0px);
+
+}
+
+.hold {
+  position: absolute;
+  width: 180px;
+  height: 190px;
+  -moz-border-radius: 90px;
+  -webkit-border-radius: 90px;
+  -o-border-radius: 90px;
+  border-radius: 90px;
+  clip: rect(0px, 180px, 180px, 90px);
+
+}
+
+#yes_portion .pie {
+  background-color: #1b458b;
+  -webkit-transform:rotate(10deg);
+  -moz-transform:rotate(10deg);
+  -o-transform:rotate(10deg);
+  transform:rotate(10deg);
+
+}
+
+/*
 .yes_portion {
     width:50%;
     height:100%;
@@ -201,7 +249,7 @@
     border-top-right-radius: 90px;
     border-bottom-right-radius:90px;
 }
-
+*/
 
 .answerText {
     margin-top:10px;

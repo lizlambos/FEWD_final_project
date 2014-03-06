@@ -583,6 +583,7 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
   var noButton = $(this).parents(".answers").children(".no-button");
   var parentRow = $(this).parents(".parent_row");
 
+
   var def1 = $.Deferred();
   def1.done(revealAnswers);
   var def2 = $.Deferred();
@@ -592,8 +593,15 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
 
   function divDisappear () {
     console.log("disappear function being fired");
+
     setTimeout(function(){ 
-     parentRow.fadeOut("slow",2000);
+     
+     $("#answer_reveal").parents(".outer").addClass("hidden");
+   }, 4500 );
+
+    setTimeout(function(){ 
+
+     parentRow.fadeOut("slow");
    }, 5000 );
 
   }
@@ -659,7 +667,20 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
                     }
 
 
-                    if (percentYesAnswers > percentNoAnswers) {
+                    var yesDegreeTurn = (percentYesAnswers/100)*360;
+                    var noDegreeTurn = (percentNoAnswers/100)*360;
+
+                    console.log(yesDegreeTurn);
+                    console.log(noDegreeTurn);
+
+
+                    if (percentYesAnswers >= percentNoAnswers) {
+
+                      $('.answer_bubble').html(percentYesAnswers+"%");
+                      $('.majority_answer').html("YES!");
+                      $('#answer_reveal').parents(".outer").removeClass("hidden");
+                      $(".results_background").css("background-color","#4CD964");
+                      $('#yes_portion .pie').css({"background-color":"#FF9500","-webkit-transform":"rotate("+noDegreeTurn+"deg)","-moz-transform":"rotate("+noDegreeTurn+"deg)","-o-transform":"rotate("+noDegreeTurn+"deg)","transform":"rotate("+noDegreeTurn+"deg)"});
 
                       yesButton.html(percentYesAnswers+"%")
                       .css({"font-size": "2.25em","font-weight":"bold", "color": "#FFFFFF", "width":"100px", "height":"100px", "animation":"myfirst 5s;", "-webkit-animation":"myfirst 5s;"});
@@ -671,6 +692,12 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
                     }
 
                     else if (percentNoAnswers > percentYesAnswers) {
+
+                      $('.answer_bubble').html(percentNoAnswers+"%");
+                      $('.majority_answer').html("No!");
+                      $('#answer_reveal').parents(".outer").removeClass("hidden");
+                     $('#yes_portion .pie').css({"-webkit-transform":"rotate("+yesDegreeTurn+"deg)","-moz-transform":"rotate("+yesDegreeTurn+"deg)","-o-transform":"rotate("+yesDegreeTurn+"deg)","transform":"rotate("+yesDegreeTurn+"deg)"});
+
 
                       yesButton.html(percentYesAnswers+"%")
                       .css({"font-size": "2.25em","font-weight":"bold", "color": "#FFFFFF", "width":"100px", "height":"100px"});
