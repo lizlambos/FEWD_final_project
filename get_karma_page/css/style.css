@@ -155,20 +155,28 @@
 
 /*answer reveal popup*/
 
+.outer.answer_popup {
+    background:transparent;
+}
+
 .answer_reveal {
     text-align:center;
-
     margin-top:0px;
+}
+
+#answer_reveal {
+ background-color:rgba(255,255,255,0.5);  
 }
 
 .results_container {
   height: 180px;
   text-align:center;
+  width:100%;
+  position:relative;
 }
 
 .results_background {
   background-color: grey;
-  position: absolute;
   width: 180px;
   height: 180px;
   -moz-border-radius: 90px;
@@ -180,7 +188,7 @@
   -o-box-shadow: -1px 1px 3px #000;
   box-shadow: -1px 1px 3px #000;
   margin:0 auto;
-  left:70px;
+
 
 } 
 
@@ -190,8 +198,8 @@
     width:120px;
     border-radius:100%;
     position:absolute;
-    top:100px;
-    left:100px;
+    top:30px;
+    left:55px;
     text-align:center;
     font-size:2.75em;
     padding-top:30px;
@@ -199,7 +207,7 @@
 }
 
 .pie {
-  position: absolute;
+  position:absolute;
   width: 180px;
   height: 180px;
   -moz-border-radius: 90px;
@@ -212,7 +220,7 @@
 }
 
 .hold {
-  position: absolute;
+  position:absolute;
   width: 180px;
   height: 190px;
   -moz-border-radius: 90px;
@@ -220,16 +228,17 @@
   -o-border-radius: 90px;
   border-radius: 90px;
   clip: rect(0px, 180px, 180px, 90px);
-  left:70px;
+  left:25px;
+  top:0px;
 
 }
 
 #yes_portion .pie {
   background-color: #1b458b;
-  -webkit-transform:rotate(10deg);
-  -moz-transform:rotate(10deg);
-  -o-transform:rotate(10deg);
-  transform:rotate(10deg);
+  -webkit-transform:rotate(90deg);
+  -moz-transform:rotate(90deg);
+  -o-transform:rotate(90deg);
+  transform:rotate(90deg);
 
 }
 
@@ -325,6 +334,25 @@
     }
 
     */
+
+    .helper_popup {
+        margin-top:30px;
+    }
+
+    .answer_bubble {
+        padding-top:25px;
+        top:30px;
+        left:115px;
+
+    }
+
+
+  .hold {
+ 
+      left:89px;
+      top:0px;
+
+  }
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -361,7 +389,7 @@
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
 
-   .answers {
+ .answers {
     width:100%;
     margin-top:10px;
     margin-bottom:30px;

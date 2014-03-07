@@ -257,9 +257,10 @@
 		width:100%;
 		position:fixed;
 		text-align:center;
-		z-index:999999;
-		margin-top:0px;
-		background-color:rgba(000,000,000, 0.7);
+		z-index:999;
+		margin-top:44px;
+		margin-bottom:90px;
+		background-color:rgba(000,000,000, 0.5);
 		height:100%;
 		width:100%;
 		top:0;
@@ -271,7 +272,7 @@
 
 	.helper_popup {
 		display:block;
-		z-index: 1000000;
+		z-index: 1000;
 		height:auto;
 		width:250px;
 		background:#FFFFFF;
