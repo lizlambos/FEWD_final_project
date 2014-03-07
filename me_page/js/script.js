@@ -227,7 +227,7 @@ function getQueryAnswers () {
 
                         if (percentYesAnswers == 100) {
                           console.log($(window).width());
-                          var formatYesAnswers = Math.max ( 40, (percentYesAnswers/100)*($(window).width() * .80 ));
+                          var formatYesAnswers = Math.max ( 40, (percentYesAnswers/100)*($(window).width() * .75 ));
                           var formatNoAnswers = 0;
                           var noAnswerHide = "hidden";
                           var yesAnswerHide = "";
@@ -237,7 +237,7 @@ function getQueryAnswers () {
 
                         else if (percentNoAnswers == 100) {
                           console.log($(window).width());
-                          var formatNoAnswers = Math.max ( 40, (percentNoAnswers/100)*($(window).width() * .80 ));
+                          var formatNoAnswers = Math.max ( 40, (percentNoAnswers/100)*($(window).width() * .75 ));
                           var formatYesAnswers = 0;
                           var yesAnswerHide = "hidden";
                           var noAnswerHide = "";
@@ -247,8 +247,8 @@ function getQueryAnswers () {
                         }
 
                         else {
-                          var formatYesAnswers = (percentYesAnswers/100)*(($(".main_content_container").width()-50) * .95 );
-                          var formatNoAnswers =  (percentNoAnswers/100)*(($(".main_content_container").width()-50) * .95 );
+                          var formatYesAnswers = (percentYesAnswers/100)*(($(".main_content_container").width()-56) * .90 );
+                          var formatNoAnswers =  (percentNoAnswers/100)*(($(".main_content_container").width()-56) * .90);
                           console.log(formatNoAnswers);
                           var yesAnswerHide = "";
                           var noAnswerHide = "";

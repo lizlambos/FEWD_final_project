@@ -65,12 +65,12 @@
 .question {
     background:transparent;
     padding:10px;
-    height:310px;
+    height:260px;
     width:310px;
     position:relative;
     border-radius:0px;
     margin:0 auto;
-    margin-bottom:5px;
+    margin-bottom:0px;
     position:relative;
 
 }
@@ -78,8 +78,8 @@
 .question p{
     color:#FFFFEB;
     display:block;
-    height:240px;
-    padding:80px 10px 0px 10px;
+    height:190px;
+    padding:50px 10px 0px 10px;
 
 }
 
@@ -149,6 +149,7 @@
 .answers .yes-button, 
 .answers .no-button {
     color:#FF3B30;
+    
 
 }
 
@@ -165,7 +166,7 @@
 }
 
 #answer_reveal {
- background-color:rgba(255,255,255,0.5);  
+ background-color:rgba(255,255,255,0.8);  
 }
 
 .results_container {
@@ -203,7 +204,11 @@
     text-align:center;
     font-size:2.75em;
     padding-top:30px;
-    z-index:1000000;
+    z-index:1000;
+    -moz-box-shadow: -1px 1px 3px #000 inset;
+    -webkit-box-shadow: -1px 1px 3px #000 inset;
+    -o-box-shadow: -1px 1px 3px #000 inset;
+    box-shadow: -1px 1px 3px #000 inset;
 }
 
 .pie {
@@ -342,14 +347,14 @@
     .answer_bubble {
         padding-top:25px;
         top:30px;
-        left:115px;
+        left:117px;
 
     }
 
 
-  .hold {
- 
-      left:89px;
+    .hold {
+
+      left:88px;
       top:0px;
 
   }
