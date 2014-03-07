@@ -182,6 +182,10 @@ $(document).ready(function(){
 refreshKarmaPoints();  
 
 
+$("#feedback_button").click(function(){
+  $("iframe").removeClass("hidden");
+
+});
 
 
 
