@@ -183,6 +183,23 @@ $(document).ready(function(){
 
 refreshKarmaPoints();  
 
+
+//upload picture
+
+$("#pic_button").click(function () {
+  $("#queryPicUpload").trigger('click');
+});
+
+var queryPic = $("#queryPicUpload")[0];
+
+$("#queryPicUpload").click(function(){
+
+console.log(queryPic);
+
+
+});
+
+
 function queryCreator () {
 
   var user = Parse.User.current();
@@ -195,6 +212,7 @@ function queryCreator () {
 		var d = new Date();
 		var dString = d.toString();
 		timeStamp = dString.substring(4,11);
+    var file = queryPic.files[0];
 
 		KarmaQuery = Parse.Object.extend("KarmaQuery");
 
@@ -208,6 +226,27 @@ function queryCreator () {
 		karmaQuery.set("responderCount",0);
 		karmaQuery.set("noResponderCount",0);
 		karmaQuery.set("yesResponderCount",0);
+
+    if (queryPic.files.length > 0) {
+  var file = queryPic.files[0];
+  var name = "queryPic";
+
+  var parseFile = new Parse.File(name, file);
+
+    parseFile.save().then(function() {
+   console.log("photo saved");
+ }, function(error) {
+   console.log("photo save error");
+ });
+
+    karmaQuery.set("queryPic", file);
+}
+
+ else {
+   karmaQuery.set("queryPic", "no pic");
+ }
+
+    
 
 	//karmaQuery.set("yesAnswers", yesAnswers);
 	//karmaQuery.set("noAnswers", noAnswers);
@@ -328,15 +367,15 @@ function karmaPointsWarning () {
        console.log(friendsTotal);
        console.log($("button.active").text());
        var wantsKPWarning = user.get("wantsKPWarning");
-        console.log(friendsTotal);
+       console.log(friendsTotal);
        var wantsFriendsWarning = user.get("wantsFriendsWarning");
-        console.log(friendsTotal);
+       console.log(friendsTotal);
 
        if (karmaPointsBalance <= 0 && wantsKPWarning != false)	{
         $("#need_points .popup_text.first").html("You have "+karmaPointsBalance+" Karma Points");
         $("#need_points").removeClass("hidden");
         $('#need_points').parents(".outer").removeClass("hidden");
-    
+
       }
 
       else if ($("button.active").text() == "FB Friends" && 
@@ -349,7 +388,7 @@ function karmaPointsWarning () {
 
         }
         $("#need_friends").removeClass("hidden");
-         $('#need_points').parents(".outer").removeClass("hidden");
+        $('#need_points').parents(".outer").removeClass("hidden");
         
       }
       else {
