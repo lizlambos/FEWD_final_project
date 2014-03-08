@@ -395,7 +395,7 @@ var queryDesignArray = ["#FF3B30","#FFDB4C","#007AFF","#5856D6","#52EDC7"];
 
 var p = Math.floor((Math.random()*queryDesignArray.length));
 
-var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF";
+var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF;background-image:url('"+userImageUpload+"')";
 var buttonDesign="color:"+queryDesignArray[p]+";";
 
 

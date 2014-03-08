@@ -59,30 +59,47 @@
 
 }
 
+
 .query_submit_button_wrapper {
 	width:100%;
-	text-align: center;
 	margin-bottom:200px;
+	text-align: left;
+}
+
+.query_submit_button_wrapper.pic_upload_wrapper {
+	display:block;
+	margin-bottom:20px;
+
 }
 
 .privacy_label {
 	margin-left:10px;
 	padding-top:5px;	
-
+	float:left;
+	padding-right:10px;
 
 }
 
 .privacy-level .btn {
 	border-radius:5px;
+
 }
 
+#go_button {
+	padding: 10px;
+	border-radius:10px;
+	margin: 0 auto;
+	margin-top:30px;
+	width:40%;
+	display:block;
 
+}
 
 #submit_button{
 	padding: 20px;
 	border-radius:25px;
 	margin: 0 auto;
-	margin-top:30px;
+	margin-top:0px;
 
 }
 
@@ -147,6 +164,12 @@
 	.query_submit_button_wrapper {
 		text-align: left;
 	}
+
+	.query_submit_button_wrapper.pic_upload_wrapper {
+	
+	margin-bottom:100px;
+}
+
 
 	.privacy-level {
 		font-size:1.5em;
