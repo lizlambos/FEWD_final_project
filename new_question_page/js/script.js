@@ -229,12 +229,13 @@ function queryCreator () {
 
     if (queryPic.files.length > 0) {
   var file = queryPic.files[0];
-  var name = "queryPic";
+  var name = "queryPic.jpg";
 
   var parseFile = new Parse.File(name, file);
 
     parseFile.save().then(function() {
    console.log("photo saved");
+   
  }, function(error) {
    console.log("photo save error");
  });
@@ -242,9 +243,7 @@ function queryCreator () {
     karmaQuery.set("queryPic", file);
 }
 
- else {
-   karmaQuery.set("queryPic", "no pic");
- }
+
 
     
 

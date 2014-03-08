@@ -395,8 +395,23 @@ var queryDesignArray = ["#FF3B30","#FFDB4C","#007AFF","#5856D6","#52EDC7"];
 
 var p = Math.floor((Math.random()*queryDesignArray.length));
 
-var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF;background-image:url('"+userImageUpload+"')";
-var buttonDesign="color:"+queryDesignArray[p]+";";
+var queryPic = val.get("queryPic");
+   console.log(queryPic);
+
+   if (! queryPic) {
+    userImageUpload = "";
+
+  }
+
+  else {
+    userImageUpload = val.get("queryPic").url();
+    console.log(userImageUpload);
+  }
+
+  var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF;";
+  var questionComponentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF;background-image:url('"+userImageUpload+"')";
+
+  var buttonDesign="color:"+queryDesignArray[p]+";";
 
 
 
@@ -424,92 +439,94 @@ background-color:{colorPick};color:{textColorPick*/
             askerID: askerID,
             askerPicURL: askerPic,
             componentDesign: componentDesign,
+            questionComponentDesign: questionComponentDesign,
             buttonDesign: buttonDesign
 
 
           });
+        
 
-           if ((i)%3 === 0) {
-             allKPQueryColumn1.prepend(content);
-           }
-           else if ((i)%2 === 0) {
-            allKPQueryColumn2.prepend(content);
-          }
-          else{
-            allKPQueryColumn3.prepend(content);
-          }
+if ((i)%3 === 0) {
+ allKPQueryColumn1.prepend(content);
+}
+else if ((i)%2 === 0) {
+  allKPQueryColumn2.prepend(content);
+}
+else{
+  allKPQueryColumn3.prepend(content);
+}
 
-        }
+}
 
-        else {
+else {
 
-          var user = Parse.User.current();
+  var user = Parse.User.current();
 
-          user.fetch().then(function (user) {
-            user.get('id');
-
-
-            var askerFbID = item2.get('fbID');
-            console.log(askerFbID);
-            var userFbID = user.get('fbID');
-            console.log(userFbID);
-
-            var userFriendsArray = user.get('fbFriends');
-            console.log(userFriendsArray);
-
-            function findFriendMatch(friendFbId){
-              return $.grep(userFriendsArray, function(n, i){
-                return n.id == friendFbId;
-              });
-            };
-
-            findFriendMatch(askerFbID);  
-
-            if (findFriendMatch(askerFbID) != "") {
-              console.log("friends");
-              var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
-                queryText: val.get('text'),
-                timeStamp: val.get('timeStamp'),
-                askerName: val.get('askerName'),
-                id: val.id,
-                privacylevel: "",
-                askerID: askerID,
-                askerPicURL: askerPic,
-                componentDesign: componentDesign,
-                buttonDesign: buttonDesign
-
-              });
-
-              if ((i)%3 === 0) {
-               allKPQueryColumn1.prepend(content);
-             }
-             else if ((i)%2 === 0) {
-              allKPQueryColumn2.prepend(content);
-            }
-            else{
-              allKPQueryColumn3.prepend(content);
-            }
+  user.fetch().then(function (user) {
+    user.get('id');
 
 
-          }
+    var askerFbID = item2.get('fbID');
+    console.log(askerFbID);
+    var userFbID = user.get('fbID');
+    console.log(userFbID);
 
-          else {
+    var userFriendsArray = user.get('fbFriends');
+    console.log(userFriendsArray);
 
-           console.log("not Friends");
+    function findFriendMatch(friendFbId){
+      return $.grep(userFriendsArray, function(n, i){
+        return n.id == friendFbId;
+      });
+    };
 
-           var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
-            queryText: val.get('text'),
-            timeStamp: val.get('timeStamp'),
-            askerName: val.get('askerName'),
-            id: val.id,
-            privacylevel: "hidden",
-            askerID: askerID,
-            askerPicURL: askerPic,
-            componentDesign: componentDesign,
-            buttonDesign: buttonDesign
+    findFriendMatch(askerFbID);  
+
+    if (findFriendMatch(askerFbID) != "") {
+      console.log("friends");
+      var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
+        queryText: val.get('text'),
+        timeStamp: val.get('timeStamp'),
+        askerName: val.get('askerName'),
+        id: val.id,
+        privacylevel: "",
+        askerID: askerID,
+        askerPicURL: askerPic,
+        componentDesign: componentDesign,
+        buttonDesign: buttonDesign
+
+      });
+
+      if ((i)%3 === 0) {
+       allKPQueryColumn1.prepend(content);
+     }
+     else if ((i)%2 === 0) {
+      allKPQueryColumn2.prepend(content);
+    }
+    else{
+      allKPQueryColumn3.prepend(content);
+    }
 
 
-          });
+  }
+
+  else {
+
+   console.log("not Friends");
+
+   var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
+    queryText: val.get('text'),
+    timeStamp: val.get('timeStamp'),
+    askerName: val.get('askerName'),
+    id: val.id,
+    privacylevel: "hidden",
+    askerID: askerID,
+    askerPicURL: askerPic,
+    componentDesign: componentDesign,
+    buttonDesign: buttonDesign
+
+
+  });
 
           //filter by privacy level
 
@@ -529,7 +546,6 @@ background-color:{colorPick};color:{textColorPick*/
       });//fetch then
 
         }//else
-
 
 
 
@@ -595,7 +611,7 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
     console.log("disappear function being fired");
 
     setTimeout(function(){ 
-     
+
      $("#answer_reveal").parents(".outer").addClass("hidden");
    }, 4500 );
 
@@ -696,7 +712,7 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
                       $('.answer_bubble').html(percentNoAnswers+"%");
                       $('.majority_answer').html("No!");
                       $('#answer_reveal').parents(".outer").removeClass("hidden");
-                     $('#yes_portion .pie').css({"-webkit-transform":"rotate("+yesDegreeTurn+"deg)","-moz-transform":"rotate("+yesDegreeTurn+"deg)","-o-transform":"rotate("+yesDegreeTurn+"deg)","transform":"rotate("+yesDegreeTurn+"deg)"});
+                      $('#yes_portion .pie').css({"-webkit-transform":"rotate("+yesDegreeTurn+"deg)","-moz-transform":"rotate("+yesDegreeTurn+"deg)","-o-transform":"rotate("+yesDegreeTurn+"deg)","transform":"rotate("+yesDegreeTurn+"deg)"});
 
 
                       yesButton.html(percentYesAnswers+"%")
