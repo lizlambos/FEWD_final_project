@@ -66,8 +66,8 @@
 .question {
     background:transparent;
     padding:10px;
-    height:260px;
-    width:310px;
+    height:320px;
+    width:320px;
     position:relative;
     border-radius:0px;
     margin:0 auto;
@@ -79,8 +79,8 @@
 .question p{
     color:#FFFFEB;
     display:block;
-    height:190px;
-    padding:50px 10px 0px 10px;
+    height:250px;
+    padding:80px 10px 0px 10px;
 
 }
 

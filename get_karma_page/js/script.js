@@ -396,26 +396,43 @@ var queryDesignArray = ["#FF3B30","#FFDB4C","#007AFF","#5856D6","#52EDC7"];
 var p = Math.floor((Math.random()*queryDesignArray.length));
 
 var queryPic = val.get("queryPicUrl");
-   
 
-   if (! queryPic) {
-    userImageUpload = "";
+
+if (! queryPic) {
+  userImageUpload = "";
+
+  var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF;";
+    var questionComponentDesign = "color:#FFFFFF;background-image:url('"+userImageUpload+"');background-size:320px 320px";
+
+    var buttonDesign="color:"+queryDesignArray[p]+";";
+
+ 
+
+}
+
+else {
+  userImageUpload = val.get("queryPicUrl");
+  console.log(userImageUpload);
+
+    //userImageUpload = "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/t1/c0.16.362.362/s148x148/992829_10100835125558487_423853919_n.jpghttps://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/t1/c0.16.362.362/s148x148/992829_10100835125558487_423853919_n.jpg"
+
+ if ($(window).width() >768 ) {
+
+    var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF;";
+    var questionComponentDesign = "color:#FFFFFF;background-image:url('"+userImageUpload+"');background-size:320px 320px; height:320px; padding-top:40px";
+
+    var buttonDesign="color:"+queryDesignArray[p]+";";
 
   }
 
   else {
-    userImageUpload = val.get("queryPicUrl");
-    console.log(userImageUpload);
+    var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF;";
+    var questionComponentDesign = "color:#FFFFFF;background-image:url('"+userImageUpload+"');background-size:320px 320px";
 
-    //userImageUpload = "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/t1/c0.16.362.362/s148x148/992829_10100835125558487_423853919_n.jpghttps://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/t1/c0.16.362.362/s148x148/992829_10100835125558487_423853919_n.jpg"
+    var buttonDesign="color:"+queryDesignArray[p]+";";
 
   }
-
-  var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF;";
-  var questionComponentDesign = "color:#FFFFFF;background-image:url('"+userImageUpload+"')";
-
-  var buttonDesign="color:"+queryDesignArray[p]+";";
-
+  }
 
 
 /*@questionRed:#FF3B30;
@@ -447,89 +464,89 @@ background-color:{colorPick};color:{textColorPick*/
 
 
           });
-        
-
-if ((i)%3 === 0) {
- allKPQueryColumn1.prepend(content);
-}
-else if ((i)%2 === 0) {
-  allKPQueryColumn2.prepend(content);
-}
-else{
-  allKPQueryColumn3.prepend(content);
-}
-
-}
-
-else {
-
-  var user = Parse.User.current();
-
-  user.fetch().then(function (user) {
-    user.get('id');
 
 
-    var askerFbID = item2.get('fbID');
-    console.log(askerFbID);
-    var userFbID = user.get('fbID');
-    console.log(userFbID);
+           if ((i)%3 === 0) {
+             allKPQueryColumn1.prepend(content);
+           }
+           else if ((i)%2 === 0) {
+            allKPQueryColumn2.prepend(content);
+          }
+          else{
+            allKPQueryColumn3.prepend(content);
+          }
 
-    var userFriendsArray = user.get('fbFriends');
-    console.log(userFriendsArray);
+        }
 
-    function findFriendMatch(friendFbId){
-      return $.grep(userFriendsArray, function(n, i){
-        return n.id == friendFbId;
-      });
-    };
+        else {
 
-    findFriendMatch(askerFbID);  
+          var user = Parse.User.current();
 
-    if (findFriendMatch(askerFbID) != "") {
-      console.log("friends");
-      var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
-        queryText: val.get('text'),
-        timeStamp: val.get('timeStamp'),
-        askerName: val.get('askerName'),
-        id: val.id,
-        privacylevel: "",
-        askerID: askerID,
-        askerPicURL: askerPic,
-        componentDesign: componentDesign,
-        buttonDesign: buttonDesign
-
-      });
-
-      if ((i)%3 === 0) {
-       allKPQueryColumn1.prepend(content);
-     }
-     else if ((i)%2 === 0) {
-      allKPQueryColumn2.prepend(content);
-    }
-    else{
-      allKPQueryColumn3.prepend(content);
-    }
+          user.fetch().then(function (user) {
+            user.get('id');
 
 
-  }
+            var askerFbID = item2.get('fbID');
+            console.log(askerFbID);
+            var userFbID = user.get('fbID');
+            console.log(userFbID);
 
-  else {
+            var userFriendsArray = user.get('fbFriends');
+            console.log(userFriendsArray);
 
-   console.log("not Friends");
+            function findFriendMatch(friendFbId){
+              return $.grep(userFriendsArray, function(n, i){
+                return n.id == friendFbId;
+              });
+            };
 
-   var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
-    queryText: val.get('text'),
-    timeStamp: val.get('timeStamp'),
-    askerName: val.get('askerName'),
-    id: val.id,
-    privacylevel: "hidden",
-    askerID: askerID,
-    askerPicURL: askerPic,
-    componentDesign: componentDesign,
-    buttonDesign: buttonDesign
+            findFriendMatch(askerFbID);  
+
+            if (findFriendMatch(askerFbID) != "") {
+              console.log("friends");
+              var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
+                queryText: val.get('text'),
+                timeStamp: val.get('timeStamp'),
+                askerName: val.get('askerName'),
+                id: val.id,
+                privacylevel: "",
+                askerID: askerID,
+                askerPicURL: askerPic,
+                componentDesign: componentDesign,
+                buttonDesign: buttonDesign
+
+              });
+
+              if ((i)%3 === 0) {
+               allKPQueryColumn1.prepend(content);
+             }
+             else if ((i)%2 === 0) {
+              allKPQueryColumn2.prepend(content);
+            }
+            else{
+              allKPQueryColumn3.prepend(content);
+            }
 
 
-  });
+          }
+
+          else {
+
+           console.log("not Friends");
+
+           var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
+            queryText: val.get('text'),
+            timeStamp: val.get('timeStamp'),
+            askerName: val.get('askerName'),
+            id: val.id,
+            privacylevel: "hidden",
+            askerID: askerID,
+            askerPicURL: askerPic,
+            componentDesign: componentDesign,
+            buttonDesign: buttonDesign
+
+
+          });
 
           //filter by privacy level
 
