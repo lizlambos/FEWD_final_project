@@ -395,7 +395,7 @@ var queryDesignArray = ["#FF3B30","#FFDB4C","#007AFF","#5856D6","#52EDC7"];
 
 var p = Math.floor((Math.random()*queryDesignArray.length));
 
-var queryPic = val.get("queryPic");
+var queryPic = val.get("queryPicUrl");
    
 
    if (! queryPic) {
@@ -404,10 +404,11 @@ var queryPic = val.get("queryPic");
   }
 
   else {
-    userImageUpload = val.get("queryPic").url;
-    console.log(queryPic.name);
-    //userImageUpload = "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/t1/c0.16.362.362/s148x148/992829_10100835125558487_423853919_n.jpghttps://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/t1/c0.16.362.362/s148x148/992829_10100835125558487_423853919_n.jpg"
+    userImageUpload = val.get("queryPicUrl");
     console.log(userImageUpload);
+
+    //userImageUpload = "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/t1/c0.16.362.362/s148x148/992829_10100835125558487_423853919_n.jpghttps://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/t1/c0.16.362.362/s148x148/992829_10100835125558487_423853919_n.jpg"
+
   }
 
   var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF;";

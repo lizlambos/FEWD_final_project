@@ -194,7 +194,7 @@ var queryPic = $("#queryPicUpload")[0];
 
 $("#queryPicUpload").click(function(){
 
-console.log(queryPic);
+  console.log(queryPic);
 
 
 });
@@ -214,34 +214,52 @@ function queryCreator () {
 		timeStamp = dString.substring(4,11);
     var file = queryPic.files[0];
 
-		KarmaQuery = Parse.Object.extend("KarmaQuery");
+    KarmaQuery = Parse.Object.extend("KarmaQuery");
 
-		var karmaQuery = new KarmaQuery();
+    var karmaQuery = new KarmaQuery();
 
-		karmaQuery.set("asker", user);
-		karmaQuery.set("askerName", askerName);
-		karmaQuery.set("text", questionText);
-		karmaQuery.set("privacylevel", privacyLevel);
-		karmaQuery.set("timeStamp", timeStamp);
-		karmaQuery.set("responderCount",0);
-		karmaQuery.set("noResponderCount",0);
-		karmaQuery.set("yesResponderCount",0);
+    karmaQuery.set("asker", user);
+    karmaQuery.set("askerName", askerName);
+    karmaQuery.set("text", questionText);
+    karmaQuery.set("privacylevel", privacyLevel);
+    karmaQuery.set("timeStamp", timeStamp);
+    karmaQuery.set("responderCount",0);
+    karmaQuery.set("noResponderCount",0);
+    karmaQuery.set("yesResponderCount",0);
 
     if (queryPic.files.length > 0) {
-  var file = queryPic.files[0];
-  var name = "queryPic.jpg";
+      var file = queryPic.files[0];
+      var name = "queryPic.jpg";
+      var parseFile = new Parse.File(name, file);
 
-  var parseFile = new Parse.File(name, file);
+    }
 
     parseFile.save().then(function() {
-   console.log("photo saved");
-   
- }, function(error) {
-   console.log("photo save error");
- });
+     console.log(arguments);
+     var url5 = parseFile.url();
+     console.log(url5);
+     console.log("photo saved");
 
-    karmaQuery.set("queryPic", file);
-}
+
+
+     karmaQuery.set("queryPic", file);
+     karmaQuery.set("queryPicUrl", url5);
+     karmaQuery.save({
+      success: function() {
+        console.log("queryPic saved");
+        var urlTest3 = karmaQuery.get("queryPic");
+        console.log(urlTest3);
+      },
+      error: function() {
+        console.log("querypic not saved");
+      }
+    });
+
+
+   }, function(error) {
+     console.log("photo save error");
+   });
+
 
 
 
@@ -262,6 +280,9 @@ function queryCreator () {
 	var test3 = karmaQuery.get("privacylevel");
 	console.log(test3);
 	console.log(karmaQuery);
+  var urlTest1 = karmaQuery.get("queryPic");
+  console.log(urlTest1);
+
 
 //object ID, created at and updated at are generated automatically
 
