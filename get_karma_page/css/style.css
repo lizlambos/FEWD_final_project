@@ -306,7 +306,7 @@
 
 
     .main_content_container {
-        min-width:800px;
+        min-width:966px;
     } 
 
 
@@ -398,7 +398,7 @@
  .answers {
     width:100%;
     margin-top:10px;
-    margin-bottom:30px;
+  
     margin-left:0px;
     font-family:"icomoon";
     padding-left:0px;

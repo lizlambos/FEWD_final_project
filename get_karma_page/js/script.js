@@ -396,7 +396,7 @@ updateAskerKarmaPoints();
 var showName = val.get("anonymity");
 console.log(val.id);
 console.log(showName);
-  var user = Parse.User.current();
+var user = Parse.User.current();
 if (showName === "Yes") {
 
   //user.fetch().then(function (user) {
@@ -434,12 +434,12 @@ if (showName === "Yes") {
 
 
 
-  }
+}
 
-  else {
-    askerName = val.get("askerName");
-    profilePic = askerPic;
-  }
+else {
+  askerName = val.get("askerName");
+  profilePic = askerPic;
+}
 
 //create color array and put in background pic if there was one
 
@@ -455,7 +455,7 @@ if (! queryPic) {
 
   var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF;";
   var questionComponentDesign = "color:#FFFFFF;background-image:url('"+userImageUpload+"');background-size:320px 320px";
-
+  var questionTextStyle = "color:#FFFFFF;";
   var buttonDesign="color:"+queryDesignArray[p]+";";
 
 
@@ -468,11 +468,11 @@ else {
 
     //userImageUpload = "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/t1/c0.16.362.362/s148x148/992829_10100835125558487_423853919_n.jpghttps://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/t1/c0.16.362.362/s148x148/992829_10100835125558487_423853919_n.jpg"
 
-    if ($(window).width() >768 ) {
+    if ($(window).width() > 768 ) {
 
       var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF;";
-      var questionComponentDesign = "color:#FFFFFF;background-image:url('"+userImageUpload+"');background-size:320px 320px; height:320px; padding-top:40px";
-
+      var questionComponentDesign = "color:#FFFFFF;background-image:url('"+userImageUpload+"');background-size:320px 320px; height:320px;";
+      var questionTextStyle = "color:#FFFFFF;height:250px;padding: 80px 10px 0px 10px;";
       var buttonDesign="color:"+queryDesignArray[p]+";";
 
     }
@@ -480,7 +480,7 @@ else {
     else {
       var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF;";
       var questionComponentDesign = "color:#FFFFFF;background-image:url('"+userImageUpload+"');background-size:320px 320px";
-
+      var questionTextStyle = "color:#FFFFFF;";
       var buttonDesign="color:"+queryDesignArray[p]+";";
 
     }
@@ -511,6 +511,7 @@ background-color:{colorPick};color:{textColorPick*/
             askerID: askerID,
             askerPicURL: profilePic,
             componentDesign: componentDesign,
+            questionTextStyle: questionTextStyle,
             questionComponentDesign: questionComponentDesign,
             buttonDesign: buttonDesign
 
@@ -564,6 +565,7 @@ background-color:{colorPick};color:{textColorPick*/
                 privacylevel: "",
                 askerID: askerID,
                 askerPicURL: profilePic,
+                questionTextStyle: questionTextStyle,
                 componentDesign: componentDesign,
                 buttonDesign: buttonDesign
 
@@ -594,6 +596,7 @@ background-color:{colorPick};color:{textColorPick*/
             privacylevel: "hidden",
             askerID: askerID,
             askerPicURL: askerPic,
+            questionTextStyle: questionTextStyle,
             componentDesign: componentDesign,
             buttonDesign: buttonDesign
 
