@@ -306,6 +306,18 @@ $("#logout_button, #logout_button_bottom").click(function(){
   redirect2();
 });
 
+
+//make bottom mobile nav appear and disappear on mouse move
+
+$(".mobile-footer").on("mouseenter", function(){
+    $(".mobile-footer .nav.navbar-nav").removeClass("hidden");
+    $(".mobile-footer, .mobile-footer ").css("background", "#4A4A4A");
+    $(".mobile-footer").on("mouseleave", function(){
+      $(".mobile-footer .nav.navbar-nav").addClass("hidden");
+      $(".mobile-footer, .mobile-footer ").css("background", "transparent");
+    });
+});
+
 /*
 
 //allow the user to change the privacy level of the question via the button
