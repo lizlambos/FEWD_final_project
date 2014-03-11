@@ -208,8 +208,9 @@ function queryCreator () {
 		askerName = user.get("username");
 		console.log(askerName);
 		questionText = $("#query_area").val();
-		privacyLevel = $("privacy-level.settings  button.active").attr("value");
-    anonymous = $("privacy-level.anonymous button.active").attr("value");
+		privacyLevel = $("#privacy-level").children(".btn.active").text();
+    console.log(privacyLevel);
+    anonymity = $("#anonymity_option").children(".btn.active").text();
 		var d = new Date();
 		var dString = d.toString();
 		timeStamp = dString.substring(4,11);
@@ -223,7 +224,7 @@ function queryCreator () {
     karmaQuery.set("askerName", askerName);
     karmaQuery.set("text", questionText);
     karmaQuery.set("privacylevel", privacyLevel);
-    karmaQuery.set("anonymous", anonymous);
+    karmaQuery.set("anonymity", anonymity);
     karmaQuery.set("timeStamp", timeStamp);
     karmaQuery.set("responderCount",0);
     karmaQuery.set("noResponderCount",0);
@@ -591,18 +592,18 @@ $("#made_answer").on("click", "#question_reloader", function(){
 
 
 $("#kp_button").click(function(){
-	$(this).toggleClass("active");
+	$(this).addClass("active");
 	$("#fb_button").removeClass("active");
-	console.log(questionText);
+
 	console.log(privacyLevel);
 
 
 })	;
 
 $("#fb_button").click(function(){
-	$(this).toggleClass("active");
+	$(this).addClass("active");
 	$("#kp_button").removeClass("active");
-	console.log(questionText);
+
 	console.log(privacyLevel);
 
 
@@ -610,17 +611,17 @@ $("#fb_button").click(function(){
 
 
 $("#anonymous").click(function(){
-  $(this).toggleClass("active");
+  $(this).addClass("active");
   $("#not_anonymous").removeClass("active");
-  console.log(anonymous);
+  console.log(anonymity);
 
 
 })  ;
 
 $("#not_anonymous").click(function(){
-  $(this).toggleClass("active");
+  $(this).addClass("active");
   $("#anonymous").removeClass("active");
-  console.log(anonymous);
+  console.log(anonymity);
 
 
 });

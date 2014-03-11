@@ -119,6 +119,8 @@ h1 small,
 
 .privacy-level .kp_button,
 .privacy-level .fb_button,
+.privacy-level .anon,
+.privacy-level .not_anon,
 .privacy-level .private_button,
 .query_nav_buttons .btn {
 	background-color:#FFFFFF;
