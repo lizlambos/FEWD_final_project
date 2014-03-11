@@ -275,6 +275,7 @@ function screenAndLoad() {
    userQuery.get(askerID, {
     success: function(item2) {
       askerPic = item2.get('userPic');
+      askerFbID = item2.get("fbID");
 
       //get the karma points balance of hte asker (note this is not saved for the asker until they log on but can be calc'ed when they are offline)
 
@@ -393,23 +394,20 @@ updateAskerKarmaPoints();
 //check if question marked as anonymous
 
 var showName = val.get("anonymity");
+console.log(val.id);
 console.log(showName);
-
-if (showName == "Yes") {
-
   var user = Parse.User.current();
+if (showName === "Yes") {
 
-  user.fetch().then(function (user) {
+  //user.fetch().then(function (user) {
     user.get('id');
 
-
-    var askerFbID = item2.get('fbID');
     console.log(askerFbID);
     var userFbID = user.get('fbID');
     console.log(userFbID);
 
     var userFriendsArray = user.get('fbFriends');
-    console.log(userFriendsArray);
+    //console.log(userFriendsArray);
 
     function findFriendMatch(friendFbId){
       return $.grep(userFriendsArray, function(n, i){
@@ -432,7 +430,9 @@ if (showName == "Yes") {
       profilePic = "../../img/SquareLogo_FB_size.png"
     }
 
-  });
+  //});//fetch
+
+
 
   }
 
@@ -509,7 +509,7 @@ background-color:{colorPick};color:{textColorPick*/
             id: val.id,
             privacylevel: "",
             askerID: askerID,
-            askerPicURL: askerPic,
+            askerPicURL: profilePic,
             componentDesign: componentDesign,
             questionComponentDesign: questionComponentDesign,
             buttonDesign: buttonDesign
@@ -559,7 +559,7 @@ background-color:{colorPick};color:{textColorPick*/
               var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
                 queryText: val.get('text'),
                 timeStamp: val.get('timeStamp'),
-                askerName: val.get('askerName'),
+                askerName: askerName,
                 id: val.id,
                 privacylevel: "",
                 askerID: askerID,
