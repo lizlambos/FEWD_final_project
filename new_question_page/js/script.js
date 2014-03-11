@@ -231,6 +231,7 @@ function queryCreator () {
     karmaQuery.set("yesResponderCount",0);
 
     if (queryPic.files.length > 0) {
+      console.log("query pic detected");
       var file = queryPic.files[0];
       var name = "queryPic.jpg";
       var parseFile = new Parse.File(name, file);
@@ -240,6 +241,8 @@ function queryCreator () {
      var url5 = parseFile.url();
      console.log(url5);
      console.log("photo saved");
+
+
 
      karmaQuery.set("queryPic", file);
      karmaQuery.set("queryPicUrl", url5);
@@ -252,13 +255,21 @@ function queryCreator () {
       error: function() {
         console.log("querypic not saved");
       }
-    });
+   
 
 
    }, function(error) {
      console.log("photo save error");
    });
- }
+
+       });
+
+  }
+
+  else {
+     console.log("no querypic detected");
+     
+  }
 
 
 	//karmaQuery.set("yesAnswers", yesAnswers);
