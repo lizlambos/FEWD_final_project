@@ -227,34 +227,46 @@
        <span class="help-block character_count pull-right" id="help_block_character_count">18</span> 
      </div><!--question-->
 
-      <div class="query_submit_button_wrapper pic_upload_wrapper">
+     <div class="query_submit_button_wrapper pic_upload_wrapper">
       <label class="query_instructions privacy_label">Add picture:</label>
-       <div class="btn-group privacy-level">
+      <div class="btn-group privacy-level">
        <button type="button" class="btn pic_button" id="pic_button"><span class="glyphicon glyphicon-camera"></span></button> 
 
      </div>
      <input type="file" class= "hidden" id="queryPicUpload">
-     </div>
+   </div>
+    <div class="query_submit_button_wrapper anonymity">
 
-     <label class="query_instructions privacy_label hidden-sm hidden-md hidden-lg hidden-xl">Set privacy level:</label>
-     <div class="query_submit_button_wrapper">
+   <label class="query_instructions privacy_label">Anonymous?</label>
+   <div class="btn-group privacy-level anonymous">
+    <button type="button" id="anonymous" class="btn kp_button" value="Yes">Yes</button>
+    <button type="button" id="not_anonymous" class="btn fb_button" value="No">No</button>
+    
+  </div><!--button group-->
 
-       <label class="query_instructions privacy_label hidden-xs">Set privacy level:</label>
-       <div class="btn-group privacy-level">
-        <button type="button" id="kp_button" class="btn kp_button">All KP</button>
-        <button type="button" id="private_button" class="btn hidden private_button">private</button>
-        <button type="button" id="go_button" class="btn go_button hidden-xs hidden-sm hidden-md hidden-lg hidden-xl">Ask question!</button>
-        <button type="button" id="fb_button" class="btn fb_button">FB Friends</button>
-        
-      </div><!--button group-->
-       <button type="button" class="btn hidden-sm hidden-md hidden-lg hidden-xl go_button" id="go_button">Create query!</button>
-      
-       <button type="button" class="btn hidden-xs" id="submit_button">Create query!</button>
-
-    </div><!--query_submit_button_wrapper-->
+   </div>
+    <div class="query_submit_button_wrapper">
 
 
-  </div><!--col-->
+ 
+
+   <label class="query_instructions privacy_label ">Privacy level:</label>
+   <div class="btn-group privacy-level settings">
+    <button type="button" id="kp_button" class="btn kp_button" value="All KP">All KP</button>
+    <button type="button" id="private_button" class="btn hidden private_button">private</button>
+    <button type="button" id="go_button" class="btn go_button hidden-xs hidden-sm hidden-md hidden-lg hidden-xl">Ask question!</button>
+    <button type="button" id="fb_button" class="btn fb_button" value="FB Friends">FB Friends</button>
+
+  </div><!--button group-->
+
+  <button type="button" class="btn hidden-sm hidden-md hidden-lg hidden-xl go_button" id="go_button">Create query!</button>
+
+  <button type="button" class="btn hidden-xs" id="submit_button">Create query!</button>
+
+</div><!--query_submit_button_wrapper-->
+
+
+</div><!--col-->
 </div><!--row-->
 </div><!--questionarea_container-->
 

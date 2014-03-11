@@ -208,7 +208,8 @@ function queryCreator () {
 		askerName = user.get("username");
 		console.log(askerName);
 		questionText = $("#query_area").val();
-		privacyLevel = $("button.active").text();
+		privacyLevel = $("privacy-level.settings  button.active").attr("value");
+    anonymous = $("privacy-level.anonymous button.active").attr("value");
 		var d = new Date();
 		var dString = d.toString();
 		timeStamp = dString.substring(4,11);
@@ -222,6 +223,7 @@ function queryCreator () {
     karmaQuery.set("askerName", askerName);
     karmaQuery.set("text", questionText);
     karmaQuery.set("privacylevel", privacyLevel);
+    karmaQuery.set("anonymous", anonymous);
     karmaQuery.set("timeStamp", timeStamp);
     karmaQuery.set("responderCount",0);
     karmaQuery.set("noResponderCount",0);
@@ -232,15 +234,11 @@ function queryCreator () {
       var name = "queryPic.jpg";
       var parseFile = new Parse.File(name, file);
 
-    }
-
     parseFile.save().then(function() {
      console.log(arguments);
      var url5 = parseFile.url();
      console.log(url5);
      console.log("photo saved");
-
-
 
      karmaQuery.set("queryPic", file);
      karmaQuery.set("queryPicUrl", url5);
@@ -259,11 +257,8 @@ function queryCreator () {
    }, function(error) {
      console.log("photo save error");
    });
+ }
 
-
-
-
-    
 
 	//karmaQuery.set("yesAnswers", yesAnswers);
 	//karmaQuery.set("noAnswers", noAnswers);
@@ -609,6 +604,23 @@ $("#fb_button").click(function(){
 	$("#kp_button").removeClass("active");
 	console.log(questionText);
 	console.log(privacyLevel);
+
+
+});
+
+
+$("#anonymous").click(function(){
+  $(this).toggleClass("active");
+  $("#not_anonymous").removeClass("active");
+  console.log(anonymous);
+
+
+})  ;
+
+$("#not_anonymous").click(function(){
+  $(this).toggleClass("active");
+  $("#anonymous").removeClass("active");
+  console.log(anonymous);
 
 
 });
