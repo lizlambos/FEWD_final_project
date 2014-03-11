@@ -389,7 +389,21 @@ refreshAnswersGiven2();
 
 updateAskerKarmaPoints();
 
-//create color array
+
+//check if question marked as anonymous
+
+var showName = val.get("anonymity");
+console.log(showName);
+
+if (showName == "Yes") {
+  askerName = "anonymous";
+}
+
+else {
+  askerName = val.get("askerName");
+}
+
+//create color array and put in background pic if there was one
 
 var queryDesignArray = ["#FF3B30","#FFDB4C","#007AFF","#5856D6","#52EDC7"];
 
@@ -453,7 +467,7 @@ background-color:{colorPick};color:{textColorPick*/
            var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
             queryText: val.get('text'),
             timeStamp: val.get('timeStamp'),
-            askerName: val.get('askerName'),
+            askerName: askerName,
             id: val.id,
             privacylevel: "",
             askerID: askerID,
