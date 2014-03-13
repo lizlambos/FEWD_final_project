@@ -142,6 +142,8 @@ function getPhoto(){
             var userName = response.name;
             console.log(userName);
             //user.set("username", userName); 
+
+            var userGender = response.gender;
             var userFbID = response.id;
             console.log(typeof userFbID);
             console.log(userFbID);
@@ -149,7 +151,7 @@ function getPhoto(){
             console.log(userEmail);
             //user.set("email", userEmail);
             //user.set("fbID", userFbID); 
-            user.save({username: userName, email: userEmail, fbID: userFbID}, {
+            user.save({username: userName, email: userEmail, fbID: userFbID, gender: userGender}, {
               success: function(user) {
 
               },
@@ -185,6 +187,8 @@ function getPhoto(){
         user.set("wantsKPWarning", true);
         user.set("wantsFriendsWarning", true);
         user.set("friendsTotal",0);
+        user.set("gender", "neutral");
+
         user.save().then(function(){
           console.log("User signed up and logged in through Facebook!");
           def1.resolve();

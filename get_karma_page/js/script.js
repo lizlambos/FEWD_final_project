@@ -839,6 +839,8 @@ function createAnswer () {
   //var askerId = $(this).parents(".content_component_container").children(".friend-name").attr("id");
   console.log(askerId);
 
+
+
   console.log(answer);
   user.fetch();
   var answererName = user.get("username");
@@ -881,6 +883,21 @@ function createAnswer () {
         isAnswererFriend = "not friend";
        }
 
+// get the gender of the answerer from facbeook (eventually can be deleted and changed as will be stored for each user)
+ user = Parse.User.current();
+ FB.api('/me', function(response) {
+          if (!response.error) {
+
+            var answererGender = response.gender;
+            console.log(answererGender);
+          }
+
+          else {
+            var answererGender = "no gender";
+            console.log(answererGender);
+          }
+
+
   var QueryAnswer = Parse.Object.extend("QueryAnswer");
   queryAnswer = new QueryAnswer();
 
@@ -890,6 +907,8 @@ function createAnswer () {
   queryAnswer.set("queryID", queryID);
   queryAnswer.set("timeStamp", timeStamp);
   queryAnswer.set("isAnswererFriend",isAnswererFriend);
+  queryAnswer.set("answererGender",answererGender);
+
 
   queryAnswer.save(null, {
    success: function(queryAnswer) {
@@ -905,6 +924,9 @@ function createAnswer () {
   }
 
 });//save
+
+    });     // FB api call
+
 
 },
 error: function(error) {
