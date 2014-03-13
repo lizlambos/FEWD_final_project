@@ -673,34 +673,35 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
   var yesButton = $(this).parents(".answers").children(".yes-button");
   var noButton = $(this).parents(".answers").children(".no-button");
   var parentRow = $(this).parents(".parent_row");
+  var askerId = $(this).parents(".content_component_container").find(".friend-name").attr("id");
+  console.log(askerId);
 
+            var def1 = $.Deferred();
+            def1.done(revealAnswers);
+            var def2 = $.Deferred();
+            def2.done(refresher);
+            var def3 = $.Deferred();
+            def3.done(divDisappear);
 
-  var def1 = $.Deferred();
-  def1.done(revealAnswers);
-  var def2 = $.Deferred();
-  def2.done(refresher);
-  var def3 = $.Deferred();
-  def3.done(divDisappear);
+            function divDisappear () {
+              console.log("disappear function being fired");
 
-  function divDisappear () {
-    console.log("disappear function being fired");
+              setTimeout(function(){ 
 
-    setTimeout(function(){ 
+               $("#answer_reveal").parents(".outer").addClass("hidden");
+             }, 4500 );
 
-     $("#answer_reveal").parents(".outer").addClass("hidden");
-   }, 4500 );
+              setTimeout(function(){ 
 
-    setTimeout(function(){ 
+               parentRow.fadeOut("slow");
+             }, 5000 );
 
-     parentRow.fadeOut("slow");
-   }, 5000 );
+            }
 
-  }
-
-  function refresher () {
-   refreshKarmaPoints();
-   def3.resolve();
- }
+            function refresher () {
+             refreshKarmaPoints();
+             def3.resolve();
+           }
     //reveal answers
 
     function revealAnswers(){
@@ -835,7 +836,8 @@ error: function(error) {
 function createAnswer () {
 
   console.log(answer);
-  var askerId = parentRow.children(".friend-name").attr("id");
+  //var askerId = $(this).parents(".content_component_container").children(".friend-name").attr("id");
+  console.log(askerId);
 
   console.log(answer);
   user.fetch();
@@ -843,10 +845,41 @@ function createAnswer () {
   console.log(answererName);
   myid = user.id;
   console.log(myid);
+  var userFbID = user.get('fbID');
   var d = new Date();
   var dString = d.toString();
   timeStamp = dString.substring(4,21);
   console.log(queryID);
+
+  getAskerFbIdQuery = new Parse.Query(Parse.User);
+
+     getAskerFbIdQuery.get(askerId, {
+      success: function(item4) {
+
+          var askerFbID = item4.get('fbID');
+          console.log(askerFbID);
+         
+          console.log(userFbID);
+
+          var userFriendsArray = user.get('fbFriends');
+
+          function findFriendMatch(friendFbId){
+            return $.grep(userFriendsArray, function(n, i){
+              return n.id == friendFbId;
+            });
+          };
+
+          findFriendMatch(askerFbID);  
+
+          if (findFriendMatch(askerFbID) != "") {
+            console.log("friends");
+            isAnswererFriend = "friend";
+       }
+
+       else  {
+        console.log("not friends");
+        isAnswererFriend = "not friend";
+       }
 
   var QueryAnswer = Parse.Object.extend("QueryAnswer");
   queryAnswer = new QueryAnswer();
@@ -856,6 +889,7 @@ function createAnswer () {
   queryAnswer.set("answer", answer);
   queryAnswer.set("queryID", queryID);
   queryAnswer.set("timeStamp", timeStamp);
+  queryAnswer.set("isAnswererFriend",isAnswererFriend);
 
   queryAnswer.save(null, {
    success: function(queryAnswer) {
@@ -870,7 +904,16 @@ function createAnswer () {
     alert('Failed to create new object 626 WOMP WOMP, with error code: ' + error.description);
   }
 
-}).then(function(){
+});//save
+
+},
+error: function(error) {
+  console.log("problem with new function querying for friends status 910")
+}
+
+//ends get function
+
+  }).then(function(){
 
   // save the asker of the question as an attribute of the answer for easy querying later
 
