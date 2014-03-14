@@ -212,6 +212,7 @@ function queryCreator () {
     console.log(privacyLevel);
     anonymity = $("#anonymity_option").children(".btn.active").text();
 		var d = new Date();
+    console.log(d);
 		var dString = d.toString();
 		timeStamp = dString.substring(4,11);
     var file = queryPic.files[0];
@@ -307,10 +308,14 @@ error: function(karmaQuery, error) {
     // error is a Parse.Error with an error code and description.
     alert('Failed to create new object, with error code: ' + error.description);
   }
-}).then(function(){
+}).then(
+
+setTimeout(function(){
 	$("#made_answer").removeClass("hidden");
   $("#made_answer").parents(".outer").removeClass("hidden");
-});
+},3000)
+
+);
 
 var test = karmaQuery.get("askerName");
 console.log(test);

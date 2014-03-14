@@ -500,11 +500,48 @@ background-color:{colorPick};color:{textColorPick*/
 
          var privacySetting = val.get('privacylevel');
 
+         var timeDisplay = val.createdAt;
+         console.log(timeDisplay);
+         var timeNow = new Date();
+         console.log(timeNow);
+
+         var timeDiffMinutes = ((((timeNow - timeDisplay)/1000)/60));
+         console.log(Math.floor(timeDiffMinutes));
+
+         var timeDiffHours = timeDiffMinutes/60;
+         var timeDiffDays = timeDiffHours/24;
+
+         if (timeDiffDays > 1) {
+
+          if (timeDiffDays <2) {
+            var timeStamp = Math.floor(timeDiffDays) + " day ago";
+          }
+          else {
+            var timeStamp = Math.floor(timeDiffDays) + " days ago";
+          }
+          
+         }
+
+         else if (timeDiffHours <=24 && timeDiffHours > 1) {
+          if(timeDiffHours <2) {
+            var timeStamp = Math.floor(timeDiffHours)+ " hour ago";
+          }
+          else {
+          var timeStamp = Math.floor(timeDiffHours)+ " hours ago";
+        }
+         }
+
+         else {
+        
+            var timeStamp = Math.floor(timeDiffMinutes) + "min ago";
+        
+         }
+
          if (privacySetting == "All KP") {
 
            var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
             queryText: val.get('text'),
-            timeStamp: val.get('timeStamp'),
+            timeStamp: timeStamp,
             askerName: askerName,
             id: val.id,
             privacylevel: "",
@@ -559,7 +596,7 @@ background-color:{colorPick};color:{textColorPick*/
               console.log("friends");
               var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
                 queryText: val.get('text'),
-                timeStamp: val.get('timeStamp'),
+                timeStamp: timeStamp,
                 askerName: askerName,
                 id: val.id,
                 privacylevel: "",
@@ -788,7 +825,8 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
                       $('.answer_bubble').html(percentNoAnswers+"%");
                       $('.majority_answer').html("No!");
                       $('#answer_reveal').parents(".outer").removeClass("hidden");
-                      $('#yes_portion .pie').css({"-webkit-transform":"rotate("+yesDegreeTurn+"deg)","-moz-transform":"rotate("+yesDegreeTurn+"deg)","-o-transform":"rotate("+yesDegreeTurn+"deg)","transform":"rotate("+yesDegreeTurn+"deg)"});
+                      $(".results_background").css("background-color","#FF9500");
+                      $('#yes_portion .pie').css({"background-color":"#4CD964","-webkit-transform":"rotate("+yesDegreeTurn+"deg)","-moz-transform":"rotate("+yesDegreeTurn+"deg)","-o-transform":"rotate("+yesDegreeTurn+"deg)","transform":"rotate("+yesDegreeTurn+"deg)"});
 
 
                       yesButton.html(percentYesAnswers+"%")
