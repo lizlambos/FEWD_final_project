@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Karma Police Privacy and Contact Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+  <link rel="stylesheet/less" href="../less/styles.css" type="text/css">
+  <script src="../js/less.js"></script> 
+  <link href="../css/style.css" rel="stylesheet" media="screen">
+  <link href="../css/navbars.css" rel="stylesheet" media="screen">
+  <link href="css/style.css" rel="stylesheet" media="screen">
+  <link href="../css/color.css" rel="stylesheet" media="screen">
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic|Lobster|Exo+2:400,800,700,600,500,200,200italic,300,300italic,400italic,900' rel='stylesheet' type='text/css'>
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script src="http://yui.yahooapis.com/3.14.1/build/yui/yui-min.js"></script>  
+  <script src="http://www.parsecdn.com/js/parse-1.2.16.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/main_script.js"></script>
+  <script src="js/script.js"></script>
+  
+
+
+</head>
+
+<body class="all-app-pages">
+
+ <!--facebookapp initialization-->
+
+ <div id="fb-root"></div>
+
+ <script type="text/javascript">
+
+  //initialize parse//
+
+  Parse.initialize("x03F3RJiRYdtYPfeS7AHNOEDHL0cx2nzzJ4ztDOX", "mYTgTArAtPa24wEcsXfUQYT6NQmI0iG5iR6xHHDL"); 
+
+     // Load the SDK asynchronously
+     (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "http://connect.facebook.net/en_US/all.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+
+     window.fbAsyncInit = function() {
+
+      // init the FB JS SDK
+      Parse.FacebookUtils.init({
+      appId      : '254848478004741', // Facebook App ID
+      channelUrl : 'http://studio.generalassemb.ly/FEWD20/Liz_Lambos/FEWD_final_project/login_page/', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow Parse to access the session
+      xfbml      : true  // parse XFBML
+    });
+
+    }
+
+    </script>
+        <!-- screen navbar -->
+    <nav class="navbar navbar-fixed-top hidden-xs" role="navigation">
+      <div class="container">
+
+         
+        
+        <form class="navbar-form form-inline navbar-left  pull-left hidden-xs" role="search">
+         <div class="row scoreboard hidden-xs">
+          <div class="col-xs-12">
+            <div class="scoreboard">
+              <h1>My Karma Score</h1>
+              <div class="karma_points_display">
+                <span class="badge">18</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+     <a href="#" class="navbar-brand hidden-xs">KarmaPolice</a>
+
+
+      <div class="collapse navbar-collapse navbar-left pull-right">
+        <ul class="nav navbar-nav">
+         <li class="visible-link active hidden "><a href="../get_karma_page/index.html">Get Karma</a></li>
+         <li class="visible-link hidden "><a href="../me_page/index.html">My Karma</a></li>
+         <li class="dropdown hidden-xs "><a class="ganesh-dropdown"data-toggle="dropdown" data-target="#" data-icon="&#xe601;"></a>
+          <ul class="dropdown-menu pull-right">
+            <li class="dropdown_item"><a href="../new_question_page/index.html">New Karma Query</a></li>
+            <li class="dropdown_item"><a href="../recent_questions_page/index.html">Activity</a></li>
+            <li class="dropdown_item"><a href="../invite_friends_page/index.html">Friends</a></li>
+            <li class="dropdown_item"><a href="../settings_page/index.html">Settings</a></li>
+            <li class="divider"></li>
+            <li class="dropdown_item" id="logout_button"><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+
+    </div><!--collapse navbar-->
+
+
+
+  </div><!--row-->
+
+</div> <!--container-->    
+
+<div class="row container second">
+    <div class="col-xs-12">
+      <ul class="nav navbar-nav">
+        <li class="visible-link"><a href="../get_karma_page/index.html">&#xe60a; Get Karma</a></li>
+        <li class="visible-link"><a href="../me_page/index.html">&#xe614; My Karma</a></li>
+        <li class="visible-link  new_query"><a href="../new_question_page/index.html">&#xe60c; New Query</a></li>
+        <li class="visible-link"><a href="../recent_questions_page/index.html">&#xe608; Activity</a></li>
+        <li class="visible-link"><a href="../invite_friends_page/index.html">&#xe607; Friends</a></li>
+        
+      
+      </ul>
+
+    </div>
+  </div>   
+
+</nav>
+
+<!-- end navbar -->
+
+
+  <!--mobile top navbar-->
+
+  <nav class="mobile-header navbar-fixed-top hidden-sm hidden-md hidden-lg hidden-xl">
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="#" class="navbar-brand hidden-sm hidden-md hidden-lg hidden-xl">Privacy Policy</a>
+      </li>
+      <li>
+        <a class="btn back-button" href="../settings_page/index.html"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      </li>
+    </ul>
+  </nav>
+
+
+
+  <!--end mobile top navbar-->
+
+  <!-- screen pageheader -->
+  <div class="page-header hidden-sm hidden-xs hidden-md hidden-lg hidden-xl">
+    <div class="container">
+      <h1>Privacy Policy</h1>
+    </div>
+  </div>
+
+  <!-- end pageheader -->
+
+  <!-- setttings area-->
+
+  <div class="main_content_container">
+
+    <div class="row small_screen_pagetitle hidden-xs ">
+      <div class="col-xs-12">
+        <h1>Privacy Policy</h1>
+      </div>
+    </div>
+
+    <div class="row content_component_container">
+      <div class="col-xs-12">
+
+        <p>
+       As used in this policy, the terms "using" and "processing" information include using cookies on a computer, subjecting the information to statistical or other analysis and using or handling information in any way, including, but not limited to collecting, storing, evaluating, modifying, deleting, using, combining, disclosing and transferring information within our organization or among our affiliates within the United States or internationally.</p>
+<h3>Information Collection and Use</h3>
+<p>Our primary goals in collecting information are to provide and improve our Services , features and content and to enable users to enjoy and easily navigate the Services.</p>
+<h3>Personally Identifiable Information.</h3>
+<p>
+In order to access certain features of the Services, you must register to create an Account. In order to create your Account to use the Services, we will collect certain Personal Information (defined below) from you. You may register directly via the App (if you have downloaded the App) or Site by logging into your account with certain third party SNSs via the App or Site, as described herein. If you decide to register through an SNS, we will extract the Personal Information and other information you have provided to the SNS, (i) such as your "real" name, email address, profile information (including but not limited to birthday, education history, hometown, location, relationship status); (ii) your profile picture and other photos; (iii) the names and profile pictures of your friends, your friends' profile information (including but not limited to birthday, education history, hometown, location, relationship status); and (iv) certain other information you make publicly available via the SNS from the account you have with the applicable SNS and use that information to create your Account. The specific information that we extract may depend on the privacy settings you or your SNS friends have with the SNS. By "Personal Information," we mean information about you that can be used to contact or identify you. Personal Information includes, but is not limited to, your name, phone number, pictures of you, your email address and your postal address. We use your Personal Information mainly to provide the Services and administer your inquiries. The specific information that we extract may depend on the privacy settings you and your SNS friends have with the SNS. For certain SNSs through which you may choose to register, a pop-up box may appear as part of the Account registration process which you will need to approve in order to proceed, and which will describe the types of personal information that we will obtain from, and the types of activities that we or you may perform in connection with, your account on such SNS. You hereby consent to our access to and collection of personal information about you that we obtain from the applicable SNS, which access and use shall be in accordance with this Privacy Policy. In addition, you hereby agree that we may continue to access and use such personal information in accordance with this Privacy Policy in the event the KarmaPolice no longer use the SNS platform through which we obtained such information or if your KarmaPolice  Account otherwise ceases to be linked to your SNS account.
+We also collect the other information that you provide as part of registration and the administration and personalization of your Account (e.g., without limitation, zip code (on its own), age, gender and individual preferences) ("Non-Identifying Information").
+Certain Non-Identifying Information would be considered a part of your Personal Information if it were combined with other identifiers (for example, combining your zip code with your street address) in a way that enables you to be identified. But the same pieces of information are considered Non-Identifying Information when they are taken alone or combined only with other non-identifying information (for example, your viewing preferences). We may combine your Personal Information with Non-Identifying Information and aggregate it with information collected from other KarmaPolice Users (defined below) to attempt to provide you with a better experience, to improve the quality and value of the Service and to analyze and understand how our Services. We may also use the combined information without aggregating it to serve you specifically, for instance to deliver a product to you according to your preferences or restrictions.
+We may also use your Personal Information to contact you with KarmaPolice newsletters, marketing or promotional materials and other information that may be of interest to you. If you decide at any time that you no longer wish to receive such communications from us, please follow the unsubscribe instructions provided in any of the communications or update your "Settings" information. (See "Changing or Deleting Information" below.</p>
+<h3>Log Data. </h3>
+<p>When you visit the Services , whether as a Member or a non-registered user just browsing (any of these, a "KarmaPolice User"), our servers automatically record information that your browser sends ("Log Data"). This Log Data may include information such as your Internet Protocol ("IP") address, browser type or the webpage you were visiting before you came to our Site, pages of our Site and App that you visit, the time spent on those pages, information you search for on our Site and App, access times and dates, and other statistics. We use this information to monitor and analyze use of the Services and for technical administration of the Services, to increase functionality and user-friendliness of the Services, and to better tailor them to our visitors' needs. For example, some of this information is collected so that when you visit the Site or App again, it will recognize you and potentially serve advertisements, content, and other information appropriate to your interests. We also use this information to verify that visitors to the Site and users of the App meet the criteria required to process their requests.</p>
+<h3>Cookies</h3>
+<p>Like many web-based product, we use "cookies" on the Site to collect information. A cookie is a small data file that we transfer to your computer's hard disk for record-keeping purposes. We use cookies for two purposes. First, we utilize persistent cookies to save your login information for future logins to the Services. Second, we utilize session ID cookies to enable certain features of the Services, to better understand how you interact with the Services, and to monitor aggregate usage by KarmaPolice Users and web traffic routing on the Services. Unlike persistent cookies, session cookies are deleted from your computer when you log off from the Services, and then close your browser. Third party advertisers on the Services may also place or read cookies on your browser. You can instruct your browser, by changing its options, to stop accepting cookies or to prompt you before accepting a cookie from the websites you visit. If you do not accept cookies, however, you may not be able to use all portions of the Services.</p>
+<h3>Our California Do Not Track Notice</h3>
+<p>We do not currently respond or take any action with respect to web browser "do not track" signals or other mechanisms that provide consumers the ability to exercise choice regarding the collection of personally identifiable information about an individual consumer's online activities over time and across third-party web sites or online services. We may allow third parties, such as companies that provide us with analytics tools, to collect personally identifiable information about an individual consumer's online activities over time and across different web sites when a consumer uses the Services.</p>
+<h3>Web Beacons</h3>
+<p>We also use "web beacons," "pixel tags," "clear GIFs" or similar means (individually or collectively "Web Beacons") on our Services. A Web Beacon is an electronic image, often a single pixel, embedded on web pages. Web Beacons are ordinarily not visible to users. Web Beacons allow us to count the number of users who have visited certain pages of the Services to deliver branded services and to generate statistics about how our Services are used.</p>
+<h3>Inviting Friends to use the Services</h3>
+<p>As part of the Services, Members may invite non-registered users to use Services through use of their Accounts. Where a Member selects the option of adding one or more email addresses, SNS contacts or mobile telephone numbers to an online form, the message such Member creates in the corresponding template will be sent by us to those email addresses, SNS contacts or mobile telephone numbers on the Member's behalf. These email addresses, SNS contacts and mobile telephone numbers will be used only for the purpose of sending the email, SNS communication or text message communication to the addressee.</p>
+<h3>Phishing</h3>
+<p>Identity theft and the practice currently known as "phishing" are of great concern to KarmaPolice. Safeguarding information to help protect you from identity theft is a top priority. We do not and will not, at any time, request your credit card information, login information, or national identification numbers in a non-secure or unsolicited e-mail or telephone communication. For more information about phishing, visit the Federal Trade Commission's website.</p>
+<h3>Information Sharing and Disclosure</h3>
+<p>KarmaPolice Members. When you invite a friend to join the Services, such friend will be able to view your name, profile picture and any Content you provide via the Services and choose to share with such friend via your Account. You can choose what Content you provide via the Services and in some cases you can use the tools provided on the Service to choose whether to share that Content with specified friends via the Services. We recommend that you guard your sensitive information and be cognizant of what information about you and Content will be available to friends who you invite.</p>
+
+<h3>SNSs. </h3>
+<p>The Service gives you the option to share information contained in your Account with certain SNSs (including but not limited to Twitter and Facebook). KarmaPolice will not share your Account information, which may contain your Personal Information, with such SNSs unless you expressly authorize such disclosure.</p>
+<h3>Facebook Connect. </h3>
+<p> Services allow users to create an Account and log in to the Services using their Facebook account credentials through Facebook Connect. By using Facebook Connect, you are allowing KarmaPolice to access your Facebook account information.</p>
+<h3>KarmaPolice's Promotional and Commercial Purposes.</h3> 
+<p>As noted in the Terms, KarmaPolice may use your Member Content for its promotional or commercial purposes. In such instances, KarmaPolice will only use your Member Content in a manner that does not identify you individually (i.e. your name and identifying information will be stripped from the applicable Member Content). For example, KarmaPolice may share Member Content such as comments and feedback from friends (with individual identifying information removed) with third parties or provide or license such Member Content to third parties in order to promote the Services.</p>
+<h3>Aggregate Information and Non-Identifying Information.</h3> <p>We may share aggregated information that does not include Personal Information and we may otherwise disclose Non-Identifying Information and Log Data with third parties for industry analysis, demographic profiling and other purposes. We may use a reputable third party to present or serve advertisements that you may see on the App and Site. These third party ad servers may use Web Beacons to help present such advertisements, and to help measure and research the advertisements' effectiveness. The use of these technologies by these third party ad servers is subject to their own privacy policies and is not covered by our Privacy Policy. In any event, any aggregated information shared in these contexts will not contain your Personal Information.</p>
+<h3>Service Providers. </h3>
+<p>We may employ third party companies and individuals to facilitate our Services, to provide the Services on our behalf, to perform services related to the Services (including without limitation, maintenance services, database management, web analytics and improvement of the Service features) or to assist us in analyzing how our Services are used. These third parties have access to your Personal Information only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.</p>
+<h3>Business Partners. </h3>
+<p>We may also provide Personal Information to our business partners or other trusted entities for the purpose of providing you with information on goods or services we believe will be of interest to you. You can, at any time, opt out of receiving such communications.</p>
+<h3>Compliance with Laws and Law Enforcement. </h3>
+<p>KarmaPolice cooperates with government and law enforcement officials and private parties to enforce and comply with the law. We may disclose any information about you to government or law enforcement officials or private parties as we, in our sole discretion, believe necessary or appropriate to respond to claims and legal process (including but not limited to subpoenas and Court Orders), to protect the property and rights of KarmaPolice or a third party, to protect the safety of the public or any person, or to prevent or stop activity we may consider to be, or to pose a risk of being, illegal, unethical or legally actionable activity.</p>
+<h3>Business Transfers. </h3>
+<p>KarmaPolice may sell, transfer or otherwise share some or all of its assets, including your Personal Information, in connection with a merger, acquisition, reorganization or sale of assets or in the event of bankruptcy.</p>
+<h3>Changing or Deleting Your Information</h3>
+<p>All Members may review, update, correct or delete certain Personal Information in their Accounts by contacting us at deactivate@mykarmapolice.com. If you completely delete all such information, then your Account may become deactivated. If you would like us to entirely delete your Account from our system, please contact us at deactivate@mykarmapolice.com
+with a request that we delete your Personal Information from our database. We will use commercially reasonable efforts to honor your request. We may retain an archived copy of your records as required by law or for legitimate business purposes.<p>
+<h3>Security</h3>
+<p>KarmaPolice is concerned with safeguarding your information. Information provided to KarmaPolice via the Services is encrypted using industry standard secure socket layer (SSL) technology. KarmaPolice also uses certain techniques to hash passwords and does not store passwords in a non-hashed form. KarmaPolice also ensures that passwords may only be reset via secure pages of the Services. No method of transmission over the Internet, or method of electronic storage, is 100% secure, however. Therefore, while we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.
+We will make any legally required disclosures of any breach of the security, confidentiality, or integrity of your unencrypted electronically stored "personal data" (as defined in applicable state statutes on security breach notification) to you via email or conspicuous posting on via the Site and App in the most expedient time possible and without unreasonable delay, insofar as consistent with (i) the legitimate needs of law enforcement or (ii) any measures necessary to determine the scope of the breach and restore the reasonable integrity of the data system.</p>
+<h3>International Transfer</h3>
+<p>Your information may be transferred to, and maintained on, computers located outside of your state, province, country or other governmental jurisdiction where the privacy laws may not be as protective as those in your jurisdiction. If you are located outside the United States and choose to provide information to us, KarmaPolice transfers Personal Information to the United States and processes it there. Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.</p>
+<h3>Links to Other Websites</h3>
+<p>Our Services may contain links to other websites. If you choose to visit an advertiser by clicking on a banner ad or other type of advertisement, or click on another third party link, you will be directed to that third party's website. The fact that we link to a website or present a banner ad or other type of advertisement is not an endorsement, authorization or representation of our affiliation with that third party, nor is it an endorsement of their privacy or information security policies or practices. We do not exercise control over third party websites. These other websites may place their own cookies or other files on your computer, collect data or solicit personal information from you. Other websites follow different rules regarding the use or disclosure of the personal information you submit to them. We encourage you to read the privacy policies or statements of the other websites you visit.
+<h3>Contacting Us</h3>
+<p>If you have any questions about this Privacy Policy, please contact us at liz@mykarmapolice.com or at:
+  <br>
+ProductStructure <br>
+221 East 50th Street<br>
+Suite 3E <br>
+New York, NY <br>
+10022 <br>
+</p>
+<h3>Copyright ProductStructure Inc. 2014</h3>
+
+
+
+
+        </p>
+        
+</div><!--col-->
+
+</div><!--content_component_container-->
+
+</div><!--main_content_container-->
+
+
+<!-- end find friends area-->
+
+<!-- mobile bottom navbar -->
+
+<footer class="mobile-footer fixed-bottom hidden-sm hidden-md hidden-lg hidden-xl">
+ <ul class="nav navbar-nav">
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn bottom-navbar-icon" data-icon="&#xe60a;" href="../get_karma_page/index.html"><span class="bottom-navbar-icon-label">Get Karma</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn  bottom-navbar-icon" data-icon="&#xe608;" href="../recent_questions_page/index.html"><span class="bottom-navbar-icon-label">Activity</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn  bottom-navbar-icon" data-icon="&#xe60c;" href="../new_question_page/index.html"><span class="bottom-navbar-icon-label">New Query</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn bottom-navbar-icon" data-icon="&#xe607;" href="../invite_friends_page/index.html"><span class="bottom-navbar-icon-label">Friends</span></a>
+  </li>
+  <li class="hidden-xl hidden-lg hidden-md hidden-sm">
+    <a class="btn bottom-navbar-icon onpage" data-icon="&#xe614;" href="../me_page/index.html"><span class="bottom-navbar-icon-label">My Karma</span></a>
+  </li>
+</ul> 
+</div>
+</footer>
+
+<footer class="screen-footer hidden-xs">
+  <div class="footer-container">
+    <p class="hidden-xs">KarmaPolice 2013</p>
+    <nav class="corporate-info">
+      <ul class="bottom-links">
+
+      </ul>
+    </nav>
+
+
+  </div>
+
+</footer>
+<!-- end footer-->
+
+</body>
+</html>

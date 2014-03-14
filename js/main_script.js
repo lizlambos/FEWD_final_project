@@ -313,6 +313,8 @@ $("#logout_button, #logout_button_bottom").click(function(){
 
 //make bottom mobile nav appear and disappear on mouse move
 
+/*
+
 $(".mobile-footer").on("mouseenter", function(){
     $(".mobile-footer .nav.navbar-nav").removeClass("hidden");
     $(".mobile-footer, .mobile-footer ").css("background", "#4A4A4A");
@@ -321,6 +323,7 @@ $(".mobile-footer").on("mouseenter", function(){
       $(".mobile-footer, .mobile-footer ").css("background", "transparent");
     });
 });
+*/
 
 /*
 
