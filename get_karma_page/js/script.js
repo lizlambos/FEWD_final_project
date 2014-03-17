@@ -318,9 +318,9 @@ function screenAndLoad() {
                       friendsInvitedBalance - totalRespCount;
                       console.log(karmaPointsBalance);
 
-                      //screen to not show question if asker doesnt have karma points
+                      //screen to not show question if asker doesnt have karma points, diabling for now
 
-                      if (karmaPointsBalance <= -10) {
+                      if (karmaPointsBalance <= -10000000) {
                         $("#"+questId+"").
                         parents(".parent_row").addClass("hidden");}
 
@@ -520,41 +520,112 @@ background-color:{colorPick};color:{textColorPick*/
             var timeStamp = Math.floor(timeDiffDays) + " days ago";
           }
           
-         }
+        }
 
-         else if (timeDiffHours <=24 && timeDiffHours > 1) {
+        else if (timeDiffHours <=24 && timeDiffHours > 1) {
           if(timeDiffHours <2) {
             var timeStamp = Math.floor(timeDiffHours)+ " hour ago";
           }
           else {
-          var timeStamp = Math.floor(timeDiffHours)+ " hours ago";
+            var timeStamp = Math.floor(timeDiffHours)+ " hours ago";
+          }
         }
+
+        else {
+
+          var timeStamp = Math.floor(timeDiffMinutes) + "min ago";
+
+        }
+
+        if (privacySetting == "All KP") {
+
+         var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
+          queryText: val.get('text'),
+          timeStamp: timeStamp,
+          timeDisplay: timeDisplay,
+          askerName: askerName,
+          id: val.id,
+          privacylevel: "",
+          askerID: askerID,
+          askerPicURL: profilePic,
+          componentDesign: componentDesign,
+          questionTextStyle: questionTextStyle,
+          questionComponentDesign: questionComponentDesign,
+          buttonDesign: buttonDesign
+
+
+        });
+
+         if ($(window).width() < 768) {
+          allKPQueryColumn1.prepend(content);
+
+
+
+        }
+
+        else {
+
+         if ((i)%3 === 0) {
+           allKPQueryColumn1.prepend(content);
          }
+         else if ((i)%2 === 0) {
+          allKPQueryColumn2.prepend(content);
+        }
+        else{
+          allKPQueryColumn3.prepend(content);
+        }
 
-         else {
-        
-            var timeStamp = Math.floor(timeDiffMinutes) + "min ago";
-        
-         }
+      }
+    }
 
-         if (privacySetting == "All KP") {
+    else {
 
-           var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
+      var user = Parse.User.current();
+
+      user.fetch().then(function (user) {
+        user.get('id');
+
+
+        var askerFbID = item2.get('fbID');
+        console.log(askerFbID);
+        var userFbID = user.get('fbID');
+        console.log(userFbID);
+
+        var userFriendsArray = user.get('fbFriends');
+        console.log(userFriendsArray);
+
+        function findFriendMatch(friendFbId){
+          return $.grep(userFriendsArray, function(n, i){
+            return n.id == friendFbId;
+          });
+        };
+
+        findFriendMatch(askerFbID);  
+
+        if (findFriendMatch(askerFbID) != "") {
+          console.log("friends");
+          var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
             queryText: val.get('text'),
+             timeDisplay: timeDisplay,
             timeStamp: timeStamp,
             askerName: askerName,
             id: val.id,
             privacylevel: "",
             askerID: askerID,
             askerPicURL: profilePic,
-            componentDesign: componentDesign,
             questionTextStyle: questionTextStyle,
-            questionComponentDesign: questionComponentDesign,
+            componentDesign: componentDesign,
             buttonDesign: buttonDesign
-
 
           });
 
+          if ($(window).width() < 768) {
+            allKPQueryColumn1.prepend(content);
+
+
+      }
+
+          else if ($(window).width()) {
 
            if ((i)%3 === 0) {
              allKPQueryColumn1.prepend(content);
@@ -568,77 +639,26 @@ background-color:{colorPick};color:{textColorPick*/
 
         }
 
-        else {
+      }
 
-          var user = Parse.User.current();
+      else {
 
-          user.fetch().then(function (user) {
-            user.get('id');
+       console.log("not Friends");
 
-
-            var askerFbID = item2.get('fbID');
-            console.log(askerFbID);
-            var userFbID = user.get('fbID');
-            console.log(userFbID);
-
-            var userFriendsArray = user.get('fbFriends');
-            console.log(userFriendsArray);
-
-            function findFriendMatch(friendFbId){
-              return $.grep(userFriendsArray, function(n, i){
-                return n.id == friendFbId;
-              });
-            };
-
-            findFriendMatch(askerFbID);  
-
-            if (findFriendMatch(askerFbID) != "") {
-              console.log("friends");
-              var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
-                queryText: val.get('text'),
-                timeStamp: timeStamp,
-                askerName: askerName,
-                id: val.id,
-                privacylevel: "",
-                askerID: askerID,
-                askerPicURL: profilePic,
-                questionTextStyle: questionTextStyle,
-                componentDesign: componentDesign,
-                buttonDesign: buttonDesign
-
-              });
-
-              if ((i)%3 === 0) {
-               allKPQueryColumn1.prepend(content);
-             }
-             else if ((i)%2 === 0) {
-              allKPQueryColumn2.prepend(content);
-            }
-            else{
-              allKPQueryColumn3.prepend(content);
-            }
+       var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
+        queryText: val.get('text'),
+        timeStamp: val.get('timeStamp'),
+        askerName: val.get('askerName'),
+        id: val.id,
+        privacylevel: "hidden",
+        askerID: askerID,
+        askerPicURL: askerPic,
+        questionTextStyle: questionTextStyle,
+        componentDesign: componentDesign,
+        buttonDesign: buttonDesign
 
 
-          }
-
-          else {
-
-           console.log("not Friends");
-
-           var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
-            queryText: val.get('text'),
-            timeStamp: val.get('timeStamp'),
-            askerName: val.get('askerName'),
-            id: val.id,
-            privacylevel: "hidden",
-            askerID: askerID,
-            askerPicURL: askerPic,
-            questionTextStyle: questionTextStyle,
-            componentDesign: componentDesign,
-            buttonDesign: buttonDesign
-
-
-          });
+      });
 
           //filter by privacy level
 
@@ -678,11 +698,26 @@ background-color:{colorPick};color:{textColorPick*/
 
   }//success
 
+  //resort by time created as the createdAt query sort not 100% 
+
+  }).then(function(){
+
+        function sortTime(a,b){  
+
+            //var timeDisplay = find(".timeDisplay").attr("id");
+            return a.find(".timeDisplay").attr("id") > b.find(".timeDisplay").attr("id") ? 1 : -1;  
+          };  
+
+          $(".friends_queries_section1 .row.parent_row").sort(sortTime).appendTo(".friends_queries_section1");  
+
+          
+
+
   });//find
 
 }//load friend queries
 
-//calling function on three columns but content is being repeated need to put in more arugments for each query  
+
 
 loadFriendQueries();
 
@@ -713,32 +748,32 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
   var askerId = $(this).parents(".content_component_container").find(".friend-name").attr("id");
   console.log(askerId);
 
-            var def1 = $.Deferred();
-            def1.done(revealAnswers);
-            var def2 = $.Deferred();
-            def2.done(refresher);
-            var def3 = $.Deferred();
-            def3.done(divDisappear);
+  var def1 = $.Deferred();
+  def1.done(revealAnswers);
+  var def2 = $.Deferred();
+  def2.done(refresher);
+  var def3 = $.Deferred();
+  def3.done(divDisappear);
 
-            function divDisappear () {
-              console.log("disappear function being fired");
+  function divDisappear () {
+    console.log("disappear function being fired");
 
-              setTimeout(function(){ 
+    setTimeout(function(){ 
 
-               $("#answer_reveal").parents(".outer").addClass("hidden");
-             }, 4500 );
+     $("#answer_reveal").parents(".outer").addClass("hidden");
+   }, 4500 );
 
-              setTimeout(function(){ 
+    setTimeout(function(){ 
 
-               parentRow.fadeOut("slow");
-             }, 5000 );
+     parentRow.fadeOut("slow");
+   }, 5000 );
 
-            }
+  }
 
-            function refresher () {
-             refreshKarmaPoints();
-             def3.resolve();
-           }
+  function refresher () {
+   refreshKarmaPoints();
+   def3.resolve();
+ }
     //reveal answers
 
     function revealAnswers(){
@@ -803,7 +838,7 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
                     console.log(noDegreeTurn);
 
 
-                    if (percentYesAnswers >= percentNoAnswers) {
+                    if (percentYesAnswers > percentNoAnswers) {
 
                       $('.answer_bubble').html(percentYesAnswers+"%");
                       $('.majority_answer').html("YES!");
@@ -835,6 +870,23 @@ $("#allKP_active_queries_list").on("click",".answers .btn", function(){
 
                       noButton.html(percentNoAnswers+"<span class='percent'>%</span>")
                       .css({"font-size": "2.25em","font-weight":"bold", "color": "#FFFFFF", "width":"100px", "height":"100px", "animation":"myfirst 5s;", "-webkit-animation":"myfirst 5s;"});
+
+                    }
+                    else {
+                      $('.answer_bubble').html(percentYesAnswers+"%");
+                      $('.answerText').html("it's a <span class='majority_answer'>TIE!</span>");
+                      $('#answer_reveal').parents(".outer").removeClass("hidden");
+                      $(".results_background").css("background-color","#4CD964");
+                      $('#yes_portion .pie').css({"background-color":"#FF9500","-webkit-transform":"rotate("+noDegreeTurn+"deg)","-moz-transform":"rotate("+noDegreeTurn+"deg)","-o-transform":"rotate("+noDegreeTurn+"deg)","transform":"rotate("+noDegreeTurn+"deg)"});
+
+                      yesButton.html(percentYesAnswers+"%")
+                      .css({"font-size": "2.25em","font-weight":"bold", "color": "#FFFFFF", "width":"100px", "height":"100px", "animation":"myfirst 5s;", "-webkit-animation":"myfirst 5s;"});
+
+
+                      noButton.html(percentNoAnswers+"<span class='percent'>%</span>")
+                      .css({"font-size": "2.25em", "font-weight":"bold", "color": "#FFFFFF", "width":"100px", "height":"100px"});   
+
+
 
                     }
                     item.save({
@@ -893,47 +945,47 @@ function createAnswer () {
 
   getAskerFbIdQuery = new Parse.Query(Parse.User);
 
-     getAskerFbIdQuery.get(askerId, {
-      success: function(item4) {
+  getAskerFbIdQuery.get(askerId, {
+    success: function(item4) {
 
-          var askerFbID = item4.get('fbID');
-          console.log(askerFbID);
-         
-          console.log(userFbID);
+      var askerFbID = item4.get('fbID');
+      console.log(askerFbID);
 
-          var userFriendsArray = user.get('fbFriends');
+      console.log(userFbID);
 
-          function findFriendMatch(friendFbId){
-            return $.grep(userFriendsArray, function(n, i){
-              return n.id == friendFbId;
-            });
-          };
+      var userFriendsArray = user.get('fbFriends');
 
-          findFriendMatch(askerFbID);  
+      function findFriendMatch(friendFbId){
+        return $.grep(userFriendsArray, function(n, i){
+          return n.id == friendFbId;
+        });
+      };
 
-          if (findFriendMatch(askerFbID) != "") {
-            console.log("friends");
-            isAnswererFriend = "friend";
-       }
+      findFriendMatch(askerFbID);  
 
-       else  {
+      if (findFriendMatch(askerFbID) != "") {
+        console.log("friends");
+        isAnswererFriend = "friend";
+      }
+
+      else  {
         console.log("not friends");
         isAnswererFriend = "not friend";
-       }
+      }
 
 // get the gender of the answerer from facbeook (eventually can be deleted and changed as will be stored for each user)
- user = Parse.User.current();
- FB.api('/me', function(response) {
-          if (!response.error) {
+user = Parse.User.current();
+FB.api('/me', function(response) {
+  if (!response.error) {
 
-            var answererGender = response.gender;
-            console.log(answererGender);
-          }
+    var answererGender = response.gender;
+    console.log(answererGender);
+  }
 
-          else {
-            var answererGender = "no gender";
-            console.log(answererGender);
-          }
+  else {
+    var answererGender = "no gender";
+    console.log(answererGender);
+  }
 
 
   var QueryAnswer = Parse.Object.extend("QueryAnswer");
@@ -973,7 +1025,7 @@ error: function(error) {
 
 //ends get function
 
-  }).then(function(){
+}).then(function(){
 
   // save the asker of the question as an attribute of the answer for easy querying later
 
