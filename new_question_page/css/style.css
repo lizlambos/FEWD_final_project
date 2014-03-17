@@ -73,6 +73,8 @@
 
 }
 
+
+
 .privacy_label {
 	margin-left:10px;
 	padding-top:5px;	
@@ -80,11 +82,16 @@
 	padding-right:10px;
 	clear:both;
 
+
 }
 
 .privacy-level .btn {
 	border-radius:5px;
 
+}
+
+.privacy-level .btn.pic_button.active {
+	border:2px solid #1AD6FD;
 }
 
 #go_button {

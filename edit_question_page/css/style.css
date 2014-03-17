@@ -2,13 +2,12 @@
 
 .content_component_container {
 	min-height:568px;
+
 }
 
 .question_info_wrapper {
 	width:100%;
 	display:block;
-	
-	
 	height:120px;
 }
 
@@ -64,13 +63,12 @@ margin-top:10px;
 	border: 1px solid black;
 }
 
-.helper_popup {
-    text-align:center;
-    margin-top:0px;
-}
-
 #answer_reveal {
+   text-align:center;
+    margin-top:0px;
  background-color:rgba(255,255,255,0.8);  
+ width:180px;
+ height:150px;
 }
 
 .results_container {
@@ -99,8 +97,8 @@ margin-top:10px;
 
 .answer_bubble {
     background:#FFFFFF;
-    height:120px;
-    width:120px;
+    height:90px;
+    width:90px;
     border-radius:100%;
     position:absolute;
     top:30px;

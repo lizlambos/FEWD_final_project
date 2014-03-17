@@ -470,7 +470,7 @@ else {
 
     if ($(window).width() > 768 ) {
 
-      var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF;";
+      var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF;text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;";
       var questionComponentDesign = "color:#FFFFFF;background-image:url('"+userImageUpload+"');background-size:320px 320px; height:320px;";
       var questionTextStyle = "color:#FFFFFF;text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;height:250px;padding: 80px 10px 0px 10px;";
       var buttonDesign="color:"+queryDesignArray[p]+";";
@@ -478,7 +478,7 @@ else {
     }
 
     else {
-      var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF;";
+      var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF;text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;";
       var questionComponentDesign = "color:#FFFFFF;background-image:url('"+userImageUpload+"');background-size:320px 320px";
       var questionTextStyle = "color:#FFFFFF;text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;";
       var buttonDesign="color:"+queryDesignArray[p]+";";

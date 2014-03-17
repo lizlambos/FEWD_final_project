@@ -188,6 +188,7 @@ refreshKarmaPoints();
 
 $("#pic_button").click(function () {
   $("#queryPicUpload").trigger('click');
+
 });
 
 var queryPic = $("#queryPicUpload")[0];
@@ -236,6 +237,7 @@ function queryCreator () {
       var file = queryPic.files[0];
       var name = "queryPic.jpg";
       var parseFile = new Parse.File(name, file);
+      $("#pic_button").addClass("active");
 
     parseFile.save().then(function() {
      console.log(arguments);
