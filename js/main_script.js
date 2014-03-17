@@ -170,7 +170,7 @@ function getPhoto(){
 
       }//set name
 
-      Parse.FacebookUtils.logIn("user_friends,email,publish_actions", {
+      Parse.FacebookUtils.logIn("user_friends,email", {
         success: function(user) {
 
           if (!user.existed()) {
