@@ -195,17 +195,44 @@ var queryPic = $("#queryPicUpload")[0];
 
 $("#queryPicUpload").click(function(){
 
+
+
+
   console.log(queryPic);
+
+    $(this).change(function(){
      var url6 = queryPic.value;
        console.log(url6);
+       var input = document.getElementById("queryPicUpload");
+       var fReader = new FileReader();
+fReader.readAsDataURL(input.files[0]);
+fReader.onloadend = function(event){
+
+
+url7 = event.target.result;
      
 
     //parseFile.save().then(function() {
      //console.log(arguments);
      //var url6 = parseFile.url();
      //console.log(url6);
-      $("#query_area").css({"width":"320px","height":"320px","border-radius":"0px","background-image":"url("+url6+")","background-size":"320px 320px"}); 
+
+     if ($(window).width() > 768) {
+      $("#query_area").css({"color":"#FFFFFF","text-shadow": "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black","font-family":"courier","font-size":"1.25em","width":"320px","height":"320px","border-radius":"0px","background-image":"url("+url7+")","background-size":"320px 320px"}); 
       $("#pic_button").addClass("active");
+      $(".query_instructions:first").html("Query preview:")
+    }
+
+     else {
+      $("#query_area").css({"color":"#FFFFFF","text-shadow": "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black","font-family":"courier","font-size":"1.25em","width":"240px","height":"240px","border-radius":"0px","background-image":"url("+url7+")","background-size":"320px 320px"}); 
+      $("#pic_button").addClass("active");
+      $(".query_instructions:first").html("Query preview:")
+    }
+
+
+  }
+
+    });
 
   // });
 
