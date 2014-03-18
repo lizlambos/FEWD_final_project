@@ -64,10 +64,10 @@ margin-top:10px;
 }
 
 #answer_reveal {
-   text-align:center;
+  text-align:center;
     margin-top:0px;
  background-color:rgba(255,255,255,0.8);  
- width:180px;
+ width:150px;
  height:150px;
 }
 

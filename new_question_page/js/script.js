@@ -196,7 +196,18 @@ var queryPic = $("#queryPicUpload")[0];
 $("#queryPicUpload").click(function(){
 
   console.log(queryPic);
+     var url6 = queryPic.value;
+       console.log(url6);
+     
 
+    //parseFile.save().then(function() {
+     //console.log(arguments);
+     //var url6 = parseFile.url();
+     //console.log(url6);
+      $("#query_area").css({"width":"320px","height":"320px","border-radius":"0px","background-image":"url("+url6+")","background-size":"320px 320px"}); 
+      $("#pic_button").addClass("active");
+
+  // });
 
 });
 
@@ -244,7 +255,6 @@ function queryCreator () {
      var url5 = parseFile.url();
      console.log(url5);
      console.log("photo saved");
-
 
 
      karmaQuery.set("queryPic", file);
@@ -405,7 +415,7 @@ function karmaPointsWarning () {
        var wantsFriendsWarning = user.get("wantsFriendsWarning");
        console.log(friendsTotal);
 
-       if (karmaPointsBalance <= 0 && wantsKPWarning != false)	{
+       if (karmaPointsBalance <= -10000000 && wantsKPWarning != false)	{
         $("#need_points .popup_text.first").html("You have "+karmaPointsBalance+" Karma Points");
         $("#need_points").removeClass("hidden");
         $('#need_points').parents(".outer").removeClass("hidden");

@@ -32,7 +32,7 @@ $(document).ready(function(){
 
     }
     else {
-     $(".helper_popup, .outer").removeClass("hidden");
+     $("#guided_tour1, .outer").removeClass("hidden");
      $(".go_button").click(function(){
       $("#guided_tour1").fadeOut('slow');
       $(".outer").addClass("hidden");

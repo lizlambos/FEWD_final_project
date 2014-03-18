@@ -295,7 +295,7 @@ button.reveal_result {
 
 		.content_component_container
 		{
-			border: 1px solid #F7F7F7;
+
 
 		}
 
@@ -329,6 +329,13 @@ button.reveal_result {
 	/* Medium devices (desktops, 992px and up) */
 	@media (min-width: 992px) {
 
+		.main_content_container {
+			moz-box-shadow: -1px 1px 6px 0px #4A4A4A;
+			-webkit-box-shadow: -1px 1px 6px 0px  #4A4A4A;
+			-o-box-shadow: -1px 1px 6px 0px  #4A4A4A;
+			box-shadow: -1px 1px 6px 0px #4A4A4A;
+		}
+
 		.scoreboard {
 			background:transparent;
 
@@ -341,6 +348,10 @@ button.reveal_result {
 
 
 
+		}
+
+		.row.parent_row {
+			
 		}
 
 		.karma_points_display .badge {

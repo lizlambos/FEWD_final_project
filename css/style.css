@@ -207,8 +207,9 @@
 	}
 
 	.all-app-pages {
-		background: url("../img/buddhistpainting2.jpg");
+		/*background: url("../img/buddhistpainting4.jpg");*/
 		background-size:100%;
+		background-color:#1AD6FD;
 	}
 
 	.main_content_container {
