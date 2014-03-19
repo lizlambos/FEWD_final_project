@@ -32,10 +32,11 @@ $(document).ready(function(){
 
     }
     else {
-     $("#guided_tour1, .outer").removeClass("hidden");
+     $("#guided_tour1, .outer.guided_tour").removeClass("hidden");
+     $(".btn.bottom-navbar-icon").tooltip("show");
      $(".go_button").click(function(){
       $("#guided_tour1").fadeOut('slow');
-      $(".outer").addClass("hidden");
+      $(".outer.guided_tour").addClass("hidden");
       user.set("hadTour", true);
       user.save({
         success: function(user) {

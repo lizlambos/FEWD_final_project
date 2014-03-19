@@ -225,12 +225,13 @@ url7 = event.target.result;
      else {
       $("#query_area").css({"color":"#FFFFFF","text-shadow": "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black","font-family":"courier","font-size":"1.25em","width":"240px","height":"240px","margin-top":"-30px","padding-top":"60px","border-radius":"0px","background-image":"url("+url7+")","background-size":"320px 320px"}); 
      $(".query_instructions:first").addClass("hidden");
+           $("span.help-block").addClass("hidden");
 
     }
 
       $("#pic_button").addClass("active");
       $(".query_instructions:first").html("Query preview:")
-      $("span.help-block").addClass("hidden");
+
 
   }
 
