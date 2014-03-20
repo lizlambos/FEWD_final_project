@@ -25,27 +25,17 @@ $(document).ready(function(){
     var QueryAnswer = Parse.Object.extend("QueryAnswer");
 
 // page loading screen
-   function pageLoader () {
-   if (document.all) {
-      $(".page_loader").addClass("hidden");
-   }
-   else  {
-    $(".content_component_container").addClass("hidden");
-   }
 
-
- }
-
- $(window).load(function(){
-  //pageLoader();
- })
+$(window).load(function() {
+  //$(".loader").fadeOut("slow");
+});
 
    //quick intro for first time users 
 
    user.fetch().then(function(){
     var hadIntro = user.get("hadTour");
     if (hadIntro == true) {
-     
+
     }
     else {
      $("#guided_tour1, .outer.guided_tour").removeClass("hidden");
@@ -250,7 +240,27 @@ $(document).ready(function(){
 
 refreshKarmaPoints();  
 
-//refresh friends questions in the question area (no filters at this time)    
+//refresh friends questions in the question area (no filters at this time) 
+
+
+function pageLoader() {
+  $(".loader").fadeOut("slow");
+} 
+
+
+function timeSorter() {
+
+  
+  }     
+
+
+
+
+var def4 = $.Deferred();
+def4.done(pageLoader);  
+
+var def5 = $.Deferred();
+def5.done(pageLoader);  
 
 function loadFriendQueries(){
 
@@ -626,7 +636,7 @@ background-color:{colorPick};color:{textColorPick*/
           console.log("friends");
           var content = Y.Lang.sub(Y.one('#friends_queries_section').getHTML(), {
             queryText: val.get('text'),
-             timeDisplay: timeDisplay,
+            timeDisplay: timeDisplay,
             timeStamp: timeStamp,
             askerName: askerName,
             id: val.id,
@@ -643,7 +653,7 @@ background-color:{colorPick};color:{textColorPick*/
             allKPQueryColumn1.prepend(content);
 
 
-      }
+          }
 
           else if ($(window).width()) {
 
@@ -720,19 +730,19 @@ background-color:{colorPick};color:{textColorPick*/
 
   //resort by time created as the createdAt query sort not 100% 
 
-  }).then(function(){
+}).then(function(){
 
-        function sortTime(a,b){  
+  function sortTime(a,b){  
 
             //var timeDisplay = find(".timeDisplay").attr("id");
-            return a.find(".timeDisplay").attr("id") > b.find(".timeDisplay").attr("id") ? 1 : -1;  
+  return a.find(".timeDisplay").attr("id") > b.find(".timeDisplay").attr("id") ? 1 : -1;  
           };  
 
-          $(".friends_queries_section1 .row.parent_row").sort(sortTime).appendTo(".friends_queries_section1");  
+    $(".friends_queries_section1 .row.parent_row").sort(sortTime).appendTo(".friends_queries_section1");  
 
-          
-
-
+ 
+  }).then(function(){
+    def4.resolve();
   });//find
 
 }//load friend queries

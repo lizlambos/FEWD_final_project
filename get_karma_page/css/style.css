@@ -1,19 +1,16 @@
 /*GET KARMA PAGE STYLESHEET*/
 
-/*ANIMATIONS*/
+/*LOADING GIFS*/
 
-@keyframes myfirst
-{
-  from {top:70%; left: 10%; width:100px; height:100px; z-index: 1;}
-  to {top:50%; left:30%; width:250px; height:250px; z-index: 100000000;}
+.loader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url('../../img/hex-loader2.gif') 50% 50% no-repeat rgb(249,249,249);
 }
-
-@-webkit-keyframes animate /* Safari and Chrome */
-{
-  from {top:70%; left: 10%; width:100px; height:100px; z-index: 1;}
-  to {top:50%; left:30%; width:250px; height:250px; z-index: 100000000;}
-}
-
 
 /*PHOTO TILES*/
 
