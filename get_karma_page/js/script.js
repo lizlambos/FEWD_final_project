@@ -400,7 +400,7 @@ function screenAndLoad() {
                     refreshFriendsInvited2();
                   },
                   error: function(numResults, error) {
-                    alert("Error when updating scrren when answered section: " + error.code + " " + error.message);
+                    console.log("Error when updating scrren when answered section: " + error.code + " " + error.message);
                   }
 
               });//find function
@@ -411,7 +411,7 @@ refreshAnswersGotten2();
 
 },
 error: function(error) {
-  alert("Error Answers Gotten Section line 350: " + error.code + " " + error.message);
+  console.log("Error Answers Gotten Section line 350: " + error.code + " " + error.message);
 }
 
  });//find
@@ -720,7 +720,7 @@ background-color:{colorPick};color:{textColorPick*/
           error: function(item2, error) {
             console.log(askerId);
             console.log("cant find ya");
-            //alert("Error when checking for friend ID: " + error.code + " " + error.message);
+            //console.log("Error when checking for friend ID: " + error.code + " " + error.message);
           }
   });//get 2
 
@@ -950,7 +950,7 @@ error: function(error) {
 
 },
 error: function(error) {
- alert("Error when updating revealing answers line 565");
+ console.log("Error when updating revealing answers line 565");
 }
 
 });//get function
@@ -1044,7 +1044,7 @@ FB.api('/me', function(response) {
   },
   error: function(queryAnswer, error) {
 
-    alert('Failed to create new object 626 WOMP WOMP, with error code: ' + error.description);
+    console.log('Failed to create new object 626 WOMP WOMP, with error code: ' + error.description);
   }
 
 });//save
@@ -1080,7 +1080,7 @@ error: function(error) {
         },
         error: function(error) {
 
-          alert('Failed to create new object 650 because of asker, with error code: ' + error.description);
+          console.log('Failed to create new object 650 because of asker, with error code: ' + error.description);
         }
 
       }).then(function(){

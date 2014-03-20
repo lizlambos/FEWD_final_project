@@ -193,7 +193,7 @@ function getQueryAnswers () {
 
                 	},
                 	error: function(object, error) {
-                		alert("Error when updating todo item: " + error.code + " " + error.message);
+                		console.log("Error when updating todo item: " + error.code + " " + error.message);
                 	}
 
                  });//get function
@@ -337,7 +337,7 @@ function getQueryAnswers () {
 
                     },
                     error: function(object, error) {
-                      alert("Error when updating todo item: " + error.code + " " + error.message);
+                      console.log("Error when updating todo item: " + error.code + " " + error.message);
                     }
 
                  });//get function
@@ -366,13 +366,13 @@ function getQueryAnswers () {
 
                   },
                   error: function(object, error) {
-                    alert("Error when updating todo item: " + error.code + " " + error.message);
+                    console.log("Error when updating todo item: " + error.code + " " + error.message);
                   }
 
       });//no find
 },
 error: function(object, error) {
-	alert("Error when updating todo item: " + error.code + " " + error.message);
+	console.log("Error when updating todo item: " + error.code + " " + error.message);
 }
 
       });//yes find
@@ -468,7 +468,7 @@ function getQueryAnswers () {
 
                   },
                   error: function(object, error) {
-                    alert("Error when updating todo item: " + error.code + " " + error.message);
+                    console.log("Error when updating todo item: " + error.code + " " + error.message);
                   }
 
                  });//get function
@@ -612,7 +612,7 @@ function getQueryAnswers () {
 
                     },
                     error: function(object, error) {
-                      alert("Error when updating todo item: " + error.code + " " + error.message);
+                      console.log("Error when updating todo item: " + error.code + " " + error.message);
                     }
 
                  });//get function
@@ -640,13 +640,13 @@ function getQueryAnswers () {
 
                   },
                   error: function(object, error) {
-                    alert("Error when updating todo item: " + error.code + " " + error.message);
+                    console.log("Error when updating todo item: " + error.code + " " + error.message);
                   }
 
       });//no find
 },
 error: function(object, error) {
-  alert("Error when updating todo item: " + error.code + " " + error.message);
+  console.log("Error when updating todo item: " + error.code + " " + error.message);
 }
 
       });//yes find
@@ -701,7 +701,7 @@ $("#active_past_queries_list, #private_past_queries_list").on("click",".privacy-
 
 		},
 		error: function(object, error) {
-			alert("Error when updating todo item: " + error.code + " " + error.message);
+			console.log("Error when updating todo item: " + error.code + " " + error.message);
 		}
 
 	});//get function 
