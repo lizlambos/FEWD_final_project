@@ -244,7 +244,11 @@ refreshKarmaPoints();
 
 
 function pageLoader() {
-  $(".loader").fadeOut("slow");
+
+  setTimeout( function() {
+                  $(".loader").fadeOut("slow");
+                }, 7000);
+  
 } 
 
 

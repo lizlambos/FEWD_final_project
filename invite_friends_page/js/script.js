@@ -48,13 +48,13 @@ YUI().use('node', function (Y) {
   {
     $(".fb_dialog").each(function(index) {
       if ($(this).css("top")!='-10000px' && $(window).width() > '990' ) {
-        $(this).css({"top": "165px"} );
+        $(this).css({"top": "135px"} );
       }
-      if ($(this).css("top")!='-10000px' && $(window).width() > '768'  && $(window).width() < '990' ) {
+      else if ($(this).css("top")!='-10000px' && $(window).width() > '768'  && $(window).width() < '990' ) {
         $(this).css({"top": "150px"} );
       }
-      if ($(this).css("top")!='-10000px' && $(window).width() < '768') {
-
+      else {
+       $(this).css({"margin-top": "44px"} );
       }
       
     });
