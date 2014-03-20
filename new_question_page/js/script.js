@@ -210,12 +210,52 @@ fReader.onloadend = function(event){
 
 
 url7 = event.target.result;
-     
+
+function getImageLightness(imageSrc,callback) {
+    var img = document.createElement("img");
+    img.src = imageSrc;
+    img.style.display = "none";
+    document.body.appendChild(img);
+
+    var colorSum = 0;
+
+    img.onload = function() {
+        // create canvas
+        var canvas = document.createElement("canvas");
+        canvas.width = this.width;
+        canvas.height = this.height;
+
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(this,0,0);
+
+        var imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+        var data = imageData.data;
+        var r,g,b,avg;
+
+        for(var x = 0, len = data.length; x < len; x+=4) {
+            r = data[x];
+            g = data[x+1];
+            b = data[x+2];
+
+            avg = Math.floor((r+g+b)/3);
+            colorSum += avg;
+        }
+
+        var brightness = Math.floor(colorSum / (this.width*this.height));
+        callback(brightness);
+    }
+}
+
+getImageLightness(url7, function(brightness){
+    console.log(brightness);
+    $(".question").attr("id", brightness);
 
     //parseFile.save().then(function() {
      //console.log(arguments);
      //var url6 = parseFile.url();
      //console.log(url6);
+
+     if (brightness < 130) {
 
      if ($(window).width() > 768) {
       $("#query_area").css({"color":"#FFFFFF","text-shadow": "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black","font-family":"courier","font-size":"1.25em","width":"320px","height":"320px","padding-top":"80px","border-radius":"0px","background-image":"url("+url7+")","background-size":"320px 320px"}); 
@@ -229,6 +269,26 @@ url7 = event.target.result;
 
     }
 
+  }
+
+  else {
+
+         if ($(window).width() > 768) {
+      $("#query_area").css({"color":"#333","text-shadow": "-1px 0 #FFFFFF, 0 1px #FFFFFF, 1px 0 #FFFFFF, 0 -1px #FFFFFF","font-family":"courier","font-size":"1.25em","width":"320px","height":"320px","padding-top":"80px","border-radius":"0px","background-image":"url("+url7+")","background-size":"320px 320px"}); 
+        $(".query_instructions:first").html("Query preview:")
+    }
+
+     else {
+      $("#query_area").css({"color":"#333","text-shadow": "-1px 0 #FFFFFF, 0 1px #FFFFFF, 1px 0 #FFFFFF, 0 -1px #FFFFFF","font-family":"courier","font-size":"1.25em","width":"240px","height":"240px","margin-top":"-30px","padding-top":"60px","border-radius":"0px","background-image":"url("+url7+")","background-size":"320px 320px"}); 
+     $(".query_instructions:first").addClass("hidden");
+           $("span.help-block").addClass("hidden");
+
+    }
+
+
+  }
+
+});
       $("#pic_button").addClass("active");
       $(".query_instructions:first").html("Query preview:")
 
@@ -258,6 +318,7 @@ function queryCreator () {
 		var dString = d.toString();
 		timeStamp = dString.substring(4,11);
     var file = queryPic.files[0];
+    var brightnessIndex = $(".question").attr("id");
 
     KarmaQuery = Parse.Object.extend("KarmaQuery");
 
@@ -272,6 +333,7 @@ function queryCreator () {
     karmaQuery.set("responderCount",0);
     karmaQuery.set("noResponderCount",0);
     karmaQuery.set("yesResponderCount",0);
+    karmaQuery.set("brightness", brightnessIndex);
 
     if (queryPic.files.length > 0) {
       console.log("query pic detected");
@@ -289,6 +351,7 @@ function queryCreator () {
 
      karmaQuery.set("queryPic", file);
      karmaQuery.set("queryPicUrl", url5);
+   
      karmaQuery.save({
       success: function() {
         console.log("queryPic saved");
@@ -298,16 +361,20 @@ function queryCreator () {
       error: function() {
         console.log("querypic not saved");
       }
-   
+      });//file save
 
 
    }, function(error) {
      console.log("photo save error");
-   });
 
-       });
 
-  }
+
+
+       });//then function
+
+
+
+  }//if query pic
 
   else {
      console.log("no querypic detected");

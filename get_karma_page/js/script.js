@@ -247,7 +247,7 @@ function pageLoader() {
 
   setTimeout( function() {
                   $(".loader").fadeOut("slow");
-                }, 7000);
+                }, 10000);
   
 } 
 
@@ -499,8 +499,32 @@ if (! queryPic) {
 else {
   userImageUpload = val.get("queryPicUrl");
   console.log(userImageUpload);
+  brightness = val.get("brightness");
 
-    //userImageUpload = "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/t1/c0.16.362.362/s148x148/992829_10100835125558487_423853919_n.jpghttps://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/t1/c0.16.362.362/s148x148/992829_10100835125558487_423853919_n.jpg"
+
+ if (brightness > 130) {
+
+  if ($(window).width() > 768 ) {
+
+      var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF;text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;";
+      var questionComponentDesign = "color:#333;background-image:url('"+userImageUpload+"');background-size:320px 320px; height:320px;";
+      var questionTextStyle = "color:#333;text-shadow: -1px 0 #FFFFFF, 0 1px #FFFFFF, 1px 0 #FFFFFF, 0 -1px #FFFFFF;height:250px;padding: 80px 10px 0px 10px;";
+      var buttonDesign="color:"+queryDesignArray[p]+";";
+
+    }
+
+    else {
+      var componentDesign = "background-color:"+queryDesignArray[p]+";color:#FFFFFF;text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;";
+      var questionComponentDesign = "color:#333;background-image:url('"+userImageUpload+"');background-size:320px 320px";
+      var questionTextStyle = "color:#333;text-shadow: -1px 0 #FFFFFF, 0 1px #FFFFFF, 1px 0 #FFFFFF, 0 -1px #FFFFFF;";
+      var buttonDesign="color:"+queryDesignArray[p]+";";
+
+    }
+  
+
+  }
+
+  else {
 
     if ($(window).width() > 768 ) {
 
@@ -518,6 +542,11 @@ else {
       var buttonDesign="color:"+queryDesignArray[p]+";";
 
     }
+
+
+
+  }
+
   }
 
 
