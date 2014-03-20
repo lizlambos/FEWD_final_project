@@ -24,16 +24,32 @@ $(document).ready(function(){
     KarmaQuery = Parse.Object.extend("KarmaQuery");
     var QueryAnswer = Parse.Object.extend("QueryAnswer");
 
+// page loading screen
+   function pageLoader () {
+   if (document.all) {
+      $(".page_loader").addClass("hidden");
+   }
+   else  {
+    $(".content_component_container").addClass("hidden");
+   }
+
+
+ }
+
+ $(window).load(function(){
+  //pageLoader();
+ })
+
    //quick intro for first time users 
 
    user.fetch().then(function(){
     var hadIntro = user.get("hadTour");
     if (hadIntro == true) {
-
+     
     }
     else {
      $("#guided_tour1, .outer.guided_tour").removeClass("hidden");
-     $(".btn.bottom-navbar-icon").tooltip("show");
+     //$(".btn.bottom-navbar-icon").tooltip("show");
      $(".go_button").click(function(){
       $("#guided_tour1").fadeOut('slow');
       $(".outer.guided_tour").addClass("hidden");
@@ -52,6 +68,9 @@ $(document).ready(function(){
    }
 
     });//fetch
+
+
+   
 
     //refresh the user's Karma points balance by re-running queries
 
