@@ -273,8 +273,8 @@ function loadFriendQueries(){
 
   faQuery.ascending("createdAt");
 
-  faQuery.find({
-   success: function(results) {
+  faQuery.find().then(function(results){
+
     console.log(results.length);
 
     var asker = "default";
@@ -286,8 +286,8 @@ function loadFriendQueries(){
 
   //Append each of the active queries to the active queries list
   Y.Array.each(results, function(val, i, arr) {
-  	asker = val.get('asker');
-  	//console.log(asker);
+    asker = val.get('asker');
+    //console.log(asker);
     var questId = val.id;
     console.log(questId);
     askerID = asker.id;
@@ -295,6 +295,11 @@ function loadFriendQueries(){
     askerName = val.get('askerName');
     console.log(askerName);
 
+
+
+
+  }).then(function(askerID))
+    
 //function loads user picture and question and screens by privacy level and whether asker has enough karma points
 
 function screenAndLoad() {
