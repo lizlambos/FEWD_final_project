@@ -166,6 +166,11 @@ countUserFriends();
 
       	setPrivacyLevelButtons();
 
+//set the url of the link to the edit page to include the ID
+
+var editQueryURL =  "../edit_question_page/index.html?url=" + encodeURIComponent(val.id);      
+console.log(editQueryURL);
+
 //retrieve the answers for each query and the rest of hte content
 
 function getQueryAnswers () { 
@@ -356,7 +361,8 @@ function getQueryAnswers () {
                      formatYesAnswers: formatYesAnswers,
                      formatNoAnswers: formatNoAnswers,
                      noAnswerHide: noAnswerHide,
-                     yesAnswerHide: yesAnswerHide
+                     yesAnswerHide: yesAnswerHide,
+                     editQueryURL: editQueryURL
 
                    });
 
@@ -441,6 +447,10 @@ function loadMyPrivateQueries () {
 
         setPrivacyLevelButtons();
 
+//set the url of the link to the edit page to include the ID
+
+var editQueryURL =  "../edit_question_page/index.html?url=" + encodeURIComponent(val.id);      
+console.log(editQueryURL);
 //retrieve the answers for each query and the rest of hte content
 
 function getQueryAnswers () { 
@@ -631,7 +641,8 @@ function getQueryAnswers () {
                      formatYesAnswers: formatYesAnswers,
                      formatNoAnswers: formatNoAnswers,
                      no_answer_hidden: noAnswerHide,
-                     yes_answer_hidden: yesAnswerHide
+                     yesAnswerHide: yesAnswerHide,
+                     editQueryURL: editQueryURL
 
                    });
 
