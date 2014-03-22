@@ -60,6 +60,131 @@
     }
 
     </script>
+
+    <script>
+<div class="row small_screen_pagetitle hidden-xs ">
+    <div class="col-xs-12">
+      <h1>Query Stats</h1>
+    </div>
+  </div>
+
+  <div class="row content_component_container">
+    <div class="col-xs-12">
+
+       <div class="label_wrapper">
+       
+        <div class="row question_info_wrapper">
+          <div class="col-xs-6 question query_pic_container">
+            <img src="../img/homerpic.jpeg" alt="placeholder" class="query_pic">    
+          </div>
+          <div class="question col-xs-6 question_text_box">
+            <p>Am I annoying when I drink at parties?</p>    
+          
+          <div class="na-answer">&#xe606;<p class="responder_count">47</p></div>
+          </div>
+           <label class="label label-default"><span class="glyphicon glyphicon-time"></span>4 days</label>
+        </div><!--question info wrappre-->
+
+        <div class="col-xs-8 settings_wrapper first">
+
+          <label class="query_instructions privacy_label">Privacy-level:</label>
+          <br>
+          <div class="btn-group privacy-level">
+            <button type="button" class="btn kp_button">All KP</button>
+            <button type="button" class="btn fb_button active">FB Friends</button>
+            <button type="button " class="btn private_button">Private</button>
+          </div>
+        </div><!--settings wrapper-->
+
+        <div class="col-xs-4 settings_wrapper second">
+          <label class="query_instructions privacy_label">Anonymous?</label>
+          <br>
+          <div class="btn-group privacy-level" id="anonymity_option">
+            <button type="button" id="anonymous" class="btn anon" value="Yes">Yes</button>
+            <button type="button" id="not_anonymous" class="btn not_anon " value="No">No</button>
+
+          </div><!--button group-->
+
+        </div><!--settings wrapper-->
+
+        <div class="answers_wrapper">
+           <label for="">Friends</label>
+          <div class="row" id="friends_answers">
+
+            <div class="col-xs-6 answer_reveal" id="guy_friends_answers" >
+             
+               
+                <div class="results_container" >
+                 <div class="answer_bubble">80%</div>
+                 <div class="results_background"></div>
+                 <div id="yes_portion" class="hold" style="{yesStyle}"><div class="pie"></div></div>
+                 <div id="no_portion" class="hold" style="{noStyle}"><div class="pie"></div></div>
+               
+               
+               <p class="answerText">of GUY FRIENDS said <span class="majority_answer">{majorityAnswer}!</span></p>
+               </div>
+               
+          </div> 
+               <div class="col-xs-6 answer_reveal" id="girl_friends_answers">
+             
+               
+                <div class="results_container">
+                 <div class="answer_bubble">80%</div>
+                 <div class="results_background"></div>
+                 <div id="yes_portion" class="hold" style="{yesStyle}"><div class="pie"></div></div>
+                 <div id="no_portion" class="hold" style="{noStyle}"><div class="pie"></div></div>
+               
+               
+               <p class="answerText">of GIRL FRIENDS said <span class="majority_answer">{majorityAnswer}!</span></p>
+               </div>
+               
+          </div> 
+           </div>
+
+            <label for="">All KP Users</label>
+           <div class="row" id="all_kp_answers">
+          
+            <div class="col-xs-6 answer_reveal" id="guy_user_answers" >
+             
+               
+                <div class="results_container">
+                 <div class="answer_bubble">80%</div>
+                 <div class="results_background"></div>
+                 <div id="yes_portion" class="hold" style="{yesStyle}"><div class="pie"></div></div>
+                 <div id="no_portion" class="hold" style="{noStyle}"><div class="pie"></div></div>
+               
+               
+               <p class="answerText">of GUY FRIENDS said <span class="majority_answer">{majorityAnswer}!</span></p>
+               </div>
+               
+          </div> 
+               <div class="col-xs-6 answer_reveal" id="girl_user_answers">
+             
+               
+                <div class="results_container">
+                 <div class="answer_bubble">80%</div>
+                 <div class="results_background"></div>
+                 <div id="yes_portion" class="hold" style="{yesStyle}"><div class="pie"></div></div>
+                 <div id="no_portion" class="hold" style="{noStyle}"><div class="pie"></div></div>
+               
+               
+               <p class="answerText">of GIRL FRIENDS said <span class="majority_answer">{majorityAnswer}!</span></p>
+               </div>
+          </div>
+
+       
+          </div>
+
+ </div>
+
+     
+
+
+      </div>
+
+    </div>
+
+    </script>
     <!-- screen navbar -->
     <nav class="navbar navbar-fixed-top hidden-xs" role="navigation">
       <div class="container">
@@ -72,7 +197,7 @@
             <div class="scoreboard">
               <h1>My Karma Score</h1>
               <div class="karma_points_display">
-                <span class="badge">18</span>
+                <span class="badge">--</span>
               </div>
             </div>
           </div>
@@ -166,16 +291,20 @@
     <div class="col-xs-12">
 
        <div class="label_wrapper">
-        <label class="label label-default time-label"><span class="glyphicon glyphicon-time"></span>4 days</label>
-        <div class="question_info_wrapper">
-          <div class="question query_pic_container">
+       
+        <div class="row question_info_wrapper">
+          <div class="col-xs-6 question query_pic_container">
             <img src="../img/homerpic.jpeg" alt="placeholder" class="query_pic">    
           </div>
-          <div class="question question_text_box">
+          <div class="question col-xs-6 question_text_box">
             <p>Am I annoying when I drink at parties?</p>    
+          
+          <div class="na-answer">&#xe606;<p class="responder_count">47</p></div>
           </div>
+           <label class="label label-default"><span class="glyphicon glyphicon-time"></span>4 days</label>
         </div><!--question info wrappre-->
-        <div class="settings_wrapper first">
+
+        <div class="col-xs-8 settings_wrapper first">
 
           <label class="query_instructions privacy_label">Privacy-level:</label>
           <br>
@@ -186,7 +315,7 @@
           </div>
         </div><!--settings wrapper-->
 
-        <div class="settings_wrapper second">
+        <div class="col-xs-4 settings_wrapper second">
           <label class="query_instructions privacy_label">Anonymous?</label>
           <br>
           <div class="btn-group privacy-level" id="anonymity_option">
@@ -198,38 +327,74 @@
         </div><!--settings wrapper-->
 
         <div class="answers_wrapper">
-          <div class="row">
-            <div class="col-xs-6">
-              <div class="helper_popup answer_reveal" id="answer_reveal">
+           <label for="">Friends</label>
+          <div class="row" id="friends_answers">
+
+            <div class="col-xs-6 answer_reveal" id="guy_friends_answers" >
+             
+               
+                <div class="results_container" >
+                 <div class="answer_bubble">80%</div>
+                 <div class="results_background"></div>
+                 <div id="yes_portion" class="hold" style="{yesStyle}"><div class="pie"></div></div>
+                 <div id="no_portion" class="hold" style="{noStyle}"><div class="pie"></div></div>
+               
+               
+               <p class="answerText">of GUY FRIENDS said <span class="majority_answer">{majorityAnswer}!</span></p>
+               </div>
+               
+          </div> 
+               <div class="col-xs-6 answer_reveal" id="girl_friends_answers">
+             
                
                 <div class="results_container">
                  <div class="answer_bubble">80%</div>
                  <div class="results_background"></div>
                  <div id="yes_portion" class="hold" style="{yesStyle}"><div class="pie"></div></div>
                  <div id="no_portion" class="hold" style="{noStyle}"><div class="pie"></div></div>
+               
+               
+               <p class="answerText">of GIRL FRIENDS said <span class="majority_answer">{majorityAnswer}!</span></p>
                </div>
                
-               <p class="answerText">said <span class="majority_answer">{majorityAnswer}!</span></p>
-               
-             </div>
-             <div class="col-xs-6">
-             </div> 
+          </div> 
            </div>
-           <div class="row">
-            <div class="col-xs-6">
-            </div> 
-            <div class="col-xs-6">
-            </div> 
+
+            <label for="">All KP Users</label>
+           <div class="row" id="all_kp_answers">
+          
+            <div class="col-xs-6 answer_reveal" id="guy_user_answers" >
+             
+               
+                <div class="results_container">
+                 <div class="answer_bubble">80%</div>
+                 <div class="results_background"></div>
+                 <div id="yes_portion" class="hold" style="{yesStyle}"><div class="pie"></div></div>
+                 <div id="no_portion" class="hold" style="{noStyle}"><div class="pie"></div></div>
+               
+               
+               <p class="answerText">of GUY FRIENDS said <span class="majority_answer">{majorityAnswer}!</span></p>
+               </div>
+               
+          </div> 
+               <div class="col-xs-6 answer_reveal" id="girl_user_answers">
+             
+               
+                <div class="results_container">
+                 <div class="answer_bubble">80%</div>
+                 <div class="results_background"></div>
+                 <div id="yes_portion" class="hold" style="{yesStyle}"><div class="pie"></div></div>
+                 <div id="no_portion" class="hold" style="{noStyle}"><div class="pie"></div></div>
+               
+               
+               <p class="answerText">of GIRL FRIENDS said <span class="majority_answer">{majorityAnswer}!</span></p>
+               </div>
           </div>
 
-          <div class="helper_popup " id="answer_reveal">
+       
+          </div><!--row-->
 
-            <div class="yes-answer"><span class="result">78%</span></div> 
-            <div class="na-answer">&#xe606;<p class="responder_count">47</p></div>
-            <div class="no-answer"><span class="result">20%</span></div>
-          </div>
-
-
+ </div><!--answers wrapper-->
 
      
 
