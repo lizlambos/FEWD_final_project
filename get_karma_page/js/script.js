@@ -563,6 +563,8 @@ background-color:{colorPick};color:{textColorPick*/
 
          var privacySetting = val.get('privacylevel');
 
+  // reformatting the time stamp to be time from today       
+
          var timeDisplay = val.createdAt;
          console.log(timeDisplay);
          var timeNow = new Date();
