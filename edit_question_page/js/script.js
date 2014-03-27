@@ -335,19 +335,20 @@ queryAns.find({
       if (results[i].get("answer") == "yes"){
         yesResponderCount += 1;
 
-
-        if (results[i].get("answererGender") == "female") {
-          allFemaleYesResponderCount += 1;
-        }
-        else  if (results[i].get("answererGender") == "female" && results[i].get("isAnswererFriend") == "friend") {
+        if (results[i].get("answererGender") == "female" && results[i].get("isAnswererFriend") == "friend") {
           friendFemaleYesResponderCount += 1;
         }
-        else if (results[i].get("answererGender") == "male") {
-          allMaleYesResponderCount += 1;
+        
+        else  if (results[i].get("answererGender") == "female") {
+          allFemaleYesResponderCount += 1;
         }
         else  if (results[i].get("answererGender") == "male" && results[i].get("isAnswererFriend") == "friend") {
           friendMaleYesResponderCount += 1;
         }
+        else if (results[i].get("answererGender") == "male") {
+          allMaleYesResponderCount += 1;
+        }
+
 
 
       }
@@ -355,19 +356,21 @@ queryAns.find({
       else if (results[i].get("answer") == "no"){
 
         noResponderCount += 1;
-
-        if (results[i].get("answererGender") == "female") {
-          allFemaleNoResponderCount += 1;
-        }
-        else  if (results[i].get("answererGender") == "female" && results[i].get("isAnswererFriend") == "friend") {
+        if (results[i].get("answererGender") == "female" && results[i].get("isAnswererFriend") == "friend") {
           friendFemaleNoResponderCount += 1;
         }
-        else if (results[i].get("answererGender") == "male") {
-          allMaleNoResponderCount += 1;
+
+        
+        else  if (results[i].get("answererGender") == "female") {
+          allFemaleNoResponderCount += 1;
         }
         else  if (results[i].get("answererGender") == "male" && results[i].get("isAnswererFriend") == "friend") {
           friendMaleNoResponderCount += 1;
         }
+        else if (results[i].get("answererGender") == "male") {
+          allMaleNoResponderCount += 1;
+        }
+        
 
       }
 
@@ -604,7 +607,7 @@ queryAns.find({
                 console.log(allMaleNoDegreeTurn);
 
 
-                function pieChartPopulate(percentY, percentN, degTurnY, degTurnN, demographic) {
+                function pieChartPopulate(percentY, percentN, degTurnY, degTurnN, demographic, demo) {
 
                   if (percentY > percentN) {
 
@@ -619,29 +622,29 @@ queryAns.find({
 
                     $('#'+demographic+' .answer_bubble').html(percentN+"%");
                     $('#'+demographic+' .majority_answer').text("No!");
-             
+
                     $('#'+demographic+' .results_background').css("background-color","#FF9500");
                     $('#'+demographic+' #yes_portion .pie').css({"background-color":"#4CD964","-webkit-transform":"rotate("+degTurnY+"deg)","-moz-transform":"rotate("+degTurnY+"deg)","-o-transform":"rotate("+degTurnY+"deg)","transform":"rotate("+degTurnY+"deg)"});
 
                   }
                   else {
                     $('#'+demographic+' .answer_bubble').html(percentY+"%");
-            
-                   $('#'+demographic+' .answerText').html("it's a <span class='majority_answer'>TIE!</span>").css("text-align","center");
+
+                    $('#'+demographic+' .answerText').html(""+demo+" are split").css("text-align","center");
                     $('#'+demographic+' .results_background').css("background-color","#4CD964");
                     $('#'+demographic+' #yes_portion .pie').css({"background-color":"#FF9500","-webkit-transform":"rotate("+degTurnN+"deg)","-moz-transform":"rotate("+degTurnN+"deg)","-o-transform":"rotate("+degTurnN+"deg)","transform":"rotate("+degTurnN+"deg)"});
 
 
                   }
 
-                    $(".row .col-xs-6.answer_reveal .results_container").css("text-align","center");
+                  $(".row .col-xs-6.answer_reveal .results_container").css("text-align","center");
 
                          }//function
 
-                         pieChartPopulate(allMalePercentYesAnswers, allMalePercentNoAnswers, allMaleYesDegreeTurn, allMaleNoDegreeTurn, "guy_user_answers");
-                         pieChartPopulate(allFemalePercentYesAnswers, allFemalePercentNoAnswers, allFemaleYesDegreeTurn, allFemaleNoDegreeTurn, "girl_user_answers");
-                         pieChartPopulate(friendMalePercentYesAnswers, friendMalePercentNoAnswers, friendMaleYesDegreeTurn, friendMaleNoDegreeTurn, "guy_friends_answers");
-                         pieChartPopulate(friendFemalePercentYesAnswers, friendFemalePercentNoAnswers, friendFemaleYesDegreeTurn, friendFemaleNoDegreeTurn, "girl_friends_answers");
+                         pieChartPopulate(allMalePercentYesAnswers, allMalePercentNoAnswers, allMaleYesDegreeTurn, allMaleNoDegreeTurn, "guy_user_answers", "GUYS");
+                         pieChartPopulate(allFemalePercentYesAnswers, allFemalePercentNoAnswers, allFemaleYesDegreeTurn, allFemaleNoDegreeTurn, "girl_user_answers", "GIRLS");
+                         pieChartPopulate(friendMalePercentYesAnswers, friendMalePercentNoAnswers, friendMaleYesDegreeTurn, friendMaleNoDegreeTurn, "guy_friends_answers", "GUY FRIENDS");
+                         pieChartPopulate(friendFemalePercentYesAnswers, friendFemalePercentNoAnswers, friendFemaleYesDegreeTurn, friendFemaleNoDegreeTurn, "girl_friends_answers","GIRL FRIENDS");
 
 
 
