@@ -14,24 +14,40 @@
 
 .upper_bar {
  
-  font-size:1em;
+  font-size:0.8em;
+  
+
+
+}
+
+.upper_bar .col-xs-6 {
+  text-align: left;
+  padding-left:0px;
+   
 }
 
 .glyphicon.glyphicon-time {
   padding-right:0px;
   margin-right:5px;
+  margin-left:0px;
+  padding-left:0px;
 }
 
 .label.label-default, .na-answer {
   font-size:1em;
-  font-weight:normal;
+  font-weight:bold;
   font-family:"Exo 2";
   
 }
 
+.na-answer {
+  padding-left:5px;
+
+}
+
 .na-answer .responder_count {
-  margin-left:5px;
-  font-weight:normal;
+  
+  font-weight:bold;
   font-size:1em;
   font-family:"Exo 2";
 }
@@ -44,6 +60,7 @@
 }
 
 .query_pic_container {
+  margin-top:20px;
   text-align:center;
 }
 
@@ -55,10 +72,10 @@
 }
 
 .settings_wrapper {
-	padding-right:15px;
+	padding-right:0px;
 	padding-top:5px;
 	position:relative;
-
+  padding-left:0px;
 	text-align: center;
 }
 
@@ -93,9 +110,7 @@
 }
 
 
-.settings_wrapper {
-  text-align:left;
-}
+
 
 .answers_wrapper label {
   margin-top:10px;
@@ -108,17 +123,22 @@
 
 }
 
+.yes-answer, .no-answer {
+
+
+}
+
 .answers_wrapper .row .col-xs-6.answer_reveal {
   text-align:center;
   margin-top:0px;
  background-color:rgba(255,255,255,0.8);  
  width:50%;
- height:150px;
+ height:130px;
 }
 
 .results_container {
    margin:0 auto;
-  height: 150px;
+  height: 130px;
   text-align:center;
   width:150px;
   position:relative;
@@ -135,10 +155,7 @@
   -webkit-border-radius: 45px;
   -o-border-radius: 45px;
   border-radius: 45px;
-  -moz-box-shadow: -1px 1px 3px #000;
-  -webkit-box-shadow: -1px 1px 3px #000;
-  -o-box-shadow: -1px 1px 3px #000;
-  box-shadow: -1px 1px 3px #000;
+  
   margin:0 auto;
 
 
@@ -146,20 +163,17 @@
 
 .answer_bubble {
     background:#FFFFFF;
-    height:70px;
-    width:70px;
+    height:60px;
+    width:60px;
     border-radius:100%;
     position:absolute;
-    top:10px;
-    left:40px;
+    top:15px;
+    left:45px;
     text-align:center;
-    font-size:2em;
+    font-size:1.5em;
     padding-top:15px;
     z-index:1000;
-    -moz-box-shadow: -1px 1px 3px #000 inset;
-    -webkit-box-shadow: -1px 1px 3px #000 inset;
-    -o-box-shadow: -1px 1px 3px #000 inset;
-    box-shadow: -1px 1px 3px #000 inset;
+ 
 }
 
 .pie {
@@ -192,16 +206,17 @@
 
 #yes_portion .pie {
   background-color: #1b458b;
-  -webkit-transform:rotate(90deg);
-  -moz-transform:rotate(90deg);
-  -o-transform:rotate(90deg);
-  transform:rotate(90deg);
+  -webkit-transform:rotate(180deg);
+  -moz-transform:rotate(180deg);
+  -o-transform:rotate(180deg);
+  transform:rotate(180deg);
 
 }
 
 .answerText {
   position:absolute;
   top:95px;
+  margin: 0 auto;
 }
 
 /*MEDIA QUERIES*/
@@ -218,6 +233,7 @@
    top:115px;
    right:80%;
    font-size:1.5em;
+   z-index:400;
   }
 
 
